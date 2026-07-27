@@ -9,7 +9,7 @@ AI 操作流程看 [REVIEW_PROMPT.md](REVIEW_PROMPT.md)。
 |------|------|
 | 公開網站 | <https://shelly-awkward.github.io/fr-review/> 已上線可用 |
 | GitHub | <https://github.com/Shelly-awkward/fr-review>（public） |
-| 資料歸檔 | 297 家公開發行公司 × 110–114 年度，**抓取中**（見下方「未完成的抓取」） |
+| 資料歸檔 | 297 家公開發行公司 × 110–114 年度，**抓取中**（見待辦 1） |
 | 產線 | Excel 查詢函＋Word 管區意見初稿，8304 佳聯 golden case 全程驗證通過 |
 | 跨 AI | Gemini／Copilot／ChatGPT／Claude 皆可（指令檔 AGENTS.md／GEMINI.md／.github/copilot-instructions.md） |
 
@@ -66,6 +66,19 @@ git add data && git commit -m "全量歸檔 297 家 110-114 年度" && git push
 `build_review_content.py` 會自動檢查並在資料不足時印警告、Excel 首列也會標示，
 但預防勝於補救。
 
+## 在公司電腦接手（辦公室擋 GitHub）
+
+Google Drive 交換區：`G:／我的雲端硬碟／fr-review交換區`
+（規則見該資料夾的 `_看我先.md`）。
+
+- 家裡做完 → 執行 `sync_to_drive.bat`（送出）
+- 公司做完 → 回家執行 `sync_to_drive.bat back`（收回）
+- **接力棒規則：同一時間只有一邊動工。** 兩邊各自 commit 會讓 git 歷史分岔。
+- 未同步的東西：`data` 內的 `.html.gz` 原始存證檔（可重抓）、`node_modules`
+  （公司端改用 Python 版 Word 產生器）、`_salvage`。
+- ⚠ 2026-07-27 複製當下抓取仍在進行，Drive 上的 `data` 不是最終版；
+  抓取跑完後請再執行一次 `sync_to_drive.bat`。
+
 ## 明年 4 月的年度作業
 
 1. GitHub → Actions → 「年度歸檔」→ Run workflow（或本機跑 `fetch_archive.py`）。
@@ -80,37 +93,26 @@ git add data && git commit -m "全量歸檔 297 家 110-114 年度" && git push
   抓不到的科目一律留白不編造（實測亞東證券可正常產出，只是科目較少）。
 - 財報附註只抽了 9 個關鍵節（租賃、金融工具、收入、關聯企業、減損、不動產等），
   非全文；其餘政策細節 Word 會寫「擬行前核閱財報附註確認」。
-- `data/*.html.gz` 是本機存證檔、不進 git。換一台電腦要用 `reparse.py` 重建
-  pretrip 時，得先重抓原始檔。
-
-## 在公司電腦接手（辦公室擋 GitHub）
-
-Google Drive 交換區：`G:\我的雲端硬碟r-review交換區`（規則見該資料夾的 `_看我先.md`）。
-
-- 家裡做完 → `sync_to_drive.bat`（送出）
-- 公司做完 → 回家跑 `sync_to_drive.bat back`（收回）
-- **接力棒規則：同一時間只有一邊動工。** 兩邊各自 commit 會讓 git 歷史分岔。
-- 未同步：`data\*.html.gz`（可重抓）、`node_modules`（公司端改用 Python 版產生器）、`_salvage`。
-- ⚠ 2026-07-27 複製當下抓取仍在進行，Drive 上的 `data/` 不是最終版；
-  抓取跑完後請再跑一次 `sync_to_drive.bat`。
+- 原始存證檔不進 git。換一台電腦要用 `reparse.py` 重建 pretrip 時，得先重抓原始檔。
 
 ## 檔案地圖
 
 ```
-index.html            瀏覽器版（Pyodide 跑 scripts/ 內的 .py）
+index.html            瀏覽器版（Pyodide 跑 scripts 內的 .py）
 REVIEW_PROMPT.md      給 AI 的四步流程與判斷規則（權威文件）
 PASTE_PROMPT.md       給「不能執行程式」的純聊天 AI 用的可貼上版
 AGENTS.md / GEMINI.md / .github/copilot-instructions.md   各家 AI 的自動發現入口
+sync_to_drive.bat     與 Google Drive 交換區雙向同步
 scripts/
-  fetch_company_list.py  MOPS 公發公司名單 → data/companies.json
-  fetch_archive.py       全量抓取（可中斷續跑）
-  fetch_requests.py      單筆／少量抓取（data_requests.json 佇列）
-  reparse.py             用本機 .html.gz 離線重建 pretrip（改解析規則後用）
+  fetch_company_list.py   MOPS 公發公司名單 → data/companies.json
+  fetch_archive.py        全量抓取（可中斷續跑）
+  fetch_requests.py       單筆／少量抓取（data_requests.json 佇列）
+  reparse.py              用本機原始存證檔離線重建 pretrip（改解析規則後用）
   build_review_content.py 數字層：pretrip → inquiry.json + review_content.json
-  gen_inquiry_xlsx.py    Excel 查詢函（含科目分析總表）
-  gen_checklist_docx.py  Word 管區意見（python-docx 版）
-  gen_checklist_docx.js  Word 管區意見（docx-js 版，輸出相同）
-  check_content.py       驗收閘門（佔位字／結構／數字出處／同業平均造假）
+  gen_inquiry_xlsx.py     Excel 查詢函（含科目分析總表）
+  gen_checklist_docx.py   Word 管區意見（python-docx 版）
+  gen_checklist_docx.js   Word 管區意見（docx-js 版，輸出相同）
+  check_content.py        驗收閘門（佔位字／結構／數字出處／同業平均造假）
 mailer/Code.gs        Gmail 寄送端點（待部署）
 data/                 pretrip JSON 歸檔＋companies.json＋index.json
 ```
