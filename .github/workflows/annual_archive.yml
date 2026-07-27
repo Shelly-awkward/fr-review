@@ -1,0 +1,91 @@
+# 年度歸檔：抓公開發行公司年度財報 XBRL → data/ → commit
+#
+# 用法：GitHub 網頁 → Actions → 「年度歸檔」→ Run workflow（可填年度，預設當年度及前兩年度）。
+# 年報 3/31 截止，故 4 月之後執行即可取得最新年度。
+#
+# ⚠ MOPS 對 GitHub runner 的 IP 段有間歇性封鎖，雲端執行可能大量失敗。
+#   本 workflow 會把成功／失敗數寫進執行摘要；若失敗過多，請在台灣 IP 的本機執行：
+#       python scripts/fetch_archive.py --years 113,114,115
+#   已抓到的會自動跳過，接續執行不會重抓。
+name: 年度歸檔
+on:
+  workflow_dispatch:
+    inputs:
+      years:
+        description: 民國年度（逗號分隔；留空＝當年度及前兩年度）
+        required: false
+      only:
+        description: 只抓這些股號（逗號分隔，測試用；留空＝全部）
+        required: false
+      refresh_list:
+        description: 一併更新公司名單（true/false）
+        required: false
+        default: 'true'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: annual-archive
+  cancel-in-progress: false
+
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350          # Actions 單一 job 上限 6 小時
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: 安裝依賴
+        run: pip install requests
+
+      - name: 更新公司名單
+        if: inputs.refresh_list != 'false'
+        run: python scripts/fetch_company_list.py || echo "名單更新失敗，沿用既有 companies.json"
+
+      - name: 抓取年度財報
+        id: fetch
+        run: |
+          if [ -n "${{ inputs.years }}" ]; then
+            YEARS="${{ inputs.years }}"
+          else
+            # 民國年＝西元-1911；年報 3/31 截止，故以「去年」為最新可得年度
+            Y=$(( $(date -u +%Y) - 1911 - 1 ))
+            YEARS="$((Y-2)),$((Y-1)),$Y"
+          fi
+          echo "抓取年度：$YEARS"
+          ARGS="--years $YEARS"
+          if [ -n "${{ inputs.only }}" ]; then ARGS="$ARGS --only ${{ inputs.only }}"; fi
+          python scripts/fetch_archive.py $ARGS 2>&1 | tee fetch.log
+        continue-on-error: true    # 部分失敗仍要 commit 已抓到的部分
+
+      - name: 執行摘要
+        if: always()
+        run: |
+          {
+            echo "### 年度歸檔結果"
+            echo '```'
+            grep -E "^(對象|— 進度|完成：)" fetch.log | tail -20 || echo "（無進度輸出）"
+            echo '```'
+            echo "資料檔數：$(ls data/*_pretrip.json 2>/dev/null | wc -l)"
+            echo ""
+            echo "失敗過多請在台灣 IP 本機補跑：\`python scripts/fetch_archive.py\`（已抓到的會跳過）"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Commit 資料
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data
+          if git diff --cached --quiet; then
+            echo "無新資料，跳過 commit"
+          else
+            git commit -m "年度歸檔：新增財報資料（$(date -u +%F)）"
+            git pull --rebase origin main
+            git push
+          fi
