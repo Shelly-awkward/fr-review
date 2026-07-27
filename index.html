@@ -89,11 +89,14 @@
 
 <div class="card" id="c1">
   <h2><span class="step">1</span>選擇公司與年度</h2>
-  <p class="hint">清單來自資料庫裡已抓取的財報。找不到你要的公司？請聯絡本工具維護者加抓。</p>
+  <p class="hint">收錄全部公開發行公司近五年年度財報。輸入股票代號或公司名稱關鍵字皆可。</p>
   <div class="row">
-    <div>
-      <label for="co">公司</label>
-      <select id="co"></select>
+    <div style="flex:1;min-width:260px">
+      <label for="q">公司（代號或名稱）</label>
+      <input id="q" list="colist" placeholder="例如 8304 或 佳聯" autocomplete="off"
+             style="width:100%;font:inherit;color:var(--fg);background:var(--card);
+                    border:1px solid var(--line);border-radius:8px;padding:9px 11px">
+      <datalist id="colist"></datalist>
     </div>
     <div>
       <label for="yr">年度</label>
@@ -101,6 +104,16 @@
     </div>
     <button id="go">產生</button>
   </div>
+  <p class="hint" id="picked" style="margin:-6px 0 12px"></p>
+  <details style="margin-top:4px">
+    <summary style="cursor:pointer;font-size:14px;color:var(--muted)">
+      找不到公司，或要用自己準備的資料檔？</summary>
+    <p class="hint" style="margin-top:10px">
+      本站收錄的是公開發行（未上市櫃）公司。若要處理其他公司，請向維護者索取資料檔
+      （<code>&lt;股號&gt;_&lt;西元年&gt;Q4_pretrip.json</code>）後於此載入——
+      檔案只留在你的瀏覽器，不會上傳到任何地方。</p>
+    <input type="file" id="upload" accept=".json" multiple>
+  </details>
   <div class="out" id="o1"></div>
   <div id="dl1"></div>
 </div>
@@ -141,30 +154,82 @@ const PY_FILES = [
 ];
 const $ = (id) => document.getElementById(id);
 let pyodide = null, manifest = null, state = {};
+const uploaded = {};   // 檔名 → 內容文字（使用者本機載入的資料，不上傳）
 
 function say(el, msg, cls = "") { el.className = "out " + cls; el.textContent = msg; }
 function busy(el, msg) { el.className = "out"; el.innerHTML = '<span class="spin"></span>' + msg; }
 
 async function boot() {
   manifest = await (await fetch("data/index.json?" + Date.now())).json();
-  const co = $("co");
+  renderCompanies();
+  $("q").oninput = fillYears;
+  $("upload").onchange = loadFiles;
+}
+function renderCompanies() {
+  const dl = $("colist");
+  dl.innerHTML = "";
   for (const c of manifest.companies) {
     const o = document.createElement("option");
-    o.value = c.co;
-    o.textContent = `${c.name || "（未知）"}（${c.co}）`;
-    co.appendChild(o);
+    o.value = `${c.co} ${c.name || ""}`.trim();
+    dl.appendChild(o);
   }
-  co.onchange = fillYears;
   fillYears();
 }
+/** 從輸入框解析出公司：先比代號，再比名稱關鍵字（唯一命中才算）。 */
+function currentCompany() {
+  const raw = $("q").value.trim();
+  if (!raw) return null;
+  const code = raw.split(/\s+/)[0];
+  let hit = manifest.companies.find((c) => c.co === code);
+  if (hit) return hit;
+  const kw = raw.toLowerCase();
+  const cand = manifest.companies.filter(
+    (c) => c.co.includes(kw) || (c.name || "").toLowerCase().includes(kw));
+  return cand.length === 1 ? cand[0] : null;
+}
+async function loadFiles(ev) {
+  const el = $("o1");
+  let added = 0;
+  for (const f of ev.target.files) {
+    const m = f.name.match(/^(\d{4,6})_(\d{4})Q4_pretrip\.json$/);
+    if (!m) { say(el, `檔名不符：${f.name}\n應為「股號_西元年Q4_pretrip.json」。`, "err"); continue; }
+    const text = await f.text();
+    let name = null;
+    try { name = JSON.parse(text).meta?.CompanyChineseName; }
+    catch { say(el, `${f.name} 不是有效的 JSON。`, "err"); continue; }
+    uploaded[f.name] = text;
+    const co = m[1], roc = Number(m[2]) - 1911;
+    let entry = manifest.companies.find((c) => c.co === co);
+    if (!entry) {
+      entry = { co, name, years: [], local: true };
+      manifest.companies.push(entry);
+    }
+    entry.local = true;
+    if (name) entry.name = name;
+    if (!entry.years.includes(roc)) entry.years.push(roc);
+    entry.years.sort((a, b) => b - a);
+    added++;
+  }
+  if (added) {
+    manifest.companies.sort((a, b) => a.co.localeCompare(b.co));
+    renderCompanies();
+    say(el, `已載入 ${added} 個資料檔，請在上方輸入其股號。`, "ok");
+  }
+  ev.target.value = "";
+}
 function fillYears() {
-  const c = manifest.companies.find((x) => x.co === $("co").value);
-  $("yr").innerHTML = "";
-  for (const y of c.years) {
+  const c = currentCompany();
+  const yr = $("yr"), keep = yr.value;
+  yr.innerHTML = "";
+  $("picked").textContent = c
+    ? `已選：${c.name || ""}（${c.co}）` + (c.local ? "　← 你載入的資料" : "")
+    : ($("q").value.trim() ? "查無此公司，請確認代號或改輸入名稱關鍵字。" : "");
+  for (const y of (c ? c.years : [])) {
     const o = document.createElement("option");
     o.value = y; o.textContent = y + " 年度";
-    $("yr").appendChild(o);
+    yr.appendChild(o);
   }
+  if (keep && [...yr.options].some((o) => o.value === keep)) yr.value = keep;
 }
 
 async function ensurePyodide(el) {
@@ -219,13 +284,16 @@ function download(name, bytes, mime) {
 $("go").onclick = async () => {
   const el = $("o1"); $("dl1").innerHTML = ""; $("dl3").innerHTML = ""; say($("o3"), "");
   $("c2").classList.add("locked"); $("c3").classList.add("locked");
-  const co = $("co").value, roc = $("yr").value;
-  const comp = manifest.companies.find((x) => x.co === co);
+  const comp = currentCompany();
+  if (!comp) return say(el, "請先選擇公司（輸入股票代號或名稱關鍵字）。", "err");
+  const co = comp.co, roc = $("yr").value;
+  if (!roc) return say(el, "請選擇年度。", "err");
   try {
     await ensurePyodide(el);
     busy(el, "讀取財報資料⋯⋯");
     for (const y of comp.years) {
       const name = `${co}_${Number(y) + 1911}Q4_pretrip.json`;
+      if (uploaded[name]) { pyodide.FS.writeFile("/work/data/" + name, uploaded[name]); continue; }
       const r = await fetch("data/" + name);
       if (r.ok) pyodide.FS.writeFile("/work/data/" + name, await r.text());
     }
