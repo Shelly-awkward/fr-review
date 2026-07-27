@@ -614,7 +614,8 @@ def build_checklist_draft(co, roc, meta, audit, series, y, ratios, ratios_prev,
             "豁免適用、使用權資產與租賃負債之衡量）；該節缺漏才寫「擬行前核閱財報附註確認」】",
             f"財報揭露：已認列使用權資產{fmt(cur.get('使用權資產'))}及租賃負債-流動"
             f"{fmt(cur.get('租賃負債-流動'))}、租賃負債-非流動{fmt(cur.get('租賃負債-非流動'))}。"
-            + AI + "揭露內容評述；關係人租賃寫「擬行前抽閱租約」】"]},
+            + AI + "揭露內容評述；關係人租賃寫「擬行前抽閱租約」。"
+            "句末加註頁碼標記（詳財務報告第＿頁）供承辦補填】"]},
         {"h": "（二）金融資產是否依IFRS9規定認列及衡量，並依IFRS7規定揭露。",
          "paras": [
             f"認列及衡量：主要金融資產部位——現金及約當現金{fmt(cur.get('現金及約當現金'))}、"
@@ -623,20 +624,22 @@ def build_checklist_draft(co, roc, meta, audit, series, y, ratios, ratios_prev,
             + AI + "分類（攤銷後成本/FVOCI/FVTPL）依 facts.notes.FinancialInstruments 原文摘寫】",
             AI + "財報揭露：預期信用損失評估方法（facts.notes.FinancialInstruments 與 "
             "ScheduleOfTradeAndOtherReceivables）、帳齡分布（facts.age_distribution 有數字）、"
-            "信用風險揭露評述】"]},
+            "信用風險揭露評述。句末加註頁碼標記（詳財務報告第＿頁）供承辦補填】"]},
         {"h": "（三）客戶合約之收入是否依IFRS15規定認列及衡量並為相關揭露。",
          "paras": [
             AI + "認列及衡量：依 facts.notes.RevenueRecognition 原文摘寫收入類別與認列時點"
             "（某一時點／隨時間逐步）】",
             f"財報揭露：{roc}年度營業收入{fmt(cur.get('營業收入'))}；期末合約負債"
             f"{fmt(cur.get('合約負債-流動'))}（{roc - 1}年度{fmt(prev.get('合約負債-流動'))}）。"
-            + AI + "合約負債性質與變動方向是否與業務模式一致】"]},
+            + AI + "合約負債性質與變動方向是否與業務模式一致。"
+            "句末加註頁碼標記（詳財務報告第＿頁）供承辦補填】"]},
         {"h": "（四）對被投資公司持股未逾50%且為單一最大股東者，是否依IFRS10第B38~B50段評估權力並揭露重大判斷。",
          "paras": [
             AI + "被投資公司清單見 facts.investees（名稱/持股/帳面/損益），權益法政策見 "
             "facts.notes.InvestmentsInAssociates。評估三要件、"
             "重大影響力判斷（董事席次、綜合持股）；持股低仍採權益法者寫「佐證文件擬行前調閱」，"
-            "並評估集團有無構成控制而應納入他方合併個體】"]},
+            "並評估集團有無構成控制而應納入他方合併個體。相關判斷之揭露處"
+            "加註頁碼標記（詳財務報告第＿頁）供承辦補填】"]},
       ]},
       {"title": "四、會計主管審閱情形", "body": [
         {"paras": [
@@ -799,6 +802,24 @@ def main():
     qmap = {}
     questions = build_questions(series, y, ratios, ratios_prev, peer, tuples, meta, qmap)
     analysis = build_analysis(series, y, ratios, ratios_prev, peer, qmap)
+
+    # 資料充足度：成長率「兩期比較」需 y、y-1、y-2 三年數字，
+    # 亦即至少要有 y 與 y-2（或 y-1）兩份年報。缺了要明講，不能靜靜算不出來。
+    have = sorted(series)
+    need = [y, y - 1, y - 2]
+    lack = [to_roc(n) for n in need if n not in have]
+    coverage = {
+        "資料年度": [to_roc(v) for v in have],
+        "成長率兩期比較所需年度": [to_roc(n) for n in need],
+        "缺少年度": lack,
+        "足以比較兩期成長率": not lack,
+        "說明": ("完整" if not lack else
+               f"缺 {lack} 年度資料（民國），成長率兩期比較無法計算——請補抓："
+               f"python scripts/fetch_archive.py --only {a.co} "
+               f"--years {','.join(str(n) for n in lack)}"),
+    }
+    if lack:
+        print(f"⚠ 資料不足：缺 {lack} 年度，成長率兩期比較將顯示「－（缺資料）」。{coverage['說明']}")
     inquiry = {
         "meta": {"co": a.co, "roc_year": roc, "company": meta.get("CompanyChineseName"),
                  "industry": meta.get("IndustrySector"),
@@ -812,6 +833,7 @@ def main():
                    "所有同業平均": (peer or {}).get("所有同業平均")},
         "questions": questions,
         "analysis": analysis,
+        "data_coverage": coverage,
     }
 
     draft = build_checklist_draft(a.co, roc, meta, audit, series, y, ratios,
@@ -825,6 +847,7 @@ def main():
         json.dump(inquiry, f, ensure_ascii=False, indent=1)
     with open(p2, "w", encoding="utf-8") as f:
         json.dump(review, f, ensure_ascii=False, indent=1)
+
     # 完整性不變式：每個達標科目都必須有對應題號或說明，否則就是分析漏網
     orphan = [r["項目"] for r in analysis
               if r["是否達標"].startswith("★") and not r["對應題號"] and not r["備註"]]

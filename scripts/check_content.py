@@ -136,7 +136,12 @@ def main():
         for e in errs:
             print("  -", e)
         sys.exit(1)
+
+    # 頁碼：XBRL 不含頁碼，一律以「第＿頁」標記留給承辦補填——這不是缺失，是待辦
+    pages = len(re.findall(r"第＿頁", "\n".join(walk_text(c.get("sections", [])))))
     print(f"✔ 驗收通過（檢查表 {len(items)} 項、sections {len(c.get('sections', []))} 段）")
+    if pages:
+        print(f"　※ 有 {pages} 處「第＿頁」待承辦對照財務報告補填頁碼（XBRL 未提供頁碼）")
 
 
 if __name__ == "__main__":

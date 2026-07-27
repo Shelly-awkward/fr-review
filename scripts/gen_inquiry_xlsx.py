@@ -63,6 +63,15 @@ def main():
     ws.cell(2, 1, "本表列出所有分析科目及其分析門檻；標「★達標」者已於「差異說明」"
                   "工作表出題請公司說明，未達標者亦列示以資覆核完整性。"
                   "單位：新臺幣千元；比率為 % 或次。").font = FONT
+    cov = q.get("data_coverage") or {}
+    if cov:
+        c3 = ws.cell(3, 1, "資料涵蓋年度：" + "、".join(str(x) for x in cov.get("資料年度", []))
+                     + "　｜　成長率兩期比較："
+                     + ("資料完整" if cov.get("足以比較兩期成長率")
+                        else f"⚠ {cov.get('說明', '')}"))
+        c3.font = FONT
+        if not cov.get("足以比較兩期成長率"):
+            c3.fill = NOTE_FILL
     cols = ["類別", "項目", f"{roc}年度", f"{roc-1}年度", "增減", "變動%",
             "分析門檻", "是否達標", "對應題號", "備註"]
     put_row(ws, 4, cols, header=True)
