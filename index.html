@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>財報實審文件產生器</title>
+<style>
+  :root {
+    --bg: #f6f7f9; --card: #fff; --fg: #1a1d21; --muted: #626b76;
+    --line: #dfe3e8; --accent: #1f6feb; --accent-fg: #fff;
+    --ok: #1a7f37; --err: #b42318; --warn-bg: #fff8e6; --warn-line: #e6c200;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0e1116; --card: #161b22; --fg: #e6edf3; --muted: #9aa5b1;
+      --line: #2a313c; --accent: #4493f8; --accent-fg: #06101d;
+      --ok: #3fb950; --err: #f85149; --warn-bg: #2a2410; --warn-line: #9e7b00;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0e1116; --card: #161b22; --fg: #e6edf3; --muted: #9aa5b1;
+    --line: #2a313c; --accent: #4493f8; --accent-fg: #06101d;
+    --ok: #3fb950; --err: #f85149; --warn-bg: #2a2410; --warn-line: #9e7b00;
+  }
+  :root[data-theme="light"] {
+    --bg: #f6f7f9; --card: #fff; --fg: #1a1d21; --muted: #626b76;
+    --line: #dfe3e8; --accent: #1f6feb; --accent-fg: #fff;
+    --ok: #1a7f37; --err: #b42318; --warn-bg: #fff8e6; --warn-line: #e6c200;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 24px 16px 64px; background: var(--bg); color: var(--fg);
+    font: 16px/1.7 "Noto Sans TC", "Microsoft JhengHei", system-ui, sans-serif;
+  }
+  .wrap { max-width: 860px; margin: 0 auto; }
+  h1 { font-size: 26px; margin: 0 0 6px; }
+  .sub { color: var(--muted); margin: 0 0 28px; font-size: 15px; }
+  .card {
+    background: var(--card); border: 1px solid var(--line); border-radius: 12px;
+    padding: 20px 22px; margin-bottom: 18px;
+  }
+  .card.locked { opacity: .45; pointer-events: none; }
+  h2 { font-size: 17px; margin: 0 0 4px; display: flex; align-items: center; gap: 10px; }
+  .step {
+    background: var(--accent); color: var(--accent-fg); border-radius: 999px;
+    width: 26px; height: 26px; display: grid; place-items: center;
+    font-size: 14px; font-weight: 700; flex: none;
+  }
+  .hint { color: var(--muted); font-size: 14px; margin: 0 0 14px; }
+  label { font-size: 14px; color: var(--muted); display: block; margin-bottom: 4px; }
+  select, textarea, button {
+    font: inherit; color: var(--fg); background: var(--card);
+    border: 1px solid var(--line); border-radius: 8px; padding: 9px 11px;
+  }
+  select { min-width: 260px; }
+  textarea { width: 100%; min-height: 150px; font-family: ui-monospace, Consolas, monospace; font-size: 13px; }
+  .row { display: flex; gap: 12px; flex-wrap: wrap; align-items: flex-end; margin-bottom: 14px; }
+  button {
+    background: var(--accent); color: var(--accent-fg); border: none;
+    font-weight: 600; cursor: pointer; padding: 10px 18px;
+  }
+  button:disabled { opacity: .5; cursor: default; }
+  button.ghost { background: transparent; color: var(--accent); border: 1px solid var(--line); }
+  .out { font-size: 14px; margin-top: 12px; white-space: pre-wrap; }
+  .out.ok { color: var(--ok); }
+  .out.err { color: var(--err); }
+  .dl { display: inline-flex; align-items: center; gap: 8px; margin: 10px 12px 0 0;
+        padding: 10px 16px; background: var(--accent); color: var(--accent-fg);
+        border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 15px; }
+  .note {
+    background: var(--warn-bg); border-left: 3px solid var(--warn-line);
+    padding: 10px 14px; border-radius: 6px; font-size: 14px; margin: 14px 0 0;
+  }
+  code { background: var(--bg); padding: 1px 5px; border-radius: 4px; font-size: 90%; }
+  .spin { display: inline-block; width: 14px; height: 14px; border: 2px solid var(--line);
+          border-top-color: var(--accent); border-radius: 50%; animation: r .8s linear infinite;
+          vertical-align: -2px; margin-right: 8px; }
+  @keyframes r { to { transform: rotate(360deg); } }
+  footer { color: var(--muted); font-size: 13px; text-align: center; margin-top: 32px; }
+  a { color: var(--accent); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>財報實審文件產生器</h1>
+<p class="sub">選一家公司，產出「財務報告說明」查詢函（Excel）與「公告檢查表—管區意見」初稿（Word）。<br>
+不必安裝任何東西，全部在你的瀏覽器裡完成——資料不會離開這台電腦。</p>
+
+<div class="card" id="c1">
+  <h2><span class="step">1</span>選擇公司與年度</h2>
+  <p class="hint">清單來自資料庫裡已抓取的財報。找不到你要的公司？請聯絡本工具維護者加抓。</p>
+  <div class="row">
+    <div>
+      <label for="co">公司</label>
+      <select id="co"></select>
+    </div>
+    <div>
+      <label for="yr">年度</label>
+      <select id="yr"></select>
+    </div>
+    <button id="go">產生</button>
+  </div>
+  <div class="out" id="o1"></div>
+  <div id="dl1"></div>
+</div>
+
+<div class="card locked" id="c2">
+  <h2><span class="step">2</span>把這段複製給任何 AI</h2>
+  <p class="hint">貼進 ChatGPT／Gemini／Copilot 都可以。AI 會回你一段 JSON，複製它，貼到下面第 3 步。</p>
+  <button id="copy" class="ghost">複製全部</button>
+  <span id="copied" style="font-size:14px;color:var(--ok);margin-left:10px"></span>
+  <textarea id="prompt" readonly style="margin-top:12px;min-height:180px"></textarea>
+</div>
+
+<div class="card locked" id="c3">
+  <h2><span class="step">3</span>貼上 AI 的回覆</h2>
+  <p class="hint">貼上後會自動檢查：數字有沒有出處、有沒有留下未填的空格、格式對不對。沒過會告訴你哪裡有問題。</p>
+  <textarea id="reply" placeholder="把 AI 回覆的 JSON 整段貼在這裡"></textarea>
+  <div class="row" style="margin-top:12px">
+    <button id="check">檢查並產生 Word</button>
+  </div>
+  <div class="out" id="o3"></div>
+  <div id="dl3"></div>
+</div>
+
+<footer>
+  <a href="https://github.com/Shelly-awkward/fr-review" target="_blank" rel="noopener">fr-review</a>
+  ｜產出僅為初稿，判斷責任在檢查員
+</footer>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js"></script>
+<script>
+const PY_FILES = [
+  "scripts/build_review_content.py",
+  "scripts/gen_inquiry_xlsx.py",
+  "scripts/check_content.py",
+  "scripts/gen_checklist_docx.py",
+];
+const $ = (id) => document.getElementById(id);
+let pyodide = null, manifest = null, state = {};
+
+function say(el, msg, cls = "") { el.className = "out " + cls; el.textContent = msg; }
+function busy(el, msg) { el.className = "out"; el.innerHTML = '<span class="spin"></span>' + msg; }
+
+async function boot() {
+  manifest = await (await fetch("data/index.json?" + Date.now())).json();
+  const co = $("co");
+  for (const c of manifest.companies) {
+    const o = document.createElement("option");
+    o.value = c.co;
+    o.textContent = `${c.name || "（未知）"}（${c.co}）`;
+    co.appendChild(o);
+  }
+  co.onchange = fillYears;
+  fillYears();
+}
+function fillYears() {
+  const c = manifest.companies.find((x) => x.co === $("co").value);
+  $("yr").innerHTML = "";
+  for (const y of c.years) {
+    const o = document.createElement("option");
+    o.value = y; o.textContent = y + " 年度";
+    $("yr").appendChild(o);
+  }
+}
+
+async function ensurePyodide(el) {
+  if (pyodide) return;
+  busy(el, "第一次使用要載入運算環境，約需 10–30 秒⋯⋯");
+  pyodide = await loadPyodide();
+  await pyodide.loadPackage(["micropip"]);
+  await pyodide.runPythonAsync(`import micropip; await micropip.install("openpyxl")`);
+  pyodide.FS.mkdirTree("/work/scripts");
+  pyodide.FS.mkdirTree("/work/data");
+  pyodide.FS.mkdirTree("/work/out");
+  for (const f of PY_FILES) {
+    const src = await (await fetch(f + "?" + Date.now())).text();
+    pyodide.FS.writeFile("/work/" + f, src);
+  }
+  pyodide.runPython(`
+import io, os, runpy, sys, contextlib
+os.chdir("/work")
+sys.path.insert(0, "/work/scripts")
+
+def run_script(path, args):
+    """跑 CLI 腳本，回 (退出碼, 輸出文字)。"""
+    buf = io.StringIO()
+    sys.argv = [path] + list(args)
+    try:
+        with contextlib.redirect_stdout(buf), contextlib.redirect_stderr(buf):
+            runpy.run_path(path, run_name="__main__")
+        return 0, buf.getvalue()
+    except SystemExit as e:
+        return (e.code or 0), buf.getvalue()
+    except Exception as e:
+        return 99, buf.getvalue() + f"\\n{type(e).__name__}: {e}"
+`);
+}
+
+function runPy(path, args) {
+  const fn = pyodide.globals.get("run_script");
+  const res = fn(path, args);
+  const out = [res.get(0), res.get(1)];
+  res.destroy(); fn.destroy();
+  return { code: out[0], text: out[1] };
+}
+
+function download(name, bytes, mime) {
+  const url = URL.createObjectURL(new Blob([bytes], { type: mime }));
+  const a = document.createElement("a");
+  a.href = url; a.download = name; a.className = "dl";
+  a.textContent = "⬇ 下載 " + name;
+  return a;
+}
+
+$("go").onclick = async () => {
+  const el = $("o1"); $("dl1").innerHTML = ""; $("dl3").innerHTML = ""; say($("o3"), "");
+  $("c2").classList.add("locked"); $("c3").classList.add("locked");
+  const co = $("co").value, roc = $("yr").value;
+  const comp = manifest.companies.find((x) => x.co === co);
+  try {
+    await ensurePyodide(el);
+    busy(el, "讀取財報資料⋯⋯");
+    for (const y of comp.years) {
+      const name = `${co}_${Number(y) + 1911}Q4_pretrip.json`;
+      const r = await fetch("data/" + name);
+      if (r.ok) pyodide.FS.writeFile("/work/data/" + name, await r.text());
+    }
+    busy(el, "計算財務數字⋯⋯");
+    let r = runPy("scripts/build_review_content.py", ["--co", co, "--year", String(roc)]);
+    if (r.code !== 0) return say(el, "計算失敗：\n" + r.text, "err");
+
+    busy(el, "產生 Excel 查詢函⋯⋯");
+    const xlsxName = `${comp.name || co}(${co})${roc}年度_財務報告說明.xlsx`;
+    r = runPy("scripts/gen_inquiry_xlsx.py",
+              [`out/${co}_${roc}_inquiry.json`, "out/inquiry.xlsx"]);
+    if (r.code !== 0) return say(el, "Excel 產生失敗：\n" + r.text, "err");
+
+    const xlsx = pyodide.FS.readFile("/work/out/inquiry.xlsx");
+    $("dl1").appendChild(download(xlsxName, xlsx,
+      "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"));
+
+    const review = new TextDecoder().decode(
+      pyodide.FS.readFile(`/work/out/${co}_${roc}_review_content.json`));
+    state = { co, roc, comp, review };
+    await buildPrompt(review);
+    say(el, "完成。Excel 可以直接下載給公司填答；Word 初稿請往下走第 2、3 步。", "ok");
+    $("c2").classList.remove("locked"); $("c3").classList.remove("locked");
+  } catch (e) {
+    say(el, "發生錯誤：" + e.message, "err");
+  }
+};
+
+async function buildPrompt(reviewJson) {
+  const md = await (await fetch("PASTE_PROMPT.md?" + Date.now())).text();
+  const parts = md.split(/^====$/m);
+  const rules = (parts[1] || "").trim();
+  $("prompt").value = rules.replace("（把你的 review_content.json 貼在這裡）", reviewJson);
+}
+
+$("copy").onclick = async () => {
+  await navigator.clipboard.writeText($("prompt").value);
+  $("copied").textContent = "已複製";
+  setTimeout(() => ($("copied").textContent = ""), 2500);
+};
+
+$("check").onclick = async () => {
+  const el = $("o3"); $("dl3").innerHTML = "";
+  let raw = $("reply").value.trim();
+  if (!raw) return say(el, "請先貼上 AI 的回覆。", "err");
+  // AI 常把 JSON 包在 markdown 圍欄裡，或前後加一句話——都容忍
+  const fence = raw.match(/```(?:json)?\s*([\s\S]*?)```/);
+  if (fence) raw = fence[1].trim();
+  const s = raw.indexOf("{"), e = raw.lastIndexOf("}");
+  if (s > 0 || e < raw.length - 1) raw = raw.slice(s, e + 1);
+  let obj;
+  try { obj = JSON.parse(raw); }
+  catch (err) { return say(el, "這段不是有效的 JSON：" + err.message +
+    "\n請把 AI 回覆的內容完整貼上（含最外層的大括號）。", "err"); }
+
+  try {
+    busy(el, "檢查中⋯⋯");
+    const { co, roc } = state;
+    pyodide.FS.writeFile(`/work/out/${co}_${roc}_checklist_content.json`,
+      new TextEncoder().encode(JSON.stringify(obj)));
+    let r = runPy("scripts/check_content.py",
+      [`out/${co}_${roc}_checklist_content.json`, "--review", `out/${co}_${roc}_review_content.json`]);
+    if (r.code !== 0) return say(el, r.text.trim() +
+      "\n\n請把上面這些問題告訴 AI，請它修正後重貼。", "err");
+
+    busy(el, "產生 Word⋯⋯（第一次要載入文件套件，約 10 秒）");
+    if (!window._docxReady) {
+      await pyodide.runPythonAsync(
+        `import micropip; await micropip.install("python-docx")`);
+      window._docxReady = true;
+    }
+    r = runPy("scripts/gen_checklist_docx.py",
+      [`out/${co}_${roc}_checklist_content.json`, "out/checklist.docx"]);
+    if (r.code !== 0) return say(el, "Word 產生失敗：\n" + r.text, "err");
+
+    const name = `${state.comp.name || co}(${co})${roc}年度_公告檢查表-管區意見_初稿.docx`;
+    $("dl3").appendChild(download(name, pyodide.FS.readFile("/work/out/checklist.docx"),
+      "application/vnd.openxmlformats-officedocument.wordprocessingml.document"));
+    say(el, "檢查通過。這是公司回覆前的初稿，標示「擬行前查證」的部分請於行前補實。", "ok");
+  } catch (err) {
+    say(el, "發生錯誤：" + err.message, "err");
+  }
+};
+
+boot();
+</script>
+</body>
+</html>

@@ -79,6 +79,17 @@ def main():
 
     print(f"\n完成 {len(reqs) - len(fails)}／{len(reqs)}"
           + (f"，失敗：{fails}" if fails else ""))
+
+    # 網頁版靠 data/index.json 列公司清單，抓完即更新，免得同事看不到新資料
+    try:
+        from make_data_index import build
+        idx = build(a.outdir)
+        with open(os.path.join(a.outdir, "index.json"), "w", encoding="utf-8") as f:
+            json.dump(idx, f, ensure_ascii=False, indent=1)
+        print(f"✔ 更新 {a.outdir}/index.json（{len(idx['companies'])} 家）")
+    except Exception as e:
+        print(f"（index.json 更新失敗，請手動跑 scripts/make_data_index.py：{e}）")
+
     sys.exit(1 if fails else 0)
 
 

@@ -31,6 +31,21 @@ def walk_text(o):
             yield from walk_text(v)
 
 
+def tables(sections):
+    """把 sections 裡連續的「【表】a｜b｜c」段落還原成表格（list of rows）。"""
+    for s in sections:
+        for b in s.get("body", []):
+            rows = []
+            for p in b.get("paras", []):
+                if isinstance(p, str) and p.startswith("【表】"):
+                    rows.append(p[3:].split("｜"))
+                elif rows:
+                    yield rows
+                    rows = []
+            if rows:
+                yield rows
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("content")
@@ -99,6 +114,22 @@ def main():
         if unknown:
             errs.append("下列金額在數字層 facts 找不到，請確認出處（衍生計算請於段內寫明算式，"
                         "查無出處＝不得引用）：" + "、".join(sorted(unknown)[:15]))
+
+        # 同業平均是最容易被 AI 憑記憶編造的數字（且無法由財報推得）。
+        # facts.peer_avg 為字串＝使用者未提供，此時內文不得出現任何同業平均數值。
+        if isinstance(facts.get("peer_avg"), str):
+            fake = re.findall(r"同業平均[為是]?\s*[｜|]?\s*(-?\d+(?:\.\d+)?\s*[%次])", body)
+            for tbl in tables(c.get("sections", [])):
+                cols = [i for i, h in enumerate(tbl[0]) if "同業平均" in h]
+                for row in tbl[1:]:
+                    for i in cols:
+                        if i < len(row) and re.search(r"\d", row[i]):
+                            fake.append(row[i].strip())
+            if fake:
+                errs.append("未提供同業平均資料，內文卻出現同業平均數值："
+                            + "、".join(list(dict.fromkeys(fake))[:10])
+                            + "——同業平均不可推估或憑記憶填入，請改標「行前請至公開資訊"
+                              "觀測站財務業務資訊查填」。")
 
     if errs:
         print("✘ 驗收未過：")
