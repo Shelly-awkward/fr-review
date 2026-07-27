@@ -83,6 +83,17 @@ git add data && git commit -m "全量歸檔 297 家 110-114 年度" && git push
 - `data/*.html.gz` 是本機存證檔、不進 git。換一台電腦要用 `reparse.py` 重建
   pretrip 時，得先重抓原始檔。
 
+## 在公司電腦接手（辦公室擋 GitHub）
+
+Google Drive 交換區：`G:\我的雲端硬碟r-review交換區`（規則見該資料夾的 `_看我先.md`）。
+
+- 家裡做完 → `sync_to_drive.bat`（送出）
+- 公司做完 → 回家跑 `sync_to_drive.bat back`（收回）
+- **接力棒規則：同一時間只有一邊動工。** 兩邊各自 commit 會讓 git 歷史分岔。
+- 未同步：`data\*.html.gz`（可重抓）、`node_modules`（公司端改用 Python 版產生器）、`_salvage`。
+- ⚠ 2026-07-27 複製當下抓取仍在進行，Drive 上的 `data/` 不是最終版；
+  抓取跑完後請再跑一次 `sync_to_drive.bat`。
+
 ## 檔案地圖
 
 ```
