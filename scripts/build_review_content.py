@@ -1,0 +1,690 @@
+# -*- coding: utf-8 -*-
+r"""
+build_review_content.py — 財報實審數字層：pretrip JSON → 兩份中介 JSON。
+
+    python scripts/build_review_content.py --co 8304 --year 114 [--data-dir data]
+        [--outdir out] [--peer-avg peers.json]
+
+輸出（--outdir，預設 out/）：
+  <co>_<民國年>_inquiry.json         → gen_inquiry_xlsx.py 產「財務報告說明」查詢函 Excel
+  <co>_<民國年>_review_content.json  → AI 依 REVIEW_PROMPT.md 填質性段落後，
+                                        交 gen_checklist_docx.js 產管區意見 Word
+
+分工鐵律：本腳本只算數字（變動%、週轉率、限額核對……全部寫死在輸出裡）；
+質性判斷一律留「【AI待填：…指引…】」佔位，由 AI 填、由 check_content.py 把關。
+不得引用資料層沒有的數字；同業平均拿不到就留白標註，寧缺勿假。
+
+--peer-avg 格式（使用者自公開資訊觀測站「財務業務資訊」查得後提供）：
+  {"上市櫃同業平均": {"營收成長率": -0.19, "銷貨毛利率": 26.99, ...},
+   "所有同業平均":   {"營收成長率": -4.29, ...}}
+"""
+import argparse
+import glob
+import json
+import os
+import re
+import sys
+
+# ---------- 期別與檔案 ----------
+
+def to_ad(year: int) -> int:
+    return year + 1911 if year < 1000 else year
+
+
+def to_roc(year: int) -> int:
+    return year - 1911 if year >= 1000 else year
+
+
+def load_pretrips(data_dir: str, co: str, ad_year: int, span: int = 6) -> dict:
+    """掃描 data/<co>_<西元年>Q4_pretrip.json，回 {西元年: pretrip}（近 span 年內有檔者）。"""
+    out = {}
+    for p in glob.glob(os.path.join(data_dir, f"{co}_*Q4_pretrip.json")):
+        m = re.search(rf"{co}_(\d{{4}})Q4_pretrip\.json$", p.replace("\\", "/"))
+        if m and ad_year - span < int(m.group(1)) <= ad_year:
+            with open(p, encoding="utf-8") as f:
+                out[int(m.group(1))] = json.load(f)
+    return out
+
+
+# ---------- 取數 ----------
+
+def flow(st: dict, keys, y: int):
+    """損益／現流科目：取 From<y>0101To<y>1231；keys 依序 fallback。"""
+    for k in keys if isinstance(keys, list) else [keys]:
+        v = st.get(k, {}).get(f"From{y}0101To{y}1231")
+        if v is not None:
+            return v
+    return None
+
+
+def stock(st: dict, keys, y: int):
+    """資產負債科目：取 AsOf<y>1231。"""
+    for k in keys if isinstance(keys, list) else [keys]:
+        v = st.get(k, {}).get(f"AsOf{y}1231")
+        if v is not None:
+            return v
+    return None
+
+
+METRICS_FLOW = {
+    "營業收入": ["ifrs-full:Revenue"],
+    "營業成本": ["tifrs-bsci-ci:OperatingCosts", "ifrs-full:CostOfSales"],
+    "營業毛利": ["tifrs-bsci-ci:GrossProfitLossFromOperations", "ifrs-full:GrossProfit"],
+    "營業損益": ["ifrs-full:ProfitLossFromOperatingActivities"],
+    "稅前損益": ["ifrs-full:ProfitLossBeforeTax"],
+    "本期淨利": ["ifrs-full:ProfitLoss"],
+    "其他綜合損益": ["ifrs-full:OtherComprehensiveIncome"],
+    "綜合損益": ["ifrs-full:ComprehensiveIncome"],
+    "每股盈餘(元)": ["ifrs-full:BasicEarningsLossPerShare"],
+    "減損損失": ["ifrs-full:ImpairmentLossRecognisedInProfitOrLoss"],
+    "採用權益法之投資損益份額": ["ifrs-full:ShareOfProfitLossOfAssociatesAndJointVentures"
+                        "AccountedForUsingEquityMethod"],
+}
+METRICS_STOCK = {
+    "資產總額": ["ifrs-full:Assets"],
+    "負債總額": ["ifrs-full:Liabilities"],
+    "淨值": ["ifrs-full:Equity"],
+    "應收票據": ["tifrs-bsci-ci:NotesReceivableNet"],
+    "應收帳款": ["tifrs-bsci-ci:AccountsReceivableNet"],
+    "應收帳款-關係人": ["tifrs-bsci-ci:AccountsReceivableDuefromRelatedPartiesNet"],
+    "其他應收款": ["ifrs-full:OtherReceivables", "tifrs-bsci-ci:OtherReceivablesNet"],
+    "其他應收款-關係人": ["tifrs-bsci-ci:OtherReceivablesDueFromRelatedParties",
+                     "ifrs-full:OtherReceivablesDueFromRelatedParties"],
+    "預付款項": ["ifrs-full:CurrentPrepayments", "tifrs-bsci-ci:PrepaymentsNet"],
+    "存貨": ["ifrs-full:Inventories"],
+    "採用權益法之投資": ["ifrs-full:InvestmentAccountedForUsingEquityMethod"],
+    "不動產廠房及設備": ["ifrs-full:PropertyPlantAndEquipment"],
+    "使用權資產": ["ifrs-full:RightofuseAssets"],
+    "租賃負債-流動": ["tifrs-bsci-ci:CurrentLeaseLiabilities"],
+    "租賃負債-非流動": ["ifrs-full:NoncurrentFinanceLeaseLiabilities",
+                    "tifrs-bsci-ci:NoncurrentLeaseLiabilities"],
+    "合約負債-流動": ["ifrs-full:CurrentContractLiabilities"],
+    "應付帳款及票據": ["ifrs-full:TradeAndOtherCurrentPayablesToTradeSuppliers"],
+    "現金及約當現金": ["ifrs-full:CashAndCashEquivalents"],
+}
+
+
+def year_values(st: dict, y: int) -> dict:
+    out = {k: flow(st, keys, y) for k, keys in METRICS_FLOW.items()}
+    out.update({k: stock(st, keys, y) for k, keys in METRICS_STOCK.items()})
+    return out
+
+
+def merge_series(pretrips: dict) -> dict:
+    """各 pretrip 供兩個年度的數；新檔優先（同年度以較新申報為準）。回 {西元年: {科目: 值}}。"""
+    series = {}
+    for fy in sorted(pretrips):  # 由舊到新，新檔覆蓋舊檔同年數字
+        st = pretrips[fy]["statements"]
+        for y in (fy - 1, fy):
+            vals = year_values(st, y)
+            if any(v is not None for v in vals.values()):
+                cur = series.setdefault(y, {})
+                for k, v in vals.items():
+                    if v is not None:
+                        cur[k] = v
+    return series
+
+
+# ---------- 計算 ----------
+
+def pct(cur, prev):
+    """變動%（分母取絕對值；基期 0 或 None 回 None）。"""
+    if cur is None or prev in (None, 0):
+        return None
+    return round((cur - prev) / abs(prev) * 100, 2)
+
+
+def fmt(v, unit="千元"):
+    if v is None:
+        return "－"
+    if isinstance(v, float) and v == int(v):
+        v = int(v)
+    return f"{v:,}{unit}" if unit else f"{v:,}"
+
+
+def fmt_pct(v):
+    return "－" if v is None else f"{v:+.2f}%"
+
+
+def receivables(vals: dict):
+    """應收款項＝應收票據＋應收帳款＋應收帳款-關係人（皆無值回 None）。"""
+    parts = [vals.get(k) for k in ("應收票據", "應收帳款", "應收帳款-關係人")]
+    if all(p is None for p in parts):
+        return None
+    return sum(p or 0 for p in parts)
+
+
+def turnover(numer, end, beg):
+    """週轉率＝分子÷平均餘額；期初或期末缺任一即回 None（不得只用單期充當平均）。"""
+    if numer is None or end is None or beg is None or (end + beg) == 0:
+        return None
+    return round(numer / ((end + beg) / 2), 2)
+
+
+def company_ratios(series: dict, y: int) -> dict:
+    """個別公司六比率（與公開資訊觀測站財務業務資訊同口徑）。缺基礎數＝None。"""
+    cur, prev = series.get(y, {}), series.get(y - 1, {})
+    rev, rev_p = cur.get("營業收入"), prev.get("營業收入")
+    r = {
+        "營收成長率": pct(rev, rev_p),
+        "銷貨毛利率": round(cur["營業毛利"] / rev * 100, 2)
+                      if cur.get("營業毛利") is not None and rev else None,
+        "營業損益率": round(cur["營業損益"] / rev * 100, 2)
+                      if cur.get("營業損益") is not None and rev else None,
+        "稅前損益成長率": pct(cur.get("稅前損益"), prev.get("稅前損益")),
+        "應收款項週轉率": turnover(rev, receivables(cur), receivables(prev)),
+        "存貨週轉率": turnover(cur.get("營業成本"), cur.get("存貨"), prev.get("存貨")),
+    }
+    return r
+
+
+# ---------- 查詢函題目 ----------
+
+PL_ITEMS = ["營業收入", "營業毛利", "營業損益", "稅前損益"]
+
+
+def build_questions(series, y, ratios, ratios_prev, peer, tuples, meta):
+    roc = to_roc(y)
+    cur, prev = series.get(y, {}), series.get(y - 1, {})
+    qs = []
+
+    def add(cat, text, prefill=""):
+        qs.append({"id": f"Q{len(qs)+1:02d}", "category": cat,
+                   "question": text, "prefill": prefill})
+
+    # 1. 損益四項變動達 30%
+    for it in PL_ITEMS:
+        ch = pct(cur.get(it), prev.get(it))
+        if ch is not None and abs(ch) >= 30:
+            add("損益變動",
+                f"{roc}年度{it}較{roc-1}年度變動達30%以上，請說明變動原因及合理性。",
+                f"{roc}年度 {fmt(cur.get(it))}／{roc-1}年度 {fmt(prev.get(it))}／"
+                f"變動 {fmt_pct(ch)}")
+
+    # 2. 變動成長率（本期成長率－去年同期成長率）差異達 10 個百分點
+    prev2 = series.get(y - 2, {})
+    for it in PL_ITEMS + ["綜合損益"]:
+        g_cur = pct(cur.get(it), prev.get(it))
+        g_prev = pct(prev.get(it), prev2.get(it))
+        if g_cur is not None and g_prev is not None and abs(g_cur - g_prev) >= 10:
+            add("成長率差異",
+                f"{it}成長率本期與去年同期差異達10個百分點以上，請說明原因。",
+                f"{roc}年度成長率 {fmt_pct(g_cur)}／{roc-1}年度成長率 {fmt_pct(g_prev)}／"
+                f"差異 {abs(round(g_cur - g_prev, 2))} 個百分點")
+
+    # 3. 週轉率變動達 10%
+    for name in ("應收款項週轉率", "存貨週轉率"):
+        t_cur, t_prev = ratios.get(name), (ratios_prev or {}).get(name)
+        ch = pct(t_cur, t_prev)
+        if ch is not None and abs(ch) >= 10:
+            add("週轉率",
+                f"{name}本期與去年同期變動差異達10%以上，請說明原因。",
+                f"{roc}年度 {t_cur}次／{roc-1}年度 {t_prev}次／變動 {fmt_pct(ch)}")
+
+    # 4. 與同業平均比較（無資料則出題但留待貼入）
+    for rname, rv in ratios.items():
+        pv = (peer.get("上市櫃同業平均", {}) or {}).get(rname) if peer else None
+        if pv is not None and rv is not None:
+            unit = "次" if "週轉" in rname else "%"
+            diff = round(rv - pv, 2)
+            trigger = (abs(pct(rv, pv) or 0) >= 10) if "週轉" in rname else (abs(diff) >= 10)
+            if trigger:
+                add("同業比較",
+                    f"{rname}與上市櫃同業平均差異達10%（或10個百分點）以上，請說明原因。",
+                    f"公司 {rv}{unit}／上市櫃同業平均 {pv}{unit}")
+        elif rv is not None:
+            add("同業比較",
+                f"{rname}與上市櫃同業平均及所有同業平均之比較，如差異達10%（或10個百分點）"
+                f"以上請說明原因。（同業平均請自公開資訊觀測站財務業務資訊查填）",
+                f"公司 {rv}{'次' if '週轉' in rname else '%'}／同業平均：請自公開資訊觀測站貼入")
+
+    # 5. 其他應收款／預付款項／轉投資大幅增加（增幅≥30% 且期末達資產總額 1%）
+    assets = cur.get("資產總額")
+    for it in ("其他應收款", "其他應收款-關係人", "預付款項", "採用權益法之投資"):
+        ch = pct(cur.get(it), prev.get(it))
+        material = assets and cur.get(it) and cur[it] >= assets * 0.01
+        if ch is not None and ch >= 30 and material:
+            add("資產負債項目",
+                f"{it}本期大幅增加，請說明增加原因、性質及必要性。",
+                f"{roc}年度 {fmt(cur.get(it))}／{roc-1}年度 {fmt(prev.get(it))}／"
+                f"增加 {fmt_pct(ch)}")
+
+    # 6. 減損
+    if cur.get("減損損失"):
+        add("減損",
+            "本期認列資產減損損失，請說明減損標的、減損跡象、可回收金額之評估方法"
+            "與重要假設（折現率、成長率等），並提供評價報告。",
+            f"{roc}年度認列減損損失 {fmt(cur.get('減損損失'))}")
+
+    # 7. OCI
+    if cur.get("其他綜合損益") is not None:
+        add("其他綜合損益",
+            "請說明本期其他綜合損益組成項目之變動內容及原因。",
+            f"{roc}年度 {fmt(cur.get('其他綜合損益'))}／{roc-1}年度 {fmt(prev.get('其他綜合損益'))}")
+
+    # 8. IFRS 專項（各一題，帶財報既有數字）
+    add("IFRS16",
+        "請說明公司租賃標的、租賃期間、使用權資產折舊方法及租賃負債衡量方式，"
+        "是否依IFRS16認列及衡量；與關係人之租賃並請說明租金條件之常規性。",
+        f"使用權資產 {fmt(cur.get('使用權資產'))}／租賃負債-流動 {fmt(cur.get('租賃負債-流動'))}"
+        f"／租賃負債-非流動 {fmt(cur.get('租賃負債-非流動'))}")
+    add("IFRS9",
+        "請說明公司金融資產之分類（攤銷後成本／FVOCI／FVTPL）、預期信用損失之評估方法"
+        "（含損失率訂定依據與帳齡分析），是否依IFRS9認列衡量並依IFRS7揭露。",
+        f"現金及約當現金 {fmt(cur.get('現金及約當現金'))}／應收款項合計 "
+        f"{fmt(receivables(cur))}／其他應收款-關係人 {fmt(cur.get('其他應收款-關係人'))}")
+    add("IFRS15",
+        "請說明公司各類收入之認列時點（某一時點／隨時間逐步）、合約負債之性質及沖轉情形，"
+        "是否依IFRS15認列衡量及揭露。",
+        f"營業收入 {fmt(cur.get('營業收入'))}／合約負債-流動 {fmt(cur.get('合約負債-流動'))}")
+    inv_names = "、".join(
+        f"{t.get('CompanyNameOfTheInvestee') or t.get('NameOfInvestee') or '（名稱見財報附表）'}"
+        for t in (tuples.get("NamesLocationsAndRelatedInformationOfInvesteesOverWhich"
+                             "TheCompanyExercisesSignificantInfluence") or [])[:6]) or "（詳財報附表）"
+    add("IFRS10",
+        "對被投資公司持股未逾50%惟採權益法者，請說明依IFRS10第B38~B50段評估控制／"
+        "重大影響力之判斷過程（董事席次、綜合持股、參與決策情形）及相關佐證。",
+        f"採用權益法之投資期末 {fmt(cur.get('採用權益法之投資'))}／被投資公司：{inv_names}")
+
+    # 9. 資金貸與及背書保證題組（五連問）
+    loans = tuples.get("LoansToOthers") or []
+    endos = tuples.get("EndorsementGuaranteeProvidedToOthers") or []
+    loan_sum = sum(t.get("EndingBalance1") or 0 for t in loans)
+    endo_sum = sum(t.get("EndingBalance2") or 0 for t in endos)
+    base = (f"資金貸與期末餘額 {fmt(loan_sum)}（{len(loans)}筆）／"
+            f"背書保證期末餘額 {fmt(endo_sum)}（{len(endos)}筆）")
+    add("資金貸與背書保證", "公司是否訂有「資金貸與及背書保證作業程序」？最近修訂日期為何？"
+        "請提供全文。", base)
+    add("資金貸與背書保證", "是否依規定設置資金貸與及背書保證備查簿，並逐筆詳實登載？"
+        "請提供備查簿影本。", base)
+    add("資金貸與背書保證", "各筆資金貸與及背書保證是否逐案經董事會決議（或依授權辦理）？"
+        "必要性與合理性如何評估？請提供董事會議事錄及評估文件。", base)
+    add("資金貸與背書保證", "是否依「公開發行公司資金貸與及背書保證處理準則」辦理公告申報"
+        "（每月10日前及達限額標準時）？", base)
+    add("資金貸與背書保證", "請說明期末各筆餘額之對象、原因、利率及計息情形，"
+        "與內規限額（個別／總額）之遵循情形。",
+        "；".join(f"{t.get('Counterparty1', '?')} {fmt(t.get('EndingBalance1'))} "
+                  f"利率{t.get('RangeOfInterestRates', '?')}" for t in loans) or base)
+
+    # 10. 會計主管資格題組（四連問）
+    add("會計主管", "請提供會計主管之姓名、學經歷及到任日期。", "")
+    add("會計主管", "會計主管是否符合「發行人證券商證券交易所會計主管資格條件及專業進修辦法」"
+        "第3條所定資格條件？符合哪一款？請提供證明文件。", "")
+    add("會計主管", "會計主管最近年度持續進修時數為何？是否已依同辦法申報進修情形？"
+        "請提供進修時數證明及申報紀錄。", "")
+    add("會計主管", "會計主管有無同辦法第4條所列消極資格情事？", "")
+    return qs
+
+
+# ---------- 管區意見骨架 ----------
+
+AI = "【AI待填："  # 佔位字首；check_content.py 以此把關
+
+
+def build_checklist_draft(co, roc, meta, audit, series, y, ratios, ratios_prev,
+                          peer, tuples, red_flags):
+    cur, prev = series.get(y, {}), series.get(y - 1, {})
+    name = meta.get("CompanyChineseName") or f"（{co}）"
+    equity = cur.get("淨值")
+
+    def chg(it):
+        return pct(cur.get(it), prev.get(it))
+
+    # --- 檢查表 18 項（固定文字照 golden 模板；數字面 note 由此填、質性 note 留 AI） ---
+    ar_up = (chg("應收帳款") or 0) >= 30 or (chg("應收票據") or 0) >= 30
+    ap_down = (chg("應付帳款及票據") or 0) < 0
+    imp = cur.get("減損損失")
+    groups = [
+      {"group": "個別資料庫", "items": [
+        {"id": "db1", "text": "1.該公司本期營運情形與所屬產業成長（或衰退）之變動是否相同及合理。",
+         "mark": None, "note": "詳個別資料庫說明"},
+        {"id": "db2", "text": "2.損益表\n查詢公司財務業務資訊有關本期與去年同期之合併營業收入淨額、合併營業毛利、合併營業損益及合併稅前損益金額變動差異達30%，有無重大異常變動。\n若前開變動率已達30%，將加強查核合併個體內重要子公司之合併營業收入淨額、合併營業毛利、合併營業損益及合併稅前損益之變動情形，並就重要子公司差異達30%以上者再詳細說明有無重大異常變動。\n另合併營業收入淨額、合併營業毛利、合併營業損益及綜合損益變動成長率（或衰退率），本期與去年同期之變動率(本期－去年同期)差異若達10%以上，有無重大異常變動。",
+         "mark": None, "note": "詳個別資料庫說明"},
+        {"id": "db3", "text": "3.週轉率\n查詢公司財務業務資訊之合併應收帳款週轉率、及合併存貨週轉率，本期與去年同期之變動率(本期－去年同期)差異若達10%以上，有無重大異常變動。",
+         "mark": None, "note": "詳個別資料庫說明"},
+        {"id": "db4", "text": "4.成長率\n查詢公司合併營收成長率、合併營業毛利率、合併營業損益率、合併稅前損益成長率、合併應收帳款週轉率、合併存貨週轉率與上市櫃公司同業平均比較，本期與上市櫃同業平均之變動率(本期－上市櫃同業平均)差異若達10%，有無重大異常變動。",
+         "mark": None, "note": "詳個別資料庫說明"},
+      ]},
+      {"group": "資產負債表及損益表", "items": [
+        {"id": "bs1", "text": "1.本期較去年同期應收帳款及票據大幅增加，惟本期應付帳款及票據不增反減，有無重大異常。",
+         "mark": None,
+         "note": (AI + "應收增且應付減，請判斷有無異常】" if (ar_up and ap_down)
+                  else f"無此情事（應收款項變動{fmt_pct(chg('應收帳款'))}）")},
+        {"id": "bs2", "text": "2.本期較去年同期應收帳款、存貨、其它應收款、預付款及轉投資大幅增加，有無重大異常。本期與關係人大幅背書保證或資金貸與，有無重大異常。",
+         "mark": None, "note": "詳個別資料庫及資金貸與說明"},
+        {"id": "bs3", "text": "3.本期較去年同期銷貨增加，惟本期機器設備無增加，且推銷費用不增反降，有無重大異常。",
+         "mark": None,
+         "note": ("無此情事（本期銷貨未增加）" if (chg("營業收入") or 0) <= 0
+                  else AI + "銷貨增加，請核對設備與推銷費用變動】")},
+        {"id": "bs4", "text": "4.本期應收關係人款未收回，是否已提列備抵呆帳，且是否與關係人間銷貨仍持續將增加，有無重大異常。",
+         "mark": None, "note": AI + "依帳齡與關係人交易判斷，一句話】"},
+        {"id": "bs5", "text": "5.本期與關係人間背書保證或資金貸與，有無重大異常。",
+         "mark": None, "note": "詳資金貸與及背書保證說明"},
+        {"id": "bs6", "text": "6.本期有無重大關係人交易（註1）。",
+         "mark": None, "note": AI + "依 tuples 關係人交易金額判斷，一句話】"},
+        {"id": "bs7", "text": "7.本期有無重大資產減損提列情形。",
+         "mark": None,
+         "note": (f"本期認列減損損失{fmt(imp)}，詳說明" if imp else "無此情事")},
+        {"id": "bs8", "text": "8.本期有無認列資產減損迴轉金額，是否有重大異常。",
+         "mark": None, "note": AI + "查現流表減損迴轉科目，多為「無此情事」】"},
+        {"id": "bs10", "text": "10.不動產、廠房及設備暨不動產之重大組成項目，及投資性不動產公允價值、方法及假設是否符合規定。",
+         "mark": None, "note": AI + "無投資性不動產則寫「尚無重大異常（無投資性不動產）」】"},
+        {"id": "bs11", "text": "11.自願改變會計政策或會計估計值變動中屬折舊(耗)性資產耐用年限、折舊（耗）方法與無形資產攤銷期間、攤銷方法之變動、殘值之變動及其公允價值之評價技術變動所致者，是否依證券發行人財務報告編製準則規定辦理、其他綜合損益組成項目變動是否合理。",
+         "mark": None, "note": AI + "無變動則「無此情事」】"},
+        {"id": "bs12", "text": "12.其它綜合損益組成項目變動是否合理。",
+         "mark": None, "note": "尚無重大異常"},
+      ]},
+      {"group": "會計主管", "items": [
+        {"id": "acc1", "text": "於財務報告簽名蓋章之會計主管是否符合發行人證券商證券交易所會計主管資格條件及專業進修辦法之規定。",
+         "mark": None, "note": "詳會計主管審閱說明"},
+      ]},
+      {"group": "資金貸與及背書保證", "items": [
+        {"id": "loan1", "text": "公司從事資金貸與及背書保證是否符合公開發行公司資金貸與及背書保證處理準則規定。",
+         "mark": None, "note": "詳資金貸與及背書保證審閱說明"},
+      ]},
+    ]
+
+    # --- 五段說明骨架 ---
+    # 一、風險事項候選（數字訊號＋AI 判斷取捨）
+    risk_paras = []
+    inv = cur.get("採用權益法之投資")
+    if inv and cur.get("資產總額") and inv / cur["資產總額"] >= 0.10:
+        risk_paras.append({"h": "（候選風險）採用權益法之投資之減損評估：", "paras": [
+            f"「採用權益法之投資」期末帳面金額{fmt(inv)}，佔資產總額之"
+            f"{round(inv / cur['資產總額'] * 100, 1)}%。"
+            + AI + "逐一列出被投資公司帳面金額／持股／本期損益（見 facts.investees 與 "
+            "red_flags），減損評估之因應措施屬公司才答得出者寫「擬行前查證」】"]})
+    ptx_chg = chg("稅前損益")
+    if ptx_chg is not None and ptx_chg <= -30:
+        risk_paras.append({"h": "（候選風險）獲利持續衰退：", "paras": [
+            f"{roc}年度稅前損益{fmt(cur.get('稅前損益'))}，較{roc - 1}年度"
+            f"{fmt(prev.get('稅前損益'))}變動{fmt_pct(ptx_chg)}；本期淨利"
+            f"{fmt(cur.get('本期淨利'))}（EPS {cur.get('每股盈餘(元)', '－')}元）。"
+            + AI + "衰退主因分解（毛利、減損、權益法損益），近六年營收趨勢見 six_year】"]})
+    loans = tuples.get("LoansToOthers") or []
+    endos = tuples.get("EndorsementGuaranteeProvidedToOthers") or []
+    loan_sum = sum(t.get("EndingBalance1") or 0 for t in loans)
+    endo_sum = sum(t.get("EndingBalance2") or 0 for t in endos)
+    if equity and (loan_sum + endo_sum) / equity >= 0.10:
+        risk_paras.append({"h": "（候選風險）集團資金相互支援：", "paras": [
+            f"對關係人資金貸與期末餘額{fmt(loan_sum)}加計背書保證期末餘額{fmt(endo_sum)}，"
+            f"合計佔淨值{round((loan_sum + endo_sum) / equity * 100, 1)}%。"
+            + AI + "補集團關係與持股（如有母公司合併報告 pretrip 可查證），詳說明五】"]})
+    risk_paras.append({"h": "（候選風險）其他關注事項：", "paras": [
+        AI + "自 audit.flags、red_flags、權益變動（特別盈餘公積、累積虧損）、"
+        "會計師異動等挑實質事項；無則整段刪除】"]})
+
+    # 二、個別資料庫四項（數字句 Python 寫死，原因句留 AI）
+    pl_lines = "、".join(
+        f"{it}{fmt_pct(chg(it))}" for it in PL_ITEMS if chg(it) is not None)
+    hits30 = [it for it in PL_ITEMS if chg(it) is not None and abs(chg(it)) >= 30]
+    g_diff_lines = []
+    prev2 = series.get(y - 2, {})
+    for it in PL_ITEMS + ["綜合損益"]:
+        g_cur_, g_prev_ = pct(cur.get(it), prev.get(it)), pct(prev.get(it), prev2.get(it))
+        if g_cur_ is not None and g_prev_ is not None and abs(g_cur_ - g_prev_) >= 10:
+            g_diff_lines.append(f"{it}成長率{fmt_pct(g_cur_)}對{fmt_pct(g_prev_)}"
+                                f"（差異{abs(round(g_cur_ - g_prev_, 2))}個百分點）")
+    tv_lines = []
+    for nm in ("應收款項週轉率", "存貨週轉率"):
+        t_cur, t_prev = ratios.get(nm), (ratios_prev or {}).get(nm)
+        ch = pct(t_cur, t_prev)
+        if ch is not None:
+            tv_lines.append(f"{nm}較{roc - 1}年度變動{fmt_pct(ch)}（{t_cur}次對{t_prev}次）")
+    peer_rows = ["【表】項目｜" + f"{roc}年度｜上市櫃同業平均｜比較增減｜說明"]
+    for rname, rv in ratios.items():
+        unit = "次" if "週轉" in rname else "%"
+        pv = (peer.get("上市櫃同業平均", {}) or {}).get(rname) if peer else None
+        peer_rows.append(
+            f"【表】{rname}｜{('－' if rv is None else f'{rv}{unit}')}｜"
+            f"{('請自公開資訊觀測站貼入' if pv is None else f'{pv}{unit}')}｜"
+            + AI + "計算增減】｜" + AI + "差異原因一句話】")
+
+    sections = [
+      {"title": "一、公司之風險事項：", "body": risk_paras or
+       [{"paras": [AI + "無數字面候選風險時仍應綜合判斷是否列風險事項】"]}]},
+      {"title": "二、個別資料庫", "body": [
+        {"h": "（一）該公司本期營運情形與所屬產業成長（或衰退）之變動是否相同及合理。",
+         "paras": [
+            f"該公司{roc}年度營業收入較{roc - 1}年度變動{fmt_pct(chg('營業收入'))}"
+            f"（近年營收成長率見 facts.six_year）。"
+            + AI + "所屬產業趨勢與同業平均（無資料則標「行前請至公開資訊觀測站查填」）、"
+            "公司營運內容，收尾「其與所屬產業變動相同/不同，核尚無重大異常」】"]},
+        {"h": "（二）本期與去年同期之營業收入淨額、營業毛利、營業損益及稅前損益金額變動差異達30%，有無重大異常變動。",
+         "paras": [
+            f"1.營業收入淨額、營業毛利、營業損益及稅前損益較{roc - 1}年度分別變動"
+            f"{pl_lines}，其中{('、'.join(hits30) + '變動達30%') if hits30 else '均未達30%'}。"
+            + AI + "變動原因（公司未回覆前屬推測者寫「擬行前請公司說明」）；"
+            "無子公司者敘明「無合併個體內重要子公司加強查核之適用」】",
+            ("2.變動成長率比較（本期變動率減去年同期變動率）：" + "、".join(g_diff_lines)
+             + "，均達10%以上。" + AI + "原因；基期為負者敘明成長率不具比較意義】")
+            if g_diff_lines else
+            "2.變動成長率比較：本期與去年同期之變動率差異均未達10%，核尚無重大異常。"]},
+        {"h": "（三）本期與去年同期應收帳款週轉率及存貨週轉率變動差異達10%，有無重大異常變動。",
+         "paras": [(("；".join(tv_lines) + "。") if tv_lines else
+                    "週轉率因缺前期平均餘額基礎數，無法由財報自動計算，行前請至公開資訊"
+                    "觀測站財務業務資訊查填。")
+                   + AI + "逐一說明變動原因；金額微小科目敘明比率變動不具分析意義】"]},
+        {"h": "（四）與上市櫃公司同業平均比較，變動差異是否達10%，有無重大異常變動。",
+         "paras": ["該公司與上市櫃同業平均（公開資訊觀測站財務業務資訊）各比率暨說明如下表：",
+                   *peer_rows,
+                   AI + "總結：差異達10%項目之結構性原因，收尾「核尚無重大異常」】"]},
+      ]},
+      {"title": "三、財務報告審閱說明", "body": [
+        {"h": "（一）使用權資產及租賃負債是否依IFRS16規定認列及衡量並揭露攸關資訊。",
+         "paras": [
+            AI + "認列及衡量：租賃標的、豁免適用、衡量方法——依財報附註會計政策寫實，"
+            "不得抄範例】",
+            f"財報揭露：已認列使用權資產{fmt(cur.get('使用權資產'))}及租賃負債-流動"
+            f"{fmt(cur.get('租賃負債-流動'))}、租賃負債-非流動{fmt(cur.get('租賃負債-非流動'))}。"
+            + AI + "揭露內容評述；關係人租賃寫「擬行前抽閱租約」】"]},
+        {"h": "（二）金融資產是否依IFRS9規定認列及衡量，並依IFRS7規定揭露。",
+         "paras": [
+            f"認列及衡量：主要金融資產部位——現金及約當現金{fmt(cur.get('現金及約當現金'))}、"
+            f"應收款項合計{fmt(receivables(cur))}、其他應收款-關係人"
+            f"{fmt(cur.get('其他應收款-關係人'))}。"
+            + AI + "分類（攤銷後成本/FVOCI/FVTPL）依財報附註寫實】",
+            AI + "財報揭露：預期信用損失評估方法、帳齡分布（tuples.AgeDistributionAndAmount"
+            " 有數字）、信用風險揭露評述】"]},
+        {"h": "（三）客戶合約之收入是否依IFRS15規定認列及衡量並為相關揭露。",
+         "paras": [
+            AI + "認列及衡量：收入類別與認列時點依財報附註寫實】",
+            f"財報揭露：{roc}年度營業收入{fmt(cur.get('營業收入'))}；期末合約負債"
+            f"{fmt(cur.get('合約負債-流動'))}（{roc - 1}年度{fmt(prev.get('合約負債-流動'))}）。"
+            + AI + "合約負債性質與變動方向是否與業務模式一致】"]},
+        {"h": "（四）對被投資公司持股未逾50%且為單一最大股東者，是否依IFRS10第B38~B50段評估權力並揭露重大判斷。",
+         "paras": [
+            AI + "被投資公司清單見 facts.investees（名稱/持股/帳面/損益）。評估三要件、"
+            "重大影響力判斷（董事席次、綜合持股）；持股低仍採權益法者寫「佐證文件擬行前調閱」，"
+            "並評估集團有無構成控制而應納入他方合併個體】"]},
+      ]},
+      {"title": "四、會計主管審閱情形", "body": [
+        {"paras": [
+            AI + "財報查不到會計主管資格資訊時，寫「會計主管是否符合『發行人證券商證券交易所"
+            "會計主管資格條件及專業進修辦法』之資格條件及持續進修規定，行前請至公開資訊觀測站"
+            "查證並向公司調閱進修時數證明」；有公司回覆才寫符合情形】"]}]},
+      {"title": "五、資金貸與及背書保證審閱情形", "body": [
+        {"h": "1.執行面：", "paras": [
+            _loans_para(loans, equity, roc),
+            _endos_para(endos, equity, roc),
+        ]},
+        {"h": "2.訂定面：", "paras": [
+            AI + "使用者有提供公司作業程序 PDF：核對內規限額（含持股90%以上公司間背書以淨值"
+            "10%為限等特別條款）與執行面數字；未提供：寫「公司『資金貸與及背書保證作業程序』"
+            "之限額規定與本期執行之相符性，擬行前調閱作業程序核對」】"]},
+      ]},
+      {"title": "附註：資料來源與限制", "body": [
+        {"paras": [
+            f"本檢查表依公開資訊觀測站{name}{roc}年度及{roc - 1}年度財務報告XBRL申報資料"
+            "分析產出。" + AI + "逐一列實際引用之其他來源（同業平均、公司作業程序、母公司"
+            "合併報告、前次實審……有用才列）】"
+            "公司尚未回覆前，凡屬公司始能說明之事項均已標明「擬行前查證／請公司說明」。"
+            "財務重點專區、財報重編紀錄、裁罰紀錄及董監持股質押未及查詢，行前請至公開資訊"
+            "觀測站確認。本表僅依公開財報訊號分析，判斷責任在檢查員。"]}]},
+    ]
+
+    title = f"公開發行{name}股份有限公司{roc}年度財務報告公告檢查表—管區意見"
+    if name.endswith("股份有限公司"):
+        title = f"公開發行{name}{roc}年度財務報告公告檢查表—管區意見"
+    return {
+        "title": title,
+        "groups": groups,
+        "footnotes": [
+            "備註：填寫個別資料庫資料應逐項說明填寫「是」與「否」的合理性",
+            "註1：加強審查關係人交易：關係人間重大資產之買賣或重大委託交易等，應瞭解其決策過程及相關帳務處理，以評估交易目的之合理性、會計處理及財務報告揭露之允當性，暨該交易是否符合公司內部控制制度及「公開發行公司取得或處分資產處理準則」相關規定。如查有涉及違反「公開發行公司取得或處分資產處理準則」相關規定情事，應移請證券發行組卓辦。",
+        ],
+        "sections": sections,
+    }
+
+
+def _loans_para(loans, equity, roc):
+    if not loans:
+        return "(1)資金貸與：期末無資金貸與他人餘額，無此情事。"
+    rows = []
+    for t in loans:
+        rows.append(f"{t.get('Counterparty1', '?')}{fmt(t.get('EndingBalance1'))}"
+                    f"（本期最高{fmt(t.get('MaximumBalanceForThePeriod1'))}、"
+                    f"利率{t.get('RangeOfInterestRates', '?')}、"
+                    f"性質{t.get('NatureOfLoans', '?')}）")
+    lim = loans[0].get("LimitOfTotalLoanAmount1")
+    total = sum(t.get("EndingBalance1") or 0 for t in loans)
+    over = "超逾申報限額，應深入查明" if (lim and total > lim) else \
+           f"總額{fmt(total)}在申報之總限額{fmt(lim)}內"
+    ratio = f"，佔淨值{round(total / equity * 100, 1)}%" if equity else ""
+    return ("(1)資金貸與（詳財報附表）：期末餘額——" + "、".join(rows)
+            + f"。{over}{ratio}。" + AI + "貸與原因與集團資金規劃屬公司才答得出者寫"
+            "「擬行前查證」；備抵呆帳與逾期情形依 tuples 數字評述】")
+
+
+def _endos_para(endos, equity, roc):
+    if not endos:
+        return "(2)背書保證：期末無背書保證餘額，無此情事。"
+    rows = []
+    for t in endos:
+        ratio = t.get("RatioOfAccumulatedEndorsementGuaranteeAmountToNetAssetOfTheCompany"
+                      "PerLatestFinancialStatements", "?")
+        lim_one = t.get("LimitOnEndorsementGuaranteeAmountProvidedToIndividualCounterparty")
+        rows.append(f"為{t.get('NameOfTheCompany', '?')}（{t.get('Relationship1', '?')}）"
+                    f"背書{fmt(t.get('EndingBalance2'))}，佔淨值{ratio}%，"
+                    f"申報之單一對象限額{fmt(lim_one)}、"
+                    f"總限額{fmt(t.get('LimitOfTotalGuaranteeEndorsementAmount'))}")
+    anomalies = []
+    for t in endos:
+        eb, act = t.get("EndingBalance2"), t.get("ActualAmountProvided")
+        if eb and act and act > eb * 3:
+            anomalies.append(f"申報附表「實際動支金額」{fmt(act)}與期末背書餘額{fmt(eb)}"
+                             "顯不相當，疑係申報欄位錯置（或屬聯貸案總額資訊），"
+                             "擬行前向公司查明並要求更正申報")
+    return ("(2)背書保證（詳財報附表）：" + "；".join(rows) + "。"
+            + ("另查" + "；".join(anomalies) + "。" if anomalies else "")
+            + AI + "背書原因屬公司才答得出者寫「擬行前查證」；如可取得母公司合併報告"
+            "pretrip，核對集團持股（90%以上未達100%者注意內規淨值10%限額條款）】")
+
+
+# ---------- 主流程 ----------
+
+def main():
+    ap = argparse.ArgumentParser(description="pretrip → 實審中介 JSON（inquiry + review_content）")
+    ap.add_argument("--co", required=True)
+    ap.add_argument("--year", required=True, type=int, help="年度（民國或西元皆可）")
+    ap.add_argument("--data-dir", default="data")
+    ap.add_argument("--outdir", default="out")
+    ap.add_argument("--peer-avg", default="", help="同業平均 JSON（選填，格式見檔頭）")
+    a = ap.parse_args()
+
+    y = to_ad(a.year)
+    roc = to_roc(y)
+    pretrips = load_pretrips(a.data_dir, a.co, y)
+    if y not in pretrips:
+        print(f"找不到 {a.co}_{y}Q4_pretrip.json（--data-dir {a.data_dir}）。"
+              f"請先把 {{\"co\": \"{a.co}\", \"year\": {y}, \"season\": 4}} 加進 "
+              "data_requests.json 並 push（或本機跑 scripts/fetch_requests.py）。")
+        sys.exit(2)
+
+    main_pt = pretrips[y]
+    meta, audit = main_pt["meta"], main_pt["audit"]
+    tuples = main_pt.get("tuples", {})
+    red_flags = main_pt.get("red_flags", [])
+    series = merge_series(pretrips)
+
+    peer = None
+    if a.peer_avg:
+        with open(a.peer_avg, encoding="utf-8") as f:
+            peer = json.load(f)
+
+    ratios = company_ratios(series, y)
+    ratios_prev = company_ratios(series, y - 1)
+
+    # 近 6 年表與成長率表
+    years6 = list(range(y - 5, y + 1))
+    six_year, growth = {}, {}
+    for it in ["營業收入", "營業毛利", "營業損益", "稅前損益", "本期淨利", "每股盈餘(元)",
+               "資產總額", "負債總額", "淨值"]:
+        six_year[it] = {to_roc(yy): series.get(yy, {}).get(it) for yy in years6}
+    for it in ["營業收入", "營業毛利", "營業損益", "稅前損益", "本期淨利"]:
+        growth[it] = {to_roc(yy): pct(series.get(yy, {}).get(it),
+                                      series.get(yy - 1, {}).get(it)) for yy in years6}
+
+    investees = [
+        {"name": t.get("CompanyNameOfTheInvestee") or t.get("NameOfInvestee"),
+         "detail": t}
+        for t in (tuples.get("NamesLocationsAndRelatedInformationOfInvesteesOverWhich"
+                             "TheCompanyExercisesSignificantInfluence") or [])]
+
+    facts = {
+        "co": a.co, "roc_year": roc, "ad_year": y,
+        "company": meta.get("CompanyChineseName"),
+        "report_type": meta.get("ReportType"), "industry": meta.get("IndustrySector"),
+        "audit": {k: audit.get(k) for k in
+                  ("firm", "cpa", "report_date", "report_kind", "opinion", "flags")},
+        "current": series.get(y, {}), "prior": series.get(y - 1, {}),
+        "changes_pct": {it: pct(series.get(y, {}).get(it), series.get(y - 1, {}).get(it))
+                        for it in list(METRICS_FLOW) + list(METRICS_STOCK)},
+        "ratios": ratios, "ratios_prior": ratios_prev,
+        "peer_avg": peer or "（未提供，Excel 相應欄留白待貼）",
+        "six_year": six_year, "growth": growth,
+        "loans": tuples.get("LoansToOthers") or [],
+        "endorsements": tuples.get("EndorsementGuaranteeProvidedToOthers") or [],
+        "age_distribution": tuples.get("AgeDistributionAndAmount") or [],
+        "related_party_amounts": tuples.get(
+            "FinancialStatementAccountAndCategoriesOfRelatedPartiesAndAmount") or [],
+        "investees": investees,
+        "red_flags": red_flags,
+        "data_years_available": sorted(to_roc(k) for k in series),
+    }
+
+    questions = build_questions(series, y, ratios, ratios_prev, peer, tuples, meta)
+    inquiry = {
+        "meta": {"co": a.co, "roc_year": roc, "company": meta.get("CompanyChineseName"),
+                 "industry": meta.get("IndustrySector"),
+                 "audit_firm": "、".join(audit.get("firm") or []),
+                 "cpa": "、".join(audit.get("cpa") or []),
+                 "opinion": (audit.get("opinion") or {}).get("label"),
+                 "report_date": audit.get("report_date")},
+        "six_year": six_year, "growth": growth,
+        "ratios": {"公司": ratios,
+                   "上市櫃同業平均": (peer or {}).get("上市櫃同業平均"),
+                   "所有同業平均": (peer or {}).get("所有同業平均")},
+        "questions": questions,
+    }
+
+    draft = build_checklist_draft(a.co, roc, meta, audit, series, y, ratios,
+                                  ratios_prev, peer, tuples, red_flags)
+    review = {"meta": inquiry["meta"], "facts": facts, "draft": draft}
+
+    os.makedirs(a.outdir, exist_ok=True)
+    p1 = os.path.join(a.outdir, f"{a.co}_{roc}_inquiry.json")
+    p2 = os.path.join(a.outdir, f"{a.co}_{roc}_review_content.json")
+    with open(p1, "w", encoding="utf-8") as f:
+        json.dump(inquiry, f, ensure_ascii=False, indent=1)
+    with open(p2, "w", encoding="utf-8") as f:
+        json.dump(review, f, ensure_ascii=False, indent=1)
+    print(f"✔ {p1}（題目 {len(questions)} 題）")
+    print(f"✔ {p2}（風險候選 {len(draft['sections'][0]['body'])}、"
+          f"資料年度 {facts['data_years_available']}）")
+
+
+if __name__ == "__main__":
+    if hasattr(sys.stdout, "reconfigure"):
+        sys.stdout.reconfigure(encoding="utf-8")
+    main()

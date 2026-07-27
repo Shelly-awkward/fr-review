@@ -1,0 +1,8 @@
+{
+  "name": "fr-review-scripts",
+  "private": true,
+  "description": "財報實審產線 Word 產生器依賴（npm install 後：node gen_checklist_docx.js <content.json> <out.docx>）",
+  "dependencies": {
+    "docx": "^9.7.1"
+  }
+}

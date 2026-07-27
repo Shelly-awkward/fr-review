@@ -1,0 +1,19 @@
+# 搶救自 FR_extract 的私有工作底稿，僅供本機 golden case 對照，永不進公開 repo
+_salvage/
+
+# 產出物（每案成品由使用者自行決定去處，不進公開 repo）
+out/
+
+# 客戶清單／選案資料屬檢查機密
+clients_*.txt
+clients_*.json
+
+# Node
+node_modules/
+
+# Python
+__pycache__/
+*.pyc
+
+# 原始 HTML 存證檔體積大，公開 repo 只留 pretrip JSON（要重現請自行重抓）
+data/*.html.gz
