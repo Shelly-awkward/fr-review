@@ -9,6 +9,28 @@
    18 項檢查表勾選＋五段說明，數字面由程式寫死、質性段落由 AI 依規則填寫，
    公司未回覆前的事項一律標「擬行前查證」。
 
+## 給同事用：一個網址，什麼都不用裝
+
+**<https://shelly-awkward.github.io/fr-review/>**
+
+輸入股票代號 → 下載 Excel 查詢函 → 複製一段文字貼給任何聊天型 AI（ChatGPT／Gemini／
+Copilot／Claude 皆可）→ 把 AI 回的內容貼回網頁 → 下載 Word 管區意見初稿。
+
+網頁在瀏覽器裡直接執行本 repo 的 Python（Pyodide），財報資料與產出**都不會離開使用者電腦**。
+內容送出前會自動驗收：數字必須有出處、不得殘留未填欄位、未提供同業平均時不得出現同業平均數值。
+
+## 年度維護（維護者一年做一次，年報 3/31 截止後）
+
+```bash
+python scripts/fetch_company_list.py          # 更新公開發行公司名單
+python scripts/fetch_archive.py --years 111,112,113,114,115   # 補抓新年度（已有的自動跳過）
+git add data && git commit -m "歸檔 <年度> 年報" && git push
+```
+
+`fetch_archive.py` 可隨時中斷再跑，已抓到的會跳過、確定沒申報的會記在
+`data/archive_status.json` 不重試。請在台灣 IP 的機器上跑（MOPS 對 GitHub runner IP
+段有間歇性封鎖），並保留預設 3 秒間隔，勿高頻打站。
+
 ## 快速開始（對 AI 說這句就好）
 
 > 參考 Shelly-awkward/fr-review，幫我寫 8304 佳聯 114年度的實審報告跟請公司說明的文件。
