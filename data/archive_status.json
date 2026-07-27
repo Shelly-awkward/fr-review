@@ -1,0 +1,21 @@
+{
+ "missing": {
+  "1592_2025Q4": "該期別無申報資料",
+  "3194_2025Q4": "該期別無申報資料",
+  "4586_2025Q4": "該期別無申報資料",
+  "6452_2025Q4": "該期別無申報資料",
+  "7746_2025Q4": "該期別無申報資料",
+  "7916_2025Q4": "該期別無申報資料",
+  "7925_2025Q4": "該期別無申報資料",
+  "7932_2025Q4": "該期別無申報資料",
+  "7934_2025Q4": "該期別無申報資料",
+  "8391_2025Q4": "該期別無申報資料"
+ },
+ "failed": {
+  "5835_2025Q4": "l(host='mopsov.twse.com.tw', port=443): Max retries exceeded with url: /server-java/t164sb01?step=1&CO_ID=5835&SYEAR=2025&SSEASON=4&REPORT_ID=C (Caused by NewConnectionError(\"HTTPSConnection(host='mopsov.twse.com.tw', port=443): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+  "5901_2025Q4": "l(host='mopsov.twse.com.tw', port=443): Max retries exceeded with url: /server-java/t164sb01?step=1&CO_ID=5901&SYEAR=2025&SSEASON=4&REPORT_ID=C (Caused by NewConnectionError(\"HTTPSConnection(host='mopsov.twse.com.tw', port=443): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+  "8943_2025Q4": "l(host='mopsov.twse.com.tw', port=443): Max retries exceeded with url: /server-java/t164sb01?step=1&CO_ID=8943&SYEAR=2025&SSEASON=4&REPORT_ID=C (Caused by NewConnectionError(\"HTTPSConnection(host='mopsov.twse.com.tw', port=443): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+  "8956_2025Q4": "l(host='mopsov.twse.com.tw', port=443): Max retries exceeded with url: /server-java/t164sb01?step=1&CO_ID=8956&SYEAR=2025&SSEASON=4&REPORT_ID=C (Caused by NewConnectionError(\"HTTPSConnection(host='mopsov.twse.com.tw', port=443): Failed to establish a new connection: [Errno 111] Connection refused\"))",
+  "9984_2025Q4": "l(host='mopsov.twse.com.tw', port=443): Max retries exceeded with url: /server-java/t164sb01?step=1&CO_ID=9984&SYEAR=2025&SSEASON=4&REPORT_ID=C (Caused by NewConnectionError(\"HTTPSConnection(host='mopsov.twse.com.tw', port=443): Failed to establish a new connection: [Errno 111] Connection refused\"))"
+ }
+}
