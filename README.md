@@ -32,7 +32,8 @@ AI 請讀 **[REVIEW_PROMPT.md](REVIEW_PROMPT.md)**（完整四步流程、判斷
         python scripts/check_content.py …     ← 驗收閘門（佔位字／結構／數字抽核）
 
 產出層  python scripts/gen_inquiry_xlsx.py …  → Excel 查詢函
-        node scripts/gen_checklist_docx.js …  → Word 管區意見
+        python scripts/gen_checklist_docx.py … → Word 管區意見（python-docx 版）
+        node   scripts/gen_checklist_docx.js … → Word 管區意見（docx-js 版，輸出相同）
 ```
 
 **分工鐵律**：Python 只算數字、AI 只填文字，互不越界。同業平均等拿不到的資料
@@ -49,8 +50,9 @@ AI 請讀 **[REVIEW_PROMPT.md](REVIEW_PROMPT.md)**（完整四步流程、判斷
 
 ## 環境需求
 
-- Python 3.10+，`pip install requests openpyxl`
-- Node 18+，`cd scripts && npm install`（docx 產生器）
+- Python 3.10+，`pip install requests openpyxl python-docx`
+- Node 18+（選用）：`cd scripts && npm install`——只有想用 docx-js 版產生器時才需要，
+  Word 產出走 Python 版即可，純 Python 環境（含多數 AI 沙箱）也能跑完全程
 - 抓取需能連 mopsov.twse.com.tw（台灣 IP 最穩；GitHub Actions 間歇被 WAF 擋，重推即可）
 
 ## 範例

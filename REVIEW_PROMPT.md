@@ -81,7 +81,17 @@ python scripts/gen_inquiry_xlsx.py out/8304_114_inquiry.json "out/8304_114_財�
 
 ```bash
 python scripts/check_content.py out/8304_114_checklist_content.json --review out/8304_114_review_content.json
-cd scripts && npm install && cd ..
+```
+
+閘門過了才產 Word。兩支產生器輸出**完全相同**，看你的環境有什麼就用哪支：
+
+```bash
+# 有 Python（pip install python-docx）——沒有 Node 的環境用這支
+python scripts/gen_checklist_docx.py out/8304_114_checklist_content.json "out/佳聯有線電視(8304)114年度財務報告實審_公告檢查表-管區意見.docx"
+```
+
+```bash
+# 有 Node（cd scripts && npm install）
 node scripts/gen_checklist_docx.js out/8304_114_checklist_content.json "out/佳聯有線電視(8304)114年度財務報告實審_公告檢查表-管區意見.docx"
 ```
 
