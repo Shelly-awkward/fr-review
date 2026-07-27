@@ -15,6 +15,14 @@
 
 AI 請讀 **[REVIEW_PROMPT.md](REVIEW_PROMPT.md)**（完整四步流程、判斷規則、禁止事項、驗收清單）。
 
+### 對方 AI 沒有終端機怎麼辦
+
+| AI 的能力 | 走哪條路 |
+|-----------|----------|
+| 有終端機（Gemini CLI、Copilot CLI、Codex CLI、Claude Code、VS Code agent mode） | 直接照 [REVIEW_PROMPT.md](REVIEW_PROMPT.md)，它自己會 clone、裝套件、跑腳本 |
+| 有 Python 沙箱但不能連網（ChatGPT 網頁版等） | 你把 repo 下載成 zip 上傳給它，其餘照 REVIEW_PROMPT.md；Word 用 `gen_checklist_docx.py`（沙箱通常沒有 Node） |
+| 純聊天、什麼都不能執行 | 走 **[PASTE_PROMPT.md](PASTE_PROMPT.md)**：你在本機跑腳本算數字，只把質性層那一段貼給 AI |
+
 ## 架構
 
 ```
