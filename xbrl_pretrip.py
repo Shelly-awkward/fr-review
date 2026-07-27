@@ -170,6 +170,17 @@ _NOTE_TEXT_CONCEPTS = [
     "SubsidiariesNotConsolidatedInTheFinancialStatements",
     "PrinciplesOfConsolidation",
     "OtherTransactionWithRelatedParties",
+    # ↓ 實審「財務報告審閱說明」四項所需之會計政策原文——有了這些，管區意見的
+    #   「認列及衡量」段才寫得出公司特定政策，而非一句「擬行前核閱財報附註確認」
+    "Leasing",                          # IFRS16 租賃
+    "FinancialInstruments",             # IFRS9 認列衡量＋IFRS7 揭露
+    "RevenueRecognition",               # IFRS15 收入
+    "InvestmentsInAssociates",          # IAS28／IFRS10 控制與重大影響力判斷
+    "ImpairmentOfNonFinancialAsset",    # 減損評估（風險事項常引用）
+    "PropertyPlantAndEquipment",        # 占比常最大的資產科目
+    "ApplicationOfNewlyIssuedOrAmendedStandardsAndInterpretations",
+    "GuaranteesAmongRelatedParties",    # 背書保證
+    "ScheduleOfTradeAndOtherReceivables",
 ]
 
 _META_CONCEPTS = ["CompanyID", "CompanyChineseName", "CompanyEnglishName",

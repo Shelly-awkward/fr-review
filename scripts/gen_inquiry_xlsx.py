@@ -56,9 +56,29 @@ def main():
 
     wb = Workbook()
 
-    # ---- 差異說明 ----
+    # ---- 科目分析（完整性）：每個科目都列，看得出全部分析過 ----
     ws = wb.active
-    ws.title = "差異說明"
+    ws.title = "科目分析"
+    ws.cell(1, 1, f"{meta['company']}（{meta['co']}）{roc}年度　科目分析總表").font = FONT_T
+    ws.cell(2, 1, "本表列出所有分析科目及其分析門檻；標「★達標」者已於「差異說明」"
+                  "工作表出題請公司說明，未達標者亦列示以資覆核完整性。"
+                  "單位：新臺幣千元；比率為 % 或次。").font = FONT
+    cols = ["類別", "項目", f"{roc}年度", f"{roc-1}年度", "增減", "變動%",
+            "分析門檻", "是否達標", "對應題號", "備註"]
+    put_row(ws, 4, cols, header=True)
+    r = 5
+    for item in q.get("analysis", []):
+        put_row(ws, r, [na(item.get(c)) for c in cols])
+        if item.get("是否達標") == "★達標":
+            for c in range(1, len(cols) + 1):
+                ws.cell(row=r, column=c).fill = NOTE_FILL
+        r += 1
+    ws.freeze_panes = "A5"
+    for col, w in zip("ABCDEFGHIJ", [11, 22, 15, 15, 14, 11, 30, 12, 12, 40]):
+        ws.column_dimensions[col].width = w
+
+    # ---- 差異說明 ----
+    ws = wb.create_sheet("差異說明")
     ws.cell(1, 1, f"{meta['company']}（{meta['co']}）{roc}年度財務報告說明").font = FONT_T
     ws.cell(2, 1, "請貴公司就下列事項逐項說明，並檢附相關佐證文件；「說明」欄由貴公司填寫。"
             ).font = FONT

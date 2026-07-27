@@ -161,6 +161,24 @@ def turnover(numer, end, beg):
     return round(numer / ((end + beg) / 2), 2)
 
 
+ASSET_ITEMS = ["現金及約當現金", "應收票據", "應收帳款", "應收帳款-關係人", "其他應收款",
+               "其他應收款-關係人", "預付款項", "存貨", "採用權益法之投資",
+               "不動產廠房及設備", "使用權資產"]
+
+
+def asset_mix(vals: dict) -> list:
+    """資產科目佔資產總額比重，由大到小——風險事項優先從占比大的科目挑。"""
+    total = vals.get("資產總額")
+    if not total:
+        return []
+    out = []
+    for it in ASSET_ITEMS:
+        v = vals.get(it)
+        if v:
+            out.append({"item": it, "amount": v, "pct": round(v / total * 100, 1)})
+    return sorted(out, key=lambda x: -x["pct"])
+
+
 def company_ratios(series: dict, y: int) -> dict:
     """個別公司六比率（與公開資訊觀測站財務業務資訊同口徑）。缺基礎數＝None。"""
     cur, prev = series.get(y, {}), series.get(y - 1, {})
@@ -183,14 +201,17 @@ def company_ratios(series: dict, y: int) -> dict:
 PL_ITEMS = ["營業收入", "營業毛利", "營業損益", "稅前損益"]
 
 
-def build_questions(series, y, ratios, ratios_prev, peer, tuples, meta):
+def build_questions(series, y, ratios, ratios_prev, peer, tuples, meta, qmap=None):
+    """回傳題目清單；qmap 為 dict 時另記錄「觸發項目 → 題號」，供分析表回溯完整性。"""
     roc = to_roc(y)
     cur, prev = series.get(y, {}), series.get(y - 1, {})
     qs = []
 
-    def add(cat, text, prefill=""):
-        qs.append({"id": f"Q{len(qs)+1:02d}", "category": cat,
-                   "question": text, "prefill": prefill})
+    def add(cat, text, prefill="", key=None):
+        qid = f"Q{len(qs)+1:02d}"
+        qs.append({"id": qid, "category": cat, "question": text, "prefill": prefill})
+        if qmap is not None and key:
+            qmap.setdefault(key, []).append(qid)
 
     # 1. 損益四項變動達 30%
     for it in PL_ITEMS:
@@ -199,7 +220,7 @@ def build_questions(series, y, ratios, ratios_prev, peer, tuples, meta):
             add("損益變動",
                 f"{roc}年度{it}較{roc-1}年度變動達30%以上，請說明變動原因及合理性。",
                 f"{roc}年度 {fmt(cur.get(it))}／{roc-1}年度 {fmt(prev.get(it))}／"
-                f"變動 {fmt_pct(ch)}")
+                f"變動 {fmt_pct(ch)}", key=f"變動:{it}")
 
     # 2. 變動成長率（本期成長率－去年同期成長率）差異達 10 個百分點
     prev2 = series.get(y - 2, {})
@@ -210,7 +231,7 @@ def build_questions(series, y, ratios, ratios_prev, peer, tuples, meta):
             add("成長率差異",
                 f"{it}成長率本期與去年同期差異達10個百分點以上，請說明原因。",
                 f"{roc}年度成長率 {fmt_pct(g_cur)}／{roc-1}年度成長率 {fmt_pct(g_prev)}／"
-                f"差異 {abs(round(g_cur - g_prev, 2))} 個百分點")
+                f"差異 {abs(round(g_cur - g_prev, 2))} 個百分點", key=f"成長率差異:{it}")
 
     # 3. 週轉率變動達 10%
     for name in ("應收款項週轉率", "存貨週轉率"):
@@ -219,7 +240,8 @@ def build_questions(series, y, ratios, ratios_prev, peer, tuples, meta):
         if ch is not None and abs(ch) >= 10:
             add("週轉率",
                 f"{name}本期與去年同期變動差異達10%以上，請說明原因。",
-                f"{roc}年度 {t_cur}次／{roc-1}年度 {t_prev}次／變動 {fmt_pct(ch)}")
+                f"{roc}年度 {t_cur}次／{roc-1}年度 {t_prev}次／變動 {fmt_pct(ch)}",
+                key=f"變動:{name}")
 
     # 4. 與同業平均比較（無資料則出題但留待貼入）
     for rname, rv in ratios.items():
@@ -231,12 +253,13 @@ def build_questions(series, y, ratios, ratios_prev, peer, tuples, meta):
             if trigger:
                 add("同業比較",
                     f"{rname}與上市櫃同業平均差異達10%（或10個百分點）以上，請說明原因。",
-                    f"公司 {rv}{unit}／上市櫃同業平均 {pv}{unit}")
+                    f"公司 {rv}{unit}／上市櫃同業平均 {pv}{unit}", key=f"同業:{rname}")
         elif rv is not None:
             add("同業比較",
                 f"{rname}與上市櫃同業平均及所有同業平均之比較，如差異達10%（或10個百分點）"
                 f"以上請說明原因。（同業平均請自公開資訊觀測站財務業務資訊查填）",
-                f"公司 {rv}{'次' if '週轉' in rname else '%'}／同業平均：請自公開資訊觀測站貼入")
+                f"公司 {rv}{'次' if '週轉' in rname else '%'}／同業平均：請自公開資訊觀測站貼入",
+                key=f"同業:{rname}")
 
     # 5. 其他應收款／預付款項／轉投資大幅增加（增幅≥30% 且期末達資產總額 1%）
     assets = cur.get("資產總額")
@@ -247,20 +270,31 @@ def build_questions(series, y, ratios, ratios_prev, peer, tuples, meta):
             add("資產負債項目",
                 f"{it}本期大幅增加，請說明增加原因、性質及必要性。",
                 f"{roc}年度 {fmt(cur.get(it))}／{roc-1}年度 {fmt(prev.get(it))}／"
-                f"增加 {fmt_pct(ch)}")
+                f"增加 {fmt_pct(ch)}", key=f"變動:{it}")
+
+    # 5.5 占比最大的資產科目——就前三大（且達資產10%）請公司說明組成與評價
+    for a in [x for x in asset_mix(cur) if x["pct"] >= 10][:3]:
+        ch = pct(cur.get(a["item"]), prev.get(a["item"]))
+        add("重大資產科目",
+            f"{a['item']}佔資產總額{a['pct']}%，為重大資產項目，請說明其組成內容、"
+            f"評價方法及重要假設，並說明有無減損跡象及評估情形。",
+            f"{roc}年度 {fmt(a['amount'])}（佔資產{a['pct']}%）"
+            + (f"／{roc-1}年度 {fmt(prev.get(a['item']))}／變動 {fmt_pct(ch)}"
+               if ch is not None else ""), key=f"占比:{a['item']}")
 
     # 6. 減損
     if cur.get("減損損失"):
         add("減損",
             "本期認列資產減損損失，請說明減損標的、減損跡象、可回收金額之評估方法"
             "與重要假設（折現率、成長率等），並提供評價報告。",
-            f"{roc}年度認列減損損失 {fmt(cur.get('減損損失'))}")
+            f"{roc}年度認列減損損失 {fmt(cur.get('減損損失'))}", key="變動:減損損失")
 
     # 7. OCI
     if cur.get("其他綜合損益") is not None:
         add("其他綜合損益",
             "請說明本期其他綜合損益組成項目之變動內容及原因。",
-            f"{roc}年度 {fmt(cur.get('其他綜合損益'))}／{roc-1}年度 {fmt(prev.get('其他綜合損益'))}")
+            f"{roc}年度 {fmt(cur.get('其他綜合損益'))}／{roc-1}年度 {fmt(prev.get('其他綜合損益'))}",
+        key="變動:其他綜合損益")
 
     # 8. IFRS 專項（各一題，帶財報既有數字）
     add("IFRS16",
@@ -314,6 +348,96 @@ def build_questions(series, y, ratios, ratios_prev, peer, tuples, meta):
         "請提供進修時數證明及申報紀錄。", "")
     add("會計主管", "會計主管有無同辦法第4條所列消極資格情事？", "")
     return qs
+
+
+def build_analysis(series, y, ratios, ratios_prev, peer, qmap):
+    """全科目分析表——每個科目都列，看得出「都分析過」而非只列達標者。
+
+    欄位：類別／項目／本期／上期／增減／變動%／分析門檻／是否達標／對應題號。
+    這是回溯完整性的依據：未達標者也在表上並註明門檻，不是漏掉。
+    """
+    roc = to_roc(y)
+    cur, prev, prev2 = series.get(y, {}), series.get(y - 1, {}), series.get(y - 2, {})
+    total = cur.get("資產總額")
+    rows = []
+
+    def row(cat, item, c, p, thr, hit, key=None, extra=""):
+        d = (c - p) if (c is not None and p is not None) else None
+        # 前期為 0／無值而本期有數＝本期新增，屬應說明事項（變動率算不出來不代表沒事）
+        new_item = bool(c) and not p
+        rows.append({
+            "類別": cat, "項目": item,
+            f"{roc}年度": c, f"{roc - 1}年度": p,
+            "增減": round(d, 4) if isinstance(d, float) else d,
+            "變動%": pct(c, p),
+            "分析門檻": thr,
+            "是否達標": ("★達標（本期新增）" if new_item
+                       else "－（缺資料）" if c is None
+                       else "★達標" if hit else "未達標"),
+            "對應題號": "、".join(qmap.get(key, [])) if key else "",
+            "備註": extra,
+        })
+
+    # 四大損益項（金管會檢查表指定）與其他損益科目分開標示門檻依據
+    main_qs = "、".join(dict.fromkeys(
+        sum((qmap.get(f"變動:{it}", []) for it in PL_ITEMS), [])))
+    for it in PL_ITEMS:
+        ch = pct(cur.get(it), prev.get(it))
+        row("損益（檢查表指定）", it, cur.get(it), prev.get(it), "變動達30%",
+            ch is not None and abs(ch) >= 30, f"變動:{it}")
+    for it in ["本期淨利", "其他綜合損益", "綜合損益", "減損損失",
+               "採用權益法之投資損益份額", "每股盈餘(元)"]:
+        ch = pct(cur.get(it), prev.get(it))
+        hit = ch is not None and abs(ch) >= 30
+        note = ""
+        if hit and not qmap.get(f"變動:{it}"):
+            note = (f"變動原因與營業損益／稅前損益同源，併同 {main_qs} 說明"
+                    if main_qs else "請併同損益變動題項說明")
+        row("損益（延伸覆核）", it, cur.get(it), prev.get(it), "變動達30%",
+            hit, f"變動:{it}", note)
+
+    for it in PL_ITEMS + ["綜合損益"]:
+        g_c, g_p = pct(cur.get(it), prev.get(it)), pct(prev.get(it), prev2.get(it))
+        d = abs(g_c - g_p) if (g_c is not None and g_p is not None) else None
+        rows.append({
+            "類別": "成長率差異", "項目": f"{it}成長率",
+            f"{roc}年度": g_c, f"{roc - 1}年度": g_p,
+            "增減": round(d, 2) if d is not None else None, "變動%": None,
+            "分析門檻": "兩期成長率差異達10個百分點",
+            "是否達標": ("－（缺資料）" if d is None else ("★達標" if d >= 10 else "未達標")),
+            "對應題號": "、".join(qmap.get(f"成長率差異:{it}", [])),
+            "備註": "基期為負，成長率不具比較意義" if (prev2.get(it) or 0) < 0 else "",
+        })
+
+    for it in ASSET_ITEMS + ["資產總額", "負債總額", "淨值", "合約負債-流動",
+                             "租賃負債-流動", "租賃負債-非流動", "應付帳款及票據"]:
+        c, p = cur.get(it), prev.get(it)
+        ch = pct(c, p)
+        share = round(c / total * 100, 1) if (c and total) else None
+        big = share is not None and share >= 10 and it in ASSET_ITEMS
+        jump = ch is not None and ch >= 30 and c and total and c >= total * 0.01
+        row("資產負債", it, c, p, "佔資產達10% 或 增加達30%", bool(big or jump),
+            f"占比:{it}" if big else f"變動:{it}",
+            f"佔資產總額 {share}%" if share is not None else "")
+
+    for name, v in ratios.items():
+        pv = ratios_prev.get(name)
+        ch = pct(v, pv)
+        peer_v = ((peer or {}).get("上市櫃同業平均") or {}).get(name)
+        rows.append({
+            "類別": "財務比率", "項目": name,
+            f"{roc}年度": v, f"{roc - 1}年度": pv,
+            "增減": round(v - pv, 2) if (v is not None and pv is not None) else None,
+            "變動%": ch,
+            "分析門檻": "兩期變動達10%；與同業平均差異達10%",
+            "是否達標": ("－（缺資料）" if v is None or pv is None
+                       else ("★達標" if (ch is not None and abs(ch) >= 10) else "未達標")),
+            "對應題號": "、".join(dict.fromkeys(
+                qmap.get(f"變動:{name}", []) + qmap.get(f"同業:{name}", []))),
+            "備註": (f"上市櫃同業平均 {peer_v}" if peer_v is not None
+                   else "同業平均未提供，請自公開資訊觀測站財務業務資訊查填後比較"),
+        })
+    return rows
 
 
 # ---------- 管區意見骨架 ----------
@@ -386,14 +510,27 @@ def build_checklist_draft(co, roc, meta, audit, series, y, ratios, ratios_prev,
 
     # --- 五段說明骨架 ---
     # 一、風險事項候選（數字訊號＋AI 判斷取捨）
+    # 占比最大的資產科目優先列為風險事項——帳面重大者一旦評價有誤，對財報影響最大
     risk_paras = []
-    inv = cur.get("採用權益法之投資")
-    if inv and cur.get("資產總額") and inv / cur["資產總額"] >= 0.10:
-        risk_paras.append({"h": "（候選風險）採用權益法之投資之減損評估：", "paras": [
-            f"「採用權益法之投資」期末帳面金額{fmt(inv)}，佔資產總額之"
-            f"{round(inv / cur['資產總額'] * 100, 1)}%。"
-            + AI + "逐一列出被投資公司帳面金額／持股／本期損益（見 facts.investees 與 "
-            "red_flags），減損評估之因應措施屬公司才答得出者寫「擬行前查證」】"]})
+    mix = asset_mix(cur)
+    for a in [x for x in mix if x["pct"] >= 10][:3]:
+        it, amt, p = a["item"], a["amount"], a["pct"]
+        ch = pct(amt, prev.get(it))
+        base = (f"「{it}」期末帳面金額{fmt(amt)}，佔資產總額之{p}%"
+                + (f"，較{roc - 1}年度變動{fmt_pct(ch)}" if ch is not None else "")
+                + "，對財務報表影響重大，故將其列為風險事項。")
+        if it == "採用權益法之投資":
+            risk_paras.append({"h": f"（候選風險）{it}之減損評估：", "paras": [
+                base + AI + "逐一列出被投資公司帳面金額／持股／本期損益"
+                "（見 facts.investees 與 red_flags）；減損評估之因應措施屬公司才答得出者"
+                "寫「擬行前查證」】"]})
+        elif it == "現金及約當現金":
+            continue          # 現金部位大非屬風險，除非有其他訊號，交由 AI 判斷
+        else:
+            risk_paras.append({"h": f"（候選風險）{it}之評價及組成：", "paras": [
+                base + AI + f"依財報附註說明{it}之組成與評價方法；公司才答得出的部分"
+                "（評價假設、個別客戶／標的狀況）寫「擬行前請公司說明」；"
+                "若經判斷不成立則整段刪除】"]})
     ptx_chg = chg("稅前損益")
     if ptx_chg is not None and ptx_chg <= -30:
         risk_paras.append({"h": "（候選風險）獲利持續衰退：", "paras": [
@@ -473,8 +610,8 @@ def build_checklist_draft(co, roc, meta, audit, series, y, ratios, ratios_prev,
       {"title": "三、財務報告審閱說明", "body": [
         {"h": "（一）使用權資產及租賃負債是否依IFRS16規定認列及衡量並揭露攸關資訊。",
          "paras": [
-            AI + "認列及衡量：租賃標的、豁免適用、衡量方法——依財報附註會計政策寫實，"
-            "不得抄範例】",
+            AI + "認列及衡量：依 facts.notes.Leasing 原文摘寫該公司租賃政策（租賃標的、"
+            "豁免適用、使用權資產與租賃負債之衡量）；該節缺漏才寫「擬行前核閱財報附註確認」】",
             f"財報揭露：已認列使用權資產{fmt(cur.get('使用權資產'))}及租賃負債-流動"
             f"{fmt(cur.get('租賃負債-流動'))}、租賃負債-非流動{fmt(cur.get('租賃負債-非流動'))}。"
             + AI + "揭露內容評述；關係人租賃寫「擬行前抽閱租約」】"]},
@@ -483,18 +620,21 @@ def build_checklist_draft(co, roc, meta, audit, series, y, ratios, ratios_prev,
             f"認列及衡量：主要金融資產部位——現金及約當現金{fmt(cur.get('現金及約當現金'))}、"
             f"應收款項合計{fmt(receivables(cur))}、其他應收款-關係人"
             f"{fmt(cur.get('其他應收款-關係人'))}。"
-            + AI + "分類（攤銷後成本/FVOCI/FVTPL）依財報附註寫實】",
-            AI + "財報揭露：預期信用損失評估方法、帳齡分布（tuples.AgeDistributionAndAmount"
-            " 有數字）、信用風險揭露評述】"]},
+            + AI + "分類（攤銷後成本/FVOCI/FVTPL）依 facts.notes.FinancialInstruments 原文摘寫】",
+            AI + "財報揭露：預期信用損失評估方法（facts.notes.FinancialInstruments 與 "
+            "ScheduleOfTradeAndOtherReceivables）、帳齡分布（facts.age_distribution 有數字）、"
+            "信用風險揭露評述】"]},
         {"h": "（三）客戶合約之收入是否依IFRS15規定認列及衡量並為相關揭露。",
          "paras": [
-            AI + "認列及衡量：收入類別與認列時點依財報附註寫實】",
+            AI + "認列及衡量：依 facts.notes.RevenueRecognition 原文摘寫收入類別與認列時點"
+            "（某一時點／隨時間逐步）】",
             f"財報揭露：{roc}年度營業收入{fmt(cur.get('營業收入'))}；期末合約負債"
             f"{fmt(cur.get('合約負債-流動'))}（{roc - 1}年度{fmt(prev.get('合約負債-流動'))}）。"
             + AI + "合約負債性質與變動方向是否與業務模式一致】"]},
         {"h": "（四）對被投資公司持股未逾50%且為單一最大股東者，是否依IFRS10第B38~B50段評估權力並揭露重大判斷。",
          "paras": [
-            AI + "被投資公司清單見 facts.investees（名稱/持股/帳面/損益）。評估三要件、"
+            AI + "被投資公司清單見 facts.investees（名稱/持股/帳面/損益），權益法政策見 "
+            "facts.notes.InvestmentsInAssociates。評估三要件、"
             "重大影響力判斷（董事席次、綜合持股）；持股低仍採權益法者寫「佐證文件擬行前調閱」，"
             "並評估集團有無構成控制而應納入他方合併個體】"]},
       ]},
@@ -641,6 +781,7 @@ def main():
         "changes_pct": {it: pct(series.get(y, {}).get(it), series.get(y - 1, {}).get(it))
                         for it in list(METRICS_FLOW) + list(METRICS_STOCK)},
         "ratios": ratios, "ratios_prior": ratios_prev,
+        "asset_mix": asset_mix(series.get(y, {})),
         "peer_avg": peer or "（未提供，Excel 相應欄留白待貼）",
         "six_year": six_year, "growth": growth,
         "loans": tuples.get("LoansToOthers") or [],
@@ -650,10 +791,14 @@ def main():
             "FinancialStatementAccountAndCategoriesOfRelatedPartiesAndAmount") or [],
         "investees": investees,
         "red_flags": red_flags,
+        # 財報附註原文（會計政策）——「認列及衡量」段須據此摘寫，不得憑印象編寫
+        "notes": main_pt.get("notes_text", {}),
         "data_years_available": sorted(to_roc(k) for k in series),
     }
 
-    questions = build_questions(series, y, ratios, ratios_prev, peer, tuples, meta)
+    qmap = {}
+    questions = build_questions(series, y, ratios, ratios_prev, peer, tuples, meta, qmap)
+    analysis = build_analysis(series, y, ratios, ratios_prev, peer, qmap)
     inquiry = {
         "meta": {"co": a.co, "roc_year": roc, "company": meta.get("CompanyChineseName"),
                  "industry": meta.get("IndustrySector"),
@@ -666,6 +811,7 @@ def main():
                    "上市櫃同業平均": (peer or {}).get("上市櫃同業平均"),
                    "所有同業平均": (peer or {}).get("所有同業平均")},
         "questions": questions,
+        "analysis": analysis,
     }
 
     draft = build_checklist_draft(a.co, roc, meta, audit, series, y, ratios,
@@ -679,7 +825,13 @@ def main():
         json.dump(inquiry, f, ensure_ascii=False, indent=1)
     with open(p2, "w", encoding="utf-8") as f:
         json.dump(review, f, ensure_ascii=False, indent=1)
-    print(f"✔ {p1}（題目 {len(questions)} 題）")
+    # 完整性不變式：每個達標科目都必須有對應題號或說明，否則就是分析漏網
+    orphan = [r["項目"] for r in analysis
+              if r["是否達標"].startswith("★") and not r["對應題號"] and not r["備註"]]
+    if orphan:
+        print(f"⚠ 下列科目達分析門檻卻未出題亦無說明，請檢查出題規則：{orphan}")
+    hit = sum(1 for r in analysis if r["是否達標"].startswith("★"))
+    print(f"✔ {p1}（題目 {len(questions)} 題；分析表 {len(analysis)} 個科目，達標 {hit} 項）")
     print(f"✔ {p2}（風險候選 {len(draft['sections'][0]['body'])}、"
           f"資料年度 {facts['data_years_available']}）")
 
