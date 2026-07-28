@@ -23,7 +23,7 @@ from docx.enum.text import WD_ALIGN_PARAGRAPH, WD_BREAK
 from docx.oxml.ns import qn
 from docx.shared import Pt, RGBColor, Twips
 
-FONT = "PMingLiU"          # 新細明體，貼近原模板
+FONT = "標楷體"            # 公文慣用字型（Windows 內部名 DFKai-SB）
 W = {"g": 1300, "t": 5200, "y": 900, "n": 900, "b": 1740}   # DXA（＝twips）
 
 # 需要人工處理的字樣→整句標紅字，避免承辦漏看
