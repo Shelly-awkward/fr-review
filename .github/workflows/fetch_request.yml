@@ -52,6 +52,6 @@ jobs:
             echo "無新資料，跳過 commit"
           else
             git commit -m "自動抓取 MOPS XBRL 勤前包（$(date -u +%F)）"
-            git pull --rebase origin main
-            git push
+            git pull --rebase origin "$GITHUB_REF_NAME"
+            git push origin HEAD:"$GITHUB_REF_NAME"
           fi
