@@ -25,6 +25,8 @@ def build(data_dir: str) -> dict:
         co, ad_year, season = m.group(1), int(m.group(2)), int(m.group(3))
         if season != 4:
             continue          # 網頁版只處理年度財報
+        if len(co) != 4:
+            continue          # 實審僅涵蓋 4 碼代碼；6 碼（證券商等）不列入網頁清單
         try:
             with open(path, encoding="utf-8") as f:
                 meta = json.load(f).get("meta", {})

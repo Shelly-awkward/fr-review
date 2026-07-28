@@ -113,6 +113,8 @@ Google Drive 交換區：`G:／我的雲端硬碟／fr-review交換區`
 
 1. 排程會自動跑；也可 GitHub → Actions → 「財報歸檔」→ Run workflow 手動執行
    （可指定年度、期別；或本機跑 `fetch_archive.py [--quarter 2]`）。
+   抓取範圍＝**股票代碼 4 碼**之公發公司（6 碼證券商等不在實審範圍，預設篩除，
+   `--include-six` 可強制含入；網頁清單同樣只列 4 碼）。
 2. MOPS 會間歇性封鎖 GitHub 的 IP，雲端失敗率高時改在**台灣 IP 的本機**補跑。
 3. 抓完 commit push，網站自動更新（`data/index.json` 由腳本自動重建）。
 4. ⚠ 網站與文件產線目前**只支援年度財報**（`make_data_index` 略過非 Q4）；

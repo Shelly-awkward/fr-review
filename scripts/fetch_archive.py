@@ -68,10 +68,15 @@ def main():
     ap.add_argument("--sleep", type=float, default=3.0, help="每次請求間隔秒數（預設 3）")
     ap.add_argument("--retry-missing", action="store_true",
                     help="連同前次判定「未申報」者一併重試（預設跳過）")
+    ap.add_argument("--include-six", action="store_true",
+                    help="連 6 碼代碼（證券商等）一併抓（預設僅 4 碼，實審範圍）")
     a = ap.parse_args()
 
     with open(a.companies, encoding="utf-8") as f:
         cos = json.load(f)["companies"]
+    if not a.include_six:
+        # 實審僅涵蓋股票代碼 4 碼之公開發行公司；6 碼（證券商等）不在範圍
+        cos = [c for c in cos if len(c["co"]) == 4]
     if a.only:
         want = {c.strip() for c in a.only.split(",")}
         cos = [c for c in cos if c["co"] in want]
