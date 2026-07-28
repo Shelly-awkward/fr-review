@@ -14,16 +14,40 @@ gen_checklist_docx.py — 管區意見內容 JSON → Word（python-docx 版）�
 import argparse
 import json
 import os
+import re
 import sys
 
 from docx import Document
 from docx.enum.table import WD_ALIGN_VERTICAL
 from docx.enum.text import WD_ALIGN_PARAGRAPH, WD_BREAK
 from docx.oxml.ns import qn
-from docx.shared import Pt, Twips
+from docx.shared import Pt, RGBColor, Twips
 
 FONT = "PMingLiU"          # 新細明體，貼近原模板
 W = {"g": 1300, "t": 5200, "y": 900, "n": 900, "b": 1740}   # DXA（＝twips）
+
+# 需要人工處理的字樣→整句標紅字，避免承辦漏看
+RED = RGBColor(0xC0, 0x00, 0x00)
+RED_MARKERS = ("請自行", "洽公司", "請公司說明", "請向公司", "第＿頁", "查填")
+
+
+def _segments(text):
+    """切段供標紅：先把「（…第＿頁…）」括號段獨立出來（只紅括號、不紅整句），
+    其餘依句號／分號切句。"""
+    for part in re.split(r"(（[^（）]*第＿頁[^（）]*）)", text):
+        if not part:
+            continue
+        if part.startswith("（") and "第＿頁" in part:
+            yield part
+            continue
+        buf = ""
+        for ch in part:
+            buf += ch
+            if ch in "。；":
+                yield buf
+                buf = ""
+        if buf:
+            yield buf
 
 
 def styled(run, size=12, bold=False):
@@ -35,10 +59,21 @@ def styled(run, size=12, bold=False):
     return run
 
 
+def add_text(p, text, size=12, bold=False):
+    """寫入一段文字：含人工待辦字樣的句段用紅字。"""
+    if not text:
+        styled(p.add_run(""), size, bold)
+        return
+    for seg in _segments(text):
+        run = styled(p.add_run(seg), size, bold)
+        if any(m in seg for m in RED_MARKERS):
+            run.font.color.rgb = RED
+
+
 def para(container, text="", size=12, bold=False, align=None, indent=None,
          after=4, line=None):
     p = container.add_paragraph()
-    styled(p.add_run(text), size, bold)
+    add_text(p, text, size, bold)
     if align is not None:
         p.alignment = align
     pf = p.paragraph_format
@@ -56,7 +91,7 @@ def fill_cell(cell, lines, size=12, bold=False, align=None):
     cell._element.clear_content()
     for line in (lines or [""]):
         p = cell.add_paragraph()
-        styled(p.add_run(line), size, bold)
+        add_text(p, line, size, bold)
         if align is not None:
             p.alignment = align
         p.paragraph_format.space_after = Pt(0)

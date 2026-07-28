@@ -384,7 +384,7 @@ $("check").onclick = async () => {
         `${state.comp.name || co}(${co})${roc}年度_財報實審複核表_初稿.docx`,
         cover, MIME_DOCX));
     } catch {}   // 舊版內容 JSON 無 cover 時僅產管區意見
-    say(el, "檢查通過。管區意見與複核表皆為公司回覆前的初稿，標示「擬行前查證」的部分請於行前補實。", "ok");
+    say(el, "檢查通過。管區意見與複核表皆為公司回覆前的初稿，標示「請自行確認」的部分請自行補實。", "ok");
   } catch (err) {
     say(el, "發生錯誤：" + err.message, "err");
   }
