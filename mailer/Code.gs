@@ -55,7 +55,7 @@ function doPost(e) {
       '產出時間：' + new Date().toLocaleString('zh-TW') + '\n' +
       '操作人備註：' + (req.note || '－') + '\n\n' +
       '附件為初稿：Word 管區意見中標示「擬行前查證」者須於行前補實，\n' +
-      '財報頁碼等 XBRL 未提供之資訊請自行補註。判斷責任在檢查員。';
+      '財報頁碼等 XBRL 未提供之資訊請自行補註。請務必自行審核。';
 
     MailApp.sendEmail({
       to: recipient,
