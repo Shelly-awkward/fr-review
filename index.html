@@ -162,6 +162,8 @@ function busy(el, msg) { el.className = "out"; el.innerHTML = '<span class="spin
 
 async function boot() {
   manifest = await (await fetch("data/index.json?" + Date.now())).json();
+  // 實審僅涵蓋 4 碼股票代碼；6 碼（證券商等）即使留在 index.json 也不列出
+  manifest.companies = manifest.companies.filter((c) => c.co.length === 4);
   renderCompanies();
   $("q").oninput = fillYears;
   $("upload").onchange = loadFiles;
