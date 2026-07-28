@@ -1,19 +1,30 @@
-# 年度歸檔：抓公開發行公司年度財報 XBRL → data/ → commit
+# 財報歸檔：抓公開發行公司財報 XBRL → data/ → commit
 #
-# 用法：GitHub 網頁 → Actions → 「年度歸檔」→ Run workflow（可填年度，預設當年度及前兩年度）。
-# 年報 3/31 截止，故 4 月之後執行即可取得最新年度。
+# 一年兩次（實審自第 2 季及年度財報抽案）：
+#   - 4 月 8 日：抓年度財報 Q4（年報 3/31 截止）
+#   - 9 月 8 日：抓半年報 Q2（半年報 8/31 截止）
+# 亦可 GitHub 網頁 → Actions → 「財報歸檔」→ Run workflow 手動執行（可指定年度、期別）。
+#
+# 注意：網頁版目前只列年度財報（make_data_index 略過非 Q4），Q2 資料先歸檔供實審抽案使用。
 #
 # ⚠ MOPS 對 GitHub runner 的 IP 段有間歇性封鎖，雲端執行可能大量失敗。
 #   本 workflow 會把成功／失敗數寫進執行摘要；若失敗過多，請在台灣 IP 的本機執行：
-#       python scripts/fetch_archive.py --years 113,114,115
+#       python scripts/fetch_archive.py --years 113,114,115 [--quarter 2]
 #   已抓到的會自動跳過，接續執行不會重抓。
-name: 年度歸檔
+name: 財報歸檔
 on:
+  schedule:
+    - cron: '0 0 8 4 *'    # 4/8 UTC＝抓年報（Q4）
+    - cron: '0 0 8 9 *'    # 9/8 UTC＝抓半年報（Q2）
   workflow_dispatch:
     inputs:
       years:
         description: 民國年度（逗號分隔；留空＝當年度及前兩年度）
         required: false
+      quarter:
+        description: 期別（4＝年報、2＝半年報）
+        required: false
+        default: '4'
       only:
         description: 只抓這些股號（逗號分隔，測試用；留空＝全部）
         required: false
@@ -47,18 +58,29 @@ jobs:
         if: inputs.refresh_list != 'false'
         run: python scripts/fetch_company_list.py || echo "名單更新失敗，沿用既有 companies.json"
 
-      - name: 抓取年度財報
+      - name: 抓取財報
         id: fetch
         run: |
+          # 期別：手動執行看輸入值；排程執行依月份自動判斷（9 月起＝當年半年報 Q2，否則年報 Q4）
+          Q="${{ inputs.quarter }}"
+          M=$(date -u +%-m)
+          if [ -z "$Q" ]; then
+            if [ "$M" -ge 9 ]; then Q=2; else Q=4; fi
+          fi
           if [ -n "${{ inputs.years }}" ]; then
             YEARS="${{ inputs.years }}"
+          elif [ "$Q" = "2" ]; then
+            # 半年報 8/31 截止，9 月起當年度即可得；抓當年度及前兩年度
+            Y=$(( $(date -u +%Y) - 1911 ))
+            [ "$M" -lt 9 ] && Y=$((Y-1))
+            YEARS="$((Y-2)),$((Y-1)),$Y"
           else
             # 民國年＝西元-1911；年報 3/31 截止，故以「去年」為最新可得年度
             Y=$(( $(date -u +%Y) - 1911 - 1 ))
             YEARS="$((Y-2)),$((Y-1)),$Y"
           fi
-          echo "抓取年度：$YEARS"
-          ARGS="--years $YEARS"
+          echo "抓取：Q$Q 年度 $YEARS"
+          ARGS="--years $YEARS --quarter $Q"
           if [ -n "${{ inputs.only }}" ]; then ARGS="$ARGS --only ${{ inputs.only }}"; fi
           python scripts/fetch_archive.py $ARGS 2>&1 | tee fetch.log
         continue-on-error: true    # 部分失敗仍要 commit 已抓到的部分
@@ -67,9 +89,9 @@ jobs:
         if: always()
         run: |
           {
-            echo "### 年度歸檔結果"
+            echo "### 財報歸檔結果"
             echo '```'
-            grep -E "^(對象|— 進度|完成：)" fetch.log | tail -20 || echo "（無進度輸出）"
+            grep -E "^(抓取：|對象|— 進度|完成：)" fetch.log | tail -20 || echo "（無進度輸出）"
             echo '```'
             echo "資料檔數：$(ls data/*_pretrip.json 2>/dev/null | wc -l)"
             echo ""
@@ -85,7 +107,7 @@ jobs:
           if git diff --cached --quiet; then
             echo "無新資料，跳過 commit"
           else
-            git commit -m "年度歸檔：新增財報資料（$(date -u +%F)）"
-            git pull --rebase origin main
-            git push
+            git commit -m "財報歸檔：新增財報資料（$(date -u +%F)）"
+            git pull --rebase origin "${GITHUB_REF_NAME}"
+            git push origin "HEAD:${GITHUB_REF_NAME}"
           fi

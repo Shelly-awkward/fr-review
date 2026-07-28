@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 r"""
-fetch_archive.py — 依 data/companies.json 全量抓取年度財報 → data/<股號>_<西元年>Q4_pretrip.json。
+fetch_archive.py — 依 data/companies.json 全量抓取財報 → data/<股號>_<西元年>Q<季>_pretrip.json。
 
-    python scripts/fetch_archive.py                      # 全部公司，110–114 年度
+    python scripts/fetch_archive.py                      # 全部公司，110–114 年度年報（Q4）
     python scripts/fetch_archive.py --years 112,113,114
+    python scripts/fetch_archive.py --quarter 2 --years 114   # 半年報（Q2）
     python scripts/fetch_archive.py --limit 8            # 先試跑 8 家
     python scripts/fetch_archive.py --only 8304,6464
 
@@ -13,7 +14,9 @@ fetch_archive.py — 依 data/companies.json 全量抓取年度財報 → data/<
   - 抓完更新 data/index.json（網頁的公司清單）。
   - 進度寫進 data/archive_status.json，可看哪些公司哪些年度確定沒有申報（免得每次重試）。
 
-一年跑一次即可（年報 3/31 截止，4 月跑）。MOPS 是公務機關網站，請維持 --sleep 間隔，勿高頻打站。
+一年跑兩次（年報 3/31 截止，4 月跑 Q4；半年報 8/31 截止，9 月跑 Q2）。
+注意：網頁版目前只列年度財報（make_data_index 略過非 Q4），Q2 資料先歸檔供實審抽案使用。
+MOPS 是公務機關網站，請維持 --sleep 間隔，勿高頻打站。
 """
 import argparse
 import json
@@ -58,6 +61,8 @@ def main():
     ap.add_argument("--outdir", default="data")
     ap.add_argument("--years", default="110,111,112,113,114",
                     help="民國年度，逗號分隔（預設 110–114）")
+    ap.add_argument("--quarter", type=int, default=4, choices=(2, 4),
+                    help="期別：4＝年報（預設）、2＝半年報")
     ap.add_argument("--only", default="", help="只抓這些股號（逗號分隔），測試用")
     ap.add_argument("--limit", type=int, default=0, help="只抓前 N 家，測試用")
     ap.add_argument("--sleep", type=float, default=3.0, help="每次請求間隔秒數（預設 3）")
@@ -83,7 +88,7 @@ def main():
     for c in cos:
         for roc in years:
             ad = roc + 1911
-            tag = f"{c['co']}_{ad}Q4"
+            tag = f"{c['co']}_{ad}Q{a.quarter}"
             if os.path.exists(os.path.join(a.outdir, f"{tag}_pretrip.json")):
                 continue
             if not a.retry_missing and tag in missing:
@@ -106,7 +111,7 @@ def main():
         for rid in ("C", "A"):
             sys.stdout = tee
             try:
-                done = fetch_and_save({"co": c["co"]}, ad, 4, a.outdir, False, rid)
+                done = fetch_and_save({"co": c["co"]}, ad, a.quarter, a.outdir, False, rid)
             except Exception as e:                     # 單筆例外不中斷整批
                 done, note = False, f"例外 {type(e).__name__}: {e}"
             finally:

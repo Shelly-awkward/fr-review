@@ -106,11 +106,18 @@ Google Drive 交換區：`G:／我的雲端硬碟／fr-review交換區`
 - ⚠ 2026-07-27 複製當下抓取仍在進行，Drive 上的 `data` 不是最終版；
   抓取跑完後請再執行一次 `sync_to_drive.bat`。
 
-## 明年 4 月的年度作業
+## 每年兩次的定期歸檔（4 月年報、9 月半年報）
 
-1. GitHub → Actions → 「年度歸檔」→ Run workflow（或本機跑 `fetch_archive.py`）。
+實審自**第 2 季及年度**財報抽案，歸檔一年跑兩次，已排自動排程
+（`.github/workflows/annual_archive.yml`：4/8 抓 Q4 年報、9/8 抓 Q2 半年報）。
+
+1. 排程會自動跑；也可 GitHub → Actions → 「財報歸檔」→ Run workflow 手動執行
+   （可指定年度、期別；或本機跑 `fetch_archive.py [--quarter 2]`）。
 2. MOPS 會間歇性封鎖 GitHub 的 IP，雲端失敗率高時改在**台灣 IP 的本機**補跑。
 3. 抓完 commit push，網站自動更新（`data/index.json` 由腳本自動重建）。
+4. ⚠ 網站與文件產線目前**只支援年度財報**（`make_data_index` 略過非 Q4）；
+   Q2 半年報資料先歸檔，抽到 Q2 案件時由 AI 直接讀 `data/<股號>_<西元年>Q2_pretrip.json`
+   做實審。半年報版查詢函／管區意見（核閱體例、單季＋累計欄位）尚未動工，是下一步。
 
 ## 下一階段構想（尚未動工）：公司回覆後的複核
 
