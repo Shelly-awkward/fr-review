@@ -14,7 +14,7 @@ fetch_archive.py — 依 data/companies.json 全量抓取財報 → data/<股號
   - 抓完更新 data/index.json（網頁的公司清單）。
   - 進度寫進 data/archive_status.json，可看哪些公司哪些年度確定沒有申報（免得每次重試）。
 
-一年跑兩次（年報 3/31 截止，4 月跑 Q4；半年報 8/31 截止，9 月跑 Q2）。
+一年跑兩次（公發年報 4/30 申報截止，5 月跑 Q4；半年報 8/31 截止，9 月跑 Q2）。
 注意：網頁版目前只列年度財報（make_data_index 略過非 Q4），Q2 資料先歸檔供實審抽案使用。
 MOPS 是公務機關網站，請維持 --sleep 間隔，勿高頻打站。
 """

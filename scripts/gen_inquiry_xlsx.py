@@ -217,12 +217,25 @@ def build_diff_sheet(wb, q):
         if it["說明"]:
             ws.row_dimensions[r].height = max(32, 15 * (len(it["說明"]) // 40 + 1))
         r += 1
-    for i, nm in enumerate(["合併報表營業收入淨額", "合併報表應收款項淨額\n(含應收票據)",
-                            "合併報表存貨淨額"], len(diff["sec1_amounts"]) + 1):
-        put_row(ws, r, [i, nm, "", "", "", "",
-                        "（貴公司如編製合併報表請填列）" if i == len(diff["sec1_amounts"]) + 1
-                        else ""])
-        r += 1
+    cons = diff.get("sec1_consolidated") or {}
+    if cons.get("rows"):
+        # 申報之 XBRL 即為合併報表：三列直接帶同數（恆等於上表對應科目）
+        for i, it in enumerate(cons["rows"], len(diff["sec1_amounts"]) + 1):
+            put_row(ws, r, [i, it["項目"], None, None, None, None,
+                            "貴公司申報之財務報告為合併報表，本欄與上表同源"
+                            if i == len(diff["sec1_amounts"]) + 1 else ""])
+            num(ws.cell(r, 3), it["本期"])
+            num(ws.cell(r, 4), it["前期"])
+            num(ws.cell(r, 5), it["增減"])
+            num(ws.cell(r, 6), it["變動%"], FMT_PCT, 0.01)
+            r += 1
+    else:
+        for i, nm in enumerate(["合併報表營業收入淨額", "合併報表應收款項淨額\n(含應收票據)",
+                                "合併報表存貨淨額"], len(diff["sec1_amounts"]) + 1):
+            put_row(ws, r, [i, nm, "", "", "", "",
+                            "（貴公司如編製合併報表請填列）"
+                            if i == len(diff["sec1_amounts"]) + 1 else ""])
+            r += 1
     r = diff_thead(ws, r, f"{roc}年度", f"{roc-1}年度", ("百分點%",))
     for it in diff["sec1_growth"]:
         put_row(ws, r, [it["項次"], it["項目"], None, None, None, None, it["說明"]])
@@ -236,12 +249,16 @@ def build_diff_sheet(wb, q):
             num(ws.cell(r, 5), it["增減"], FMT_PCT, 0.01)
         r += 1
 
-    # 二、與上市櫃同業比較
+    # 二、與上市櫃同業比較（同業平均自動化無從取得——請公司自選相近上市櫃同業比較）
+    peer_given = any(it["同業"] is not None for it in diff["sec2_peer"])
     r = sec_title(ws, r, "二、下列財務比率與上市櫃同業相較，請充分說明差異原因及合理性。"
                   "如上市櫃同業平均數尚難與貴公司情形進行比較分析，貴公司可自行選擇較相近"
                   "之上市櫃同業進行比較，並提供所選公司名稱及相關數據充分說明差異原因及"
-                  "合理性。")
-    r = diff_thead(ws, r, f"{roc}年度", "上市櫃\n同業數據", ("百分點%",))
+                  "合理性。" if peer_given else
+                  "二、請貴公司自行選擇較相近之上市櫃同業進行比較下列財務比率，"
+                  "並請充分說明差異原因及合理性。")
+    r = diff_thead(ws, r, f"{roc}年度",
+                   "上市櫃\n同業數據" if peer_given else "自選上市櫃\n同業數據", ("百分點%",))
     for it in diff["sec2_peer"]:
         put_row(ws, r, [it["項次"], it["項目"], None, None, None, None, it["說明"]])
         turn = it["增減單位"] == "%"

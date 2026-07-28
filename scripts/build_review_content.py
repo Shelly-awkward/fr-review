@@ -466,7 +466,8 @@ def build_analysis(series, y, ratios, ratios_prev, peer, qmap):
     return rows
 
 
-def build_diff_sections(series, y, ratios, ratios_prev, peer, tuples, tuples_prev):
+def build_diff_sections(series, y, ratios, ratios_prev, peer, tuples, tuples_prev,
+                        report_category=None):
     """「差異說明」工作表各節的數字列。
 
     版面依過去實審實際樣本（110／112／114 年度三份「財務比率差異分析說明」），
@@ -476,13 +477,11 @@ def build_diff_sections(series, y, ratios, ratios_prev, peer, tuples, tuples_pre
     roc = to_roc(y)
     cur, prev, prev2 = series.get(y, {}), series.get(y - 1, {}), series.get(y - 2, {})
 
-    # 一(A) 損益四項金額：首列「說明」欄放引導題（樣本慣例），達30%者點名加強說明
-    hits30 = [it for it in PL_ITEMS
-              if (ch := pct(cur.get(it), prev.get(it))) is not None and abs(ch) >= 30]
+    # 一(A) 損益四項金額：首列「說明」欄放引導題（樣本慣例）；門檻不點名個別科目，
+    # 統一請公司就變動達30%者加強說明（達標與否的內部判斷見「科目分析(內部)」表）
     lead_q = ("請說明貴公司營業收入主要來源(ex.何種商品或服務等)，並據以分析"
-              f"{roc}年度營業收入淨額、營業毛利、營業損益及稅前損益之變動原因及合理性。")
-    if hits30:
-        lead_q += f"（其中{'、'.join(hits30)}變動達30%，請加強說明。）"
+              f"{roc}年度營業收入淨額、營業毛利、營業損益及稅前損益之變動原因及合理性；"
+              "變動達30%以上之項目請加強說明。")
     sec1_amounts = []
     for i, it in enumerate(PL_ITEMS, 1):
         c, p = cur.get(it), prev.get(it)
@@ -494,6 +493,9 @@ def build_diff_sections(series, y, ratios, ratios_prev, peer, tuples, tuples_pre
         })
 
     # 一(B) 成長率兩期比較（百分點）＋週轉率兩期變動（%）
+    # 說明欄不逐項點名達標科目，統一放一句（首列）——數字差異照列，判斷交由公司
+    growth_note = ("請就變動差異達10%（成長率達10個百分點）以上之項目，"
+                   "說明兩期變動原因及合理性。")
     sec1_growth = []
     for i, it in enumerate(PL_ITEMS, 1):
         g_c, g_p = pct(cur.get(it), prev.get(it)), pct(prev.get(it), prev2.get(it))
@@ -501,19 +503,19 @@ def build_diff_sections(series, y, ratios, ratios_prev, peer, tuples, tuples_pre
         sec1_growth.append({
             "項次": i, "項目": "營收成長率" if it == "營業收入" else f"{it}成長率",
             "本期": g_c, "前期": g_p, "增減": d, "增減單位": "百分點",
-            "說明": ("變動超過10%，請分析兩期變動原因"
-                    if (d is not None and abs(d) >= 10) else ""),
+            "說明": growth_note if i == 1 else "",
         })
     for i, nm in enumerate(("應收款項週轉率", "存貨週轉率"), len(PL_ITEMS) + 1):
         t_c, t_p = ratios.get(nm), (ratios_prev or {}).get(nm)
         ch = pct(t_c, t_p)
         sec1_growth.append({
             "項次": i, "項目": nm, "本期": t_c, "前期": t_p, "增減": ch, "增減單位": "%",
-            "說明": ("變動超過10%，請分析兩期變動原因"
-                    if (ch is not None and abs(ch) >= 10) else ""),
+            "說明": "",
         })
 
     # 二 與上市櫃同業比較（六項；率＝百分點差、週轉率＝相對%差）
+    # 使用者未提供同業平均時（常態），改請公司自行選擇相近上市櫃同業比較：
+    # 同業欄留白由公司填，說明欄僅首列放一句統一指引，不逐項出題
     sec2 = []
     for i, nm in enumerate(INQUIRY_RATIOS, 1):
         rv = ratios.get(nm)
@@ -524,8 +526,8 @@ def build_diff_sections(series, y, ratios, ratios_prev, peer, tuples, tuples_pre
             diff = pct(rv, pv) if turn else round(rv - pv, 2)
             if diff is not None and abs(diff) >= 10:
                 note = "差異超過10%，請分析貴公司與上市櫃同業差異原因"
-        elif rv is not None:
-            note = "上市櫃同業平均請自公開資訊觀測站財務業務資訊查填後比較"
+        elif i == 1:
+            note = "請填列所選上市櫃同業之公司名稱及各項數據，並就差異說明原因及合理性。"
         sec2.append({"項次": i, "項目": nm, "本期": rv, "同業": pv, "增減": diff,
                      "增減單位": "%" if turn else "百分點", "說明": note})
 
@@ -567,7 +569,27 @@ def build_diff_sections(series, y, ratios, ratios_prev, peer, tuples, tuples_pre
     sec7 = {"資金貸與他人金額": {"本期": l_c, "前期": l_p},
             "背書保證金額": {"本期": e_c, "前期": e_p}}
 
+    # 一(C) 合併報表三列：申報之XBRL即為合併報表者，數字恆等於上表對應科目、直接帶入；
+    # 僅申報個別報表者留白（公司如有編合併報表再自填）
+    def recv_sum(d):
+        vals = [d.get(k) for k in ("應收票據", "應收帳款", "應收帳款-關係人")
+                if d.get(k) is not None]
+        return sum(vals) if vals else None
+
+    consolidated = (report_category or "").startswith("Consolidated")
+    sec1_cons = {"consolidated": consolidated, "rows": []}
+    if consolidated:
+        for nm, c, p in [("合併報表營業收入淨額", cur.get("營業收入"), prev.get("營業收入")),
+                         ("合併報表應收款項淨額\n(含應收票據)", recv_sum(cur), recv_sum(prev)),
+                         ("合併報表存貨淨額", cur.get("存貨"), prev.get("存貨"))]:
+            sec1_cons["rows"].append({
+                "項目": nm, "本期": c, "前期": p,
+                "增減": (c - p) if (c is not None and p is not None) else None,
+                "變動%": pct(c, p),
+            })
+
     return {"sec1_amounts": sec1_amounts, "sec1_growth": sec1_growth,
+            "sec1_consolidated": sec1_cons,
             "sec2_peer": sec2, "sec3_bs": sec3, "sec5_risk": sec5, "sec7_loans": sec7}
 
 
@@ -955,7 +977,8 @@ def main():
 
     # 差異說明各節數字列與五表版面資料（版面依過去實審實際樣本）
     tuples_prev = pretrips[y - 1].get("tuples") if (y - 1) in pretrips else None
-    diff = build_diff_sections(series, y, ratios, ratios_prev, peer, tuples, tuples_prev)
+    diff = build_diff_sections(series, y, ratios, ratios_prev, peer, tuples, tuples_prev,
+                               report_category=meta.get("ReportCategory"))
     fin_items = {
         "營業收入淨額": lambda v: v.get("營業收入"),
         "營業毛利": lambda v: v.get("營業毛利"),
@@ -997,6 +1020,7 @@ def main():
     inquiry = {
         "meta": {"co": a.co, "roc_year": roc, "company": meta.get("CompanyChineseName"),
                  "industry": meta.get("IndustrySector"),
+                 "report_category": meta.get("ReportCategory"),
                  "audit_firm": "、".join(audit.get("firm") or []),
                  "cpa": "、".join(audit.get("cpa") or []),
                  "opinion": (audit.get("opinion") or {}).get("label"),
