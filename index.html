@@ -90,7 +90,7 @@
 
 <div class="card" id="c1">
   <h2><span class="step">1</span>選擇公司與年度</h2>
-  <p class="hint">收錄全部公開發行公司近五年年度財報。輸入股票代號或公司名稱關鍵字皆可。</p>
+  <p class="hint">收錄全部公開發行公司近五年年度財報（半年報視歸檔情形）。輸入股票代號或公司名稱關鍵字皆可。</p>
   <div class="row">
     <div style="flex:1;min-width:260px">
       <label for="q">公司（代號或名稱）</label>
@@ -98,6 +98,13 @@
              style="width:100%;font:inherit;color:var(--fg);background:var(--card);
                     border:1px solid var(--line);border-radius:8px;padding:9px 11px">
       <datalist id="colist"></datalist>
+    </div>
+    <div>
+      <label for="qt">期別</label>
+      <select id="qt" style="min-width:120px">
+        <option value="4">年度財報</option>
+        <option value="2">半年報</option>
+      </select>
     </div>
     <div>
       <label for="yr">年度</label>
@@ -111,7 +118,7 @@
       找不到公司，或要用自己準備的資料檔？</summary>
     <p class="hint" style="margin-top:10px">
       本站收錄的是公開發行（未上市櫃）公司。若要處理其他公司，請向維護者索取資料檔
-      （<code>&lt;股號&gt;_&lt;西元年&gt;Q4_pretrip.json</code>）後於此載入——
+      （<code>&lt;股號&gt;_&lt;西元年&gt;Q4_pretrip.json</code>，半年報為 <code>Q2</code>）後於此載入——
       檔案只留在你的瀏覽器，不會上傳到任何地方。</p>
     <input type="file" id="upload" accept=".json" multiple>
   </details>
@@ -166,6 +173,7 @@ async function boot() {
   manifest.companies = manifest.companies.filter((c) => c.co.length === 4);
   renderCompanies();
   $("q").oninput = fillYears;
+  $("qt").onchange = fillYears;
   $("upload").onchange = loadFiles;
 }
 function renderCompanies() {
@@ -194,14 +202,14 @@ async function loadFiles(ev) {
   const el = $("o1");
   let added = 0;
   for (const f of ev.target.files) {
-    const m = f.name.match(/^(\d{4,6})_(\d{4})Q4_pretrip\.json$/);
-    if (!m) { say(el, `檔名不符：${f.name}\n應為「股號_西元年Q4_pretrip.json」。`, "err"); continue; }
+    const m = f.name.match(/^(\d{4,6})_(\d{4})Q([24])_pretrip\.json$/);
+    if (!m) { say(el, `檔名不符：${f.name}\n應為「股號_西元年Q4_pretrip.json」（半年報為 Q2）。`, "err"); continue; }
     const text = await f.text();
     let name = null;
     try { name = JSON.parse(text).meta?.CompanyChineseName; }
     catch { say(el, `${f.name} 不是有效的 JSON。`, "err"); continue; }
     uploaded[f.name] = text;
-    const co = m[1], roc = Number(m[2]) - 1911;
+    const co = m[1], roc = Number(m[2]) - 1911, key = m[3] === "2" ? "years_q2" : "years";
     let entry = manifest.companies.find((c) => c.co === co);
     if (!entry) {
       entry = { co, name, years: [], local: true };
@@ -209,8 +217,9 @@ async function loadFiles(ev) {
     }
     entry.local = true;
     if (name) entry.name = name;
-    if (!entry.years.includes(roc)) entry.years.push(roc);
-    entry.years.sort((a, b) => b - a);
+    if (!entry[key]) entry[key] = [];
+    if (!entry[key].includes(roc)) entry[key].push(roc);
+    entry[key].sort((a, b) => b - a);
     added++;
   }
   if (added) {
@@ -220,16 +229,21 @@ async function loadFiles(ev) {
   }
   ev.target.value = "";
 }
+function periodYears(c, qt) {
+  if (!c) return [];
+  return (qt === "2" ? c.years_q2 : c.years) || [];
+}
 function fillYears() {
-  const c = currentCompany();
+  const c = currentCompany(), qt = $("qt").value;
   const yr = $("yr"), keep = yr.value;
   yr.innerHTML = "";
   $("picked").textContent = c
     ? `已選：${c.name || ""}（${c.co}）` + (c.local ? "　← 你載入的資料" : "")
+      + (qt === "2" && !periodYears(c, qt).length ? "　⚠ 尚無半年報歸檔資料，請改選年度財報或自行載入 Q2 資料檔" : "")
     : ($("q").value.trim() ? "查無此公司，請確認代號或改輸入名稱關鍵字。" : "");
-  for (const y of (c ? c.years : [])) {
+  for (const y of periodYears(c, qt)) {
     const o = document.createElement("option");
-    o.value = y; o.textContent = y + " 年度";
+    o.value = y; o.textContent = y + (qt === "2" ? " 年半年報" : " 年度");
     yr.appendChild(o);
   }
   if (keep && [...yr.options].some((o) => o.value === keep)) yr.value = keep;
@@ -289,25 +303,28 @@ $("go").onclick = async () => {
   $("c2").classList.add("locked"); $("c3").classList.add("locked");
   const comp = currentCompany();
   if (!comp) return say(el, "請先選擇公司（輸入股票代號或名稱關鍵字）。", "err");
-  const co = comp.co, roc = $("yr").value;
+  const co = comp.co, roc = $("yr").value, qt = $("qt").value;
+  const sfx = qt === "2" ? "Q2" : "";                 // 半年報產出檔名後綴（與 build_review_content 一致）
+  const plabel = qt === "2" ? "年半年度" : "年度";      // 下載檔顯示名
   if (!roc) return say(el, "請選擇年度。", "err");
   try {
     await ensurePyodide(el);
     busy(el, "讀取財報資料⋯⋯");
-    for (const y of comp.years) {
-      const name = `${co}_${Number(y) + 1911}Q4_pretrip.json`;
+    for (const y of periodYears(comp, qt)) {
+      const name = `${co}_${Number(y) + 1911}Q${qt}_pretrip.json`;
       if (uploaded[name]) { pyodide.FS.writeFile("/work/data/" + name, uploaded[name]); continue; }
       const r = await fetch("data/" + name);
       if (r.ok) pyodide.FS.writeFile("/work/data/" + name, await r.text());
     }
     busy(el, "計算財務數字⋯⋯");
-    let r = runPy("scripts/build_review_content.py", ["--co", co, "--year", String(roc)]);
+    let r = runPy("scripts/build_review_content.py",
+                  ["--co", co, "--year", String(roc), "--quarter", qt]);
     if (r.code !== 0) return say(el, "計算失敗：\n" + r.text, "err");
 
     busy(el, "產生 Excel 查詢函⋯⋯");
-    const xlsxName = `${comp.name || co}(${co})${roc}年度_財務比率差異分析說明.xlsx`;
+    const xlsxName = `${comp.name || co}(${co})${roc}${plabel}_財務比率差異分析說明.xlsx`;
     r = runPy("scripts/gen_inquiry_xlsx.py",
-              [`out/${co}_${roc}_inquiry.json`, "out/inquiry.xlsx"]);
+              [`out/${co}_${roc}${sfx}_inquiry.json`, "out/inquiry.xlsx"]);
     if (r.code !== 0) return say(el, "Excel 產生失敗：\n" + r.text, "err");
 
     const xlsx = pyodide.FS.readFile("/work/out/inquiry.xlsx");
@@ -315,8 +332,8 @@ $("go").onclick = async () => {
       "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"));
 
     const review = new TextDecoder().decode(
-      pyodide.FS.readFile(`/work/out/${co}_${roc}_review_content.json`));
-    state = { co, roc, comp, review };
+      pyodide.FS.readFile(`/work/out/${co}_${roc}${sfx}_review_content.json`));
+    state = { co, roc, sfx, plabel, comp, review };
     await buildPrompt(review);
     say(el, "完成。Excel 可以直接下載給公司填答；Word 初稿請往下走第 2、3 步。", "ok");
     $("c2").classList.remove("locked"); $("c3").classList.remove("locked");
@@ -354,11 +371,11 @@ $("check").onclick = async () => {
 
   try {
     busy(el, "檢查中⋯⋯");
-    const { co, roc } = state;
-    pyodide.FS.writeFile(`/work/out/${co}_${roc}_checklist_content.json`,
+    const { co, roc, sfx } = state;
+    pyodide.FS.writeFile(`/work/out/${co}_${roc}${sfx}_checklist_content.json`,
       new TextEncoder().encode(JSON.stringify(obj)));
     let r = runPy("scripts/check_content.py",
-      [`out/${co}_${roc}_checklist_content.json`, "--review", `out/${co}_${roc}_review_content.json`]);
+      [`out/${co}_${roc}${sfx}_checklist_content.json`, "--review", `out/${co}_${roc}${sfx}_review_content.json`]);
     if (r.code !== 0) return say(el, r.text.trim() +
       "\n\n請把上面這些問題告訴 AI，請它修正後重貼。", "err");
 
@@ -369,19 +386,19 @@ $("check").onclick = async () => {
       window._docxReady = true;
     }
     r = runPy("scripts/gen_checklist_docx.py",
-      [`out/${co}_${roc}_checklist_content.json`, "out/checklist.docx",
+      [`out/${co}_${roc}${sfx}_checklist_content.json`, "out/checklist.docx",
        "--cover", "out/cover.docx"]);
     if (r.code !== 0) return say(el, "Word 產生失敗：\n" + r.text, "err");
 
     const MIME_DOCX =
       "application/vnd.openxmlformats-officedocument.wordprocessingml.document";
-    const name = `${state.comp.name || co}(${co})${roc}年度_公告檢查表-管區意見_初稿.docx`;
+    const name = `${state.comp.name || co}(${co})${roc}${state.plabel}_公告檢查表-管區意見_初稿.docx`;
     $("dl3").appendChild(download(name, pyodide.FS.readFile("/work/out/checklist.docx"),
       MIME_DOCX));
     try {
       const cover = pyodide.FS.readFile("/work/out/cover.docx");
       $("dl3").appendChild(download(
-        `${state.comp.name || co}(${co})${roc}年度_財報實審複核表_初稿.docx`,
+        `${state.comp.name || co}(${co})${roc}${state.plabel}_財報實審複核表_初稿.docx`,
         cover, MIME_DOCX));
     } catch {}   // 舊版內容 JSON 無 cover 時僅產管區意見
     say(el, "檢查通過。管區意見與複核表皆為公司回覆前的初稿，標示「請自行確認」的部分請自行補實。", "ok");

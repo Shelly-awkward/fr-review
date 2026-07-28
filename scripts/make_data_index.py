@@ -17,14 +17,15 @@ import sys
 
 def build(data_dir: str) -> dict:
     cos = {}
+    latest = {}   # co → 已取名稱之最新年度（Q4/Q2 併同比較）
     for path in sorted(glob.glob(os.path.join(data_dir, "*_pretrip.json"))):
         base = os.path.basename(path)
         m = re.match(r"(\d{4,6})_(\d{4})Q(\d)_pretrip\.json$", base)
         if not m:
             continue
         co, ad_year, season = m.group(1), int(m.group(2)), int(m.group(3))
-        if season != 4:
-            continue          # 網頁版只處理年度財報
+        if season not in (2, 4):
+            continue          # 網頁版處理年報（Q4）與半年報（Q2）
         if len(co) != 4:
             continue          # 實審僅涵蓋 4 碼代碼；6 碼（證券商等）不列入網頁清單
         try:
@@ -32,12 +33,16 @@ def build(data_dir: str) -> dict:
                 meta = json.load(f).get("meta", {})
         except (OSError, json.JSONDecodeError):
             continue
-        entry = cos.setdefault(co, {"co": co, "name": None, "years": []})
-        entry["years"].append(ad_year - 1911)
-        if ad_year - 1911 == max(entry["years"]):
-            entry["name"] = meta.get("CompanyChineseName") or entry["name"]
+        entry = cos.setdefault(co, {"co": co, "name": None, "years": [], "years_q2": []})
+        entry["years" if season == 4 else "years_q2"].append(ad_year - 1911)
+        if ad_year >= latest.get(co, 0) and meta.get("CompanyChineseName"):
+            entry["name"] = meta["CompanyChineseName"]
+            latest[co] = ad_year
     for e in cos.values():
         e["years"] = sorted(set(e["years"]), reverse=True)
+        e["years_q2"] = sorted(set(e["years_q2"]), reverse=True)
+        if not e["years_q2"]:
+            del e["years_q2"]         # 無半年報資料者不佔欄位
     return {"companies": [cos[k] for k in sorted(cos)]}
 
 

@@ -25,7 +25,8 @@
 
 ### ① 備資料（data/ 沒有該公司該年度的 pretrip 時才需要）
 
-檢查 `data/<股號>_<西元年>Q4_pretrip.json` 是否存在。**近6年表最好有 3 份年報**
+檢查 `data/<股號>_<西元年>Q4_pretrip.json` 是否存在（半年報實審為 `Q2`，
+season 填 2）。**近6年表最好有 3 份年報**
 （每份含兩年數字：目標年、目標-2、目標-4）。缺的話：
 
 - **雲端 AI（連不到 MOPS）**：把請求加進 `data_requests.json` 並 commit＋push——
@@ -39,10 +40,12 @@
 ### ② 跑數字層（純 Python，你不要自己算）
 
 ```bash
-python scripts/build_review_content.py --co 8304 --year 114 [--peer-avg peers.json]
+python scripts/build_review_content.py --co 8304 --year 114 [--quarter 2] [--peer-avg peers.json]
 ```
 
 產出 `out/<股號>_<民國年>_inquiry.json` 與 `out/<股號>_<民國年>_review_content.json`。
+半年報（`--quarter 2`）讀 Q2 pretrip、取上半年累計數與 6/30 餘額，
+產出檔名帶 `Q2` 後綴（如 `8304_114Q2_inquiry.json`），文字標籤自動為「114年半年度」。
 所有變動%、週轉率、限額核對都在裡面，**你只准引用，不准重算、不准編**。
 
 Excel 這時就能直接出（查詢函不需要 AI 填寫，「說明」欄本來就留白給公司）：

@@ -2,10 +2,14 @@
 r"""
 build_review_content.py — 財報實審數字層：pretrip JSON → 兩份中介 JSON。
 
-    python scripts/build_review_content.py --co 8304 --year 114 [--data-dir data]
-        [--outdir out] [--peer-avg peers.json]
+    python scripts/build_review_content.py --co 8304 --year 114 [--quarter 4]
+        [--data-dir data] [--outdir out] [--peer-avg peers.json]
 
-輸出（--outdir，預設 out/）：
+--quarter 4＝年報（預設）、2＝半年報：改讀 <co>_<西元年>Q2_pretrip.json，
+取數期間為 1/1–6/30（累計）與 6/30 餘額，比較基礎為去年同期；
+產出文字標籤以「<民國年>年半年度」呈現，檔名加 Q2 後綴避免與年報產出互蓋。
+
+輸出（--outdir，預設 out/；半年報為 <co>_<民國年>Q2_…）：
   <co>_<民國年>_inquiry.json         → gen_inquiry_xlsx.py 產「財務報告說明」查詢函 Excel
   <co>_<民國年>_review_content.json  → AI 依 REVIEW_PROMPT.md 填質性段落後，
                                         交 gen_checklist_docx.js 產管區意見 Word
@@ -27,6 +31,21 @@ import sys
 
 # ---------- 期別與檔案 ----------
 
+QUARTER = 4          # 4＝年報、2＝半年報（main 依 --quarter 設定）
+PERIOD_END = "1231"  # 期末月日：Q4＝1231、Q2＝0630
+
+
+def set_quarter(q: int):
+    global QUARTER, PERIOD_END
+    QUARTER = q
+    PERIOD_END = "1231" if q == 4 else "0630"
+
+
+def ylab(r: int) -> str:
+    """期別標籤（民國年）：Q4「114年度」、Q2「114年半年度」。"""
+    return f"{r}年度" if QUARTER == 4 else f"{r}年半年度"
+
+
 def to_ad(year: int) -> int:
     return year + 1911 if year < 1000 else year
 
@@ -36,10 +55,10 @@ def to_roc(year: int) -> int:
 
 
 def load_pretrips(data_dir: str, co: str, ad_year: int, span: int = 6) -> dict:
-    """掃描 data/<co>_<西元年>Q4_pretrip.json，回 {西元年: pretrip}（近 span 年內有檔者）。"""
+    """掃描 data/<co>_<西元年>Q<期別>_pretrip.json，回 {西元年: pretrip}（近 span 年內有檔者）。"""
     out = {}
-    for p in glob.glob(os.path.join(data_dir, f"{co}_*Q4_pretrip.json")):
-        m = re.search(rf"{co}_(\d{{4}})Q4_pretrip\.json$", p.replace("\\", "/"))
+    for p in glob.glob(os.path.join(data_dir, f"{co}_*Q{QUARTER}_pretrip.json")):
+        m = re.search(rf"{co}_(\d{{4}})Q{QUARTER}_pretrip\.json$", p.replace("\\", "/"))
         if m and ad_year - span < int(m.group(1)) <= ad_year:
             with open(p, encoding="utf-8") as f:
                 out[int(m.group(1))] = json.load(f)
@@ -49,18 +68,18 @@ def load_pretrips(data_dir: str, co: str, ad_year: int, span: int = 6) -> dict:
 # ---------- 取數 ----------
 
 def flow(st: dict, keys, y: int):
-    """損益／現流科目：取 From<y>0101To<y>1231；keys 依序 fallback。"""
+    """損益／現流科目：取 From<y>0101To<y><期末>（年報 1231、半年報 0630 累計）。"""
     for k in keys if isinstance(keys, list) else [keys]:
-        v = st.get(k, {}).get(f"From{y}0101To{y}1231")
+        v = st.get(k, {}).get(f"From{y}0101To{y}{PERIOD_END}")
         if v is not None:
             return v
     return None
 
 
 def stock(st: dict, keys, y: int):
-    """資產負債科目：取 AsOf<y>1231。"""
+    """資產負債科目：取 AsOf<y><期末>。"""
     for k in keys if isinstance(keys, list) else [keys]:
-        v = st.get(k, {}).get(f"AsOf{y}1231")
+        v = st.get(k, {}).get(f"AsOf{y}{PERIOD_END}")
         if v is not None:
             return v
     return None
@@ -243,8 +262,8 @@ def build_questions(series, y, ratios, ratios_prev, peer, tuples, meta, qmap=Non
         ch = pct(cur.get(it), prev.get(it))
         if ch is not None and abs(ch) >= 30:
             add("損益變動",
-                f"{roc}年度{it}較{roc-1}年度變動達30%以上，請說明變動原因及合理性。",
-                f"{roc}年度 {fmt(cur.get(it))}／{roc-1}年度 {fmt(prev.get(it))}／"
+                f"{ylab(roc)}{it}較{ylab(roc-1)}變動達30%以上，請說明變動原因及合理性。",
+                f"{ylab(roc)} {fmt(cur.get(it))}／{ylab(roc-1)} {fmt(prev.get(it))}／"
                 f"變動 {fmt_pct(ch)}", key=f"變動:{it}")
 
     # 2. 變動成長率（本期成長率－去年同期成長率）差異達 10 個百分點
@@ -255,7 +274,7 @@ def build_questions(series, y, ratios, ratios_prev, peer, tuples, meta, qmap=Non
         if g_cur is not None and g_prev is not None and abs(g_cur - g_prev) >= 10:
             add("成長率差異",
                 f"{it}成長率本期與去年同期差異達10個百分點以上，請說明原因。",
-                f"{roc}年度成長率 {fmt_pct(g_cur)}／{roc-1}年度成長率 {fmt_pct(g_prev)}／"
+                f"{ylab(roc)}成長率 {fmt_pct(g_cur)}／{ylab(roc-1)}成長率 {fmt_pct(g_prev)}／"
                 f"差異 {abs(round(g_cur - g_prev, 2))} 個百分點", key=f"成長率差異:{it}")
 
     # 3. 週轉率變動達 10%
@@ -265,7 +284,7 @@ def build_questions(series, y, ratios, ratios_prev, peer, tuples, meta, qmap=Non
         if ch is not None and abs(ch) >= 10:
             add("週轉率",
                 f"{name}本期與去年同期變動差異達10%以上，請說明原因。",
-                f"{roc}年度 {t_cur}次／{roc-1}年度 {t_prev}次／變動 {fmt_pct(ch)}",
+                f"{ylab(roc)} {t_cur}次／{ylab(roc-1)} {t_prev}次／變動 {fmt_pct(ch)}",
                 key=f"變動:{name}")
 
     # 4. 與同業平均比較（固定六項；無資料則出題但留待貼入）
@@ -295,7 +314,7 @@ def build_questions(series, y, ratios, ratios_prev, peer, tuples, meta, qmap=Non
         if ch is not None and ch >= 30 and material:
             add("資產負債項目",
                 f"{it}本期大幅增加，請說明增加原因、性質及必要性。",
-                f"{roc}年度 {fmt(cur.get(it))}／{roc-1}年度 {fmt(prev.get(it))}／"
+                f"{ylab(roc)} {fmt(cur.get(it))}／{ylab(roc-1)} {fmt(prev.get(it))}／"
                 f"增加 {fmt_pct(ch)}", key=f"變動:{it}")
 
     # 5.5 占比最大的資產科目——就前三大（且達資產10%）請公司說明組成與評價
@@ -304,8 +323,8 @@ def build_questions(series, y, ratios, ratios_prev, peer, tuples, meta, qmap=Non
         add("重大資產科目",
             f"{a['item']}佔資產總額{a['pct']}%，為重大資產項目，請說明其組成內容、"
             f"評價方法及重要假設，並說明有無減損跡象及評估情形。",
-            f"{roc}年度 {fmt(a['amount'])}（佔資產{a['pct']}%）"
-            + (f"／{roc-1}年度 {fmt(prev.get(a['item']))}／變動 {fmt_pct(ch)}"
+            f"{ylab(roc)} {fmt(a['amount'])}（佔資產{a['pct']}%）"
+            + (f"／{ylab(roc-1)} {fmt(prev.get(a['item']))}／變動 {fmt_pct(ch)}"
                if ch is not None else ""), key=f"占比:{a['item']}")
 
     # 6. 減損
@@ -313,13 +332,13 @@ def build_questions(series, y, ratios, ratios_prev, peer, tuples, meta, qmap=Non
         add("減損",
             "本期認列資產減損損失，請說明減損標的、減損跡象、可回收金額之評估方法"
             "與重要假設（折現率、成長率等），並提供評價報告。",
-            f"{roc}年度認列減損損失 {fmt(cur.get('減損損失'))}", key="變動:減損損失")
+            f"{ylab(roc)}認列減損損失 {fmt(cur.get('減損損失'))}", key="變動:減損損失")
 
     # 7. OCI
     if cur.get("其他綜合損益") is not None:
         add("其他綜合損益",
             "請說明本期其他綜合損益組成項目之變動內容及原因。",
-            f"{roc}年度 {fmt(cur.get('其他綜合損益'))}／{roc-1}年度 {fmt(prev.get('其他綜合損益'))}",
+            f"{ylab(roc)} {fmt(cur.get('其他綜合損益'))}／{ylab(roc-1)} {fmt(prev.get('其他綜合損益'))}",
         key="變動:其他綜合損益")
 
     # 8. IFRS 專項（各一題，帶財報既有數字）
@@ -393,7 +412,7 @@ def build_analysis(series, y, ratios, ratios_prev, peer, qmap):
         new_item = bool(c) and not p
         rows.append({
             "類別": cat, "項目": item,
-            f"{roc}年度": c, f"{roc - 1}年度": p,
+            ylab(roc): c, ylab(roc - 1): p,
             "增減": round(d, 4) if isinstance(d, float) else d,
             "變動%": pct(c, p),
             "分析門檻": thr,
@@ -427,7 +446,7 @@ def build_analysis(series, y, ratios, ratios_prev, peer, qmap):
         d = abs(g_c - g_p) if (g_c is not None and g_p is not None) else None
         rows.append({
             "類別": "成長率差異", "項目": f"{it}成長率",
-            f"{roc}年度": g_c, f"{roc - 1}年度": g_p,
+            ylab(roc): g_c, ylab(roc - 1): g_p,
             "增減": round(d, 2) if d is not None else None, "變動%": None,
             "分析門檻": "兩期成長率差異達10個百分點",
             "是否達標": ("－（缺資料）" if d is None else ("★達標" if d >= 10 else "未達標")),
@@ -452,7 +471,7 @@ def build_analysis(series, y, ratios, ratios_prev, peer, qmap):
         peer_v = ((peer or {}).get("上市櫃同業平均") or {}).get(name)
         rows.append({
             "類別": "財務比率", "項目": name,
-            f"{roc}年度": v, f"{roc - 1}年度": pv,
+            ylab(roc): v, ylab(roc - 1): pv,
             "增減": round(v - pv, 2) if (v is not None and pv is not None) else None,
             "變動%": ch,
             "分析門檻": "兩期變動達10%；與同業平均差異達10%",
@@ -480,7 +499,7 @@ def build_diff_sections(series, y, ratios, ratios_prev, peer, tuples, tuples_pre
     # 一(A) 損益四項金額：首列「說明」欄放引導題（樣本慣例）；門檻不點名個別科目，
     # 統一請公司就變動達30%者加強說明（達標與否的內部判斷見「科目分析(內部)」表）
     lead_q = ("請說明貴公司營業收入主要來源(ex.何種商品或服務等)，並據以分析"
-              f"{roc}年度營業收入淨額、營業毛利、營業損益及稅前損益之變動原因及合理性；"
+              f"{ylab(roc)}營業收入淨額、營業毛利、營業損益及稅前損益之變動原因及合理性；"
               "變動達30%以上之項目請加強說明。")
     sec1_amounts = []
     for i, it in enumerate(PL_ITEMS, 1):
@@ -552,7 +571,7 @@ def build_diff_sections(series, y, ratios, ratios_prev, peer, tuples, tuples_pre
               if x["pct"] >= 10 and x["item"] != "現金及約當現金"][:3]:
         sec5.append({
             "項目": a["item"], "金額": a["amount"], "占比": a["pct"],
-            "問題": (f"貴公司{roc}年度{a['item']}金額為{fmt(a['amount'], '')}千元，"
+            "問題": (f"貴公司{ylab(roc)}{a['item']}金額為{fmt(a['amount'], '')}千元，"
                     f"佔資產總額{a['pct']}%，對財務報表影響重大，請說明其組成內容、"
                     "評價方法及有無減損跡象，暨貴公司之因應措施(如何執行評價、資產保全等)。"),
         })
@@ -670,7 +689,7 @@ def build_checklist_draft(co, roc, meta, audit, series, y, ratios, ratios_prev,
         it, amt, p = a["item"], a["amount"], a["pct"]
         ch = pct(amt, prev.get(it))
         base = (f"「{it}」期末帳面金額{fmt(amt)}，佔資產總額之{p}%"
-                + (f"，較{roc - 1}年度變動{fmt_pct(ch)}" if ch is not None else "")
+                + (f"，較{ylab(roc - 1)}變動{fmt_pct(ch)}" if ch is not None else "")
                 + "，對財務報表影響重大，故將其列為風險事項。")
         if it == "採用權益法之投資":
             risk_paras.append({"h": f"（候選風險）{it}之減損評估：", "paras": [
@@ -687,7 +706,7 @@ def build_checklist_draft(co, roc, meta, audit, series, y, ratios, ratios_prev,
     ptx_chg = chg("稅前損益")
     if ptx_chg is not None and ptx_chg <= -30:
         risk_paras.append({"h": "（候選風險）獲利持續衰退：", "paras": [
-            f"{roc}年度稅前損益{fmt(cur.get('稅前損益'))}，較{roc - 1}年度"
+            f"{ylab(roc)}稅前損益{fmt(cur.get('稅前損益'))}，較{ylab(roc - 1)}"
             f"{fmt(prev.get('稅前損益'))}變動{fmt_pct(ptx_chg)}；本期淨利"
             f"{fmt(cur.get('本期淨利'))}（EPS {cur.get('每股盈餘(元)', '－')}元）。"
             + AI + "衰退主因分解（毛利、減損、權益法損益），近六年營收趨勢見 six_year】"]})
@@ -720,8 +739,8 @@ def build_checklist_draft(co, roc, meta, audit, series, y, ratios, ratios_prev,
         t_cur, t_prev = ratios.get(nm), (ratios_prev or {}).get(nm)
         ch = pct(t_cur, t_prev)
         if ch is not None:
-            tv_lines.append(f"{nm}較{roc - 1}年度變動{fmt_pct(ch)}（{t_cur}次對{t_prev}次）")
-    peer_rows = ["【表】項目｜" + f"{roc}年度｜上市櫃同業平均｜比較增減｜說明"]
+            tv_lines.append(f"{nm}較{ylab(roc - 1)}變動{fmt_pct(ch)}（{t_cur}次對{t_prev}次）")
+    peer_rows = ["【表】項目｜" + f"{ylab(roc)}｜上市櫃同業平均｜比較增減｜說明"]
     for rname in INQUIRY_RATIOS:
         rv = ratios.get(rname)
         unit = "次" if "週轉" in rname else "%"
@@ -737,13 +756,13 @@ def build_checklist_draft(co, roc, meta, audit, series, y, ratios, ratios_prev,
       {"title": "二、個別資料庫", "body": [
         {"h": "（一）該公司本期營運情形與所屬產業成長（或衰退）之變動是否相同及合理。",
          "paras": [
-            f"該公司{roc}年度營業收入較{roc - 1}年度變動{fmt_pct(chg('營業收入'))}"
+            f"該公司{ylab(roc)}營業收入較{ylab(roc - 1)}變動{fmt_pct(chg('營業收入'))}"
             f"（近年營收成長率見 facts.six_year）。"
             + AI + "所屬產業趨勢與同業平均（無資料則標「請自行至公開資訊觀測站查填」）、"
             "公司營運內容，收尾「其與所屬產業變動相同/不同，核尚無重大異常」】"]},
         {"h": "（二）本期與去年同期之營業收入淨額、營業毛利、營業損益及稅前損益金額變動差異達30%，有無重大異常變動。",
          "paras": [
-            f"1.營業收入淨額、營業毛利、營業損益及稅前損益較{roc - 1}年度分別變動"
+            f"1.營業收入淨額、營業毛利、營業損益及稅前損益較{ylab(roc - 1)}分別變動"
             f"{pl_lines}，其中{('、'.join(hits30) + '變動達30%') if hits30 else '均未達30%'}。"
             + AI + "變動原因（公司未回覆前屬推測者寫「請洽公司說明」）；"
             "無子公司者敘明「無合併個體內重要子公司加強查核之適用」】",
@@ -797,8 +816,8 @@ def build_checklist_draft(co, roc, meta, audit, series, y, ratios, ratios_prev,
             AI + "認列及衡量：依 facts.notes.RevenueRecognition 原文摘寫收入類別與認列時點"
             "（某一時點／隨時間逐步），註明出處「（詳財報附註『收入認列』會計政策，第＿頁）」"
             "供承辦補頁碼】",
-            f"財報揭露：{roc}年度營業收入{fmt(cur.get('營業收入'))}；期末合約負債"
-            f"{fmt(cur.get('合約負債-流動'))}（{roc - 1}年度{fmt(prev.get('合約負債-流動'))}）。"
+            f"財報揭露：{ylab(roc)}營業收入{fmt(cur.get('營業收入'))}；期末合約負債"
+            f"{fmt(cur.get('合約負債-流動'))}（{ylab(roc - 1)}{fmt(prev.get('合約負債-流動'))}）。"
             + AI + "揭露完整性：對照IFRS15應揭露要素（履約義務之辨認、交易價格分攤、"
             "認列時點或期間之依據、合約資產／負債之性質與變動）逐項敘明公司已揭露哪些，"
             "並評述合約負債變動方向與業務模式是否一致；facts.notes 未摘到之要素不得推定"
@@ -829,7 +848,7 @@ def build_checklist_draft(co, roc, meta, audit, series, y, ratios, ratios_prev,
       ]},
       {"title": "附註：資料來源與限制", "body": [
         {"paras": [
-            f"本檢查表依公開資訊觀測站{name}{roc}年度及{roc - 1}年度財務報告XBRL申報資料"
+            f"本檢查表依公開資訊觀測站{name}{ylab(roc)}及{ylab(roc - 1)}財務報告XBRL申報資料"
             "分析產出。" + AI + "逐一列實際引用之其他來源（同業平均、公司作業程序、母公司"
             "合併報告、前次實審……有用才列）】"
             "公司尚未回覆前，凡屬公司始能說明之事項均已標明「請自行確認／洽公司說明」。"
@@ -837,14 +856,14 @@ def build_checklist_draft(co, roc, meta, audit, series, y, ratios, ratios_prev,
             "觀測站確認。本表僅依公開財報訊號分析，請務必自行審核。"]}]},
     ]
 
-    title = f"公開發行{name}股份有限公司{roc}年度財務報告公告檢查表—管區意見"
+    title = f"公開發行{name}股份有限公司{ylab(roc)}財務報告公告檢查表—管區意見"
     if name.endswith("股份有限公司"):
-        title = f"公開發行{name}{roc}年度財務報告公告檢查表—管區意見"
+        title = f"公開發行{name}{ylab(roc)}財務報告公告檢查表—管區意見"
     # --- 複核表（財務報告實質審閱案件複核表；體例照過去實審樣本，另存一份 docx） ---
     cover = {
         "保存期限": "5年", "檔號": "",
         "公司編號": co, "公司名稱": name,
-        "財務報告年度期別": f"{roc}年度",
+        "財務報告年度期別": ylab(roc),
         "公司背景介紹": AI + "一至三句：公司設立／公開發行時間與主要營業項目。僅可依 "
                        "facts 與財報附註既有資訊撰寫；查不到的（如設立日期）寫"
                        "「（設立及公開發行日期請自行至公開資訊觀測站基本資料查填）」，不得編造】",
@@ -923,17 +942,20 @@ def main():
     ap = argparse.ArgumentParser(description="pretrip → 實審中介 JSON（inquiry + review_content）")
     ap.add_argument("--co", required=True)
     ap.add_argument("--year", required=True, type=int, help="年度（民國或西元皆可）")
+    ap.add_argument("--quarter", type=int, default=4, choices=(2, 4),
+                    help="期別（4＝年報、2＝半年報）")
     ap.add_argument("--data-dir", default="data")
     ap.add_argument("--outdir", default="out")
     ap.add_argument("--peer-avg", default="", help="同業平均 JSON（選填，格式見檔頭）")
     a = ap.parse_args()
 
+    set_quarter(a.quarter)
     y = to_ad(a.year)
     roc = to_roc(y)
     pretrips = load_pretrips(a.data_dir, a.co, y)
     if y not in pretrips:
-        print(f"找不到 {a.co}_{y}Q4_pretrip.json（--data-dir {a.data_dir}）。"
-              f"請先把 {{\"co\": \"{a.co}\", \"year\": {y}, \"season\": 4}} 加進 "
+        print(f"找不到 {a.co}_{y}Q{a.quarter}_pretrip.json（--data-dir {a.data_dir}）。"
+              f"請先把 {{\"co\": \"{a.co}\", \"year\": {y}, \"season\": {a.quarter}}} 加進 "
               "data_requests.json 並 push（或本機跑 scripts/fetch_requests.py）。")
         sys.exit(2)
 
@@ -969,6 +991,7 @@ def main():
 
     facts = {
         "co": a.co, "roc_year": roc, "ad_year": y,
+        "quarter": a.quarter, "期別": ylab(roc),
         "company": meta.get("CompanyChineseName"),
         "report_type": meta.get("ReportType"), "industry": meta.get("IndustrySector"),
         "audit": {k: audit.get(k) for k in
@@ -1030,12 +1053,13 @@ def main():
         "說明": ("完整" if not lack else
                f"缺 {lack} 年度資料（民國），成長率兩期比較無法計算——請補抓："
                f"python scripts/fetch_archive.py --only {a.co} "
-               f"--years {','.join(str(n) for n in lack)}"),
+               f"--years {','.join(str(n) for n in lack)} --quarter {a.quarter}"),
     }
     if lack:
         print(f"⚠ 資料不足：缺 {lack} 年度，成長率兩期比較將顯示「－（缺資料）」。{coverage['說明']}")
     inquiry = {
-        "meta": {"co": a.co, "roc_year": roc, "company": meta.get("CompanyChineseName"),
+        "meta": {"co": a.co, "roc_year": roc, "quarter": a.quarter,
+                 "company": meta.get("CompanyChineseName"),
                  "industry": meta.get("IndustrySector"),
                  "report_category": meta.get("ReportCategory"),
                  "audit_firm": "、".join(audit.get("firm") or []),
@@ -1061,8 +1085,9 @@ def main():
     review = {"meta": inquiry["meta"], "facts": facts, "draft": draft}
 
     os.makedirs(a.outdir, exist_ok=True)
-    p1 = os.path.join(a.outdir, f"{a.co}_{roc}_inquiry.json")
-    p2 = os.path.join(a.outdir, f"{a.co}_{roc}_review_content.json")
+    sfx = "" if a.quarter == 4 else f"Q{a.quarter}"   # 半年報產出加後綴，避免蓋掉年報
+    p1 = os.path.join(a.outdir, f"{a.co}_{roc}{sfx}_inquiry.json")
+    p2 = os.path.join(a.outdir, f"{a.co}_{roc}{sfx}_review_content.json")
     with open(p1, "w", encoding="utf-8") as f:
         json.dump(inquiry, f, ensure_ascii=False, indent=1)
     with open(p2, "w", encoding="utf-8") as f:

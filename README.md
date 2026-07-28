@@ -28,6 +28,7 @@ Copilot／Claude 皆可）→ 把 AI 回的內容貼回網頁 → 下載 Word �
 ```bash
 python scripts/fetch_company_list.py          # 更新公開發行公司名單
 python scripts/fetch_archive.py --years 111,112,113,114,115   # 補抓新年度（已有的自動跳過）
+python scripts/fetch_archive.py --quarter 2 --years 112,113,114   # 半年報（9 月起抓當年 Q2）
 git add data && git commit -m "歸檔 <年度> 年報" && git push
 ```
 
@@ -57,10 +58,12 @@ AI 請讀 **[REVIEW_PROMPT.md](REVIEW_PROMPT.md)**（完整四步流程、判斷
         ▼
         data/<股號>_<西元年>Q<季>_pretrip.json   ← 勤前包（meta/audit/tuples/notes_text/statements/red_flags）
 
-數字層  python scripts/build_review_content.py --co 8304 --year 114
+數字層  python scripts/build_review_content.py --co 8304 --year 114 [--quarter 2]
         ▼
         out/<股號>_<年>_inquiry.json          （查詢函題目＋近6年表＋比率表）
         out/<股號>_<年>_review_content.json   （facts 數字＋draft 骨架含【AI待填】佔位）
+        （--quarter 2＝半年報：讀 Q2 pretrip、取 1/1–6/30 累計與 6/30 餘額，
+        　產出檔名帶 Q2 後綴、文字標籤為「<年>年半年度」；網頁版同步有期別選單）
 
 質性層  AI 依 REVIEW_PROMPT.md 填 draft → out/<股號>_<年>_checklist_content.json
         python scripts/check_content.py …     ← 驗收閘門（佔位字／結構／數字抽核）

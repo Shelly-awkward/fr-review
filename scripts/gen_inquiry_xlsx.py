@@ -36,6 +36,13 @@ FMT_AMT = "#,##0"
 FMT_PCT = "0.00%"
 FMT_NUM = "0.00"
 
+QUARTER = 4  # main 依 inquiry.json meta.quarter 設定；4＝年報、2＝半年報
+
+
+def ylab(r):
+    """期別標籤（民國年）：Q4「114年度」、Q2「114年半年度」（與 build_review_content 一致）。"""
+    return f"{r}年度" if QUARTER == 4 else f"{r}年半年度"
+
 # 差異說明「六、請說明以下事項」十六項制式詢問（文字照最新年度實審樣本）
 Q16 = [
     "貴公司本期營運情形與所屬產業成長（或衰退）之變動是否相同及合理。",
@@ -72,7 +79,7 @@ CN_NUM = ["一", "二", "三", "四", "五", "六", "七", "八", "九", "十",
           "十一", "十二", "十三", "十四", "十五", "十六"]
 
 Q7_YESNO = [  # (題文, 提示)
-    ("{roc}年度是否從事資金貸與他人或背書保證事項:", ""),
+    ("{ylab}是否從事資金貸與他人或背書保證事項:", ""),
     ("是否訂有作業程序：", "若有請提供"),
     ("所訂作業程序是否符合相關法令：", ""),
     ("是否依規定辦理個案評估:", ""),
@@ -198,7 +205,7 @@ def build_diff_sheet(wb, q):
     for col, w in zip("ABCDEFG", [7, 22, 15, 15, 13, 10, 58]):
         ws.column_dimensions[col].width = w
 
-    title = f"{company}{roc}年度財務報告說明"
+    title = f"{company}{ylab(roc)}財務報告說明"
     ws.cell(1, 1, title).font = FONT_T
     ws.merge_cells("A1:G1")
     ws.cell(1, 1).alignment = Alignment(horizontal="center")
@@ -207,7 +214,7 @@ def build_diff_sheet(wb, q):
 
     # 一、損益金額＋成長率兩期比較
     r = sec_title(ws, r, "一、下列財報資料請充分說明變動原因及合理性。")
-    r = diff_thead(ws, r, f"{roc}年度", f"{roc-1}年度", ("金額", "％"))
+    r = diff_thead(ws, r, ylab(roc), ylab(roc-1), ("金額", "％"))
     for it in diff["sec1_amounts"]:
         put_row(ws, r, [it["項次"], it["項目"], None, None, None, None, it["說明"]])
         num(ws.cell(r, 3), it["本期"])
@@ -236,7 +243,7 @@ def build_diff_sheet(wb, q):
                             "（貴公司如編製合併報表請填列）"
                             if i == len(diff["sec1_amounts"]) + 1 else ""])
             r += 1
-    r = diff_thead(ws, r, f"{roc}年度", f"{roc-1}年度", ("百分點%",))
+    r = diff_thead(ws, r, ylab(roc), ylab(roc-1), ("百分點%",))
     for it in diff["sec1_growth"]:
         put_row(ws, r, [it["項次"], it["項目"], None, None, None, None, it["說明"]])
         if it["增減單位"] == "百分點":       # 成長率列：本期/前期/增減皆為百分比
@@ -257,7 +264,7 @@ def build_diff_sheet(wb, q):
                   "合理性。" if peer_given else
                   "二、請貴公司自行選擇較相近之上市櫃同業進行比較下列財務比率，"
                   "並請充分說明差異原因及合理性。")
-    r = diff_thead(ws, r, f"{roc}年度",
+    r = diff_thead(ws, r, ylab(roc),
                    "上市櫃\n同業數據" if peer_given else "自選上市櫃\n同業數據", ("百分點%",))
     for it in diff["sec2_peer"]:
         put_row(ws, r, [it["項次"], it["項目"], None, None, None, None, it["說明"]])
@@ -272,7 +279,7 @@ def build_diff_sheet(wb, q):
 
     # 三、資產負債重大變動
     r = sec_title(ws, r, "三、本期較去年同期變動之原因及合理性。")
-    r = diff_thead(ws, r, f"{roc}年度", f"{roc-1}年度", ("金額", "％"),
+    r = diff_thead(ws, r, ylab(roc), ylab(roc-1), ("金額", "％"),
                    "請說明變動原因及合理性")
     if diff["sec3_bs"]:
         for it in diff["sec3_bs"]:
@@ -286,7 +293,7 @@ def build_diff_sheet(wb, q):
         r = merged(ws, r, 1, 7, "（本期資產負債科目均未達重大變動分析門檻。）")
 
     # 四、產業發展
-    r = sec_title(ws, r, f"四、請簡述貴公司{roc}年度所屬產業之發展情形。")
+    r = sec_title(ws, r, f"四、請簡述貴公司{ylab(roc)}所屬產業之發展情形。")
     r = answer_row(ws, r, height=64)
 
     # 五、風險事項
@@ -308,7 +315,7 @@ def build_diff_sheet(wb, q):
     # 七、資金貸與及背書保證
     r = sec_title(ws, r, "七、請說明貴公司從事資金貸與及背書保證是否符合公開發行公司"
                   "資金貸與及背書保證處理準則規定(請提供貴公司資金貸與及背書保證作業程序)")
-    r = diff_thead(ws, r, f"{roc}年度", f"{roc-1}年度", ("金額", "％"))
+    r = diff_thead(ws, r, ylab(roc), ylab(roc-1), ("金額", "％"))
     for i, nm in enumerate(["資金貸與他人金額", "背書保證金額"], 1):
         v = q["diff"]["sec7_loans"][nm]
         put_row(ws, r, [i, nm, None, None, None, None, ""])
@@ -324,7 +331,7 @@ def build_diff_sheet(wb, q):
         ws.merge_cells(start_row=r, start_column=2, end_row=r, end_column=3)
         for c in (2, 3):
             style(ws.cell(row=r, column=c))
-        ws.cell(r, 2, text.format(roc=q["meta"]["roc_year"]))
+        ws.cell(r, 2, text.format(ylab=ylab(q["meta"]["roc_year"])))
         style(ws.cell(r, 4))
         ws.cell(r, 4, "是/否")
         style(ws.cell(r, 5))
@@ -369,7 +376,7 @@ def build_basic_sheet(wb, q):
     company = meta.get("company") or meta.get("co")
     ws.cell(1, 1, f"{company}（{meta.get('co')}）").font = FONT_T
     ws.cell(2, 1, "基本資料").font = FONT_H
-    ws.cell(3, 1, f"基本資訊（資料年/季：{roc}/4）").font = FONT
+    ws.cell(3, 1, f"基本資訊（資料年/季：{roc}/{QUARTER}）").font = FONT
 
     fill = "（請自行至公開資訊觀測站「公司基本資料查詢」查填）"
     capital = q.get("capital")
@@ -410,7 +417,7 @@ def build_fin_sheet(wb, q, years_desc):
     ws = wb.create_sheet("財報資料")
     company = meta.get("company") or meta.get("co")
     r = sheet_header(ws, company, meta.get("co"), "財報資料", "(單位：千元)")
-    put_row(ws, r, ["項目"] + [f"{yy}年度" for yy in years_desc], header=True)
+    put_row(ws, r, ["項目"] + [ylab(yy) for yy in years_desc], header=True)
     r += 1
     for item, by_year in q["fin_data"].items():
         put_row(ws, r, [item] + [None] * len(years_desc))
@@ -452,7 +459,7 @@ def build_ratio_sheet(wb, q, years_desc):
         for c in range(c0, c0 + 3):
             style(ws.cell(r, c), header=True)
             style(ws.cell(r + 1, c), header=True)
-        ws.cell(r, c0, f"{yy}年度")
+        ws.cell(r, c0, ylab(yy))
         for c, v in zip(range(c0, c0 + 3), ["個別", "上市櫃同業平均", "所有同業平均"]):
             ws.cell(r + 1, c, v)
     r += 2
@@ -496,7 +503,7 @@ def build_growth_sheet(wb, q, years_desc):
     company = meta.get("company") or meta.get("co")
     r = sheet_header(ws, company, meta.get("co"), "成長率",
                      "(單位：％；空白＝缺基期資料)")
-    put_row(ws, r, ["項目"] + [f"{yy}年度" for yy in years_desc], header=True)
+    put_row(ws, r, ["項目"] + [ylab(yy) for yy in years_desc], header=True)
     r += 1
     for item, by_year in q["growth4"].items():
         put_row(ws, r, [item] + [None] * len(years_desc))
@@ -517,7 +524,7 @@ def build_analysis_sheet(wb, q):
     meta, roc = q["meta"], q["meta"]["roc_year"]
     ws = wb.create_sheet("科目分析(內部)")
     company = meta.get("company") or meta.get("co")
-    ws.cell(1, 1, f"{company}（{meta.get('co')}）{roc}年度　科目分析總表").font = FONT_T
+    ws.cell(1, 1, f"{company}（{meta.get('co')}）{ylab(roc)}　科目分析總表").font = FONT_T
     ws.cell(2, 1, "本表為內部覆核底稿：列出所有分析科目及其分析門檻；標「★達標」者已於"
                   "「差異說明」出題請公司說明，未達標者亦列示以資覆核完整性。"
                   "寄送公司前請刪除本工作表。單位：新臺幣千元；比率為 % 或次。").font = FONT
@@ -531,7 +538,7 @@ def build_analysis_sheet(wb, q):
         c3.font = FONT
         if not cov.get("足以比較兩期成長率"):
             c3.fill = NOTE_FILL
-    cols = ["類別", "項目", f"{roc}年度", f"{roc-1}年度", "增減", "變動%",
+    cols = ["類別", "項目", ylab(roc), ylab(roc-1), "增減", "變動%",
             "分析門檻", "是否達標", "對應題號", "備註"]
     put_row(ws, 4, cols, header=True)
     r = 5
@@ -553,6 +560,8 @@ def main():
         sys.exit(2)
     with open(sys.argv[1], encoding="utf-8") as f:
         q = json.load(f)
+    global QUARTER
+    QUARTER = q["meta"].get("quarter", 4)   # 舊版 inquiry.json 無此欄＝年報
     roc = q["meta"]["roc_year"]
     years_desc = sorted((int(k) for k in next(iter(q["fin_data"].values()))),
                         reverse=True)
