@@ -1,0 +1,722 @@
+{
+ "meta": {
+  "source": "MOPS 8992 2023Q2",
+  "CompanyID": "8992",
+  "CompanyChineseName": "新頻道有線電視股份有限公司",
+  "CompanyEnglishName": "Hsinpingtao Cable Tv Co,LTD",
+  "Year": "2023",
+  "Quarter": "2",
+  "ReportType": "Financial report (general)",
+  "ReportCategory": "Individual report",
+  "IndustrySector": "Commercial and industrial"
+ },
+ "audit": {
+  "firm": [
+   "勤業眾信聯合會計師事務所"
+  ],
+  "cpa": [
+   "鄭淂蓁",
+   "施錦川"
+  ],
+  "report_date": "2023-08-10",
+  "report_kind": "核閱報告",
+  "opinion": {
+   "concept": "UnqualifiedOpinionAbstract",
+   "label": "無保留意見／結論"
+  },
+  "flags": [
+   "AccountantName",
+   "AccountantsReportBody",
+   "AssuranceAccountantName1",
+   "AssuranceAccountantName2",
+   "EndingBalanceOfAssetsOfSubsidiariesWhoseFinancialStatementsWereAuditedOrReviewedByOtherIndependentAccountants",
+   "EndingBalanceOfAssetsOfSubsidiariesWhoseFinancialStatementsWereOnUnauditedOrUnreviewed",
+   "EndingBalanceOfInvestmentsAccountedForUsingEquityMethodWhoseFinancialStatementsWereAuditedOrReviewedByOtherIndependentAccountants",
+   "EndingBalanceOfInvestmentsAccountedForUsingEquityMethodWhoseFinancialStatementsWereUnauditedOrUnreviewed",
+   "ReviewAuditDate",
+   "ReviewReport",
+   "ShareOfProfitLossForTheQuarterOfAssociatesAndJointVenturesAccountedForUsingEquityMethodWhoseFinancialStatementsWereAuditedOrReviewedByOtherIndependentAccountants",
+   "ShareOfYearToDateProfitLossOfAssociatesAndJointVenturesAccountedForUsingEquityMethodWhoseFinancialStatementsWereUnauditedOrUnreviewed",
+   "TotalYearToDateRevenuesOfSubsidiariesWhoseFinancialStatementsWereAuditedOrReviewedByOtherIndependentAccountants",
+   "UnqualifiedOpinionAbstract",
+   "YearToDateComprehensiveIncomeOfSubsidiariesWhoseFinancialStatementsWereUnauditedOrUnreviewed"
+  ],
+  "report_body_zh": "新頻道有線電視股份有限公司 公鑒：\n前 言\n 新頻道有線電視股份有限公司民國112年及111年6月30日之資產負債\n表，暨民國112年及111年1月1日至6月30日之綜合損益表、權益變動表、\n現金流量表，以及財務報告附註（包括重大會計政策彙總），業經本會計\n師核閱竣事。依證券發行人財務報告編製準則及經金融監督管理委員會認\n可並發布生效之國際會計準則第34號「期中財務報導」編製允當表達之財\n務報告係管理階層之責任，本會計師之責任係依據核閱結果對財務報告作\n成結論。\n範 圍\n 本會計師係依照核閱準則2410號「財務報表之核閱」執行核閱工作。\n核閱財務報告時所執行之程序包括查詢（主要向負責財務與會計事務之人\n員查詢）、分析性程序及其他核閱程序。核閱工作之範圍明顯小於查核工\n作之範圍，因此本會計師可能無法察覺所有可藉由查核工作辨認之重大事\n項，故無法表示查核意見。\n結 論\n 依本會計師核閱結果，並未發現上開財務報告在所有重大方面有未依\n照證券發行人財務報告編製準則及經金融監督管理委員會認可並發布生效\n之國際會計準則第34號「期中財務報導」編製，致無法允當表達新頻道有\n線電視股份有限公司民國112年及111年6月30日之財務狀況，暨民國112年\n及111年1月1日至6月30日之財務績效及現金流量之情事。\n勤業眾信聯合會計師事務所\n會 計 師 鄭淂蓁 會 計 師 施錦川\n金融監督管理委員會核准文號 證券暨期貨管理委員會核准文號 \n 金管證審字第1000028068號 台財證六字第0930128050號",
+  "report_body_en": null,
+  "emphasis_of_matter": null,
+  "other_matter": null,
+  "unaudited_amounts": {
+   "EndingBalanceOfAssetsOfSubsidiariesWhoseFinancialStatementsWereOnUnauditedOrUnreviewed": 0.0,
+   "YearToDateComprehensiveIncomeOfSubsidiariesWhoseFinancialStatementsWereUnauditedOrUnreviewed": 0.0,
+   "EndingBalanceOfInvestmentsAccountedForUsingEquityMethodWhoseFinancialStatementsWereUnauditedOrUnreviewed": 0.0,
+   "ShareOfYearToDateProfitLossOfAssociatesAndJointVenturesAccountedForUsingEquityMethodWhoseFinancialStatementsWereUnauditedOrUnreviewed": 0.0
+  }
+ },
+ "tuples": {},
+ "notes_text": {},
+ "statements": {
+  "ifrs-full:CashAndCashEquivalents": {
+   "AsOf20230630": 25240.0,
+   "AsOf20221231": 25634.0,
+   "AsOf20220630": 38260.0
+  },
+  "tifrs-bsci-ci:AccountsReceivableNet": {
+   "AsOf20230630": 24124.0,
+   "AsOf20221231": 28541.0,
+   "AsOf20220630": 28442.0
+  },
+  "tifrs-bsci-ci:AccountsReceivableDuefromRelatedPartiesNet": {
+   "AsOf20230630": 25498.0,
+   "AsOf20221231": 12875.0,
+   "AsOf20220630": 25230.0
+  },
+  "tifrs-bsci-ci:OtherReceivablesDueFromRelatedParties": {
+   "AsOf20230630": 3.0,
+   "AsOf20221231": 3.0,
+   "AsOf20220630": 3.0
+  },
+  "ifrs-full:CurrentPrepayments": {
+   "AsOf20230630": 2402.0,
+   "AsOf20221231": 3109.0,
+   "AsOf20220630": 2357.0
+  },
+  "ifrs-full:OtherCurrentAssets": {
+   "AsOf20230630": 82161.0,
+   "AsOf20221231": 89443.0,
+   "AsOf20220630": 70879.0
+  },
+  "ifrs-full:OtherCurrentFinancialAssets": {
+   "AsOf20230630": 81926.0,
+   "AsOf20221231": 89076.0,
+   "AsOf20220630": 70493.0
+  },
+  "tifrs-bsci-ci:OtherCurrentAssetsOthers": {
+   "AsOf20230630": 235.0,
+   "AsOf20221231": 367.0,
+   "AsOf20220630": 386.0
+  },
+  "ifrs-full:CurrentAssets": {
+   "AsOf20230630": 159428.0,
+   "AsOf20221231": 159605.0,
+   "AsOf20220630": 165171.0
+  },
+  "ifrs-full:PropertyPlantAndEquipment": {
+   "AsOf20230630": 255432.0,
+   "AsOf20221231": 261679.0,
+   "AsOf20220630": 252081.0
+  },
+  "ifrs-full:RightofuseAssets": {
+   "AsOf20230630": 2048.0,
+   "AsOf20221231": 3131.0,
+   "AsOf20220630": 4513.0
+  },
+  "ifrs-full:IntangibleAssetsAndGoodwill": {
+   "AsOf20230630": 3412702.0,
+   "AsOf20221231": 3412821.0,
+   "AsOf20220630": 3412908.0
+  },
+  "ifrs-full:ComputerSoftware": {
+   "AsOf20230630": 93.0,
+   "AsOf20221231": 212.0,
+   "AsOf20220630": 299.0
+  },
+  "tifrs-bsci-ci:ComputerSoftware": {
+   "AsOf20230630": 93.0,
+   "AsOf20221231": 212.0,
+   "AsOf20220630": 299.0
+  },
+  "ifrs-full:Goodwill": {
+   "AsOf20230630": 3412609.0,
+   "AsOf20221231": 3412609.0,
+   "AsOf20220630": 3412609.0
+  },
+  "ifrs-full:DeferredTaxAssets": {
+   "AsOf20230630": 4252.0,
+   "AsOf20221231": 5238.0,
+   "AsOf20220630": 4565.0
+  },
+  "ifrs-full:OtherNoncurrentAssets": {
+   "AsOf20230630": 9404.0,
+   "AsOf20221231": 10736.0,
+   "AsOf20220630": 10949.0
+  },
+  "tifrs-bsci-ci:GuaranteeDepositsPaid": {
+   "AsOf20230630": 1967.0,
+   "AsOf20221231": 1934.0,
+   "AsOf20220630": 1846.0
+  },
+  "tifrs-bsci-ci:NoncurrentAssetsRecognisedAsIncrementalCostsToObtainContractWithCustomers": {
+   "AsOf20230630": 7437.0,
+   "AsOf20221231": 8802.0,
+   "AsOf20220630": 9103.0
+  },
+  "tifrs-bsci-ci:NoncurrentAssetsRecognisedAsIncrementalCostsToObtainContractWithCustomers-NoncurrentAssetsRecognisedAsIncrementalCostsToObtainContractWithCustomers": {
+   "AsOf20230630": 7437.0,
+   "AsOf20221231": 8802.0,
+   "AsOf20220630": 9103.0
+  },
+  "tifrs-bsci-ci:AccumulatedImpairmentNoncurrentAssetsRecognisedAsIncrementalCostsToObtainContractWithCustomers": {
+   "AsOf20230630": 0.0,
+   "AsOf20221231": 0.0,
+   "AsOf20220630": 0.0
+  },
+  "ifrs-full:NoncurrentAssets": {
+   "AsOf20230630": 3683838.0,
+   "AsOf20221231": 3693605.0,
+   "AsOf20220630": 3685016.0
+  },
+  "ifrs-full:Assets": {
+   "AsOf20230630": 3843266.0,
+   "AsOf20221231": 3853210.0,
+   "AsOf20220630": 3850187.0
+  },
+  "ifrs-full:CurrentContractLiabilities": {
+   "AsOf20230630": 97182.0,
+   "AsOf20221231": 101690.0,
+   "AsOf20220630": 102871.0
+  },
+  "ifrs-full:TradeAndOtherCurrentPayablesToTradeSuppliers": {
+   "AsOf20230630": 2109.0,
+   "AsOf20221231": 2833.0,
+   "AsOf20220630": 4365.0
+  },
+  "ifrs-full:TradeAndOtherCurrentPayablesToRelatedParties": {
+   "AsOf20230630": 107986.0,
+   "AsOf20221231": 19924.0,
+   "AsOf20220630": 110367.0
+  },
+  "ifrs-full:OtherCurrentPayables": {
+   "AsOf20230630": 75755.0,
+   "AsOf20221231": 92356.0,
+   "AsOf20220630": 86206.0
+  },
+  "tifrs-bsci-ci:OtherPayablesOthers": {
+   "AsOf20230630": 75755.0,
+   "AsOf20221231": 92356.0,
+   "AsOf20220630": 86206.0
+  },
+  "tifrs-bsci-ci:OtherPayablesToRelatedParties": {
+   "AsOf20230630": 1415838.0,
+   "AsOf20221231": 1540558.0,
+   "AsOf20220630": 1508224.0
+  },
+  "tifrs-bsci-ci:CurrentLeaseLiabilities": {
+   "AsOf20230630": 1455.0,
+   "AsOf20221231": 2555.0,
+   "AsOf20220630": 1890.0
+  },
+  "ifrs-full:OtherCurrentLiabilities": {
+   "AsOf20230630": 89512.0,
+   "AsOf20221231": 84499.0,
+   "AsOf20220630": 77001.0
+  },
+  "ifrs-full:CurrentAdvances": {
+   "AsOf20230630": 5740.0,
+   "AsOf20221231": 5890.0,
+   "AsOf20220630": 7636.0
+  },
+  "tifrs-bsci-ci:LongtermLiabilitiesCurrentPortion": {
+   "AsOf20230630": 33060.0,
+   "AsOf20221231": 33060.0,
+   "AsOf20220630": 30994.0
+  },
+  "tifrs-bsci-ci:OtherCurrentLiabilitiesOthers": {
+   "AsOf20230630": 50712.0,
+   "AsOf20221231": 45549.0,
+   "AsOf20220630": 38371.0
+  },
+  "ifrs-full:CurrentLiabilities": {
+   "AsOf20230630": 1789837.0,
+   "AsOf20221231": 1844415.0,
+   "AsOf20220630": 1890924.0
+  },
+  "ifrs-full:LongtermBorrowings": {
+   "AsOf20230630": 740535.0,
+   "AsOf20221231": 756544.0,
+   "AsOf20220630": 772553.0
+  },
+  "ifrs-full:DeferredTaxLiabilities": {
+   "AsOf20230630": 217984.0,
+   "AsOf20221231": 209935.0,
+   "AsOf20220630": 201887.0
+  },
+  "tifrs-bsci-ci:DeferredTaxLiabilitiesOthers": {
+   "AsOf20230630": 217984.0,
+   "AsOf20221231": 209935.0,
+   "AsOf20220630": 201887.0
+  },
+  "ifrs-full:NoncurrentFinanceLeaseLiabilities": {
+   "AsOf20230630": 665.0,
+   "AsOf20221231": 701.0,
+   "AsOf20220630": 2786.0
+  },
+  "ifrs-full:OtherNoncurrentLiabilities": {
+   "AsOf20230630": 34579.0,
+   "AsOf20221231": 39356.0,
+   "AsOf20220630": 35804.0
+  },
+  "ifrs-full:NoncurrentRecognisedLiabilitiesDefinedBenefitPlan": {
+   "AsOf20230630": 12037.0,
+   "AsOf20221231": 16966.0,
+   "AsOf20220630": 13511.0
+  },
+  "tifrs-bsci-ci:GuaranteeDepositsReceived": {
+   "AsOf20230630": 22542.0,
+   "AsOf20221231": 22390.0,
+   "AsOf20220630": 22293.0
+  },
+  "ifrs-full:NoncurrentLiabilities": {
+   "AsOf20230630": 993763.0,
+   "AsOf20221231": 1006536.0,
+   "AsOf20220630": 1013030.0
+  },
+  "ifrs-full:Liabilities": {
+   "AsOf20230630": 2783600.0,
+   "AsOf20221231": 2850951.0,
+   "AsOf20220630": 2903954.0
+  },
+  "tifrs-bsci-ci:OrdinaryShare": {
+   "AsOf20230630": 1002310.0,
+   "AsOf20221231": 1002310.0,
+   "AsOf20220630": 1002310.0
+  },
+  "ifrs-full:IssuedCapital": {
+   "AsOf20230630": 1002310.0,
+   "AsOf20221231": 1002310.0,
+   "AsOf20220630": 1002310.0
+  },
+  "ifrs-full:MergerReserve": {
+   "AsOf20230630": 183535.0,
+   "AsOf20221231": 183535.0,
+   "AsOf20220630": 183535.0
+  },
+  "ifrs-full:CapitalReserve": {
+   "AsOf20230630": 183535.0,
+   "AsOf20221231": 183535.0,
+   "AsOf20220630": 183535.0
+  },
+  "ifrs-full:StatutoryReserve": {
+   "AsOf20230630": 182229.0,
+   "AsOf20221231": 182229.0,
+   "AsOf20220630": 182229.0
+  },
+  "tifrs-bsci-ci:SpecialReserve": {
+   "AsOf20230630": 16433.0,
+   "AsOf20221231": 16433.0,
+   "AsOf20220630": 16433.0
+  },
+  "tifrs-bsci-ci:UnappropriatedRetainedEarningsAaccumulatedDeficit": {
+   "AsOf20230630": -300364.0,
+   "AsOf20221231": -357771.0,
+   "AsOf20220630": -416800.0
+  },
+  "ifrs-full:RetainedEarnings": {
+   "AsOf20230630": -101702.0,
+   "AsOf20221231": -159109.0,
+   "AsOf20220630": -218138.0
+  },
+  "ifrs-full:ReserveOfRemeasurementsOfDefinedBenefitPlans": {
+   "AsOf20230630": -24477.0,
+   "AsOf20221231": -24477.0,
+   "AsOf20220630": -21474.0
+  },
+  "ifrs-full:OtherEquityInterest": {
+   "AsOf20230630": -24477.0,
+   "AsOf20221231": -24477.0,
+   "AsOf20220630": -21474.0
+  },
+  "ifrs-full:Equity": {
+   "AsOf20230630": 1059666.0,
+   "AsOf20221231": 1002259.0,
+   "AsOf20220630": 946233.0,
+   "AsOf20230101_OrdinaryShareMember": 1002310.0,
+   "AsOf20230101_IssuedCapitalMember": 1002310.0,
+   "AsOf20230101_CapitalReserveMember": 183535.0,
+   "AsOf20230101_StatutoryReserveMember": 182229.0,
+   "AsOf20230101_SpecialReserveMember": 16433.0,
+   "AsOf20230101_UnappropriatedRetainedEarningsAccumulatedDeficitMember": -357771.0,
+   "AsOf20230101_RetainedEarningsMember": -159109.0,
+   "AsOf20230101_ReserveOfRemeasurementsOfDefinedBenefitPlansMember": -24477.0,
+   "AsOf20230101_OtherEquityInterestMember": -24477.0,
+   "AsOf20230101_TotalEquityMember": 1002259.0,
+   "AsOf20230630_OrdinaryShareMember": 1002310.0,
+   "AsOf20230630_IssuedCapitalMember": 1002310.0,
+   "AsOf20230630_CapitalReserveMember": 183535.0,
+   "AsOf20230630_StatutoryReserveMember": 182229.0,
+   "AsOf20230630_SpecialReserveMember": 16433.0,
+   "AsOf20230630_UnappropriatedRetainedEarningsAccumulatedDeficitMember": -300364.0,
+   "AsOf20230630_RetainedEarningsMember": -101702.0,
+   "AsOf20230630_ReserveOfRemeasurementsOfDefinedBenefitPlansMember": -24477.0,
+   "AsOf20230630_OtherEquityInterestMember": -24477.0,
+   "AsOf20230630_TotalEquityMember": 1059666.0,
+   "AsOf20220101_OrdinaryShareMember": 1002310.0,
+   "AsOf20220101_IssuedCapitalMember": 1002310.0,
+   "AsOf20220101_CapitalReserveMember": 183535.0,
+   "AsOf20220101_StatutoryReserveMember": 182229.0,
+   "AsOf20220101_SpecialReserveMember": 16433.0,
+   "AsOf20220101_UnappropriatedRetainedEarningsAccumulatedDeficitMember": -474877.0,
+   "AsOf20220101_RetainedEarningsMember": -276215.0,
+   "AsOf20220101_ReserveOfRemeasurementsOfDefinedBenefitPlansMember": -21474.0,
+   "AsOf20220101_OtherEquityInterestMember": -21474.0,
+   "AsOf20220101_TotalEquityMember": 888156.0,
+   "AsOf20220630_OrdinaryShareMember": 1002310.0,
+   "AsOf20220630_IssuedCapitalMember": 1002310.0,
+   "AsOf20220630_CapitalReserveMember": 183535.0,
+   "AsOf20220630_StatutoryReserveMember": 182229.0,
+   "AsOf20220630_SpecialReserveMember": 16433.0,
+   "AsOf20220630_UnappropriatedRetainedEarningsAccumulatedDeficitMember": -416800.0,
+   "AsOf20220630_RetainedEarningsMember": -218138.0,
+   "AsOf20220630_ReserveOfRemeasurementsOfDefinedBenefitPlansMember": -21474.0,
+   "AsOf20220630_OtherEquityInterestMember": -21474.0,
+   "AsOf20220630_TotalEquityMember": 946233.0
+  },
+  "ifrs-full:EquityAndLiabilities": {
+   "AsOf20230630": 3843266.0,
+   "AsOf20221231": 3853210.0,
+   "AsOf20220630": 3850187.0
+  },
+  "tifrs-bsci-ci:EquivalentIssueSharesOfAdvanceReceiptsForOrdinaryShare": {
+   "AsOf20230630": 0.0,
+   "AsOf20221231": 0.0,
+   "AsOf20220630": 0.0
+  },
+  "tifrs-bsci-ci:NumberOfSharesInEntityHeldByEntityAndByItsSubsidiaries": {
+   "AsOf20230630": 0.0,
+   "AsOf20221231": 0.0,
+   "AsOf20220630": 0.0
+  },
+  "ifrs-full:Revenue": {
+   "From20230101To20230630": 330035.0,
+   "From20220101To20220630": 333662.0
+  },
+  "tifrs-bsci-ci:OperatingCosts": {
+   "From20230101To20230630": 205715.0,
+   "From20220101To20220630": 209444.0
+  },
+  "tifrs-bsci-ci:GrossProfitLossFromOperations": {
+   "From20230101To20230630": 124320.0,
+   "From20220101To20220630": 124218.0
+  },
+  "ifrs-full:GrossProfit": {
+   "From20230101To20230630": 124320.0,
+   "From20220101To20220630": 124218.0
+  },
+  "ifrs-full:SellingExpense": {
+   "From20230101To20230630": 14101.0,
+   "From20220101To20220630": 14290.0
+  },
+  "ifrs-full:AdministrativeExpense": {
+   "From20230101To20230630": 28762.0,
+   "From20220101To20220630": 30266.0
+  },
+  "ifrs-full:OperatingExpense": {
+   "From20230101To20230630": 42863.0,
+   "From20220101To20220630": 44556.0
+  },
+  "ifrs-full:ProfitLossFromOperatingActivities": {
+   "From20230101To20230630": 81457.0,
+   "From20220101To20220630": 79662.0
+  },
+  "ifrs-full:RevenueFromInterest": {
+   "From20230101To20230630": 291.0,
+   "From20220101To20220630": 34.0
+  },
+  "tifrs-bsci-ci:OtherIncomeOthers": {
+   "From20230101To20230630": 953.0,
+   "From20220101To20220630": 921.0
+  },
+  "ifrs-full:OtherRevenue": {
+   "From20230101To20230630": 953.0,
+   "From20220101To20220630": 921.0
+  },
+  "ifrs-full:GainsOnDisposalsOfPropertyPlantAndEquipment": {
+   "From20230101To20230630": 187.0,
+   "From20220101To20220630": 118.0
+  },
+  "tifrs-bsci-ci:MiscellaneousDisbursements": {
+   "From20230101To20230630": 14.0,
+   "From20220101To20220630": 110.0
+  },
+  "ifrs-full:LossesOnDisposalsOfPropertyPlantAndEquipment": {
+   "From20230101To20230630": 3.0,
+   "From20220101To20220630": 4.0
+  },
+  "ifrs-full:OtherGainsLosses": {
+   "From20230101To20230630": 170.0,
+   "From20220101To20220630": 4.0
+  },
+  "ifrs-full:FinanceCosts": {
+   "From20230101To20230630": 11136.0,
+   "From20220101To20220630": 8066.0
+  },
+  "tifrs-bsci-ci:NonoperatingIncomeAndExpenses": {
+   "From20230101To20230630": -9722.0,
+   "From20220101To20220630": -7107.0
+  },
+  "ifrs-full:ProfitLossBeforeTax": {
+   "From20230101To20230630": 71735.0,
+   "From20220101To20220630": 72555.0
+  },
+  "ifrs-full:IncomeTaxExpenseContinuingOperations": {
+   "From20230101To20230630": 14328.0,
+   "From20220101To20220630": 14478.0
+  },
+  "ifrs-full:ProfitLossFromContinuingOperations": {
+   "From20230101To20230630": 57407.0,
+   "From20220101To20220630": 58077.0
+  },
+  "ifrs-full:ProfitLoss": {
+   "From20230101To20230630": 57407.0,
+   "From20220101To20220630": 58077.0,
+   "From20230101To20230630_UnappropriatedRetainedEarningsAccumulatedDeficitMember": 57407.0,
+   "From20230101To20230630_RetainedEarningsMember": 57407.0,
+   "From20230101To20230630_TotalEquityMember": 57407.0,
+   "From20220101To20220630_UnappropriatedRetainedEarningsAccumulatedDeficitMember": 58077.0,
+   "From20220101To20220630_RetainedEarningsMember": 58077.0,
+   "From20220101To20220630_TotalEquityMember": 58077.0
+  },
+  "ifrs-full:OtherComprehensiveIncomeBeforeTaxGainsLossesOnRemeasurementsOfDefinedBenefitPlans": {
+   "From20230101To20230630": 0.0,
+   "From20220101To20220630": 0.0
+  },
+  "tifrs-bsci-ci:OtherComponentsOfOtherComprehensiveIncomeThatWillNotBeReclassifiedToProfitOrLoss": {
+   "From20230101To20230630": 0.0,
+   "From20220101To20220630": 0.0
+  },
+  "ifrs-full:IncomeTaxRelatingToComponentsOfOtherComprehensiveIncomeThatWillNotBeReclassifiedToProfitOrLoss": {
+   "From20230101To20230630": 0.0,
+   "From20220101To20220630": 0.0
+  },
+  "ifrs-full:OtherComprehensiveIncomeThatWillNotBeReclassifiedToProfitOrLossNetOfTax": {
+   "From20230101To20230630": 0.0,
+   "From20220101To20220630": 0.0
+  },
+  "ifrs-full:OtherComprehensiveIncome": {
+   "From20230101To20230630": 0.0,
+   "From20220101To20220630": 0.0,
+   "From20230101To20230630_UnappropriatedRetainedEarningsAccumulatedDeficitMember": 0.0,
+   "From20230101To20230630_RetainedEarningsMember": 0.0,
+   "From20230101To20230630_ReserveOfRemeasurementsOfDefinedBenefitPlansMember": 0.0,
+   "From20230101To20230630_OtherEquityInterestMember": 0.0,
+   "From20230101To20230630_TotalEquityMember": 0.0,
+   "From20220101To20220630_UnappropriatedRetainedEarningsAccumulatedDeficitMember": 0.0,
+   "From20220101To20220630_RetainedEarningsMember": 0.0,
+   "From20220101To20220630_ReserveOfRemeasurementsOfDefinedBenefitPlansMember": 0.0,
+   "From20220101To20220630_OtherEquityInterestMember": 0.0,
+   "From20220101To20220630_TotalEquityMember": 0.0
+  },
+  "ifrs-full:ComprehensiveIncome": {
+   "From20230101To20230630": 57407.0,
+   "From20220101To20220630": 58077.0,
+   "From20230101To20230630_UnappropriatedRetainedEarningsAccumulatedDeficitMember": 57407.0,
+   "From20230101To20230630_RetainedEarningsMember": 57407.0,
+   "From20230101To20230630_ReserveOfRemeasurementsOfDefinedBenefitPlansMember": 0.0,
+   "From20230101To20230630_OtherEquityInterestMember": 0.0,
+   "From20230101To20230630_TotalEquityMember": 57407.0,
+   "From20220101To20220630_UnappropriatedRetainedEarningsAccumulatedDeficitMember": 58077.0,
+   "From20220101To20220630_RetainedEarningsMember": 58077.0,
+   "From20220101To20220630_ReserveOfRemeasurementsOfDefinedBenefitPlansMember": 0.0,
+   "From20220101To20220630_OtherEquityInterestMember": 0.0,
+   "From20220101To20220630_TotalEquityMember": 58077.0
+  },
+  "ifrs-full:BasicEarningsLossPerShare": {
+   "From20230101To20230630": 0.57,
+   "From20220101To20220630": 0.58
+  },
+  "tifrs-SCF:ProfitLossBeforeTax": {
+   "From20230101To20230630": 71735.0,
+   "From20220101To20220630": 72555.0
+  },
+  "ifrs-full:AdjustmentsForDepreciationExpense": {
+   "From20230101To20230630": 61948.0,
+   "From20220101To20220630": 63550.0
+  },
+  "ifrs-full:AdjustmentsForAmortisationExpense": {
+   "From20230101To20230630": 4583.0,
+   "From20220101To20220630": 5176.0
+  },
+  "ifrs-full:AdjustmentsForInterestExpense": {
+   "From20230101To20230630": 11136.0,
+   "From20220101To20220630": 8066.0
+  },
+  "ifrs-full:AdjustmentsForInterestIncome": {
+   "From20230101To20230630": -291.0,
+   "From20220101To20220630": -34.0
+  },
+  "ifrs-full:AdjustmentsForGainLossOnDisposalsPropertyPlantAndEquipment": {
+   "From20230101To20230630": -184.0,
+   "From20220101To20220630": -114.0
+  },
+  "ifrs-full:OtherAdjustmentsToReconcileProfitLoss": {
+   "From20230101To20230630": 2248.0,
+   "From20220101To20220630": 2564.0
+  },
+  "tifrs-SCF:AdjustmentsToReconcileProfitLoss": {
+   "From20230101To20230630": 79440.0,
+   "From20220101To20220630": 79208.0
+  },
+  "tifrs-SCF:DecreaseIncreaseInAccountsReceivable": {
+   "From20230101To20230630": 4417.0,
+   "From20220101To20220630": -8064.0
+  },
+  "tifrs-SCF:DecreaseIncreaseInAccountsReceivableDueFromRelatedParties": {
+   "From20230101To20230630": -12623.0,
+   "From20220101To20220630": -13015.0
+  },
+  "tifrs-SCF:DecreaseIncreaseInOtherReceivableDueFromRelatedParties": {
+   "From20230101To20230630": 0.0,
+   "From20220101To20220630": 2.0
+  },
+  "tifrs-SCF:DecreaseIncreaseInPrepayments": {
+   "From20230101To20230630": 707.0,
+   "From20220101To20220630": 123.0
+  },
+  "ifrs-full:AdjustmentsForDecreaseIncreaseInOtherCurrentAssets": {
+   "From20230101To20230630": 132.0,
+   "From20220101To20220630": -171.0
+  },
+  "tifrs-SCF:DecreaseIncreaseInOtherFinancialAssets": {
+   "From20230101To20230630": 7150.0,
+   "From20220101To20220630": 18490.0
+  },
+  "tifrs-SCF:DecreaseIncreaseInAssetsRecognisedAsIncrementalCostsToObtainContractWithCustomers": {
+   "From20230101To20230630": -3099.0,
+   "From20220101To20220630": -4582.0
+  },
+  "tifrs-SCF:ChangesInOperatingAssets": {
+   "From20230101To20230630": -3316.0,
+   "From20220101To20220630": -7217.0
+  },
+  "tifrs-SCF:IncreaseDecreaseInContractLiabilities": {
+   "From20230101To20230630": -4508.0,
+   "From20220101To20220630": 4659.0
+  },
+  "tifrs-SCF:IncreaseDecreaseInAccountsPayable": {
+   "From20230101To20230630": -724.0,
+   "From20220101To20220630": 1331.0
+  },
+  "tifrs-SCF:IncreaseDecreaseInAccountsPayableToRelatedParties": {
+   "From20230101To20230630": 88062.0,
+   "From20220101To20220630": -106590.0
+  },
+  "tifrs-SCF:IncreaseDecreaseInOtherPayables": {
+   "From20230101To20230630": -8727.0,
+   "From20220101To20220630": -5731.0
+  },
+  "tifrs-SCF:IncreaseDecreaseInOtherPayableToRelatedParties": {
+   "From20230101To20230630": -124720.0,
+   "From20220101To20220630": 63486.0
+  },
+  "tifrs-SCF:IncreaseDecreaseInReceiptsInAdvance": {
+   "From20230101To20230630": -150.0,
+   "From20220101To20220630": -219.0
+  },
+  "ifrs-full:AdjustmentsForIncreaseDecreaseInOtherCurrentLiabilities": {
+   "From20230101To20230630": -102.0,
+   "From20220101To20220630": -287.0
+  },
+  "tifrs-SCF:IncreaseDecreaseInAccruedPensionLiabilities": {
+   "From20230101To20230630": -4929.0,
+   "From20220101To20220630": -6566.0
+  },
+  "tifrs-SCF:ChangesInOperatingLiabilities": {
+   "From20230101To20230630": -55798.0,
+   "From20220101To20220630": -49917.0
+  },
+  "tifrs-SCF:ChangesInOperatingAssetsAndLiabilities": {
+   "From20230101To20230630": -59114.0,
+   "From20220101To20220630": -57134.0
+  },
+  "tifrs-SCF:Adjustments": {
+   "From20230101To20230630": 20326.0,
+   "From20220101To20220630": 22074.0
+  },
+  "ifrs-full:CashFlowsFromUsedInOperations": {
+   "From20230101To20230630": 92061.0,
+   "From20220101To20220630": 94629.0
+  },
+  "ifrs-full:InterestReceivedClassifiedAsOperatingActivities": {
+   "From20230101To20230630": 290.0,
+   "From20220101To20220630": 34.0
+  },
+  "ifrs-full:IncomeTaxesPaidRefundClassifiedAsOperatingActivities": {
+   "From20230101To20230630": -28.0,
+   "From20220101To20220630": -2.0
+  },
+  "ifrs-full:CashFlowsFromUsedInOperatingActivities": {
+   "From20230101To20230630": 92323.0,
+   "From20220101To20220630": 94661.0
+  },
+  "ifrs-full:PurchaseOfPropertyPlantAndEquipmentClassifiedAsInvestingActivities": {
+   "From20230101To20230630": -64629.0,
+   "From20220101To20220630": -57564.0
+  },
+  "ifrs-full:ProceedsFromSalesOfPropertyPlantAndEquipmentClassifiedAsInvestingActivities": {
+   "From20230101To20230630": 215.0,
+   "From20220101To20220630": 169.0
+  },
+  "tifrs-SCF:IncreaseInRefundableDeposits": {
+   "From20230101To20230630": -32.0,
+   "From20220101To20220630": -22.0
+  },
+  "tifrs-SCF:NetCashFlowsFromUsedInInvestingActivities": {
+   "From20230101To20230630": -64446.0,
+   "From20220101To20220630": -57417.0
+  },
+  "tifrs-SCF:RepaymentsOfLongTermDebt": {
+   "From20230101To20230630": -16530.0,
+   "From20220101To20220630": -12397.0
+  },
+  "tifrs-SCF:IncreaseInGuaranteeDepositsReceived": {
+   "From20230101To20230630": 152.0,
+   "From20220101To20220630": 565.0
+  },
+  "ifrs-full:PaymentsOfLeaseLiabilitiesClassifiedAsFinancingActivities": {
+   "From20230101To20230630": -1441.0,
+   "From20220101To20220630": -1402.0
+  },
+  "ifrs-full:InterestPaidClassifiedAsFinancingActivities": {
+   "From20230101To20230630": -10452.0,
+   "From20220101To20220630": -7378.0
+  },
+  "tifrs-SCF:CashFlowsFromUsedInFinancingActivities": {
+   "From20230101To20230630": -28271.0,
+   "From20220101To20220630": -20612.0
+  },
+  "ifrs-full:IncreaseDecreaseInCashAndCashEquivalents": {
+   "From20230101To20230630": -394.0,
+   "From20220101To20220630": 16632.0
+  },
+  "tifrs-SCF:CashAndCashEquivalentsAtBeginningOfPeriod": {
+   "AsOf20230630": 25634.0,
+   "AsOf20220630": 21628.0
+  },
+  "tifrs-SCF:CashAndCashEquivalentsAtEndOfPeriod": {
+   "AsOf20230630": 25240.0,
+   "AsOf20220630": 38260.0
+  },
+  "ifrs-full:ChangesInEquity": {
+   "From20230101To20230630_OrdinaryShareMember": 0.0,
+   "From20230101To20230630_IssuedCapitalMember": 0.0,
+   "From20230101To20230630_CapitalReserveMember": 0.0,
+   "From20230101To20230630_StatutoryReserveMember": 0.0,
+   "From20230101To20230630_SpecialReserveMember": 0.0,
+   "From20230101To20230630_UnappropriatedRetainedEarningsAccumulatedDeficitMember": 57407.0,
+   "From20230101To20230630_RetainedEarningsMember": 57407.0,
+   "From20230101To20230630_ReserveOfRemeasurementsOfDefinedBenefitPlansMember": 0.0,
+   "From20230101To20230630_OtherEquityInterestMember": 0.0,
+   "From20230101To20230630_TotalEquityMember": 57407.0,
+   "From20220101To20220630_OrdinaryShareMember": 0.0,
+   "From20220101To20220630_IssuedCapitalMember": 0.0,
+   "From20220101To20220630_CapitalReserveMember": 0.0,
+   "From20220101To20220630_StatutoryReserveMember": 0.0,
+   "From20220101To20220630_SpecialReserveMember": 0.0,
+   "From20220101To20220630_UnappropriatedRetainedEarningsAccumulatedDeficitMember": 58077.0,
+   "From20220101To20220630_RetainedEarningsMember": 58077.0,
+   "From20220101To20220630_ReserveOfRemeasurementsOfDefinedBenefitPlansMember": 0.0,
+   "From20220101To20220630_OtherEquityInterestMember": 0.0,
+   "From20220101To20220630_TotalEquityMember": 58077.0
+  }
+ },
+ "red_flags": []
+}

@@ -1,0 +1,877 @@
+{
+ "meta": {
+  "source": "MOPS 1819 2025Q2",
+  "CompanyID": "1819",
+  "CompanyChineseName": "豐鼎光波奈米科技股份有限公司",
+  "CompanyEnglishName": "Sunny Win Light Ray Nano Technology Co.,Ltd.",
+  "Year": "2025",
+  "Quarter": "2",
+  "ReportType": "Financial report (general)",
+  "ReportCategory": "Consolidated report",
+  "IndustrySector": "Commercial and industrial"
+ },
+ "audit": {
+  "firm": [
+   "資誠聯合會計師事務所"
+  ],
+  "cpa": [
+   "林雅慧",
+   "馮敏娟"
+  ],
+  "report_date": "2025-08-13",
+  "report_kind": "核閱報告",
+  "opinion": {
+   "concept": "UnqualifiedOpinionAbstract",
+   "label": "無保留意見／結論"
+  },
+  "flags": [
+   "AccountantName",
+   "AccountantsReportBody",
+   "AssuranceAccountantName1",
+   "AssuranceAccountantName2",
+   "EndingBalanceOfAssetsOfSubsidiariesWhoseFinancialStatementsWereAuditedOrReviewedByOtherIndependentAccountants",
+   "EndingBalanceOfAssetsOfSubsidiariesWhoseFinancialStatementsWereOnUnauditedOrUnreviewed",
+   "EndingBalanceOfInvestmentsAccountedForUsingEquityMethodWhoseFinancialStatementsWereAuditedOrReviewedByOtherIndependentAccountants",
+   "EndingBalanceOfInvestmentsAccountedForUsingEquityMethodWhoseFinancialStatementsWereUnauditedOrUnreviewed",
+   "ReviewAuditDate",
+   "ReviewReport",
+   "ShareOfProfitLossForTheQuarterOfAssociatesAndJointVenturesAccountedForUsingEquityMethodWhoseFinancialStatementsWereAuditedOrReviewedByOtherIndependentAccountants",
+   "ShareOfYearToDateProfitLossOfAssociatesAndJointVenturesAccountedForUsingEquityMethodWhoseFinancialStatementsWereUnauditedOrUnreviewed",
+   "TotalYearToDateRevenuesOfSubsidiariesWhoseFinancialStatementsWereAuditedOrReviewedByOtherIndependentAccountants",
+   "UnqualifiedOpinionAbstract",
+   "YearToDateComprehensiveIncomeOfSubsidiariesWhoseFinancialStatementsWereUnauditedOrUnreviewed"
+  ],
+  "report_body_zh": "豐鼎光波奈米科技股份有限公司 公鑒： \n 前言 \n 豐鼎光波奈米科技股份有限公司及其子公司(以下簡稱「豐鼎集團」)民國114年及11 \n3年6月30日之合併資產負債表，暨民國114年及113年1月1日至6月30日之合併綜合損益表 \n、合併權益變動表、合併現金流量表，以及合併財務報表附註(包括重大會計政策彙總) \n，業經本會計師核閱竣事。依證券發行人財務報告編製準則及經金融監督管理委員會認 \n可並發布生效之國際會計準則第34號「期中財務報導」編製允當表達之合併財務報表係 \n管理階層之責任，本會計師之責任係依據核閱結果對合併財務報表作成結論。 \n 範圍 \n 本會計師係依照中華民國核閱準則2410號「財務報表之核閱」執行核閱工作。核閱 \n合併財務報表時所執行之程序包括查詢(主要向負責財務與會計事務之人員查詢)、分析 \n性程序及其他核閱程序。核閱工作之範圍明顯小於查核工作之範圍，因此本會計師可能 \n無法察覺所有可藉由查核工作辨認之重大事項，故無法表示查核意見。 \n 結論 \n 依本會計師核閱結果，並未發現上開合併財務報表在所有重大方面有未依照證券發 \n行人財務報告編製準則及經金融監督管理委員會認可並發布生效之國際會計準則第34「 \n期中財務報導」編製，致無法允當表達豐鼎集團民國114年及113年6月30日之合併財務狀 \n況，暨民國114年及113年1月1日至6月30日之合併財務績效，暨民國114年及113年1月1日 \n至6月30日之合併現金流量之情事。 \n 資誠聯合會計師事務所 \n 林雅慧 \n 會計師 \n 馮敏娟 \n 金融監督管理委員會 \n 核准簽證文號：金管證審字第1070323061號 \n 前行政院金融監督管理委員會證券期貨局 \n 核准簽證文號：金管證六字第0960038033號 \n 中華民國114年8月13日",
+  "report_body_en": null,
+  "emphasis_of_matter": null,
+  "other_matter": null,
+  "unaudited_amounts": {
+   "EndingBalanceOfAssetsOfSubsidiariesWhoseFinancialStatementsWereOnUnauditedOrUnreviewed": 0.0,
+   "YearToDateComprehensiveIncomeOfSubsidiariesWhoseFinancialStatementsWereUnauditedOrUnreviewed": 0.0,
+   "EndingBalanceOfInvestmentsAccountedForUsingEquityMethodWhoseFinancialStatementsWereUnauditedOrUnreviewed": 0.0,
+   "ShareOfYearToDateProfitLossOfAssociatesAndJointVenturesAccountedForUsingEquityMethodWhoseFinancialStatementsWereUnauditedOrUnreviewed": 0.0
+  }
+ },
+ "tuples": {
+  "TheConsolidatedEntities": [
+   {
+    "CompanyNameOfTheInvestor": "本公司",
+    "NameOfInvestee": "翔越能源\n股份有限公司",
+    "MainBusinesses": "太陽能發電供應\n相關業務",
+    "PercentageOfOwnership4": [
+     100.0,
+     100.0,
+     100.0
+    ],
+    "Description": "-"
+   }
+  ],
+  "Others": [
+   {
+    "Item": "應收帳款及票據",
+    "Description": "1.係指依合約約定，已具無條件收取因移轉商品或勞務所換得對價金額權利之帳款及票據。\n 2.屬未付息之短期應收帳款及票據，因折現之影響不大，本集團係以原始發票金額衡量。"
+   },
+   {
+    "Item": "應付帳款及票據",
+    "Description": "1.係指因賒購原物料、商品或勞務所發生之債務及因營業而發生之應付票據。\n 2.屬未付息之短期應付帳款及票據，因折現之影響不大，本集團係以原始發票金額衡量。"
+   },
+   {
+    "Item": "股本",
+    "Description": "普通股分類為權益。"
+   },
+   {
+    "Item": "營運部門",
+    "Description": "本集團營運部門資訊與提供給主要營運決策者之內部管理報告採一致之方式報導。主要\n 營運決策者負責分配資源予營運部門並評估其績效。"
+   }
+  ],
+  "FinancialStatementAccountAndAmount": [
+   {
+    "FinancialStatementAccount2": "應收票據",
+    "Amount2": [
+     32517.0,
+     32019.0,
+     24160.0
+    ]
+   },
+   {
+    "FinancialStatementAccount2": "應收帳款",
+    "Amount2": [
+     21999.0,
+     29839.0,
+     16412.0
+    ]
+   },
+   {
+    "FinancialStatementAccount2": "減：備抵損失",
+    "Amount2": [
+     -5536.0,
+     -5320.0,
+     -3873.0
+    ]
+   },
+   {
+    "FinancialStatementAccount2": "應收帳款-關係人",
+    "Amount2": [
+     2060.0,
+     8965.0,
+     1336.0
+    ]
+   }
+  ],
+  "AgeDistributionAndAmount": [
+   {
+    "AgeDistribution": "未逾期",
+    "Amount2": [
+     47777.0,
+     63011.0,
+     34882.0
+    ]
+   },
+   {
+    "AgeDistribution": "30天內",
+    "Amount2": [
+     144.0,
+     0.0,
+     615.0
+    ]
+   },
+   {
+    "AgeDistribution": "31-90天",
+    "Amount2": [
+     3115.0,
+     787.0,
+     1143.0
+    ]
+   },
+   {
+    "AgeDistribution": "91-180天",
+    "Amount2": [
+     0.0,
+     0.0,
+     4.0
+    ]
+   },
+   {
+    "AgeDistribution": "181天以上",
+    "Amount2": [
+     5540.0,
+     7025.0,
+     5264.0
+    ]
+   }
+  ],
+  "CategoriesOfRelatedPartiesAndAmount": [
+   {
+    "FinancialStatementAccountForSignificantTransactionsBetweenRelatedParties": "商品銷售：",
+    "CategoriesOfRelatedParties": "翔明",
+    "Amount8": [
+     27167.0,
+     1108.0
+    ]
+   }
+  ],
+  "CategoriesOfRelatedPartiesAndAmount2": [
+   {
+    "CategoriesOfRelatedParties3": "其他關係人",
+    "Amount9": [
+     76.0,
+     0.0
+    ]
+   }
+  ],
+  "FinancialStatementAccountAndCategoriesOfRelatedPartiesAndAmount": [
+   {
+    "FinancialStatementAccount3": "應收帳款",
+    "CategoriesOfRelatedParties2": "其他關係人",
+    "Amount3": [
+     2060.0,
+     8965.0,
+     1336.0
+    ]
+   },
+   {
+    "FinancialStatementAccount3": "其他應收款",
+    "CategoriesOfRelatedParties2": "其他關係人",
+    "Amount3": [
+     24.0,
+     48.0,
+     24.0
+    ]
+   }
+  ],
+  "FinancialStatementAccountAndCategoriesOfRelatedPartiesAndAmount2": [
+   {
+    "FinancialStatementAccount4": "應付帳款：",
+    "CategoriesOfRelatedParties12": "其他關係人",
+    "Amount4": [
+     194.0,
+     115.0,
+     0.0
+    ]
+   },
+   {
+    "FinancialStatementAccount4": "其他應付款：",
+    "CategoriesOfRelatedParties12": "本公司之董事",
+    "Amount4": [
+     0.0,
+     0.0,
+     644.0
+    ]
+   },
+   {
+    "FinancialStatementAccount4": "其他應付款：",
+    "CategoriesOfRelatedParties12": "其他關係人",
+    "Amount4": [
+     10.0,
+     14.0,
+     5.0
+    ]
+   }
+  ],
+  "NamesLocationsAndRelatedInformationOfInvesteesOverWhichTheCompanyExercisesSignificantInfluence": [
+   {
+    "CompanyNameOfTheInvestor": "本公司",
+    "CompanyNameOfTheInvestee": "翔越能源股份有限公司",
+    "LocationCode": "0",
+    "Location": "台灣",
+    "MainBusinessesAndProducts": "太陽能發電供應相關業務",
+    "EndingBalance3": 32783.0,
+    "BeginningBalance": 32783.0,
+    "NumberOfShares1": 3300.0,
+    "PercentageOfOwnership1": 100.0,
+    "BookValue1": 34099.0,
+    "NetIncomeLossesOfTheInvestee": -183.0,
+    "InvestmentIncomeLossesRecognized1": -183.0
+   }
+  ]
+ },
+ "notes_text": {
+  "HistoryAndOrganization": "豐鼎光波奈米科技股份有限公司(以下簡稱本公司)原名豐鼎石材股份有限公司，於民國8\n 4年2月設立，民國92年3月於屏東縣枋寮鄉設立屏南分公司，民國93年更名為豐鼎光波奈\n 米科技股份有限公司，自民國104年6月24日起登錄興櫃，惟已於民國108年7月5日終止登\n 錄興櫃。本公司及子公司(以下統稱「本集團」)主要營業項目為各種石材之加工經銷買賣\n 、石材製品製造業、合板及組合木材製造業、庭園綠化景觀工程設計施工及有關前各項產\n 品之進出口貿易、太陽能光電供應及能源技術服務相關業務等。",
+  "SourcesOfUncertaintyFromSignificantAccountingJudgmentsAssumptionsAndEstimations": "本集團編製本合併財務報告時，管理階層已運用其判斷以決定所採用之會計政策，並依據\n 資產負債表日當時之情況對於未來事件之合理預期以作出會計估計值及假設。所作出之重\n 大會計估計值與假設可能與實際結果存有差異，將考量歷史經驗及其他因子持續評估及調\n 整。該等估計及假設具有導致資產及負債帳面金額於下個財務年度重大調整之風險，請詳\n 下列對重大會計判斷、估計與假設不確定性之說明：\n (一)會計政策採用之重要判斷\n 無。\n (二)重要會計估計值及假設\n 存貨之評價\n 由於存貨須以成本與淨變現價值孰低者計價，故本集團必須運用判斷及估計決定資產負\n 債表日存貨之淨變現價值。由於科技快速變遷，本集團評估資產負債表日存貨因正常損\n 耗、過時陳舊或無市場銷售價值之金額，並將存貨成本沖減至淨變現價值。此存貨評價\n 主要係依未來特定期間內之產品需求為估計基礎，故可能產生重大變動。\n 民國114年6月30日，本集團存貨之帳面金額請詳附註六(四)。",
+  "PrinciplesOfConsolidation": "(1)本集團將所有子公司納入合併財務報告編製之個體。子公司指受本集團控制之個體\n （包括結構型個體），當本集團暴露於來自對該個體之參與之變動報酬或對該等變\n 動報酬享有權利，且透過對該個體之權力有能力影響該等報酬時，本集團即控制該\n 個體。子公司自本集團取得控制之日起納入合併財務報告，於喪失控制之日起終止\n 合併。\n (2)集團內公司間之交易、餘額及未實現損益業已銷除。子公司之會計政策已作必要之\n 調整，與本集團採用之政策一致。\n (3)損益及其他綜合損益各組成部分歸屬於母公司業主及非控制權益；綜合損益總額亦\n 歸屬於母公司業主及非控制權益，即使因而導致非控制權益發生虧損餘額。\n (4)對子公司持股之變動若未導致喪失控制（與非控制權益之交易），係作為權益交易\n 處理，亦即視為與業主間進行之交易。非控制權益之調整金額與所支付或收取對價\n 之公允價值間之差額係直接認列於權益。",
+  "OtherTransactionWithRelatedParties": "1.存出保證金\n 本集團與其他關係人之存出保證金於民國114年6月30日、113年12月31日及民國113年\n 6月30日金額皆為$200。\n2.租賃交易－承租人\n (1)本集團向翔明承租廠房及機器設備，租賃合約之期間為3至4年。\n (2)租賃負債\n A.本集團與其他關係人-翔明之租賃負債於民國114年6月30日、民國113年12月31日及民\n 國113年6月30日金額分別為$15,940、$22,396及$7,918。\n B.本集團民國114年1月1日至6月30日及民國113年1月1日至6月30日因租賃負債產生之折\n 舊費用分別為$4,297及$4,315。\n C.本集團民國114年1月1日至6月30日及民國113年1月1日至6月30日因租賃負債產生之利\n 息費用分別為$262及$121。\n3.合約負債-預收貨款\n 本集團與其他關係人-翔明之合約負債-預收貨款於民國114年6月30日、113年12月31日及民\n 國113年6月30日金額分別為$7,661、21,050及$0。\n4.其他流動負債\n (1)其他流動負債主係預計處分部分太陽能電廠設備之預收關係人款項。\n (2)本集團與其他關係人-利捷之其他流動負債於民國114年6月30日、民國113年12月31日及民\n 國113年6月30日金額分別為$7,000、$0及$0。\n5.租金收入\n 本集團與欣曄之租金收入於民國114年1月1日至6月30日及民國113年1月1日至6月30日\n 金額均為$12。\n 本集團與利捷之租金收入於民國114年1月1日至6月30日及民國113年1月1日至6月30日\n 金額均為$12。",
+  "Leasing": "出租人之租賃交易-營業租賃\n 營業租賃之租賃收益扣除給予承租人之任何誘因，於租賃期間內按直線法攤銷認列為當\n 期損益。\n 承租人之租賃交易-使用權資產/租賃負債\n 1.租賃資產於可供本集團使用之日認列為使用權資產及租賃負債。當租賃合約係屬短\n 期租賃或低價值標的資產之租賃時，將租賃給付採直線法於租賃期間認列為費用。\n 2.租賃負債於租賃開始日將尚未支付之租賃給付按本集團增額借款利率折現後之現值\n 認列，租賃給付係固定給付減除可收取之任何租賃誘因。後續採利息法按攤銷後成本\n 法衡量，於租賃期間提列利息費用。當非屬合約修改造成租賃期間或租賃給付變動時\n ，將重評估租賃負債，並將再衡量數調整使用權資產。\n 3.使用權資產於租賃開始日按成本認列，成本係租賃負債之原始衡量金額。後續採成\n 本模式衡量，於使用權資產之耐用年限屆滿時或租賃期間屆滿時兩者之較早者，提列\n 折舊費用。當租賃負債重評估時，使用權資產將調整租賃負債之任何再衡量數。\n 4.對減少租賃範圍之租賃修改，承租人將減少使用權資產之帳面金額以反映租賃部分\n 或全面之終止，並將其與租賃負債再衡量金額間之差額認列於損益中。",
+  "RevenueRecognition": "1.商品銷售\n (1)銷貨收入於產品之控制移轉予客戶時認列，即當產品被交付予買方，買方對於產\n 品銷售之通路及價格具有裁量權，且本集團並無尚未履行之履約義務可能影響批\n 發商接受該產品時。當產品被運送至指定地點，陳舊過時及滅失之風險已移轉予\n 買方，且買方依據銷售合約接受產品，或有客觀證據證明所有接受標準皆已滿足\n 時，商品交付方屬發生。\n (2)銷貨收入以合約價格扣除估計銷貨折讓之淨額認列。收入認列金額以未來高度很\n 有可能不會發生重大迴轉之部分為限，並於每一資產負債表日更新估計。銷貨交\n 易之收款條件與市場實務一致，故判斷合約中並未包含重大財務組成部分。\n (3)應收帳款於商品交付予客戶時認列，因自該時點起本集團對合約價款具無條件權\n 利，僅須時間經過即可自客戶收取對價。\n 2.售電收入\n 係依實際售電度數及費率計算，於取得能源局設備登記函之日始開始認列，並依約\n 定自台電現場掛表起算按月計算售電收入金額。\n 3.加工收入\n 加工收入依交易完成客戶委託加工事項時認列收入。當加工事項完成所有權移轉客\n 戶時，始對合約事項具可執行權利，故於完成客戶委託加工事項時認列收入。",
+  "ImpairmentOfNonFinancialAsset": "本集團於資產負債表日針對有減損跡象之資產，估計其可回收金額，當可回收金額低\n 於其帳面金額時，則認列減損損失。可回收金額係指一項資產之公允價值減處分成本\n 或其使用價值，兩者較高者。當以前年度已認列資產減損之情況不存在或減少時，則\n 迴轉減損損失，惟迴轉減損損失而增加之資產帳面金額，不超過該資產若未認列減損\n 損失情況下減除折舊或攤銷後之帳面金額。",
+  "PropertyPlantAndEquipment": "1.不動產、廠房及設備係以取得成本為入帳基礎。\n 2.後續成本只有在與該項目有關之未來經濟效益很有可能流入本集團，且該項目之成\n 本能可靠衡量時，才包括在資產之帳面金額或認列為一項單獨資產。被重置部分之帳\n 面金額應除列。所有其他維修費用於發生時認列為當期損益。\n 3.不動產、廠房及設備之後續衡量採成本模式，除土地不提折舊外，其他按估計耐用\n 年限以直線法計提折舊。不動產、廠房及設備各項組成若屬重大，則單獨提列折舊。\n 4.本集團於每一財務年度結束日對各項資產之殘值、耐用年限及折舊方法進行檢視，\n 若殘值及耐用年限之預期值與先前之估計不同時，或資產所含之未來效益之預期消耗\n 型態已有重大變動，則自變動發生日起依國際會計準則第8號「會計政策、會計估計\n 值變動及錯誤」之會計估計值變動規定處理。各項資產之耐用年限如下:\n 房屋及建築 5年~50年\n 機器設備 5年~15年\n 運輸設備 5年\n 電力設備 15年~20年\n 其他設備 2年~20年",
+  "ApplicationOfNewlyIssuedOrAmendedStandardsAndInterpretations": "(一)已採用金融監督管理委員會(以下簡稱「金管會」)認可並發布生效之新發布、修正後\n 國際財務報導準則會計準則之影響\n 下表彙列金管會認可並發布生效之民國114年適用之國際財務報導準則會計準則之新發\n 布、修正及修訂之準則及解釋：\n 新發布/修正/修訂準則及解釋 國際會計準則理事會發布之生效日 \n ------------------------------------------------ ---------------------------------\n 國際會計準則第21號之修正「缺乏可兌換性」 民國114年1月1日 \n 本集團經評估上述準則及解釋對本集團財務狀況與財務績效並無重大影響。\n (二)尚未採用金管會認可之新發布、修正後國際財務報導準則會計準則之影響\n 下表彙列金管會認可之民國115年適用之國際財務報導準則會計準則之新發布、修正及\n 修訂之準則及解釋：\n 新發布/修正/修訂準則及解釋 國際會計準則理事會發布之生效日 \n ------------------------------------------------ ---------------------------------\n 國際財務報導準則第9號及國際財務報導準則第7號之修 民國115年1月1日 \n 正「金融工具之分類與衡量之修正」部分修正內容 \n 國際財務報導準則第9號及國際財務報導準則第7號之修 民國115年1月1日 \n 正「涉及自然電力的合約」 \n 國際財務報導準則第17號「保險合約」 民國112年1月1日 \n 國際財務報導準則第17號「保險合約」之修正 民國112年1月1日 \n 國際財務報導準則第17號之修正「初次適用國際財務報 民國112年1月1日 \n 導準則第17號及國際財務報導準則第9號—比較資訊」 \n 國際財務報導準則會計準則之年度改善－第11冊 民國115年1月1日 \n 本集團經評估上述準則及解釋對本集團財務狀況與財務績效並無重大影響。\n (三)國際會計準則理事會已發布但尚未經金管會認可之國際財務報導準則會計準則之影響\n 下表彙列國際會計準則理事會已發布但尚未納入金管會認可之國際財務報導準則會計準\n 則之新發布、修正及修訂之準則及解釋：\n 新發布/修正/修訂準則及解釋 國際會計準則理事會發布之生效日 \n ------------------------------------------------ ---------------------------------\n 國際財務報導準則第10號及國際會計準則第28號之修正 待國際會計準則理事會決定 \n 「投資者與其關聯企業或合資間之資產出售或投入」 \n 國際財務報導準則第18號「財務報表中之表達與揭露」 民國116年1月1日 \n 國際財務報導準則第19號「不具公共課責性之子公司： 民國116年1月1日 \n 揭露」 \n 除下列所述者外，本集團經評估上述準則及解釋對本集團財務狀況與財務\n 績效並無重大影響：\n 國際財務報導準則第18號「財務報表中之表達與揭露」\n 國際財務報導準則第18號「財務報表中之表達與揭露」取代國際會計準則第1號並更新\n 綜合損益表之架構，及新增管理績效衡量之揭露，並強化運用於主要財務報表及附註之\n 彙總及細分原則。",
+  "GuaranteesAmongRelatedParties": "本集團董事長為本公司銀行借款之連帶保證人。"
+ },
+ "statements": {
+  "ifrs-full:CashAndCashEquivalents": {
+   "AsOf20250630": 7924.0,
+   "AsOf20241231": 14564.0,
+   "AsOf20240630": 13167.0
+  },
+  "ifrs-full:CurrentFinancialAssetsAtAmortisedCost": {
+   "AsOf20250630": 2144.0,
+   "AsOf20241231": 2137.0,
+   "AsOf20240630": 2630.0
+  },
+  "tifrs-bsci-ci:NotesReceivableNet": {
+   "AsOf20250630": 32517.0,
+   "AsOf20241231": 32019.0,
+   "AsOf20240630": 24160.0
+  },
+  "tifrs-bsci-ci:AccountsReceivableNet": {
+   "AsOf20250630": 16463.0,
+   "AsOf20241231": 24519.0,
+   "AsOf20240630": 12539.0
+  },
+  "tifrs-bsci-ci:AccountsReceivableDuefromRelatedPartiesNet": {
+   "AsOf20250630": 2060.0,
+   "AsOf20241231": 8965.0,
+   "AsOf20240630": 1336.0
+  },
+  "ifrs-full:OtherCurrentReceivables": {
+   "AsOf20250630": 555.0,
+   "AsOf20241231": 115.0,
+   "AsOf20240630": 63.0
+  },
+  "ifrs-full:CurrentTaxAssets": {
+   "AsOf20250630": 2.0,
+   "AsOf20241231": 129.0,
+   "AsOf20240630": 63.0
+  },
+  "ifrs-full:Inventories": {
+   "AsOf20250630": 135047.0,
+   "AsOf20241231": 135366.0,
+   "AsOf20240630": 139409.0
+  },
+  "ifrs-full:CurrentPrepayments": {
+   "AsOf20250630": 15279.0,
+   "AsOf20241231": 16214.0,
+   "AsOf20240630": 17078.0
+  },
+  "ifrs-full:OtherCurrentAssets": {
+   "AsOf20250630": 876.0,
+   "AsOf20241231": 883.0,
+   "AsOf20240630": 872.0
+  },
+  "ifrs-full:CurrentAssets": {
+   "AsOf20250630": 212867.0,
+   "AsOf20241231": 234911.0,
+   "AsOf20240630": 211317.0
+  },
+  "ifrs-full:NoncurrentFinancialAssetsAtAmortisedCost": {
+   "AsOf20250630": 15237.0,
+   "AsOf20241231": 15095.0,
+   "AsOf20240630": 14564.0
+  },
+  "ifrs-full:PropertyPlantAndEquipment": {
+   "AsOf20250630": 649408.0,
+   "AsOf20241231": 665282.0,
+   "AsOf20240630": 665984.0
+  },
+  "ifrs-full:RightofuseAssets": {
+   "AsOf20250630": 39381.0,
+   "AsOf20241231": 44840.0,
+   "AsOf20240630": 33101.0
+  },
+  "ifrs-full:DeferredTaxAssets": {
+   "AsOf20250630": 4784.0,
+   "AsOf20241231": 4654.0,
+   "AsOf20240630": 4624.0
+  },
+  "ifrs-full:OtherNoncurrentAssets": {
+   "AsOf20250630": 3083.0,
+   "AsOf20241231": 3083.0,
+   "AsOf20240630": 3083.0
+  },
+  "ifrs-full:NoncurrentAssets": {
+   "AsOf20250630": 711893.0,
+   "AsOf20241231": 732954.0,
+   "AsOf20240630": 721356.0
+  },
+  "ifrs-full:Assets": {
+   "AsOf20250630": 924760.0,
+   "AsOf20241231": 967865.0,
+   "AsOf20240630": 932673.0
+  },
+  "ifrs-full:ShorttermBorrowings": {
+   "AsOf20250630": 163456.0,
+   "AsOf20241231": 157767.0,
+   "AsOf20240630": 136547.0
+  },
+  "ifrs-full:CurrentContractLiabilities": {
+   "AsOf20250630": 7857.0,
+   "AsOf20241231": 21246.0,
+   "AsOf20240630": 7933.0
+  },
+  "tifrs-bsci-ci:NotesPayable": {
+   "AsOf20250630": 957.0,
+   "AsOf20241231": 886.0,
+   "AsOf20240630": 1331.0
+  },
+  "ifrs-full:TradeAndOtherCurrentPayablesToTradeSuppliers": {
+   "AsOf20250630": 6163.0,
+   "AsOf20241231": 6653.0,
+   "AsOf20240630": 5670.0
+  },
+  "ifrs-full:OtherCurrentPayables": {
+   "AsOf20250630": 29435.0,
+   "AsOf20241231": 29951.0,
+   "AsOf20240630": 26234.0
+  },
+  "tifrs-bsci-ci:CurrentLeaseLiabilities": {
+   "AsOf20250630": 12518.0,
+   "AsOf20241231": 14474.0,
+   "AsOf20240630": 8519.0
+  },
+  "ifrs-full:OtherCurrentLiabilities": {
+   "AsOf20250630": 45739.0,
+   "AsOf20241231": 38433.0,
+   "AsOf20240630": 38722.0
+  },
+  "tifrs-bsci-ci:LongtermLiabilitiesCurrentPortion": {
+   "AsOf20250630": 37111.0,
+   "AsOf20241231": 36859.0,
+   "AsOf20240630": 38336.0
+  },
+  "tifrs-bsci-ci:OtherCurrentLiabilitiesOthers": {
+   "AsOf20250630": 8628.0,
+   "AsOf20241231": 1574.0,
+   "AsOf20240630": 386.0
+  },
+  "ifrs-full:CurrentLiabilities": {
+   "AsOf20250630": 266125.0,
+   "AsOf20241231": 269410.0,
+   "AsOf20240630": 224956.0
+  },
+  "ifrs-full:LongtermBorrowings": {
+   "AsOf20250630": 273661.0,
+   "AsOf20241231": 292843.0,
+   "AsOf20240630": 295363.0
+  },
+  "ifrs-full:NoncurrentFinanceLeaseLiabilities": {
+   "AsOf20250630": 31595.0,
+   "AsOf20241231": 35422.0,
+   "AsOf20240630": 26401.0
+  },
+  "ifrs-full:OtherNoncurrentLiabilities": {
+   "AsOf20250630": 4839.0,
+   "AsOf20241231": 5018.0,
+   "AsOf20240630": 5579.0
+  },
+  "ifrs-full:NoncurrentLiabilities": {
+   "AsOf20250630": 310095.0,
+   "AsOf20241231": 333283.0,
+   "AsOf20240630": 327343.0
+  },
+  "ifrs-full:Liabilities": {
+   "AsOf20250630": 576220.0,
+   "AsOf20241231": 602693.0,
+   "AsOf20240630": 552299.0
+  },
+  "tifrs-bsci-ci:OrdinaryShare": {
+   "AsOf20250630": 335043.0,
+   "AsOf20241231": 335043.0,
+   "AsOf20240630": 335043.0
+  },
+  "ifrs-full:IssuedCapital": {
+   "AsOf20250630": 335043.0,
+   "AsOf20241231": 335043.0,
+   "AsOf20240630": 335043.0
+  },
+  "ifrs-full:AdditionalPaidinCapital": {
+   "AsOf20250630": 61925.0,
+   "AsOf20241231": 61925.0,
+   "AsOf20240630": 61925.0
+  },
+  "ifrs-full:CapitalReserve": {
+   "AsOf20250630": 61925.0,
+   "AsOf20241231": 61925.0,
+   "AsOf20240630": 61925.0
+  },
+  "tifrs-bsci-ci:UnappropriatedRetainedEarningsAaccumulatedDeficit": {
+   "AsOf20250630": -48428.0,
+   "AsOf20241231": -31796.0,
+   "AsOf20240630": -16594.0
+  },
+  "ifrs-full:RetainedEarnings": {
+   "AsOf20250630": -48428.0,
+   "AsOf20241231": -31796.0,
+   "AsOf20240630": -16594.0
+  },
+  "ifrs-full:EquityAttributableToOwnersOfParent": {
+   "AsOf20250630": 348540.0,
+   "AsOf20241231": 365172.0,
+   "AsOf20240630": 380374.0
+  },
+  "ifrs-full:Equity": {
+   "AsOf20250630": 348540.0,
+   "AsOf20241231": 365172.0,
+   "AsOf20240630": 380374.0,
+   "AsOf20250101_OrdinaryShareMember": 335043.0,
+   "AsOf20250101_IssuedCapitalMember": 335043.0,
+   "AsOf20250101_CapitalReserveMember": 61925.0,
+   "AsOf20250101_StatutoryReserveMember": 0.0,
+   "AsOf20250101_UnappropriatedRetainedEarningsAccumulatedDeficitMember": -31796.0,
+   "AsOf20250101_RetainedEarningsMember": -31796.0,
+   "AsOf20250101_EquityAttributableToOwnersOfParentMember": 365172.0,
+   "AsOf20250101_TotalEquityMember": 365172.0,
+   "AsOf20250630_OrdinaryShareMember": 335043.0,
+   "AsOf20250630_IssuedCapitalMember": 335043.0,
+   "AsOf20250630_CapitalReserveMember": 61925.0,
+   "AsOf20250630_StatutoryReserveMember": 0.0,
+   "AsOf20250630_UnappropriatedRetainedEarningsAccumulatedDeficitMember": -48428.0,
+   "AsOf20250630_RetainedEarningsMember": -48428.0,
+   "AsOf20250630_EquityAttributableToOwnersOfParentMember": 348540.0,
+   "AsOf20250630_TotalEquityMember": 348540.0,
+   "AsOf20240101_OrdinaryShareMember": 299043.0,
+   "AsOf20240101_IssuedCapitalMember": 299043.0,
+   "AsOf20240101_CapitalReserveMember": 25925.0,
+   "AsOf20240101_StatutoryReserveMember": 418.0,
+   "AsOf20240101_UnappropriatedRetainedEarningsAccumulatedDeficitMember": -5867.0,
+   "AsOf20240101_RetainedEarningsMember": -5449.0,
+   "AsOf20240101_EquityAttributableToOwnersOfParentMember": 319519.0,
+   "AsOf20240101_TotalEquityMember": 319519.0,
+   "AsOf20240630_OrdinaryShareMember": 335043.0,
+   "AsOf20240630_IssuedCapitalMember": 335043.0,
+   "AsOf20240630_CapitalReserveMember": 61925.0,
+   "AsOf20240630_StatutoryReserveMember": 0.0,
+   "AsOf20240630_UnappropriatedRetainedEarningsAccumulatedDeficitMember": -16594.0,
+   "AsOf20240630_RetainedEarningsMember": -16594.0,
+   "AsOf20240630_EquityAttributableToOwnersOfParentMember": 380374.0,
+   "AsOf20240630_TotalEquityMember": 380374.0
+  },
+  "ifrs-full:EquityAndLiabilities": {
+   "AsOf20250630": 924760.0,
+   "AsOf20241231": 967865.0,
+   "AsOf20240630": 932673.0
+  },
+  "tifrs-bsci-ci:NumberOfShareCapitalAwaitingRetirement": {
+   "AsOf20250630": 0.0,
+   "AsOf20241231": 0.0,
+   "AsOf20240630": 0.0
+  },
+  "tifrs-bsci-ci:EquivalentIssueSharesOfAdvanceReceiptsForOrdinaryShare": {
+   "AsOf20250630": 0.0,
+   "AsOf20241231": 0.0,
+   "AsOf20240630": 0.0
+  },
+  "tifrs-bsci-ci:NumberOfSharesInEntityHeldByEntityAndByItsSubsidiaries": {
+   "AsOf20250630": 0.0,
+   "AsOf20241231": 0.0,
+   "AsOf20240630": 0.0
+  },
+  "ifrs-full:Revenue": {
+   "From20250101To20250630": 124004.0,
+   "From20240101To20240630": 85329.0
+  },
+  "tifrs-bsci-ci:OperatingCosts": {
+   "From20250101To20250630": 126923.0,
+   "From20240101To20240630": 77084.0
+  },
+  "tifrs-bsci-ci:GrossProfitLossFromOperations": {
+   "From20250101To20250630": -2919.0,
+   "From20240101To20240630": 8245.0
+  },
+  "ifrs-full:GrossProfit": {
+   "From20250101To20250630": -2919.0,
+   "From20240101To20240630": 8245.0
+  },
+  "ifrs-full:SellingExpense": {
+   "From20250101To20250630": 2229.0,
+   "From20240101To20240630": 2718.0
+  },
+  "ifrs-full:AdministrativeExpense": {
+   "From20250101To20250630": 7289.0,
+   "From20240101To20240630": 7726.0
+  },
+  "ifrs-full:ResearchAndDevelopmentExpense": {
+   "From20250101To20250630": 1878.0,
+   "From20240101To20240630": 2081.0
+  },
+  "ifrs-full:ImpairmentLossImpairmentGainAndReversalOfImpairmentLossDeterminedInAccordanceWithIFRS9": {
+   "From20250101To20250630": 216.0,
+   "From20240101To20240630": 30.0
+  },
+  "ifrs-full:OperatingExpense": {
+   "From20250101To20250630": 11612.0,
+   "From20240101To20240630": 12555.0
+  },
+  "ifrs-full:ProfitLossFromOperatingActivities": {
+   "From20250101To20250630": -14531.0,
+   "From20240101To20240630": -4310.0
+  },
+  "ifrs-full:RevenueFromInterest": {
+   "From20250101To20250630": 92.0,
+   "From20240101To20240630": 111.0
+  },
+  "ifrs-full:OtherRevenue": {
+   "From20250101To20250630": 577.0,
+   "From20240101To20240630": 133.0
+  },
+  "ifrs-full:OtherGainsLosses": {
+   "From20250101To20250630": 4519.0,
+   "From20240101To20240630": -337.0
+  },
+  "ifrs-full:FinanceCosts": {
+   "From20250101To20250630": 7376.0,
+   "From20240101To20240630": 6796.0
+  },
+  "tifrs-bsci-ci:NonoperatingIncomeAndExpenses": {
+   "From20250101To20250630": -2188.0,
+   "From20240101To20240630": -6889.0
+  },
+  "ifrs-full:ProfitLossBeforeTax": {
+   "From20250101To20250630": -16719.0,
+   "From20240101To20240630": -11199.0
+  },
+  "ifrs-full:IncomeTaxExpenseContinuingOperations": {
+   "From20250101To20250630": -87.0,
+   "From20240101To20240630": -54.0
+  },
+  "ifrs-full:ProfitLossFromContinuingOperations": {
+   "From20250101To20250630": -16632.0,
+   "From20240101To20240630": -11145.0
+  },
+  "ifrs-full:ProfitLoss": {
+   "From20250101To20250630": -16632.0,
+   "From20240101To20240630": -11145.0,
+   "From20250101To20250630_OrdinaryShareMember": 0.0,
+   "From20250101To20250630_IssuedCapitalMember": 0.0,
+   "From20250101To20250630_CapitalReserveMember": 0.0,
+   "From20250101To20250630_StatutoryReserveMember": 0.0,
+   "From20250101To20250630_UnappropriatedRetainedEarningsAccumulatedDeficitMember": -16632.0,
+   "From20250101To20250630_RetainedEarningsMember": -16632.0,
+   "From20250101To20250630_EquityAttributableToOwnersOfParentMember": -16632.0,
+   "From20250101To20250630_TotalEquityMember": -16632.0,
+   "From20240101To20240630_OrdinaryShareMember": 0.0,
+   "From20240101To20240630_IssuedCapitalMember": 0.0,
+   "From20240101To20240630_CapitalReserveMember": 0.0,
+   "From20240101To20240630_StatutoryReserveMember": 0.0,
+   "From20240101To20240630_UnappropriatedRetainedEarningsAccumulatedDeficitMember": -11145.0,
+   "From20240101To20240630_RetainedEarningsMember": -11145.0,
+   "From20240101To20240630_EquityAttributableToOwnersOfParentMember": -11145.0,
+   "From20240101To20240630_TotalEquityMember": -11145.0
+  },
+  "ifrs-full:ComprehensiveIncome": {
+   "From20250101To20250630": -16632.0,
+   "From20240101To20240630": -11145.0,
+   "From20250101To20250630_OrdinaryShareMember": 0.0,
+   "From20250101To20250630_IssuedCapitalMember": 0.0,
+   "From20250101To20250630_CapitalReserveMember": 0.0,
+   "From20250101To20250630_StatutoryReserveMember": 0.0,
+   "From20250101To20250630_UnappropriatedRetainedEarningsAccumulatedDeficitMember": -16632.0,
+   "From20250101To20250630_RetainedEarningsMember": -16632.0,
+   "From20250101To20250630_EquityAttributableToOwnersOfParentMember": -16632.0,
+   "From20250101To20250630_TotalEquityMember": -16632.0,
+   "From20240101To20240630_OrdinaryShareMember": 0.0,
+   "From20240101To20240630_IssuedCapitalMember": 0.0,
+   "From20240101To20240630_CapitalReserveMember": 0.0,
+   "From20240101To20240630_StatutoryReserveMember": 0.0,
+   "From20240101To20240630_UnappropriatedRetainedEarningsAccumulatedDeficitMember": -11145.0,
+   "From20240101To20240630_RetainedEarningsMember": -11145.0,
+   "From20240101To20240630_EquityAttributableToOwnersOfParentMember": -11145.0,
+   "From20240101To20240630_TotalEquityMember": -11145.0
+  },
+  "ifrs-full:ProfitLossAttributableToOwnersOfParent": {
+   "From20250101To20250630": -16632.0,
+   "From20240101To20240630": -11145.0
+  },
+  "ifrs-full:ComprehensiveIncomeAttributableToOwnersOfParent": {
+   "From20250101To20250630": -16632.0,
+   "From20240101To20240630": -11145.0
+  },
+  "ifrs-full:BasicEarningsLossPerShareFromContinuingOperations": {
+   "From20250101To20250630": -0.5,
+   "From20240101To20240630": -0.37
+  },
+  "ifrs-full:BasicEarningsLossPerShare": {
+   "From20250101To20250630": -0.5,
+   "From20240101To20240630": -0.37
+  },
+  "ifrs-full:DilutedEarningsLossPerShareFromContinuingOperations": {
+   "From20250101To20250630": -0.5,
+   "From20240101To20240630": -0.37
+  },
+  "ifrs-full:DilutedEarningsLossPerShare": {
+   "From20250101To20250630": -0.5,
+   "From20240101To20240630": -0.37
+  },
+  "tifrs-SCF:ProfitLossBeforeTax": {
+   "From20250101To20250630": -16719.0,
+   "From20240101To20240630": -11199.0
+  },
+  "ifrs-full:AdjustmentsForDepreciationExpense": {
+   "From20250101To20250630": 24479.0,
+   "From20240101To20240630": 23062.0
+  },
+  "tifrs-SCF:ProvisionReversalOfProvisionForBadDebtExpense": {
+   "From20250101To20250630": 216.0,
+   "From20240101To20240630": 30.0
+  },
+  "ifrs-full:AdjustmentsForInterestExpense": {
+   "From20250101To20250630": 7376.0,
+   "From20240101To20240630": 6796.0
+  },
+  "ifrs-full:AdjustmentsForInterestIncome": {
+   "From20250101To20250630": -92.0,
+   "From20240101To20240630": -111.0
+  },
+  "ifrs-full:AdjustmentsForGainLossOnDisposalsPropertyPlantAndEquipment": {
+   "From20250101To20250630": -476.0,
+   "From20240101To20240630": -453.0
+  },
+  "tifrs-SCF:AdjustmentsToReconcileProfitLoss": {
+   "From20250101To20250630": 31503.0,
+   "From20240101To20240630": 29324.0
+  },
+  "tifrs-SCF:DecreaseIncreaseInNotesReceivable": {
+   "From20250101To20250630": 14247.0,
+   "From20240101To20240630": 12176.0
+  },
+  "tifrs-SCF:DecreaseIncreaseInOtherReceivables": {
+   "From20250101To20250630": -440.0,
+   "From20240101To20240630": 187.0
+  },
+  "ifrs-full:AdjustmentsForDecreaseIncreaseInInventories": {
+   "From20250101To20250630": 319.0,
+   "From20240101To20240630": -19855.0
+  },
+  "tifrs-SCF:DecreaseIncreaseInPrepayments": {
+   "From20250101To20250630": 935.0,
+   "From20240101To20240630": -2144.0
+  },
+  "ifrs-full:AdjustmentsForDecreaseIncreaseInOtherCurrentAssets": {
+   "From20250101To20250630": 7.0,
+   "From20240101To20240630": -93.0
+  },
+  "tifrs-SCF:ChangesInOperatingAssets": {
+   "From20250101To20250630": 15068.0,
+   "From20240101To20240630": -9729.0
+  },
+  "tifrs-SCF:IncreaseDecreaseInContractLiabilities": {
+   "From20250101To20250630": -13389.0,
+   "From20240101To20240630": 0.0
+  },
+  "tifrs-SCF:IncreaseDecreaseInNotesPayable": {
+   "From20250101To20250630": -419.0,
+   "From20240101To20240630": 4286.0
+  },
+  "tifrs-SCF:IncreaseDecreaseInOtherPayables": {
+   "From20250101To20250630": 40.0,
+   "From20240101To20240630": -330.0
+  },
+  "ifrs-full:AdjustmentsForIncreaseDecreaseInOtherCurrentLiabilities": {
+   "From20250101To20250630": 54.0,
+   "From20240101To20240630": -108.0
+  },
+  "tifrs-SCF:ChangesInOperatingLiabilities": {
+   "From20250101To20250630": -13714.0,
+   "From20240101To20240630": 3848.0
+  },
+  "tifrs-SCF:ChangesInOperatingAssetsAndLiabilities": {
+   "From20250101To20250630": 1354.0,
+   "From20240101To20240630": -5881.0
+  },
+  "tifrs-SCF:Adjustments": {
+   "From20250101To20250630": 32857.0,
+   "From20240101To20240630": 23443.0
+  },
+  "ifrs-full:CashFlowsFromUsedInOperations": {
+   "From20250101To20250630": 16138.0,
+   "From20240101To20240630": 12244.0
+  },
+  "ifrs-full:InterestReceivedClassifiedAsOperatingActivities": {
+   "From20250101To20250630": 92.0,
+   "From20240101To20240630": 111.0
+  },
+  "ifrs-full:InterestPaidClassifiedAsOperatingActivities": {
+   "From20250101To20250630": -7613.0,
+   "From20240101To20240630": -6845.0
+  },
+  "ifrs-full:IncomeTaxesPaidRefundClassifiedAsOperatingActivities": {
+   "From20250101To20250630": 84.0,
+   "From20240101To20240630": -10.0
+  },
+  "ifrs-full:CashFlowsFromUsedInOperatingActivities": {
+   "From20250101To20250630": 8701.0,
+   "From20240101To20240630": 5500.0
+  },
+  "tifrs-SCF:AcquisitionOfFinancialAssetsAtAmortisedCost": {
+   "From20250101To20250630": -149.0,
+   "From20240101To20240630": 0.0
+  },
+  "tifrs-SCF:ProceedsFromDisposalOfFinancialAssetsAtAmortisedCost": {
+   "From20250101To20250630": 0.0,
+   "From20240101To20240630": 4458.0
+  },
+  "ifrs-full:PurchaseOfPropertyPlantAndEquipmentClassifiedAsInvestingActivities": {
+   "From20250101To20250630": -3644.0,
+   "From20240101To20240630": -41538.0
+  },
+  "ifrs-full:ProceedsFromSalesOfPropertyPlantAndEquipmentClassifiedAsInvestingActivities": {
+   "From20250101To20250630": 476.0,
+   "From20240101To20240630": 453.0
+  },
+  "tifrs-SCF:IncreaseInReceiptsInAdvanceDueToDisposalOfAssets": {
+   "From20250101To20250630": 7000.0,
+   "From20240101To20240630": 0.0
+  },
+  "tifrs-SCF:NetCashFlowsFromUsedInInvestingActivities": {
+   "From20250101To20250630": 3683.0,
+   "From20240101To20240630": -36627.0
+  },
+  "tifrs-SCF:IncreaseInShortTermLoans": {
+   "From20250101To20250630": 5689.0,
+   "From20240101To20240630": -34438.0
+  },
+  "tifrs-SCF:ProceedsFromLongTermDebt": {
+   "From20250101To20250630": 0.0,
+   "From20240101To20240630": 31807.0
+  },
+  "tifrs-SCF:RepaymentsOfLongTermDebt": {
+   "From20250101To20250630": -18930.0,
+   "From20240101To20240630": -17376.0
+  },
+  "ifrs-full:PaymentsOfLeaseLiabilitiesClassifiedAsFinancingActivities": {
+   "From20250101To20250630": -5783.0,
+   "From20240101To20240630": -12552.0
+  },
+  "ifrs-full:ProceedsFromIssuingShares": {
+   "From20250101To20250630": 0.0,
+   "From20240101To20240630": 72000.0
+  },
+  "tifrs-SCF:CashFlowsFromUsedInFinancingActivities": {
+   "From20250101To20250630": -19024.0,
+   "From20240101To20240630": 39441.0
+  },
+  "ifrs-full:IncreaseDecreaseInCashAndCashEquivalents": {
+   "From20250101To20250630": -6640.0,
+   "From20240101To20240630": 8314.0
+  },
+  "tifrs-SCF:CashAndCashEquivalentsAtBeginningOfPeriod": {
+   "AsOf20250630": 14564.0,
+   "AsOf20240630": 4853.0
+  },
+  "tifrs-SCF:CashAndCashEquivalentsAtEndOfPeriod": {
+   "AsOf20250630": 7924.0,
+   "AsOf20240630": 13167.0
+  },
+  "ifrs-full:OtherComprehensiveIncome": {
+   "From20250101To20250630_OrdinaryShareMember": 0.0,
+   "From20250101To20250630_IssuedCapitalMember": 0.0,
+   "From20250101To20250630_CapitalReserveMember": 0.0,
+   "From20250101To20250630_StatutoryReserveMember": 0.0,
+   "From20250101To20250630_UnappropriatedRetainedEarningsAccumulatedDeficitMember": 0.0,
+   "From20250101To20250630_RetainedEarningsMember": 0.0,
+   "From20250101To20250630_EquityAttributableToOwnersOfParentMember": 0.0,
+   "From20250101To20250630_TotalEquityMember": 0.0,
+   "From20240101To20240630_OrdinaryShareMember": 0.0,
+   "From20240101To20240630_IssuedCapitalMember": 0.0,
+   "From20240101To20240630_CapitalReserveMember": 0.0,
+   "From20240101To20240630_StatutoryReserveMember": 0.0,
+   "From20240101To20240630_UnappropriatedRetainedEarningsAccumulatedDeficitMember": 0.0,
+   "From20240101To20240630_RetainedEarningsMember": 0.0,
+   "From20240101To20240630_EquityAttributableToOwnersOfParentMember": 0.0,
+   "From20240101To20240630_TotalEquityMember": 0.0
+  },
+  "ifrs-full:ChangesInEquity": {
+   "From20250101To20250630_OrdinaryShareMember": 0.0,
+   "From20250101To20250630_IssuedCapitalMember": 0.0,
+   "From20250101To20250630_CapitalReserveMember": 0.0,
+   "From20250101To20250630_StatutoryReserveMember": 0.0,
+   "From20250101To20250630_UnappropriatedRetainedEarningsAccumulatedDeficitMember": -16632.0,
+   "From20250101To20250630_RetainedEarningsMember": -16632.0,
+   "From20250101To20250630_EquityAttributableToOwnersOfParentMember": -16632.0,
+   "From20250101To20250630_TotalEquityMember": -16632.0,
+   "From20240101To20240630_OrdinaryShareMember": 36000.0,
+   "From20240101To20240630_IssuedCapitalMember": 36000.0,
+   "From20240101To20240630_CapitalReserveMember": 36000.0,
+   "From20240101To20240630_StatutoryReserveMember": -418.0,
+   "From20240101To20240630_UnappropriatedRetainedEarningsAccumulatedDeficitMember": -10727.0,
+   "From20240101To20240630_RetainedEarningsMember": -11145.0,
+   "From20240101To20240630_EquityAttributableToOwnersOfParentMember": 60855.0,
+   "From20240101To20240630_TotalEquityMember": 60855.0
+  },
+  "tifrs-es:LegalReserveUsedToOffsetAccumulatedDeficits": {
+   "From20240101To20240630_OrdinaryShareMember": 0.0,
+   "From20240101To20240630_IssuedCapitalMember": 0.0,
+   "From20240101To20240630_CapitalReserveMember": 0.0,
+   "From20240101To20240630_StatutoryReserveMember": -418.0,
+   "From20240101To20240630_UnappropriatedRetainedEarningsAccumulatedDeficitMember": 418.0,
+   "From20240101To20240630_RetainedEarningsMember": 0.0,
+   "From20240101To20240630_EquityAttributableToOwnersOfParentMember": 0.0,
+   "From20240101To20240630_TotalEquityMember": 0.0
+  },
+  "tifrs-es:IssueOfShares": {
+   "From20240101To20240630_OrdinaryShareMember": 36000.0,
+   "From20240101To20240630_IssuedCapitalMember": 36000.0,
+   "From20240101To20240630_CapitalReserveMember": 36000.0,
+   "From20240101To20240630_StatutoryReserveMember": 0.0,
+   "From20240101To20240630_UnappropriatedRetainedEarningsAccumulatedDeficitMember": 0.0,
+   "From20240101To20240630_RetainedEarningsMember": 0.0,
+   "From20240101To20240630_EquityAttributableToOwnersOfParentMember": 72000.0,
+   "From20240101To20240630_TotalEquityMember": 72000.0
+  }
+ },
+ "red_flags": [
+  {
+   "type": "被投資公司虧損",
+   "detail": "翔越能源股份有限公司 本期損益 -183 千元"
+  }
+ ]
+}

@@ -1,0 +1,2806 @@
+{
+ "meta": {
+  "source": "MOPS 6647 2025Q2",
+  "CompanyID": "6647",
+  "CompanyChineseName": "合迪股份有限公司",
+  "CompanyEnglishName": "Fina Finance ＆ Trading Co., Ltd",
+  "Year": "2025",
+  "Quarter": "2",
+  "ReportType": "Financial report (general)",
+  "ReportCategory": "Consolidated report",
+  "IndustrySector": "Commercial and industrial"
+ },
+ "audit": {
+  "firm": [
+   "安侯建業聯合會計師事務所"
+  ],
+  "cpa": [
+   "郭柔蘭",
+   "陳宜君"
+  ],
+  "report_date": "2025-08-12",
+  "report_kind": "核閱報告",
+  "opinion": {
+   "concept": "UnqualifiedOpinionAbstract",
+   "label": "無保留意見／結論"
+  },
+  "flags": [
+   "AccountantName",
+   "AccountantsReportBody",
+   "AssuranceAccountantName1",
+   "AssuranceAccountantName2",
+   "EndingBalanceOfAssetsOfSubsidiariesWhoseFinancialStatementsWereAuditedOrReviewedByOtherIndependentAccountants",
+   "EndingBalanceOfAssetsOfSubsidiariesWhoseFinancialStatementsWereOnUnauditedOrUnreviewed",
+   "EndingBalanceOfInvestmentsAccountedForUsingEquityMethodWhoseFinancialStatementsWereAuditedOrReviewedByOtherIndependentAccountants",
+   "EndingBalanceOfInvestmentsAccountedForUsingEquityMethodWhoseFinancialStatementsWereUnauditedOrUnreviewed",
+   "ReviewAuditDate",
+   "ReviewReport",
+   "ShareOfProfitLossForTheQuarterOfAssociatesAndJointVenturesAccountedForUsingEquityMethodWhoseFinancialStatementsWereAuditedOrReviewedByOtherIndependentAccountants",
+   "ShareOfYearToDateProfitLossOfAssociatesAndJointVenturesAccountedForUsingEquityMethodWhoseFinancialStatementsWereUnauditedOrUnreviewed",
+   "TotalYearToDateRevenuesOfSubsidiariesWhoseFinancialStatementsWereAuditedOrReviewedByOtherIndependentAccountants",
+   "UnqualifiedOpinionAbstract",
+   "YearToDateComprehensiveIncomeOfSubsidiariesWhoseFinancialStatementsWereUnauditedOrUnreviewed"
+  ],
+  "report_body_zh": "合迪股份有限公司董事會 公鑒：\n前言\n 合迪股份有限公司及其子公司民國一一四年及一一三年六月三十日之合併資產負債表，暨\n民國一一四年及一一三年一月一日至六月三十日之合併綜合損益表、合併權益變動表及合併現\n金流量表，以及合併財務報告附註(包括重大會計政策彙總)，業經本會計師核閱竣事。依證券\n發行人財務報告編製準則及金融監督管理委員會認可並發布生效之國際會計準則第三十四號\n「期中財務報導」編製允當表達之合併財務報告係管理階層之責任，本會計師之責任係依據核\n閱結果對合併財務報告作成結論。\n範圍\n 本會計師係依照核閱準則2410號「財務報表之核閱」執行核閱工作。核閱合併財務報告時\n所執行之程序包括查詢(主要向負責財務與會計事務之人員查詢)、分析性程序及其他核閱程\n序。核閱工作之範圍明顯小於查核工作之範圍，因此本會計師可能無法察覺所有可藉由查核工\n作辨認之重大事項，故無法表示查核意見。\n查核意見之基礎\n結論\n 依本會計師核閱結果，並未發現上開合併財務報告在所有重大方面有未依照證券發行人財\n務報告編製準則及金融監督管理委員會認可並發布生效之國際會計準則第三十四號「期中財務\n報導」編製，致無法允當表達合迪股份有限公司及其子公司民國一一四年及一一三年六月三十\n日之合併財務狀況，暨民國一一四年及一一三年一月一日至六月三十日之合併財務績效及合併\n現金流量之情事。\n 安 侯 建 業 聯 合 會 計 師 事 務 所\n 會 計 師： 郭 柔 蘭\n 陳 宜 君\n 證券主管機關核准簽證文號：金管證審字第1070304941號\n 金管證六字第1000011652號\n 民 國 一一四 年 八 月 十二 日",
+  "report_body_en": null,
+  "emphasis_of_matter": null,
+  "other_matter": null,
+  "unaudited_amounts": {
+   "EndingBalanceOfAssetsOfSubsidiariesWhoseFinancialStatementsWereOnUnauditedOrUnreviewed": 0.0,
+   "YearToDateComprehensiveIncomeOfSubsidiariesWhoseFinancialStatementsWereUnauditedOrUnreviewed": 0.0,
+   "EndingBalanceOfInvestmentsAccountedForUsingEquityMethodWhoseFinancialStatementsWereUnauditedOrUnreviewed": 0.0,
+   "ShareOfYearToDateProfitLossOfAssociatesAndJointVenturesAccountedForUsingEquityMethodWhoseFinancialStatementsWereUnauditedOrUnreviewed": 0.0
+  }
+ },
+ "tuples": {
+  "TheConsolidatedEntities": [
+   {
+    "CompanyNameOfTheInvestor": "本公司",
+    "NameOfInvestee": "仲信資融(股)公司",
+    "MainBusinesses": "應收帳款收買、分期付款銷貨及逾期\n應收帳款管理、評價、收買及拍賣等\n業務",
+    "PercentageOfOwnership4": [
+     100.0,
+     100.0,
+     100.0
+    ],
+    "Description": ""
+   },
+   {
+    "CompanyNameOfTheInvestor": "本公司",
+    "NameOfInvestee": "迪和(股)公司",
+    "MainBusinesses": "分期付款銷貨業務及租賃業",
+    "PercentageOfOwnership4": [
+     100.0,
+     100.0,
+     100.0
+    ],
+    "Description": ""
+   },
+   {
+    "CompanyNameOfTheInvestor": "本公司及仲信資融(股)公司",
+    "NameOfInvestee": "仲昱電業(股)公司",
+    "MainBusinesses": "太陽能相關業務",
+    "PercentageOfOwnership4": [
+     83.99,
+     83.99,
+     72.91
+    ],
+    "Description": ""
+   },
+   {
+    "CompanyNameOfTheInvestor": "迪和(股)公司及仲信資融(股)公司",
+    "NameOfInvestee": "創鉅有限合夥",
+    "MainBusinesses": "分期付款銷貨業務及租賃業",
+    "PercentageOfOwnership4": [
+     100.0,
+     100.0,
+     100.0
+    ],
+    "Description": ""
+   },
+   {
+    "CompanyNameOfTheInvestor": "仲昱電業(股)公司",
+    "NameOfInvestee": "中明(股)公司",
+    "MainBusinesses": "太陽能相關業務",
+    "PercentageOfOwnership4": [
+     100.0,
+     100.0,
+     100.0
+    ],
+    "Description": ""
+   },
+   {
+    "CompanyNameOfTheInvestor": "仲昱電業(股)公司",
+    "NameOfInvestee": "中曜(股)公司",
+    "MainBusinesses": "太陽能相關業務",
+    "PercentageOfOwnership4": [
+     100.0,
+     100.0,
+     100.0
+    ],
+    "Description": ""
+   },
+   {
+    "CompanyNameOfTheInvestor": "仲昱電業(股)公司",
+    "NameOfInvestee": "耀日(股)公司",
+    "MainBusinesses": "太陽能相關業務",
+    "PercentageOfOwnership4": [
+     100.0,
+     100.0,
+     100.0
+    ],
+    "Description": ""
+   },
+   {
+    "CompanyNameOfTheInvestor": "仲昱電業(股)公司",
+    "NameOfInvestee": "和烜(股)公司",
+    "MainBusinesses": "太陽能相關業務",
+    "PercentageOfOwnership4": [
+     100.0,
+     100.0,
+     100.0
+    ],
+    "Description": ""
+   },
+   {
+    "CompanyNameOfTheInvestor": "仲昱電業(股)公司",
+    "NameOfInvestee": "夏晶(股)公司",
+    "MainBusinesses": "太陽能相關業務",
+    "PercentageOfOwnership4": [
+     94.76,
+     94.76,
+     94.76
+    ],
+    "Description": ""
+   },
+   {
+    "CompanyNameOfTheInvestor": "仲昱電業(股)公司",
+    "NameOfInvestee": "光熙(股)公司",
+    "MainBusinesses": "太陽能相關業務",
+    "PercentageOfOwnership4": [
+     100.0,
+     100.0,
+     100.0
+    ],
+    "Description": ""
+   },
+   {
+    "CompanyNameOfTheInvestor": "仲昱電業(股)公司",
+    "NameOfInvestee": "若晨(股)公司",
+    "MainBusinesses": "太陽能相關業務",
+    "PercentageOfOwnership4": [
+     100.0,
+     100.0,
+     100.0
+    ],
+    "Description": ""
+   },
+   {
+    "CompanyNameOfTheInvestor": "仲昱電業(股)公司",
+    "NameOfInvestee": "若晶(股)公司",
+    "MainBusinesses": "太陽能相關業務",
+    "PercentageOfOwnership4": [
+     100.0,
+     100.0,
+     100.0
+    ],
+    "Description": ""
+   },
+   {
+    "CompanyNameOfTheInvestor": "仲昱電業(股)公司",
+    "NameOfInvestee": "若泰(股)公司",
+    "MainBusinesses": "太陽能相關業務",
+    "PercentageOfOwnership4": [
+     100.0,
+     100.0,
+     100.0
+    ],
+    "Description": ""
+   },
+   {
+    "CompanyNameOfTheInvestor": "仲昱電業(股)公司",
+    "NameOfInvestee": "盛能(股)公司",
+    "MainBusinesses": "太陽能相關業務",
+    "PercentageOfOwnership4": [
+     100.0,
+     100.0,
+     100.0
+    ],
+    "Description": ""
+   },
+   {
+    "CompanyNameOfTheInvestor": "仲昱電業(股)公司",
+    "NameOfInvestee": "晶盛(股)公司",
+    "MainBusinesses": "太陽能相關業務",
+    "PercentageOfOwnership4": [
+     100.0,
+     100.0,
+     100.0
+    ],
+    "Description": ""
+   },
+   {
+    "CompanyNameOfTheInvestor": "仲昱電業(股)公司",
+    "NameOfInvestee": "晨英(股)公司",
+    "MainBusinesses": "太陽能相關業務",
+    "PercentageOfOwnership4": [
+     100.0,
+     100.0,
+     100.0
+    ],
+    "Description": ""
+   },
+   {
+    "CompanyNameOfTheInvestor": "仲昱電業(股)公司",
+    "NameOfInvestee": "景英(股)公司",
+    "MainBusinesses": "太陽能相關業務",
+    "PercentageOfOwnership4": [
+     100.0,
+     100.0,
+     100.0
+    ],
+    "Description": ""
+   },
+   {
+    "CompanyNameOfTheInvestor": "仲昱電業(股)公司",
+    "NameOfInvestee": "天曉(股)公司",
+    "MainBusinesses": "太陽能相關業務",
+    "PercentageOfOwnership4": [
+     100.0,
+     100.0,
+     100.0
+    ],
+    "Description": ""
+   },
+   {
+    "CompanyNameOfTheInvestor": "仲昱電業(股)公司",
+    "NameOfInvestee": "鉅拓(股)公司",
+    "MainBusinesses": "太陽能相關業務",
+    "PercentageOfOwnership4": [
+     100.0,
+     100.0,
+     100.0
+    ],
+    "Description": ""
+   },
+   {
+    "CompanyNameOfTheInvestor": "仲昱電業(股)公司",
+    "NameOfInvestee": "光泰電業(股)公司",
+    "MainBusinesses": "太陽能相關業務",
+    "PercentageOfOwnership4": [
+     40.0,
+     40.0,
+     100.0
+    ],
+    "Description": "(註1)"
+   },
+   {
+    "CompanyNameOfTheInvestor": "仲昱電業(股)公司",
+    "NameOfInvestee": "旭利能源(股)公司",
+    "MainBusinesses": "太陽能相關業務",
+    "PercentageOfOwnership4": [
+     100.0,
+     100.0,
+     100.0
+    ],
+    "Description": ""
+   },
+   {
+    "CompanyNameOfTheInvestor": "仲昱電業(股)公司",
+    "NameOfInvestee": "雲永(股)公司",
+    "MainBusinesses": "太陽能相關業務",
+    "PercentageOfOwnership4": [
+     70.0,
+     95.0,
+     95.0
+    ],
+    "Description": ""
+   },
+   {
+    "CompanyNameOfTheInvestor": "仲昱電業(股)公司",
+    "NameOfInvestee": "安南光能能源科技有限公司",
+    "MainBusinesses": "太陽能相關業務",
+    "PercentageOfOwnership4": [
+     90.0,
+     90.0,
+     90.0
+    ],
+    "Description": ""
+   },
+   {
+    "CompanyNameOfTheInvestor": "仲昱電業(股)公司",
+    "NameOfInvestee": "創能電力(股)有限公司",
+    "MainBusinesses": "太陽能相關業務",
+    "PercentageOfOwnership4": [
+     100.0,
+     100.0,
+     100.0
+    ],
+    "Description": ""
+   },
+   {
+    "CompanyNameOfTheInvestor": "仲昱電業(股)公司",
+    "NameOfInvestee": "禾穎國際(股)有限公司",
+    "MainBusinesses": "太陽能相關業務",
+    "PercentageOfOwnership4": [
+     100.0,
+     100.0,
+     100.0
+    ],
+    "Description": ""
+   },
+   {
+    "CompanyNameOfTheInvestor": "仲昱電業(股)公司",
+    "NameOfInvestee": "昊升三號電業(股)公司",
+    "MainBusinesses": "太陽能相關業務",
+    "PercentageOfOwnership4": [
+     65.0,
+     65.0,
+     0.0
+    ],
+    "Description": "於民國一一三年十月十一日購入。(註2)"
+   },
+   {
+    "CompanyNameOfTheInvestor": "仲昱電業(股)公司",
+    "NameOfInvestee": "晁明電業(股)公司",
+    "MainBusinesses": "太陽能相關業務",
+    "PercentageOfOwnership4": [
+     65.0,
+     65.0,
+     0.0
+    ],
+    "Description": "於民國一一三年十月十一日購入。(註2)"
+   },
+   {
+    "CompanyNameOfTheInvestor": "和烜(股)公司",
+    "NameOfInvestee": "玖炬(股)公司",
+    "MainBusinesses": "太陽能相關業務",
+    "PercentageOfOwnership4": [
+     80.0,
+     80.0,
+     80.0
+    ],
+    "Description": ""
+   },
+   {
+    "CompanyNameOfTheInvestor": "和烜(股)公司",
+    "NameOfInvestee": "晁明二號電業(股)公司",
+    "MainBusinesses": "太陽能相關業務",
+    "PercentageOfOwnership4": [
+     100.0,
+     100.0,
+     100.0
+    ],
+    "Description": ""
+   },
+   {
+    "CompanyNameOfTheInvestor": "和烜(股)公司",
+    "NameOfInvestee": "昊軒電業(股)公司",
+    "MainBusinesses": "太陽能相關業務",
+    "PercentageOfOwnership4": [
+     80.0,
+     80.0,
+     80.0
+    ],
+    "Description": ""
+   },
+   {
+    "CompanyNameOfTheInvestor": "夏晶(股)公司",
+    "NameOfInvestee": "權禎科技有限公司",
+    "MainBusinesses": "太陽能相關業務",
+    "PercentageOfOwnership4": [
+     100.0,
+     100.0,
+     100.0
+    ],
+    "Description": ""
+   },
+   {
+    "CompanyNameOfTheInvestor": "晨英(股)公司",
+    "NameOfInvestee": "集萊能源(股)公司",
+    "MainBusinesses": "太陽能相關業務",
+    "PercentageOfOwnership4": [
+     100.0,
+     0.0,
+     0.0
+    ],
+    "Description": "於民國一一四年六月二十七日購入。"
+   }
+  ],
+  "FinancialStatementAccountAndAmount": [
+   {
+    "FinancialStatementAccount2": "應收帳款",
+    "Amount2": [
+     82238947.0,
+     93004984.0,
+     102611621.0
+    ]
+   },
+   {
+    "FinancialStatementAccount2": "應收分期帳款",
+    "Amount2": [
+     64271394.0,
+     66363202.0,
+     70711853.0
+    ]
+   },
+   {
+    "FinancialStatementAccount2": "減：未實現利息收入",
+    "Amount2": [
+     -8075909.0,
+     -8323674.0,
+     -8919137.0
+    ]
+   },
+   {
+    "FinancialStatementAccount2": "應收租賃款(含營業租賃)",
+    "Amount2": [
+     84506.0,
+     107919.0,
+     83266.0
+    ]
+   },
+   {
+    "FinancialStatementAccount2": "減：未賺得融資收益",
+    "Amount2": [
+     -8492.0,
+     -11285.0,
+     -7530.0
+    ]
+   },
+   {
+    "FinancialStatementAccount2": "放款",
+    "Amount2": [
+     20937624.0,
+     15921167.0,
+     15241498.0
+    ]
+   },
+   {
+    "FinancialStatementAccount2": "減：備抵呆帳",
+    "Amount2": [
+     -3606054.0,
+     -3984902.0,
+     -4166053.0
+    ]
+   }
+  ],
+  "AgeDistributionAndAmount": [
+   {
+    "AgeDistribution": "正常案件",
+    "Amount2": [
+     153959897.0,
+     161429152.0,
+     173682860.0
+    ]
+   },
+   {
+    "AgeDistribution": "逾期及列管案件",
+    "Amount2": [
+     1311684.0,
+     1416320.0,
+     1757270.0
+    ]
+   },
+   {
+    "AgeDistribution": "延滯案件",
+    "Amount2": [
+     4128344.0,
+     4167250.0,
+     4219320.0
+    ]
+   }
+  ],
+  "NameAndRelatiohshipOfRelatedParty2": [
+   {
+    "NameOfRelatedParty": "中租迪和股份有限公司",
+    "RelatedPartyRelationship": "合併公司之母公司"
+   },
+   {
+    "NameOfRelatedParty": "中租汽車租賃股份有限公司",
+    "RelatedPartyRelationship": "合併公司之關聯企業及合資"
+   },
+   {
+    "NameOfRelatedParty": "中租保險經紀人股份有限公司",
+    "RelatedPartyRelationship": "合併公司之關聯企業及合資"
+   },
+   {
+    "NameOfRelatedParty": "中租雲端服務股份有限公司",
+    "RelatedPartyRelationship": "合併公司之關聯企業及合資"
+   },
+   {
+    "NameOfRelatedParty": "中租電力科技股份有限公司",
+    "RelatedPartyRelationship": "合併公司之關聯企業及合資"
+   },
+   {
+    "NameOfRelatedParty": "開陽智慧能源股份有限公司",
+    "RelatedPartyRelationship": "合併公司之關聯企業及合資"
+   },
+   {
+    "NameOfRelatedParty": "昊明綠能股份有限公司",
+    "RelatedPartyRelationship": "合併公司之關聯企業及合資"
+   },
+   {
+    "NameOfRelatedParty": "天權智慧能源股份有限公司",
+    "RelatedPartyRelationship": "合併公司之關聯企業及合資"
+   },
+   {
+    "NameOfRelatedParty": "玉衡智慧能源股份有限公司",
+    "RelatedPartyRelationship": "合併公司之關聯企業及合資"
+   },
+   {
+    "NameOfRelatedParty": "瑤光智慧能源股份有限公司",
+    "RelatedPartyRelationship": "合併公司之關聯企業及合資"
+   },
+   {
+    "NameOfRelatedParty": "金成弘光電股份有限公司",
+    "RelatedPartyRelationship": "合併公司之關聯企業及合資"
+   },
+   {
+    "NameOfRelatedParty": "中合電業股份有限公司",
+    "RelatedPartyRelationship": "合併公司之關聯企業及合資"
+   },
+   {
+    "NameOfRelatedParty": "仲行智能行動股份有限公司",
+    "RelatedPartyRelationship": "合併公司之關聯企業及合資"
+   },
+   {
+    "NameOfRelatedParty": "昊儒電業股份有限公司",
+    "RelatedPartyRelationship": "合併公司之關聯企業及合資"
+   },
+   {
+    "NameOfRelatedParty": "仲安生醫科技股份有限公司(註1)",
+    "RelatedPartyRelationship": "合併公司之關聯企業及合資"
+   },
+   {
+    "NameOfRelatedParty": "昊升股份有限公司",
+    "RelatedPartyRelationship": "合併公司之關聯企業及合資"
+   },
+   {
+    "NameOfRelatedParty": "昊升三號電業股份有限公司(註2)",
+    "RelatedPartyRelationship": "合併公司之關聯企業及合資"
+   },
+   {
+    "NameOfRelatedParty": "晁明電業股份有限公司(註2)",
+    "RelatedPartyRelationship": "合併公司之關聯企業及合資"
+   },
+   {
+    "NameOfRelatedParty": "昊煜電業股份有限公司",
+    "RelatedPartyRelationship": "合併公司之關聯企業及合資"
+   },
+   {
+    "NameOfRelatedParty": "天心智慧綠能股份有限公司",
+    "RelatedPartyRelationship": "合併公司之關聯企業及合資"
+   },
+   {
+    "NameOfRelatedParty": "天任能源股份有限公司",
+    "RelatedPartyRelationship": "合併公司之關聯企業及合資"
+   },
+   {
+    "NameOfRelatedParty": "天柱能源股份有限公司",
+    "RelatedPartyRelationship": "合併公司之關聯企業及合資"
+   },
+   {
+    "NameOfRelatedParty": "天英能源股份有限公司",
+    "RelatedPartyRelationship": "合併公司之關聯企業及合資"
+   },
+   {
+    "NameOfRelatedParty": "天芮能源股份有限公司",
+    "RelatedPartyRelationship": "合併公司之關聯企業及合資"
+   },
+   {
+    "NameOfRelatedParty": "樂樂旅股份有限公司(原名：成旅觀光股份有限公司)",
+    "RelatedPartyRelationship": "其他關係人"
+   },
+   {
+    "NameOfRelatedParty": "仲安室內裝修設計工程股份有限公司",
+    "RelatedPartyRelationship": "其他關係人"
+   },
+   {
+    "NameOfRelatedParty": "中實公寓大廈管理維護興業股份有限公司",
+    "RelatedPartyRelationship": "其他關係人"
+   },
+   {
+    "NameOfRelatedParty": "中實特勤保全股份有限公司",
+    "RelatedPartyRelationship": "其他關係人"
+   },
+   {
+    "NameOfRelatedParty": "中租建設開發股份有限公司",
+    "RelatedPartyRelationship": "其他關係人"
+   },
+   {
+    "NameOfRelatedParty": "艾斯奇餐飲股份有限公司",
+    "RelatedPartyRelationship": "其他關係人"
+   },
+   {
+    "NameOfRelatedParty": "仲酣股份有限公司",
+    "RelatedPartyRelationship": "其他關係人"
+   },
+   {
+    "NameOfRelatedParty": "中租證券投資顧問股份有限公司(原名：先鋒證券投資顧問股份有限公司)",
+    "RelatedPartyRelationship": "其他關係人"
+   },
+   {
+    "NameOfRelatedParty": "熙特爾新能源股份有限公司",
+    "RelatedPartyRelationship": "其他關係人"
+   },
+   {
+    "NameOfRelatedParty": "加雲聯網股份有限公司",
+    "RelatedPartyRelationship": "其他關係人"
+   },
+   {
+    "NameOfRelatedParty": "宏碁股份有限公司",
+    "RelatedPartyRelationship": "其他關係人"
+   },
+   {
+    "NameOfRelatedParty": "兆明科技股份有限公司",
+    "RelatedPartyRelationship": "其他關係人"
+   }
+  ],
+  "FinancialStatementAccountAndCategoriesOfRelatedPartiesAndAmount": [
+   {
+    "FinancialStatementAccount3": "其他金融資產－流動",
+    "CategoriesOfRelatedParties2": "母公司",
+    "Amount3": [
+     50821.0,
+     2377.0,
+     49063.0
+    ]
+   },
+   {
+    "FinancialStatementAccount3": "其他金融資產－流動",
+    "CategoriesOfRelatedParties2": "關聯企業",
+    "Amount3": [
+     15427.0,
+     0.0,
+     6463.0
+    ]
+   }
+  ],
+  "FinancialStatementAccountAndCategoriesOfRelatedPartiesAndAmount2": [
+   {
+    "FinancialStatementAccount4": "其他金融負債－流動",
+    "CategoriesOfRelatedParties12": "母公司",
+    "Amount4": [
+     3036635.0,
+     2366.0,
+     9444.0
+    ]
+   },
+   {
+    "FinancialStatementAccount4": "其他金融負債－流動",
+    "CategoriesOfRelatedParties12": "關聯企業",
+    "Amount4": [
+     504.0,
+     224.0,
+     0.0
+    ]
+   },
+   {
+    "FinancialStatementAccount4": "其他金融負債－流動",
+    "CategoriesOfRelatedParties12": "其他關係人",
+    "Amount4": [
+     494.0,
+     0.0,
+     0.0
+    ]
+   }
+  ],
+  "FinancialStatementAccountAndCategoriesOfRelatedPartiesAndPurchasePrice": [
+   {
+    "CategoriesOfRelatedParties10": "其他關係人",
+    "FinancialStatementAccount7": "其他非流動資產-其他",
+    "PurchasePrice4": [
+     0.0,
+     582120.0
+    ]
+   }
+  ],
+  "CategoriesOfRelatedPartiesAndAmount4": [
+   {
+    "CategoriesOfRelatedParties14": "關聯企業",
+    "Amount6": [
+     3000000.0,
+     0.0,
+     28000.0
+    ]
+   }
+  ],
+  "CategoriesOfRelatedPartiesAndAmount5": [
+   {
+    "CategoriesOfRelatedParties15": "關聯企業",
+    "Amount7": [
+     20000.0,
+     20000.0,
+     0.0
+    ]
+   }
+  ],
+  "LoansToOthers": [
+   {
+    "No.": "0",
+    "Lender1": "合迪(股)公司",
+    "Counterparty1": "天柱能源股份有限公司",
+    "FinancialStatementItem": "應收帳款",
+    "RelatedPartyTransaction": "Y",
+    "MaximumBalanceForThePeriod1": 1215000.0,
+    "EndingBalance1": 1215000.0,
+    "ActualAmountProvided": 1215000.0,
+    "RangeOfInterestRates": "1.7406%~16%",
+    "NatureOfLoans": "2",
+    "AmountOfSalesToPurchasesFromCounterparty": 0.0,
+    "ReasonForShort-termLoans": "營運資金",
+    "AllowanceForBadDebts": 0.0,
+    "Item1": "無",
+    "Value": 0.0,
+    "LimitOfLoanAmountForIndividualCounterparty": 12391306.0,
+    "LimitOfTotalLoanAmount1": 49565224.0
+   },
+   {
+    "No.": "0",
+    "Lender1": "合迪(股)公司",
+    "Counterparty1": "天芮能源股份有限公司",
+    "FinancialStatementItem": "應收帳款",
+    "RelatedPartyTransaction": "Y",
+    "MaximumBalanceForThePeriod1": 726000.0,
+    "EndingBalance1": 726000.0,
+    "ActualAmountProvided": 726000.0,
+    "RangeOfInterestRates": "1.7406%~16%",
+    "NatureOfLoans": "2",
+    "AmountOfSalesToPurchasesFromCounterparty": 0.0,
+    "ReasonForShort-termLoans": "營運資金",
+    "AllowanceForBadDebts": 0.0,
+    "Item1": "無",
+    "Value": 0.0,
+    "LimitOfLoanAmountForIndividualCounterparty": 12391306.0,
+    "LimitOfTotalLoanAmount1": 49565224.0
+   },
+   {
+    "No.": "0",
+    "Lender1": "合迪(股)公司",
+    "Counterparty1": "天英能源股份有限公司",
+    "FinancialStatementItem": "應收帳款",
+    "RelatedPartyTransaction": "Y",
+    "MaximumBalanceForThePeriod1": 559000.0,
+    "EndingBalance1": 559000.0,
+    "ActualAmountProvided": 559000.0,
+    "RangeOfInterestRates": "1.7406%~16%",
+    "NatureOfLoans": "2",
+    "AmountOfSalesToPurchasesFromCounterparty": 0.0,
+    "ReasonForShort-termLoans": "營運資金",
+    "AllowanceForBadDebts": 0.0,
+    "Item1": "無",
+    "Value": 0.0,
+    "LimitOfLoanAmountForIndividualCounterparty": 12391306.0,
+    "LimitOfTotalLoanAmount1": 49565224.0
+   },
+   {
+    "No.": "0",
+    "Lender1": "合迪(股)公司",
+    "Counterparty1": "天任能源股份有限公司",
+    "FinancialStatementItem": "應收帳款",
+    "RelatedPartyTransaction": "Y",
+    "MaximumBalanceForThePeriod1": 280000.0,
+    "EndingBalance1": 280000.0,
+    "ActualAmountProvided": 280000.0,
+    "RangeOfInterestRates": "1.7406%~16%",
+    "NatureOfLoans": "2",
+    "AmountOfSalesToPurchasesFromCounterparty": 0.0,
+    "ReasonForShort-termLoans": "營運資金",
+    "AllowanceForBadDebts": 0.0,
+    "Item1": "無",
+    "Value": 0.0,
+    "LimitOfLoanAmountForIndividualCounterparty": 12391306.0,
+    "LimitOfTotalLoanAmount1": 49565224.0
+   },
+   {
+    "No.": "0",
+    "Lender1": "合迪(股)公司",
+    "Counterparty1": "天心智慧綠能股份有限公司",
+    "FinancialStatementItem": "應收帳款",
+    "RelatedPartyTransaction": "Y",
+    "MaximumBalanceForThePeriod1": 220000.0,
+    "EndingBalance1": 220000.0,
+    "ActualAmountProvided": 220000.0,
+    "RangeOfInterestRates": "1.7406%~16%",
+    "NatureOfLoans": "2",
+    "AmountOfSalesToPurchasesFromCounterparty": 0.0,
+    "ReasonForShort-termLoans": "營運資金",
+    "AllowanceForBadDebts": 0.0,
+    "Item1": "無",
+    "Value": 0.0,
+    "LimitOfLoanAmountForIndividualCounterparty": 12391306.0,
+    "LimitOfTotalLoanAmount1": 49565224.0
+   },
+   {
+    "No.": "0",
+    "Lender1": "合迪(股)公司",
+    "Counterparty1": "A",
+    "FinancialStatementItem": "應收帳款",
+    "RelatedPartyTransaction": "N",
+    "MaximumBalanceForThePeriod1": 355378.0,
+    "EndingBalance1": 341098.0,
+    "ActualAmountProvided": 341098.0,
+    "RangeOfInterestRates": "1.7406%~16%",
+    "NatureOfLoans": "2",
+    "AmountOfSalesToPurchasesFromCounterparty": 0.0,
+    "ReasonForShort-termLoans": "營運資金",
+    "AllowanceForBadDebts": 3411.0,
+    "Item1": "不動產",
+    "Value": 440930.0,
+    "LimitOfLoanAmountForIndividualCounterparty": 4956522.0,
+    "LimitOfTotalLoanAmount1": 49565224.0
+   },
+   {
+    "No.": "0",
+    "Lender1": "合迪(股)公司",
+    "Counterparty1": "B",
+    "FinancialStatementItem": "應收帳款",
+    "RelatedPartyTransaction": "N",
+    "MaximumBalanceForThePeriod1": 115284.0,
+    "EndingBalance1": 86512.0,
+    "ActualAmountProvided": 86512.0,
+    "RangeOfInterestRates": "1.7406%~16%",
+    "NatureOfLoans": "2",
+    "AmountOfSalesToPurchasesFromCounterparty": 0.0,
+    "ReasonForShort-termLoans": "營運資金",
+    "AllowanceForBadDebts": 865.0,
+    "Item1": "無",
+    "Value": 0.0,
+    "LimitOfLoanAmountForIndividualCounterparty": 2478261.0,
+    "LimitOfTotalLoanAmount1": 49565224.0
+   },
+   {
+    "No.": "0",
+    "Lender1": "合迪(股)公司",
+    "Counterparty1": "B-1",
+    "FinancialStatementItem": "應收帳款",
+    "RelatedPartyTransaction": "N",
+    "MaximumBalanceForThePeriod1": 216534.0,
+    "EndingBalance1": 216287.0,
+    "ActualAmountProvided": 206287.0,
+    "RangeOfInterestRates": "1.7406%~16%",
+    "NatureOfLoans": "1",
+    "AmountOfSalesToPurchasesFromCounterparty": 342340.0,
+    "ReasonForShort-termLoans": "-",
+    "AllowanceForBadDebts": 2063.0,
+    "Item1": "不動產",
+    "Value": 300769.0,
+    "LimitOfLoanAmountForIndividualCounterparty": 342340.0,
+    "LimitOfTotalLoanAmount1": 29739134.0
+   },
+   {
+    "No.": "0",
+    "Lender1": "合迪(股)公司",
+    "Counterparty1": "C",
+    "FinancialStatementItem": "應收帳款",
+    "RelatedPartyTransaction": "N",
+    "MaximumBalanceForThePeriod1": 190917.0,
+    "EndingBalance1": 190917.0,
+    "ActualAmountProvided": 0.0,
+    "RangeOfInterestRates": "1.7406%~16%",
+    "NatureOfLoans": "2",
+    "AmountOfSalesToPurchasesFromCounterparty": 0.0,
+    "ReasonForShort-termLoans": "營運資金",
+    "AllowanceForBadDebts": 0.0,
+    "Item1": "無",
+    "Value": 0.0,
+    "LimitOfLoanAmountForIndividualCounterparty": 2478261.0,
+    "LimitOfTotalLoanAmount1": 49565224.0
+   },
+   {
+    "No.": "0",
+    "Lender1": "合迪(股)公司",
+    "Counterparty1": "D",
+    "FinancialStatementItem": "應收帳款",
+    "RelatedPartyTransaction": "N",
+    "MaximumBalanceForThePeriod1": 198190.0,
+    "EndingBalance1": 180370.0,
+    "ActualAmountProvided": 180370.0,
+    "RangeOfInterestRates": "1.7406%~16%",
+    "NatureOfLoans": "2",
+    "AmountOfSalesToPurchasesFromCounterparty": 0.0,
+    "ReasonForShort-termLoans": "營運資金",
+    "AllowanceForBadDebts": 1804.0,
+    "Item1": "不動產",
+    "Value": 296715.0,
+    "LimitOfLoanAmountForIndividualCounterparty": 4956522.0,
+    "LimitOfTotalLoanAmount1": 49565224.0
+   },
+   {
+    "No.": "0",
+    "Lender1": "合迪(股)公司",
+    "Counterparty1": "E",
+    "FinancialStatementItem": "應收帳款",
+    "RelatedPartyTransaction": "N",
+    "MaximumBalanceForThePeriod1": 160000.0,
+    "EndingBalance1": 160000.0,
+    "ActualAmountProvided": 160000.0,
+    "RangeOfInterestRates": "1.7406%~16%",
+    "NatureOfLoans": "2",
+    "AmountOfSalesToPurchasesFromCounterparty": 0.0,
+    "ReasonForShort-termLoans": "營運資金",
+    "AllowanceForBadDebts": 1600.0,
+    "Item1": "不動產",
+    "Value": 219500.0,
+    "LimitOfLoanAmountForIndividualCounterparty": 4956522.0,
+    "LimitOfTotalLoanAmount1": 49565224.0
+   },
+   {
+    "No.": "0",
+    "Lender1": "合迪(股)公司",
+    "Counterparty1": "F",
+    "FinancialStatementItem": "應收帳款",
+    "RelatedPartyTransaction": "N",
+    "MaximumBalanceForThePeriod1": 155174.0,
+    "EndingBalance1": 154971.0,
+    "ActualAmountProvided": 154971.0,
+    "RangeOfInterestRates": "1.7406%~16%",
+    "NatureOfLoans": "2",
+    "AmountOfSalesToPurchasesFromCounterparty": 0.0,
+    "ReasonForShort-termLoans": "營運資金",
+    "AllowanceForBadDebts": 1550.0,
+    "Item1": "不動產",
+    "Value": 159000.0,
+    "LimitOfLoanAmountForIndividualCounterparty": 4956522.0,
+    "LimitOfTotalLoanAmount1": 49565224.0
+   },
+   {
+    "No.": "0",
+    "Lender1": "合迪(股)公司",
+    "Counterparty1": "G",
+    "FinancialStatementItem": "應收帳款",
+    "RelatedPartyTransaction": "N",
+    "MaximumBalanceForThePeriod1": 129963.0,
+    "EndingBalance1": 129850.0,
+    "ActualAmountProvided": 74850.0,
+    "RangeOfInterestRates": "1.7406%~16%",
+    "NatureOfLoans": "2",
+    "AmountOfSalesToPurchasesFromCounterparty": 0.0,
+    "ReasonForShort-termLoans": "營運資金",
+    "AllowanceForBadDebts": 749.0,
+    "Item1": "不動產",
+    "Value": 144030.0,
+    "LimitOfLoanAmountForIndividualCounterparty": 4956522.0,
+    "LimitOfTotalLoanAmount1": 49565224.0
+   },
+   {
+    "No.": "0",
+    "Lender1": "合迪(股)公司",
+    "Counterparty1": "H",
+    "FinancialStatementItem": "應收帳款",
+    "RelatedPartyTransaction": "N",
+    "MaximumBalanceForThePeriod1": 130000.0,
+    "EndingBalance1": 129552.0,
+    "ActualAmountProvided": 129552.0,
+    "RangeOfInterestRates": "1.7406%~16%",
+    "NatureOfLoans": "2",
+    "AmountOfSalesToPurchasesFromCounterparty": 0.0,
+    "ReasonForShort-termLoans": "營運資金",
+    "AllowanceForBadDebts": 1296.0,
+    "Item1": "不動產",
+    "Value": 158690.0,
+    "LimitOfLoanAmountForIndividualCounterparty": 4956522.0,
+    "LimitOfTotalLoanAmount1": 49565224.0
+   },
+   {
+    "No.": "0",
+    "Lender1": "合迪(股)公司",
+    "Counterparty1": "I",
+    "FinancialStatementItem": "應收帳款",
+    "RelatedPartyTransaction": "N",
+    "MaximumBalanceForThePeriod1": 124897.0,
+    "EndingBalance1": 121477.0,
+    "ActualAmountProvided": 121477.0,
+    "RangeOfInterestRates": "1.7406%~16%",
+    "NatureOfLoans": "2",
+    "AmountOfSalesToPurchasesFromCounterparty": 0.0,
+    "ReasonForShort-termLoans": "營運資金",
+    "AllowanceForBadDebts": 1215.0,
+    "Item1": "不動產",
+    "Value": 65000.0,
+    "LimitOfLoanAmountForIndividualCounterparty": 4956522.0,
+    "LimitOfTotalLoanAmount1": 49565224.0
+   },
+   {
+    "No.": "0",
+    "Lender1": "合迪(股)公司",
+    "Counterparty1": "J",
+    "FinancialStatementItem": "應收帳款",
+    "RelatedPartyTransaction": "N",
+    "MaximumBalanceForThePeriod1": 114984.0,
+    "EndingBalance1": 114033.0,
+    "ActualAmountProvided": 114033.0,
+    "RangeOfInterestRates": "1.7406%~16%",
+    "NatureOfLoans": "2",
+    "AmountOfSalesToPurchasesFromCounterparty": 0.0,
+    "ReasonForShort-termLoans": "營運資金",
+    "AllowanceForBadDebts": 1140.0,
+    "Item1": "不動產",
+    "Value": 112467.0,
+    "LimitOfLoanAmountForIndividualCounterparty": 4956522.0,
+    "LimitOfTotalLoanAmount1": 49565224.0
+   },
+   {
+    "No.": "0",
+    "Lender1": "合迪(股)公司",
+    "Counterparty1": "其他客戶彙總",
+    "FinancialStatementItem": "應收帳款",
+    "RelatedPartyTransaction": "N",
+    "MaximumBalanceForThePeriod1": 10360143.0,
+    "EndingBalance1": 8310144.0,
+    "ActualAmountProvided": 7684964.0,
+    "RangeOfInterestRates": "1.7406%~16%",
+    "NatureOfLoans": "2",
+    "AmountOfSalesToPurchasesFromCounterparty": 0.0,
+    "ReasonForShort-termLoans": "營運資金",
+    "AllowanceForBadDebts": 105322.0,
+    "Item1": "銀行存單/股票/不動產/基金受益憑證",
+    "Value": 6909540.0,
+    "LimitOfLoanAmountForIndividualCounterparty": 4956522.0,
+    "LimitOfTotalLoanAmount1": 49565224.0
+   },
+   {
+    "No.": "0",
+    "Lender1": "合迪(股)公司",
+    "Counterparty1": "其他客戶彙總",
+    "FinancialStatementItem": "應收帳款",
+    "RelatedPartyTransaction": "N",
+    "MaximumBalanceForThePeriod1": 12312599.0,
+    "EndingBalance1": 8043450.0,
+    "ActualAmountProvided": 6243944.0,
+    "RangeOfInterestRates": "1.7406%~16%",
+    "NatureOfLoans": "2",
+    "AmountOfSalesToPurchasesFromCounterparty": 0.0,
+    "ReasonForShort-termLoans": "營運資金",
+    "AllowanceForBadDebts": 99901.0,
+    "Item1": "無",
+    "Value": 0.0,
+    "LimitOfLoanAmountForIndividualCounterparty": 2478261.0,
+    "LimitOfTotalLoanAmount1": 49565224.0
+   },
+   {
+    "No.": "0",
+    "Lender1": "合迪(股)公司",
+    "Counterparty1": "其他客戶彙總",
+    "FinancialStatementItem": "應收帳款",
+    "RelatedPartyTransaction": "N",
+    "MaximumBalanceForThePeriod1": 2033715.0,
+    "EndingBalance1": 1555073.0,
+    "ActualAmountProvided": 1522173.0,
+    "RangeOfInterestRates": "1.7406%~16%",
+    "NatureOfLoans": "1",
+    "AmountOfSalesToPurchasesFromCounterparty": 3744620.0,
+    "ReasonForShort-termLoans": "-",
+    "AllowanceForBadDebts": 44085.0,
+    "Item1": "不動產/車輛/機器設備",
+    "Value": 939206.0,
+    "LimitOfLoanAmountForIndividualCounterparty": 3744620.0,
+    "LimitOfTotalLoanAmount1": 29739134.0
+   }
+  ],
+  "EndorsementGuaranteeProvidedToOthers": [
+   {
+    "No.": "1",
+    "CompanyNameOfTheEndorserGuarantor": "和烜(股)公司",
+    "NameOfTheCompany": "中租迪和(股)公司",
+    "Relationship1": "3",
+    "LimitOnEndorsementGuaranteeAmountProvidedToIndividualCounterparty": 10437693.0,
+    "MaximumBalanceForThePeriod": 2000000.0,
+    "EndingBalance2": 1000000.0,
+    "ActualAmountProvided": 900000.0,
+    "AmountOfEndorsementsGuaranteesSecuredWithCollateral": 0.0,
+    "RatioOfAccumulatedEndorsementGuaranteeAmountToNetAssetOfTheCompanyPerLatestFinancialStatements": 47.9,
+    "LimitOfTotalGuaranteeEndorsementAmount": 10437693.0,
+    "EndorsementsGuaranteesProvidedToSubsidiaryByParentCompany": "N",
+    "EndorsementsGuaranteesProvidedToParentCompanyBySubsidiaries": "Y",
+    "EndorsementsGuaranteesProvidedToCompanyInMainlandChina": "N"
+   },
+   {
+    "No.": "2",
+    "CompanyNameOfTheEndorserGuarantor": "仲昱電業 (股)公司",
+    "NameOfTheCompany": "中租迪和(股)公司",
+    "Relationship1": "3",
+    "LimitOnEndorsementGuaranteeAmountProvidedToIndividualCounterparty": 69409180.0,
+    "MaximumBalanceForThePeriod": 21000000.0,
+    "EndingBalance2": 19000000.0,
+    "ActualAmountProvided": 2690000.0,
+    "AmountOfEndorsementsGuaranteesSecuredWithCollateral": 0.0,
+    "RatioOfAccumulatedEndorsementGuaranteeAmountToNetAssetOfTheCompanyPerLatestFinancialStatements": 136.87,
+    "LimitOfTotalGuaranteeEndorsementAmount": 69409180.0,
+    "EndorsementsGuaranteesProvidedToSubsidiaryByParentCompany": "N",
+    "EndorsementsGuaranteesProvidedToParentCompanyBySubsidiaries": "Y",
+    "EndorsementsGuaranteesProvidedToCompanyInMainlandChina": "N"
+   },
+   {
+    "No.": "3",
+    "CompanyNameOfTheEndorserGuarantor": "中明(股)有限公司",
+    "NameOfTheCompany": "中租迪和(股)公司",
+    "Relationship1": "3",
+    "LimitOnEndorsementGuaranteeAmountProvidedToIndividualCounterparty": 3524955.0,
+    "MaximumBalanceForThePeriod": 1400000.0,
+    "EndingBalance2": 0.0,
+    "ActualAmountProvided": 0.0,
+    "AmountOfEndorsementsGuaranteesSecuredWithCollateral": 0.0,
+    "RatioOfAccumulatedEndorsementGuaranteeAmountToNetAssetOfTheCompanyPerLatestFinancialStatements": 0.0,
+    "LimitOfTotalGuaranteeEndorsementAmount": 3524955.0,
+    "EndorsementsGuaranteesProvidedToSubsidiaryByParentCompany": "N",
+    "EndorsementsGuaranteesProvidedToParentCompanyBySubsidiaries": "Y",
+    "EndorsementsGuaranteesProvidedToCompanyInMainlandChina": "N"
+   },
+   {
+    "No.": "4",
+    "CompanyNameOfTheEndorserGuarantor": "晁明二號電業(股)有限公司",
+    "NameOfTheCompany": "中租迪和(股)公司",
+    "Relationship1": "3",
+    "LimitOnEndorsementGuaranteeAmountProvidedToIndividualCounterparty": 1402827.0,
+    "MaximumBalanceForThePeriod": 300000.0,
+    "EndingBalance2": 300000.0,
+    "ActualAmountProvided": 200000.0,
+    "AmountOfEndorsementsGuaranteesSecuredWithCollateral": 0.0,
+    "RatioOfAccumulatedEndorsementGuaranteeAmountToNetAssetOfTheCompanyPerLatestFinancialStatements": 106.93,
+    "LimitOfTotalGuaranteeEndorsementAmount": 1402827.0,
+    "EndorsementsGuaranteesProvidedToSubsidiaryByParentCompany": "N",
+    "EndorsementsGuaranteesProvidedToParentCompanyBySubsidiaries": "Y",
+    "EndorsementsGuaranteesProvidedToCompanyInMainlandChina": "N"
+   },
+   {
+    "No.": "5",
+    "CompanyNameOfTheEndorserGuarantor": "盛能(股)有限公司",
+    "NameOfTheCompany": "中租迪和(股)公司",
+    "Relationship1": "3",
+    "LimitOnEndorsementGuaranteeAmountProvidedToIndividualCounterparty": 1555905.0,
+    "MaximumBalanceForThePeriod": 500000.0,
+    "EndingBalance2": 500000.0,
+    "ActualAmountProvided": 300000.0,
+    "AmountOfEndorsementsGuaranteesSecuredWithCollateral": 0.0,
+    "RatioOfAccumulatedEndorsementGuaranteeAmountToNetAssetOfTheCompanyPerLatestFinancialStatements": 160.68,
+    "LimitOfTotalGuaranteeEndorsementAmount": 1555905.0,
+    "EndorsementsGuaranteesProvidedToSubsidiaryByParentCompany": "N",
+    "EndorsementsGuaranteesProvidedToParentCompanyBySubsidiaries": "Y",
+    "EndorsementsGuaranteesProvidedToCompanyInMainlandChina": "N"
+   },
+   {
+    "No.": "6",
+    "CompanyNameOfTheEndorserGuarantor": "禾潁國際(股)有限公司",
+    "NameOfTheCompany": "中租迪和(股)公司",
+    "Relationship1": "3",
+    "LimitOnEndorsementGuaranteeAmountProvidedToIndividualCounterparty": 3267575.0,
+    "MaximumBalanceForThePeriod": 300000.0,
+    "EndingBalance2": 300000.0,
+    "ActualAmountProvided": 150000.0,
+    "AmountOfEndorsementsGuaranteesSecuredWithCollateral": 0.0,
+    "RatioOfAccumulatedEndorsementGuaranteeAmountToNetAssetOfTheCompanyPerLatestFinancialStatements": 45.91,
+    "LimitOfTotalGuaranteeEndorsementAmount": 3267575.0,
+    "EndorsementsGuaranteesProvidedToSubsidiaryByParentCompany": "N",
+    "EndorsementsGuaranteesProvidedToParentCompanyBySubsidiaries": "Y",
+    "EndorsementsGuaranteesProvidedToCompanyInMainlandChina": "N"
+   }
+  ],
+  "SignificantIntercompanyTransactionsBetweenConsolidatedEntities": [
+   {
+    "No": "0",
+    "CompanyName": "合迪(股)公司",
+    "Counterparty": "創鉅有限合夥",
+    "RelationshipWithTheCompany": "1",
+    "FinancialStatementAccount": "其他收入",
+    "Amount": 31262.0,
+    "Terms": "與一般交易對象相同",
+    "PercentageOfConsolidatedOperatingRevenuesOrTotalAssets": 0.38
+   }
+  ],
+  "NamesLocationsAndRelatedInformationOfInvesteesOverWhichTheCompanyExercisesSignificantInfluence": [
+   {
+    "CompanyNameOfTheInvestor": "本公司",
+    "CompanyNameOfTheInvestee": "仲信資融(股)公司",
+    "LocationCode": "0",
+    "Location": "台灣",
+    "MainBusinessesAndProducts": "應收帳款收買、分期付款銷貨及逾期應收帳款管理、評價、收買及拍賣等業務",
+    "EndingBalance3": 14483706.0,
+    "BeginningBalance": 14483706.0,
+    "NumberOfShares1": 1293018.0,
+    "PercentageOfOwnership1": 100.0,
+    "BookValue1": 21302519.0,
+    "NetIncomeLossesOfTheInvestee": 531249.0,
+    "InvestmentIncomeLossesRecognized1": 531249.0
+   },
+   {
+    "CompanyNameOfTheInvestor": "本公司",
+    "CompanyNameOfTheInvestee": "迪和(股)公司",
+    "LocationCode": "0",
+    "Location": "台灣",
+    "MainBusinessesAndProducts": "分期付款銷貨業務及租賃業",
+    "EndingBalance3": 10101.0,
+    "BeginningBalance": 10101.0,
+    "NumberOfShares1": 1000.0,
+    "PercentageOfOwnership1": 100.0,
+    "BookValue1": 9950.0,
+    "NetIncomeLossesOfTheInvestee": -12.0,
+    "InvestmentIncomeLossesRecognized1": -12.0
+   },
+   {
+    "CompanyNameOfTheInvestor": "本公司",
+    "CompanyNameOfTheInvestee": "仲昱電業(股)公司",
+    "LocationCode": "0",
+    "Location": "台灣",
+    "MainBusinessesAndProducts": "太陽能相關業務",
+    "EndingBalance3": 3142888.0,
+    "BeginningBalance": 3142888.0,
+    "NumberOfShares1": 314289.0,
+    "PercentageOfOwnership1": 22.04,
+    "BookValue1": 3059557.0,
+    "NetIncomeLossesOfTheInvestee": -136939.0,
+    "InvestmentIncomeLossesRecognized1": -30181.0
+   },
+   {
+    "CompanyNameOfTheInvestor": "本公司",
+    "CompanyNameOfTheInvestee": "仲行智能行動(股)公司",
+    "LocationCode": "0",
+    "Location": "台灣",
+    "MainBusinessesAndProducts": "小客車租賃業務",
+    "EndingBalance3": 343000.0,
+    "BeginningBalance": 147000.0,
+    "NumberOfShares1": 34300.0,
+    "PercentageOfOwnership1": 49.0,
+    "BookValue1": 232470.0,
+    "NetIncomeLossesOfTheInvestee": -77590.0,
+    "InvestmentIncomeLossesRecognized1": -38019.0
+   },
+   {
+    "CompanyNameOfTheInvestor": "本公司",
+    "CompanyNameOfTheInvestee": "中租汽車租賃(股)公司",
+    "LocationCode": "0",
+    "Location": "台灣",
+    "MainBusinessesAndProducts": "租賃業務",
+    "EndingBalance3": 3000000.0,
+    "BeginningBalance": 3000000.0,
+    "NumberOfShares1": 306676.0,
+    "PercentageOfOwnership1": 28.51,
+    "BookValue1": 3149337.0,
+    "NetIncomeLossesOfTheInvestee": 177193.0,
+    "InvestmentIncomeLossesRecognized1": 50518.0
+   },
+   {
+    "CompanyNameOfTheInvestor": "仲信資融(股)公司",
+    "CompanyNameOfTheInvestee": "創鉅有限合夥",
+    "LocationCode": "0",
+    "Location": "台灣",
+    "MainBusinessesAndProducts": "分期付款銷貨業務及租賃業",
+    "EndingBalance3": 8858567.0,
+    "BeginningBalance": 8025340.0,
+    "NumberOfShares1": 0.0,
+    "PercentageOfOwnership1": 99.99,
+    "BookValue1": 9298002.0,
+    "NetIncomeLossesOfTheInvestee": 439435.0,
+    "InvestmentIncomeLossesRecognized1": 0.0,
+    "Note": "註2"
+   },
+   {
+    "CompanyNameOfTheInvestor": "仲信資融(股)公司",
+    "CompanyNameOfTheInvestee": "仲昱電業(股)公司",
+    "LocationCode": "0",
+    "Location": "台灣",
+    "MainBusinessesAndProducts": "太陽能相關業務",
+    "EndingBalance3": 8831270.0,
+    "BeginningBalance": 8831270.0,
+    "NumberOfShares1": 883127.0,
+    "PercentageOfOwnership1": 61.95,
+    "BookValue1": 8599798.0,
+    "NetIncomeLossesOfTheInvestee": -136939.0,
+    "InvestmentIncomeLossesRecognized1": 0.0,
+    "Note": "註2"
+   },
+   {
+    "CompanyNameOfTheInvestor": "迪和(股)公司",
+    "CompanyNameOfTheInvestee": "創鉅有限合夥",
+    "LocationCode": "0",
+    "Location": "台灣",
+    "MainBusinessesAndProducts": "分期付款銷貨業務及租賃業",
+    "EndingBalance3": 10.0,
+    "BeginningBalance": 10.0,
+    "NumberOfShares1": 0.0,
+    "PercentageOfOwnership1": 0.01,
+    "BookValue1": 10.0,
+    "NetIncomeLossesOfTheInvestee": 439435.0,
+    "InvestmentIncomeLossesRecognized1": 0.0,
+    "Note": "註2"
+   },
+   {
+    "CompanyNameOfTheInvestor": "仲昱電業(股)公司",
+    "CompanyNameOfTheInvestee": "中明(股)公司",
+    "LocationCode": "0",
+    "Location": "台灣",
+    "MainBusinessesAndProducts": "太陽能相關業務",
+    "EndingBalance3": 1005050.0,
+    "BeginningBalance": 685050.0,
+    "NumberOfShares1": 100505.0,
+    "PercentageOfOwnership1": 100.0,
+    "BookValue1": 1019696.0,
+    "NetIncomeLossesOfTheInvestee": 12097.0,
+    "InvestmentIncomeLossesRecognized1": 0.0,
+    "Note": "註2"
+   },
+   {
+    "CompanyNameOfTheInvestor": "仲昱電業(股)公司",
+    "CompanyNameOfTheInvestee": "中曜(股)公司",
+    "LocationCode": "0",
+    "Location": "台灣",
+    "MainBusinessesAndProducts": "太陽能相關業務",
+    "EndingBalance3": 20050.0,
+    "BeginningBalance": 20050.0,
+    "NumberOfShares1": 2005.0,
+    "PercentageOfOwnership1": 100.0,
+    "BookValue1": 19868.0,
+    "NetIncomeLossesOfTheInvestee": -235.0,
+    "InvestmentIncomeLossesRecognized1": 0.0,
+    "Note": "註2"
+   },
+   {
+    "CompanyNameOfTheInvestor": "仲昱電業(股)公司",
+    "CompanyNameOfTheInvestee": "和烜(股)公司",
+    "LocationCode": "0",
+    "Location": "台灣",
+    "MainBusinessesAndProducts": "太陽能相關業務",
+    "EndingBalance3": 2078644.0,
+    "BeginningBalance": 2078644.0,
+    "NumberOfShares1": 207864.0,
+    "PercentageOfOwnership1": 100.0,
+    "BookValue1": 2086684.0,
+    "NetIncomeLossesOfTheInvestee": 1820.0,
+    "InvestmentIncomeLossesRecognized1": 0.0,
+    "Note": "註2"
+   },
+   {
+    "CompanyNameOfTheInvestor": "仲昱電業(股)公司",
+    "CompanyNameOfTheInvestee": "夏晶(股)公司",
+    "LocationCode": "0",
+    "Location": "台灣",
+    "MainBusinessesAndProducts": "太陽能相關業務",
+    "EndingBalance3": 488286.0,
+    "BeginningBalance": 488286.0,
+    "NumberOfShares1": 48828.0,
+    "PercentageOfOwnership1": 94.76,
+    "BookValue1": 419858.0,
+    "NetIncomeLossesOfTheInvestee": -20487.0,
+    "InvestmentIncomeLossesRecognized1": 0.0,
+    "Note": "註2"
+   },
+   {
+    "CompanyNameOfTheInvestor": "仲昱電業(股)公司",
+    "CompanyNameOfTheInvestee": "光熙(股)公司",
+    "LocationCode": "0",
+    "Location": "台灣",
+    "MainBusinessesAndProducts": "太陽能相關業務",
+    "EndingBalance3": 109000.0,
+    "BeginningBalance": 109000.0,
+    "NumberOfShares1": 10900.0,
+    "PercentageOfOwnership1": 100.0,
+    "BookValue1": 108925.0,
+    "NetIncomeLossesOfTheInvestee": -65.0,
+    "InvestmentIncomeLossesRecognized1": 0.0,
+    "Note": "註2"
+   },
+   {
+    "CompanyNameOfTheInvestor": "仲昱電業(股)公司",
+    "CompanyNameOfTheInvestee": "若晶(股)公司",
+    "LocationCode": "0",
+    "Location": "台灣",
+    "MainBusinessesAndProducts": "太陽能相關業務",
+    "EndingBalance3": 116831.0,
+    "BeginningBalance": 116831.0,
+    "NumberOfShares1": 11683.0,
+    "PercentageOfOwnership1": 100.0,
+    "BookValue1": 118332.0,
+    "NetIncomeLossesOfTheInvestee": 1486.0,
+    "InvestmentIncomeLossesRecognized1": 0.0,
+    "Note": "註2"
+   },
+   {
+    "CompanyNameOfTheInvestor": "仲昱電業(股)公司",
+    "CompanyNameOfTheInvestee": "若泰(股)公司",
+    "LocationCode": "0",
+    "Location": "台灣",
+    "MainBusinessesAndProducts": "太陽能相關業務",
+    "EndingBalance3": 28783.0,
+    "BeginningBalance": 15333.0,
+    "NumberOfShares1": 2878.0,
+    "PercentageOfOwnership1": 100.0,
+    "BookValue1": 28807.0,
+    "NetIncomeLossesOfTheInvestee": 369.0,
+    "InvestmentIncomeLossesRecognized1": 0.0,
+    "Note": "註2"
+   },
+   {
+    "CompanyNameOfTheInvestor": "仲昱電業(股)公司",
+    "CompanyNameOfTheInvestee": "晨英(股)公司",
+    "LocationCode": "0",
+    "Location": "台灣",
+    "MainBusinessesAndProducts": "太陽能相關業務",
+    "EndingBalance3": 581000.0,
+    "BeginningBalance": 581000.0,
+    "NumberOfShares1": 58100.0,
+    "PercentageOfOwnership1": 100.0,
+    "BookValue1": 585468.0,
+    "NetIncomeLossesOfTheInvestee": 4090.0,
+    "InvestmentIncomeLossesRecognized1": 0.0,
+    "Note": "註2"
+   },
+   {
+    "CompanyNameOfTheInvestor": "仲昱電業(股)公司",
+    "CompanyNameOfTheInvestee": "景英(股)公司",
+    "LocationCode": "0",
+    "Location": "台灣",
+    "MainBusinessesAndProducts": "太陽能相關業務",
+    "EndingBalance3": 1000.0,
+    "BeginningBalance": 1000.0,
+    "NumberOfShares1": 100.0,
+    "PercentageOfOwnership1": 100.0,
+    "BookValue1": 662.0,
+    "NetIncomeLossesOfTheInvestee": -70.0,
+    "InvestmentIncomeLossesRecognized1": 0.0,
+    "Note": "註2"
+   },
+   {
+    "CompanyNameOfTheInvestor": "仲昱電業(股)公司",
+    "CompanyNameOfTheInvestee": "鉅拓(股)公司",
+    "LocationCode": "0",
+    "Location": "台灣",
+    "MainBusinessesAndProducts": "太陽能相關業務",
+    "EndingBalance3": 157000.0,
+    "BeginningBalance": 157000.0,
+    "NumberOfShares1": 15700.0,
+    "PercentageOfOwnership1": 100.0,
+    "BookValue1": 153632.0,
+    "NetIncomeLossesOfTheInvestee": 352.0,
+    "InvestmentIncomeLossesRecognized1": 0.0,
+    "Note": "註2"
+   },
+   {
+    "CompanyNameOfTheInvestor": "仲昱電業(股)公司",
+    "CompanyNameOfTheInvestee": "光泰電業(股)公司",
+    "LocationCode": "0",
+    "Location": "台灣",
+    "MainBusinessesAndProducts": "太陽能相關業務",
+    "EndingBalance3": 6000.0,
+    "BeginningBalance": 6000.0,
+    "NumberOfShares1": 600.0,
+    "PercentageOfOwnership1": 40.0,
+    "BookValue1": 5176.0,
+    "NetIncomeLossesOfTheInvestee": 112.0,
+    "InvestmentIncomeLossesRecognized1": 0.0,
+    "Note": "註2"
+   },
+   {
+    "CompanyNameOfTheInvestor": "仲昱電業(股)公司",
+    "CompanyNameOfTheInvestee": "旭利能源(股)公司",
+    "LocationCode": "0",
+    "Location": "台灣",
+    "MainBusinessesAndProducts": "太陽能相關業務",
+    "EndingBalance3": 107250.0,
+    "BeginningBalance": 107250.0,
+    "NumberOfShares1": 10725.0,
+    "PercentageOfOwnership1": 100.0,
+    "BookValue1": 97639.0,
+    "NetIncomeLossesOfTheInvestee": -3383.0,
+    "InvestmentIncomeLossesRecognized1": 0.0,
+    "Note": "註2"
+   },
+   {
+    "CompanyNameOfTheInvestor": "仲昱電業(股)公司",
+    "CompanyNameOfTheInvestee": "雲永(股)公司",
+    "LocationCode": "0",
+    "Location": "台灣",
+    "MainBusinessesAndProducts": "太陽能相關業務",
+    "EndingBalance3": 1995000.0,
+    "BeginningBalance": 1501709.0,
+    "NumberOfShares1": 199500.0,
+    "PercentageOfOwnership1": 70.0,
+    "BookValue1": 1912682.0,
+    "NetIncomeLossesOfTheInvestee": -44181.0,
+    "InvestmentIncomeLossesRecognized1": 0.0,
+    "Note": "註2"
+   },
+   {
+    "CompanyNameOfTheInvestor": "仲昱電業(股)公司",
+    "CompanyNameOfTheInvestee": "安南光能能源科技有限公司",
+    "LocationCode": "0",
+    "Location": "台灣",
+    "MainBusinessesAndProducts": "太陽能相關業務",
+    "EndingBalance3": 1016709.0,
+    "BeginningBalance": 1016709.0,
+    "NumberOfShares1": 0.0,
+    "PercentageOfOwnership1": 90.0,
+    "BookValue1": 677997.0,
+    "NetIncomeLossesOfTheInvestee": -124131.0,
+    "InvestmentIncomeLossesRecognized1": 0.0,
+    "Note": "註2"
+   },
+   {
+    "CompanyNameOfTheInvestor": "仲昱電業(股)公司",
+    "CompanyNameOfTheInvestee": "創能電力(股)公司",
+    "LocationCode": "0",
+    "Location": "台灣",
+    "MainBusinessesAndProducts": "太陽能相關業務",
+    "EndingBalance3": 46500.0,
+    "BeginningBalance": 46500.0,
+    "NumberOfShares1": 4650.0,
+    "PercentageOfOwnership1": 100.0,
+    "BookValue1": 46013.0,
+    "NetIncomeLossesOfTheInvestee": 40.0,
+    "InvestmentIncomeLossesRecognized1": 0.0,
+    "Note": "註2"
+   },
+   {
+    "CompanyNameOfTheInvestor": "仲昱電業(股)公司",
+    "CompanyNameOfTheInvestee": "禾潁國際(股)公司",
+    "LocationCode": "0",
+    "Location": "台灣",
+    "MainBusinessesAndProducts": "太陽能相關業務",
+    "EndingBalance3": 648311.0,
+    "BeginningBalance": 648311.0,
+    "NumberOfShares1": 64890.0,
+    "PercentageOfOwnership1": 100.0,
+    "BookValue1": 653153.0,
+    "NetIncomeLossesOfTheInvestee": 3791.0,
+    "InvestmentIncomeLossesRecognized1": 0.0,
+    "Note": "註2"
+   },
+   {
+    "CompanyNameOfTheInvestor": "仲昱電業(股)公司",
+    "CompanyNameOfTheInvestee": "昊升三號電業(股)公司",
+    "LocationCode": "0",
+    "Location": "台灣",
+    "MainBusinessesAndProducts": "太陽能相關業務",
+    "EndingBalance3": 774783.0,
+    "BeginningBalance": 774783.0,
+    "NumberOfShares1": 76719.0,
+    "PercentageOfOwnership1": 65.0,
+    "BookValue1": 776016.0,
+    "NetIncomeLossesOfTheInvestee": 1889.0,
+    "InvestmentIncomeLossesRecognized1": 0.0,
+    "Note": "註2"
+   },
+   {
+    "CompanyNameOfTheInvestor": "仲昱電業(股)公司",
+    "CompanyNameOfTheInvestee": "晁明電業(股)公司",
+    "LocationCode": "0",
+    "Location": "台灣",
+    "MainBusinessesAndProducts": "太陽能相關業務",
+    "EndingBalance3": 880068.0,
+    "BeginningBalance": 880068.0,
+    "NumberOfShares1": 87251.0,
+    "PercentageOfOwnership1": 65.0,
+    "BookValue1": 881167.0,
+    "NetIncomeLossesOfTheInvestee": 2096.0,
+    "InvestmentIncomeLossesRecognized1": 0.0,
+    "Note": "註2"
+   },
+   {
+    "CompanyNameOfTheInvestor": "仲昱電業(股)公司",
+    "CompanyNameOfTheInvestee": "昊儒電業(股)公司",
+    "LocationCode": "0",
+    "Location": "台灣",
+    "MainBusinessesAndProducts": "太陽能相關業務",
+    "EndingBalance3": 840000.0,
+    "BeginningBalance": 840000.0,
+    "NumberOfShares1": 84000.0,
+    "PercentageOfOwnership1": 30.0,
+    "BookValue1": 838588.0,
+    "NetIncomeLossesOfTheInvestee": -2113.0,
+    "InvestmentIncomeLossesRecognized1": -1032.0
+   },
+   {
+    "CompanyNameOfTheInvestor": "仲昱電業(股)公司",
+    "CompanyNameOfTheInvestee": "昊升(股)公司",
+    "LocationCode": "0",
+    "Location": "台灣",
+    "MainBusinessesAndProducts": "太陽能相關業務",
+    "EndingBalance3": 260042.0,
+    "BeginningBalance": 260042.0,
+    "NumberOfShares1": 26004.0,
+    "PercentageOfOwnership1": 30.0,
+    "BookValue1": 259795.0,
+    "NetIncomeLossesOfTheInvestee": 1327.0,
+    "InvestmentIncomeLossesRecognized1": -204.0
+   },
+   {
+    "CompanyNameOfTheInvestor": "仲昱電業(股)公司",
+    "CompanyNameOfTheInvestee": "昊煜電業(股)公司",
+    "LocationCode": "0",
+    "Location": "台灣",
+    "MainBusinessesAndProducts": "太陽能相關業務",
+    "EndingBalance3": 120000.0,
+    "BeginningBalance": 60000.0,
+    "NumberOfShares1": 12000.0,
+    "PercentageOfOwnership1": 20.0,
+    "BookValue1": 120088.0,
+    "NetIncomeLossesOfTheInvestee": 1178.0,
+    "InvestmentIncomeLossesRecognized1": 88.0
+   },
+   {
+    "CompanyNameOfTheInvestor": "仲昱電業(股)公司",
+    "CompanyNameOfTheInvestee": "耀日(股)公司",
+    "LocationCode": "0",
+    "Location": "台灣",
+    "MainBusinessesAndProducts": "太陽能相關業務",
+    "EndingBalance3": 577.0,
+    "BeginningBalance": 577.0,
+    "NumberOfShares1": 105.0,
+    "PercentageOfOwnership1": 100.0,
+    "BookValue1": 456.0,
+    "NetIncomeLossesOfTheInvestee": -26.0,
+    "InvestmentIncomeLossesRecognized1": 0.0,
+    "Note": "註2"
+   },
+   {
+    "CompanyNameOfTheInvestor": "仲昱電業(股)公司",
+    "CompanyNameOfTheInvestee": "若晨(股)公司",
+    "LocationCode": "0",
+    "Location": "台灣",
+    "MainBusinessesAndProducts": "太陽能相關業務",
+    "EndingBalance3": 809.0,
+    "BeginningBalance": 809.0,
+    "NumberOfShares1": 100.0,
+    "PercentageOfOwnership1": 100.0,
+    "BookValue1": 655.0,
+    "NetIncomeLossesOfTheInvestee": -59.0,
+    "InvestmentIncomeLossesRecognized1": 0.0,
+    "Note": "註2"
+   },
+   {
+    "CompanyNameOfTheInvestor": "仲昱電業(股)公司",
+    "CompanyNameOfTheInvestee": "盛能(股)公司",
+    "LocationCode": "0",
+    "Location": "台灣",
+    "MainBusinessesAndProducts": "太陽能相關業務",
+    "EndingBalance3": 310808.0,
+    "BeginningBalance": 310808.0,
+    "NumberOfShares1": 31100.0,
+    "PercentageOfOwnership1": 100.0,
+    "BookValue1": 312159.0,
+    "NetIncomeLossesOfTheInvestee": 1179.0,
+    "InvestmentIncomeLossesRecognized1": 0.0,
+    "Note": "註2"
+   },
+   {
+    "CompanyNameOfTheInvestor": "仲昱電業(股)公司",
+    "CompanyNameOfTheInvestee": "晶盛(股)公司",
+    "LocationCode": "0",
+    "Location": "台灣",
+    "MainBusinessesAndProducts": "太陽能相關業務",
+    "EndingBalance3": 808.0,
+    "BeginningBalance": 808.0,
+    "NumberOfShares1": 100.0,
+    "PercentageOfOwnership1": 100.0,
+    "BookValue1": 654.0,
+    "NetIncomeLossesOfTheInvestee": -60.0,
+    "InvestmentIncomeLossesRecognized1": 0.0,
+    "Note": "註2"
+   },
+   {
+    "CompanyNameOfTheInvestor": "仲昱電業(股)公司",
+    "CompanyNameOfTheInvestee": "天曉(股)公司",
+    "LocationCode": "0",
+    "Location": "台灣",
+    "MainBusinessesAndProducts": "太陽能相關業務",
+    "EndingBalance3": 809.0,
+    "BeginningBalance": 809.0,
+    "NumberOfShares1": 100.0,
+    "PercentageOfOwnership1": 100.0,
+    "BookValue1": 655.0,
+    "NetIncomeLossesOfTheInvestee": -59.0,
+    "InvestmentIncomeLossesRecognized1": 0.0,
+    "Note": "註2"
+   },
+   {
+    "CompanyNameOfTheInvestor": "和烜(股)公司",
+    "CompanyNameOfTheInvestee": "玖炬(股)公司",
+    "LocationCode": "0",
+    "Location": "台灣",
+    "MainBusinessesAndProducts": "太陽能相關業務",
+    "EndingBalance3": 520000.0,
+    "BeginningBalance": 520000.0,
+    "NumberOfShares1": 52000.0,
+    "PercentageOfOwnership1": 80.0,
+    "BookValue1": 520979.0,
+    "NetIncomeLossesOfTheInvestee": 560.0,
+    "InvestmentIncomeLossesRecognized1": 0.0,
+    "Note": "註2"
+   },
+   {
+    "CompanyNameOfTheInvestor": "和烜(股)公司",
+    "CompanyNameOfTheInvestee": "晁明二號電業(股)公司",
+    "LocationCode": "0",
+    "Location": "台灣",
+    "MainBusinessesAndProducts": "太陽能相關業務",
+    "EndingBalance3": 280100.0,
+    "BeginningBalance": 280100.0,
+    "NumberOfShares1": 28010.0,
+    "PercentageOfOwnership1": 100.0,
+    "BookValue1": 280581.0,
+    "NetIncomeLossesOfTheInvestee": 379.0,
+    "InvestmentIncomeLossesRecognized1": 0.0,
+    "Note": "註2"
+   },
+   {
+    "CompanyNameOfTheInvestor": "和烜(股)公司",
+    "CompanyNameOfTheInvestee": "昊軒電業(股)公司",
+    "LocationCode": "0",
+    "Location": "台灣",
+    "MainBusinessesAndProducts": "太陽能相關業務",
+    "EndingBalance3": 330914.0,
+    "BeginningBalance": 330914.0,
+    "NumberOfShares1": 36168.0,
+    "PercentageOfOwnership1": 80.0,
+    "BookValue1": 335004.0,
+    "NetIncomeLossesOfTheInvestee": -2884.0,
+    "InvestmentIncomeLossesRecognized1": 0.0,
+    "Note": "註2"
+   },
+   {
+    "CompanyNameOfTheInvestor": "夏晶(股)公司",
+    "CompanyNameOfTheInvestee": "權楨科技有限公司",
+    "LocationCode": "0",
+    "Location": "台灣",
+    "MainBusinessesAndProducts": "太陽能相關業務",
+    "EndingBalance3": 111463.0,
+    "BeginningBalance": 111463.0,
+    "NumberOfShares1": 0.0,
+    "PercentageOfOwnership1": 100.0,
+    "BookValue1": 111001.0,
+    "NetIncomeLossesOfTheInvestee": 376.0,
+    "InvestmentIncomeLossesRecognized1": 0.0,
+    "Note": "註2"
+   },
+   {
+    "CompanyNameOfTheInvestor": "晨英(股)公司",
+    "CompanyNameOfTheInvestee": "集萊能源(股)公司",
+    "LocationCode": "0",
+    "Location": "台灣",
+    "MainBusinessesAndProducts": "太陽能相關業務",
+    "EndingBalance3": 2143.0,
+    "BeginningBalance": 0.0,
+    "NumberOfShares1": 200.0,
+    "PercentageOfOwnership1": 100.0,
+    "BookValue1": 2384.0,
+    "NetIncomeLossesOfTheInvestee": 0.0,
+    "InvestmentIncomeLossesRecognized1": 0.0,
+    "Note": "註3"
+   }
+  ]
+ },
+ "notes_text": {
+  "HistoryAndOrganization": "合迪股份有限公司於民國七十六年四月十九日依中華民國公司法之規定核准設立。本\n公司之母公司為中租迪和股份有限公司， 最終母公司為Chailease Holding Company\nLimited。\n 本公司及子公司(以下併稱合併公司)主要營業項目為起重車輛、堆土機、採石機、汽\n車、貨櫃及拖車架、機器腳踏車及零件之分期付款買賣業務、一般進出口貿易及代理國內\n外廠商有關前述各項產品投標報價業務(許可業務除外)、應收帳款收買業務(外匯業務除\n外)、太陽能電廠發電及售電。",
+  "SourcesOfUncertaintyFromSignificantAccountingJudgmentsAssumptionsAndEstimations": "管理階層編製本合併財務報告時，必須對未來（包括氣候相關風險及機會）作出判斷\n及估計，其將對會計政策之採用及資產、負債、收益及費用之報導金額有所影響。實際結\n果可能與估計存有差異。\n 管理階層持續檢視估計及基本假設，其與合併公司之風險管理及氣候相關承諾一致，\n估計值之變動係於變動期間及受影響之未來期間推延認列。\n 會計政策涉及重大判斷，且對本合併財務報告已認列金額有重大影響之資訊如下：\n(一)對被投資公司是否具實質控制之判斷\n 合併公司持有仲行智能(股)公司多於半數之表決權，但合併公司考量該公司之\n51%係合併公司之採用權益法之投資公司中租汽車租賃(股)公司所持有，且中租汽車\n租賃(股)公司之營運及財務活動決策係由合併公司之母公司中租迪和(股)公司決定，\n合併公司未具有實際能力以片面主導攸關活動，故判定合併公司對仲行智能(股)公司\n係具重大影響力而不具控制力。\n(二)營業活動現金流量之分類\n 合併公司為融資租賃公司，主要經營融資及資金貸與服務。合併公司因營業活動\n需要而向外借款，與專供再出售而取得之存貨及金融機構吸收存款性質類似。因此，\n合併公司來自於借款而取得營運目的之現金流量將其分類為營業活動。\n對於估計及假設之不確定性中，存有重大風險將於次一年度造成重大調整之相關資訊\n如下：\n(一)放款及應收款之預期信用減損損失評估\n 放款及應收款之預期信用減損損失評估係管理當局對於已存在於報導日之應收款\n項可能發生之預期信用減損損失所做的最佳估計。管理當局於應收款項之預期信用減\n損損失評估時，會涉及部份假設及估計之判斷。\n 對已延滯案件係採個別評估方式評價，管理當局以該案預期可回收之淨現金流量\n所做的最佳估計來評估預期信用減損損失；於評估該現金流量時，管理當局對客戶之\n財務狀況及擔保品之淨變現價值予以估計，依據該可回收之淨現金流量評估預期信用\n減損損失。\n 正常案件預期信用減損損失評估所需之判斷最為重大，因正常案件之數量較多且\n金額較小，逐案評估其預期信用減損損失於實務上較不可行。另，使用歷史資料之統\n計分析並使用重大之判斷來評估現時經濟情況及信用狀況，相較於使用歷史呆帳提列\n經驗所為之預期信用減損損失評估，其金額可能較大，亦可能較小。於正常情況下，\n歷史經驗對於評估應收款項之固有風險較為客觀及攸關；但於某特定情形下，歷史經\n驗評估存在於報導日之應收款項的固有風險較不攸關，例如，在景氣變化之情形下，\n某些規則及行為模式已無法完全反應近期風險因素之趨勢變動於統計模型中。在此情\n形下，於評估預期信用減損損失提列之適當性時應考量前瞻性因子，並依歷史提列之\n經驗調整預期信用減損損失之提列數。\n 不確定性及高度敏感之估計最需管理當局之主觀判斷，如營運成長率、產品組\n合、失業率、破產趨勢、地區集中度、國家及地區房地產市場之景氣情形、市場利\n率、案件管理政策及實際運作情形、法令規章之改變及可能影響客戶付款模式之其他\n因素。不同地區及國家適用不同之因子，以反應當地之經濟情形及法令規章。該假設\n判斷係高度之主觀，藉由定期檢查過去估計與實際損失差異之原因，評估相關假設之\n合理性；例如，將損失率及預計未來回收期間定期與實際情形做比較，用以確認該估\n計之合理性。",
+  "OtherTransactionWithRelatedParties": "4.財產交易\n(1)民國一一四年及一一三年一月一日至六月三十日合併公司向其他關係人取得固定\n資產分別為848千元及12,981千元。\n(2)合併公司取得採用權益法之投資：\n 交易股票 114年1月至6月\n對 象 關係人類別 帳列項目 (千股) 交易類型 取得價款\n仲行智能行動股份有限公司 關聯企業 採用權益法之投資 $ 19,600 現金增資 $ 196,000\n昊煜電業股份有限公司 關聯企業 採用權益法之投資 6,000 〞 60,000\n $ 256,000\n 交易股票 113年1月至6月\n對 象 關係人類別 帳列項目 (千股) 交易類型 取得價款\n耀日股份有限公司 子公司 採用權益法之投資 $ 105 購入(註) $ 577\n若晨股份有限公司 子公司 採用權益法之投資 100 〞 809\n盛能股份有限公司 子公司 採用權益法之投資 100 〞 808\n晶盛股份有限公司 子公司 採用權益法之投資 100 〞 808\n天曉股份有限公司 子公司 採用權益法之投資 100 〞 809\n昊升三號電業股份有限公司 關聯企業 採用權益法之投資 9,300 現金增資 93,000\n晁明電業股份有限公司 關聯企業 採用權益法之投資 10,800 〞 108,000\n昊儒電業股份有限公司 合資 採用權益法之投資 37,500 〞 375,000\n昊升股份有限公司 合資 採用權益法之投資 2,400 〞 24,000\n $ 603,811\n註：合併公司於民國一一三年一月三十一日向中合電業(股)公司購入100%股權。\n5.其他\n合併公司與關係人相關收入及費用明細如下：\n帳列項目 關係人類別 114年1至6月 113年1月至6月\n服務及佣金收入 母公司 $ 54,118 50,866\n服務及佣金收入 關聯企業 10,812 13,155\n服務及佣金收入 其他關係人 - 67\n利息收入 關聯企業 9,605 7,020\n銷貨收入 其他關係人 97 -\n租金費用 母公司 (45,515) (52,617)\n租金費用 關聯企業 (91) -\n服務及佣金成本及費用 母公司 (239,473) (236,037)\n服務及佣金成本及費用 關聯企業 (15) (24)\n其他營業成本及費用 母公司 (7,213) (6,704)\n其他營業成本及費用 關聯企業 (230) (139)\n其他營業成本及費用 其他關係人 (3,841) (2,087)\n銷貨成本 關聯企業 (30,248) (23,331)\n利息費用 關聯企業 (279) (233)\n7.租 賃\n 合併公司向關聯企業及其他關係人承租辦公大樓、倉庫及公務車簽訂二~四年\n期租賃合約，使用權資產餘額於民國一一四年六月三十日、一一三年十二月三十一\n日及六月三十日分別為43,280千元、35,298千元及25,001千元。於民國一一四年及一\n一三年一月一日至六月三十日分別認列利息支出388千元及201千元，截至民國一一\n四年六月三十日、一一三年十二月三十一日及六月三十日止租賃負債餘額分別為\n42,951千元、34,635千元及27,099千元。",
+  "ApplicationOfNewlyIssuedOrAmendedStandardsAndInterpretations": "(一)已採用金融監督管理委員會認可之新發布及修訂後準則及解釋之影響\n 合併公司自民國一一四年一月一日起開始適用下列新修正之國際財務報導準則會\n 計準則，且對合併財務報告未造成重大影響。\n •國際會計準則第二十一號之修正「缺乏可兌換性」\n •國際財務報導準則第九號及國際財務報導準則第七號之修正「金融工具之分類與衡\n 量之修正」有關國際財務報導準則第九號第4.1節之應用指引及國際財務報導準則第\n 七號之相關揭露規定\n(二)尚未採用金管會認可之國際財務報導準則之影響\n 合併公司評估適用下列自民國一一五年一月一日起生效之新修正之國際財務報導\n 準則，將不致對合併財務報告造成重大影響。\n •國際財務報導準則第十七號「保險合約」及國際財務報導準則第十七號之修正\n •國際財務報導準則第九號及國際財務報導準則第七號之修正「金融工具之分類與衡\n 量之修正」有關國際財務報導準則第九號第3.1及3.3節之應用指引及國際財務報導\n 準則第七號之相關揭露規定\n •國際財務報導準則會計準則之年度改善\n •國際財務報導準則第九號及國際財務報導準則第七號之修正「涉及依賴自然電力之\n 合約」\n(三)金管會尚未認可之新發布及修訂準則及解釋\n 國際會計準則理事會已發布及修正但尚未經金管會認可之準則及解釋，對合併公\n 司可能攸關者如下：\n 理事會發布之\n新發布或修訂準則 主要修訂內容 生效日\n國際財務報導準則第18號 新準則引入三種類收益及費損、兩 2027年1月1日\n「財務報表之表達與揭 項損益表小計及一項關於管理階層\n露」 績效衡量的單一附註。此等三項修\n 正與強化在財務報表中如何對資訊\n 細分之指引，為使用者提供更佳及\n 更一致的資訊奠定基礎，並將影響\n 所有公司。\n •更具結構化之損益表：根據現行\n 準則，公司使用不同的格式來表\n 達其經營成果，使投資者難以比\n 較不同公司間的財務績效。新準\n 則採用更具結構化的損益表，引\n 入新定義之「營業利益」小計，\n 並規定所有收益及費損，將依公\n 司主要經營活動歸類於三個新的\n 不同種類。\n •管理階層績效衡量(MPM)：新準\n 則引入管理階層績效衡量之定\n 義，並要求公司於財務報表之單\n 一附註中，對於每一衡量指標解\n 釋其為何可提供有用之資訊、如\n 何計算及如何將衡量指標與根據\n 國際財務報導準則會計準則所認\n 列的金額進行調節。\n •較細分之資訊：新準則包括公司\n 如何於財務報表強化對資訊分組\n 之指引。此包括資訊是否應列入\n 主要財務報表或於附註中進一步\n 細分之指引。 \n 合併公司現正持續評估上述準則及解釋對合併公司財務狀況與經營結果之影響，\n相關影響待評估完成時予以揭露。\n 合併公司預期下列其他尚未認可之新發布及修正準則不致對合併財務報告造成重\n大影響。\n•國際財務報導準則第十號及國際會計準則第二十八號之修正「投資者與其關聯企業\n或合資間之資產出售或投入」\n•國際財務報導準則第十九號「不具公共課責性之子公司：揭露」",
+  "GuaranteesAmongRelatedParties": "合併公司民國一一四年六月三十日、一一三年十二月三十一日及六月三十日向\n金融機構借款而由母公司所提供擔保額度分別為27,466,562千元、23,828,728千元及\n14,039,143千元，支付其提供保證之費用分別為4,870千元、7,960千元及3,969千元，\n列於營業成本項下。"
+ },
+ "statements": {
+  "ifrs-full:CashAndCashEquivalents": {
+   "AsOf20250630": 5744940.0,
+   "AsOf20241231": 5150477.0,
+   "AsOf20240630": 4883545.0
+  },
+  "ifrs-full:CurrentFinancialAssetsAtFairValueThroughProfitOrLoss": {
+   "AsOf20250630": 18.0,
+   "AsOf20241231": 6.0,
+   "AsOf20240630": 0.0
+  },
+  "tifrs-bsci-ci:AccountsReceivableNet": {
+   "AsOf20250630": 136244551.0,
+   "AsOf20241231": 114114956.0,
+   "AsOf20240630": 117263869.0
+  },
+  "tifrs-bsci-ci:AccountsReceivable": {
+   "AsOf20250630": 90570200.0,
+   "AsOf20241231": 77507358.0,
+   "AsOf20240630": 79051506.0
+  },
+  "tifrs-bsci-ci:InstallmentAccountsReceivable": {
+   "AsOf20250630": 56401367.0,
+   "AsOf20241231": 46255557.0,
+   "AsOf20240630": 48299896.0
+  },
+  "tifrs-bsci-ci:UnrealizedInterestIncomeInstallmentAccountsReceivable": {
+   "AsOf20250630": 7476517.0,
+   "AsOf20241231": 6549469.0,
+   "AsOf20240630": 6894634.0
+  },
+  "ifrs-full:CurrentFinanceLeaseReceivables": {
+   "AsOf20250630": 68811.0,
+   "AsOf20241231": 66104.0,
+   "AsOf20240630": 65649.0
+  },
+  "ifrs-full:UnearnedFinanceIncomeOnFinanceLease": {
+   "AsOf20250630": -7883.0,
+   "AsOf20241231": -8108.0,
+   "AsOf20240630": -5822.0
+  },
+  "tifrs-bsci-ci:AllowanceForUncollectibleAccountsAccountsInstallmentAndLeasePaymentsReceivable": {
+   "AsOf20250630": 3311427.0,
+   "AsOf20241231": 3156486.0,
+   "AsOf20240630": 3252726.0
+  },
+  "ifrs-full:OtherCurrentAssets": {
+   "AsOf20250630": 8742882.0,
+   "AsOf20241231": 8787869.0,
+   "AsOf20240630": 6242183.0
+  },
+  "ifrs-full:OtherCurrentFinancialAssets": {
+   "AsOf20250630": 6026424.0,
+   "AsOf20241231": 6529323.0,
+   "AsOf20240630": 3113357.0
+  },
+  "tifrs-bsci-ci:OtherCurrentAssetsOthers": {
+   "AsOf20250630": 2716458.0,
+   "AsOf20241231": 2258546.0,
+   "AsOf20240630": 3128826.0
+  },
+  "ifrs-full:CurrentAssets": {
+   "AsOf20250630": 150732391.0,
+   "AsOf20241231": 128053308.0,
+   "AsOf20240630": 128389597.0
+  },
+  "ifrs-full:InvestmentAccountedForUsingEquityMethod": {
+   "AsOf20250630": 4600277.0,
+   "AsOf20241231": 4332926.0,
+   "AsOf20240630": 860279.0
+  },
+  "ifrs-full:PropertyPlantAndEquipment": {
+   "AsOf20250630": 5800103.0,
+   "AsOf20241231": 5448448.0,
+   "AsOf20240630": 5254440.0
+  },
+  "ifrs-full:RightofuseAssets": {
+   "AsOf20250630": 724293.0,
+   "AsOf20241231": 689602.0,
+   "AsOf20240630": 492478.0
+  },
+  "ifrs-full:IntangibleAssetsAndGoodwill": {
+   "AsOf20250630": 23914.0,
+   "AsOf20241231": 26654.0,
+   "AsOf20240630": 14990.0
+  },
+  "ifrs-full:DeferredTaxAssets": {
+   "AsOf20250630": 1993670.0,
+   "AsOf20241231": 2031910.0,
+   "AsOf20240630": 1242862.0
+  },
+  "ifrs-full:OtherNoncurrentAssets": {
+   "AsOf20250630": 25217928.0,
+   "AsOf20241231": 52768637.0,
+   "AsOf20240630": 60746686.0
+  },
+  "tifrs-bsci-ci:PrepaymentsForBusinessFacilities": {
+   "AsOf20250630": 5277074.0,
+   "AsOf20241231": 3292724.0,
+   "AsOf20240630": 1911104.0
+  },
+  "tifrs-bsci-ci:LongtermNotesAndAccountsReceivable": {
+   "AsOf20250630": 19597465.0,
+   "AsOf20241231": 48962455.0,
+   "AsOf20240630": 58291649.0
+  },
+  "tifrs-bsci-ci:LongtermAccountsReceivables": {
+   "AsOf20250630": 12606371.0,
+   "AsOf20241231": 31418793.0,
+   "AsOf20240630": 38801613.0
+  },
+  "tifrs-bsci-ci:LongtermInstallmentReceivables": {
+   "AsOf20250630": 7870027.0,
+   "AsOf20241231": 20107645.0,
+   "AsOf20240630": 22411957.0
+  },
+  "tifrs-bsci-ci:UnrealizedInterestIncomeLongtermInstallmentReceivables": {
+   "AsOf20250630": 599392.0,
+   "AsOf20241231": 1774205.0,
+   "AsOf20240630": 2024503.0
+  },
+  "ifrs-full:FinanceLeaseReceivables": {
+   "AsOf20250630": 15695.0,
+   "AsOf20241231": 41815.0,
+   "AsOf20240630": 17617.0
+  },
+  "tifrs-bsci-ci:UnearnedFinanceIncomeOnFinanceLease-LongtermNotesAndAccountsReceivable": {
+   "AsOf20250630": -609.0,
+   "AsOf20241231": -3177.0,
+   "AsOf20240630": -1708.0
+  },
+  "tifrs-bsci-ci:AllowanceForUncollectibleAccountsLongtermReceivables": {
+   "AsOf20250630": 294627.0,
+   "AsOf20241231": 828416.0,
+   "AsOf20240630": 913327.0
+  },
+  "tifrs-bsci-ci:OtherNoncurrentAssetsOthers": {
+   "AsOf20250630": 343389.0,
+   "AsOf20241231": 513458.0,
+   "AsOf20240630": 543933.0
+  },
+  "tifrs-bsci-ci:OtherNoncurrentAssetsOthers-OtherNoncurrentAssetsOthers": {
+   "AsOf20250630": 343389.0,
+   "AsOf20241231": 513458.0,
+   "AsOf20240630": 543933.0
+  },
+  "ifrs-full:NoncurrentAssets": {
+   "AsOf20250630": 38360185.0,
+   "AsOf20241231": 65298177.0,
+   "AsOf20240630": 68611735.0
+  },
+  "ifrs-full:Assets": {
+   "AsOf20250630": 189092576.0,
+   "AsOf20241231": 193351485.0,
+   "AsOf20240630": 197001332.0
+  },
+  "ifrs-full:ShorttermBorrowings": {
+   "AsOf20250630": 4175475.0,
+   "AsOf20241231": 3850000.0,
+   "AsOf20240630": 5895000.0
+  },
+  "ifrs-full:CurrentCommercialPapersIssuedAndCurrentPortionOfNoncurrentCommercialPapersIssued": {
+   "AsOf20250630": 43990463.0,
+   "AsOf20241231": 45270559.0,
+   "AsOf20240630": 47247844.0
+  },
+  "ifrs-full:TradeAndOtherCurrentPayablesToTradeSuppliers": {
+   "AsOf20250630": 406005.0,
+   "AsOf20241231": 122696.0,
+   "AsOf20240630": 79986.0
+  },
+  "ifrs-full:CurrentTaxLiabilities": {
+   "AsOf20250630": 426434.0,
+   "AsOf20241231": 712778.0,
+   "AsOf20240630": 403337.0
+  },
+  "tifrs-bsci-ci:CurrentLeaseLiabilities": {
+   "AsOf20250630": 118538.0,
+   "AsOf20241231": 94627.0,
+   "AsOf20240630": 94396.0
+  },
+  "ifrs-full:OtherCurrentLiabilities": {
+   "AsOf20250630": 80215068.0,
+   "AsOf20241231": 64457527.0,
+   "AsOf20240630": 56220766.0
+  },
+  "ifrs-full:OtherCurrentFinancialLiabilities": {
+   "AsOf20250630": 6758288.0,
+   "AsOf20241231": 3690311.0,
+   "AsOf20240630": 3567805.0
+  },
+  "tifrs-bsci-ci:LongtermLiabilitiesCurrentPortion": {
+   "AsOf20250630": 72922301.0,
+   "AsOf20241231": 60188734.0,
+   "AsOf20240630": 52094339.0
+  },
+  "ifrs-full:CurrentPortionOfLongtermBorrowings": {
+   "AsOf20250630": 72922301.0,
+   "AsOf20241231": 60188734.0,
+   "AsOf20240630": 52094339.0
+  },
+  "tifrs-bsci-ci:OtherCurrentLiabilitiesOthers": {
+   "AsOf20250630": 534479.0,
+   "AsOf20241231": 578482.0,
+   "AsOf20240630": 558622.0
+  },
+  "ifrs-full:CurrentLiabilities": {
+   "AsOf20250630": 129331983.0,
+   "AsOf20241231": 114508187.0,
+   "AsOf20240630": 109941329.0
+  },
+  "ifrs-full:NoncurrentPortionOfNoncurrentBondsIssued": {
+   "AsOf20250630": 0.0,
+   "AsOf20241231": 1500000.0,
+   "AsOf20240630": 3700000.0
+  },
+  "tifrs-bsci-ci:BondsPayable-BondsPayable": {
+   "AsOf20250630": 0.0,
+   "AsOf20241231": 1500000.0,
+   "AsOf20240630": 3700000.0
+  },
+  "ifrs-full:LongtermBorrowings": {
+   "AsOf20250630": 4942438.0,
+   "AsOf20241231": 21567215.0,
+   "AsOf20240630": 36256174.0
+  },
+  "ifrs-full:DeferredTaxLiabilities": {
+   "AsOf20250630": 11331.0,
+   "AsOf20241231": 9316.0,
+   "AsOf20240630": 4598.0
+  },
+  "ifrs-full:NoncurrentFinanceLeaseLiabilities": {
+   "AsOf20250630": 603106.0,
+   "AsOf20241231": 598579.0,
+   "AsOf20240630": 388649.0
+  },
+  "ifrs-full:OtherNoncurrentLiabilities": {
+   "AsOf20250630": 391630.0,
+   "AsOf20241231": 899520.0,
+   "AsOf20240630": 905015.0
+  },
+  "tifrs-bsci-ci:OtherNoncurrentLiabilitiesOthers": {
+   "AsOf20250630": 391630.0,
+   "AsOf20241231": 899520.0,
+   "AsOf20240630": 905015.0
+  },
+  "ifrs-full:NoncurrentLiabilities": {
+   "AsOf20250630": 5948505.0,
+   "AsOf20241231": 24574630.0,
+   "AsOf20240630": 41254436.0
+  },
+  "ifrs-full:Liabilities": {
+   "AsOf20250630": 135280488.0,
+   "AsOf20241231": 139082817.0,
+   "AsOf20240630": 151195765.0
+  },
+  "tifrs-bsci-ci:OrdinaryShare": {
+   "AsOf20250630": 30309635.0,
+   "AsOf20241231": 30309635.0,
+   "AsOf20240630": 27394000.0
+  },
+  "tifrs-bsci-ci:StockDividendToBeDistributed": {
+   "AsOf20250630": 0.0,
+   "AsOf20241231": 0.0,
+   "AsOf20240630": 0.0
+  },
+  "ifrs-full:IssuedCapital": {
+   "AsOf20250630": 30309635.0,
+   "AsOf20241231": 30309635.0,
+   "AsOf20240630": 27394000.0
+  },
+  "ifrs-full:AdditionalPaidinCapital": {
+   "AsOf20250630": 14208679.0,
+   "AsOf20241231": 14208679.0,
+   "AsOf20240630": 11293044.0
+  },
+  "tifrs-bsci-ci:CapitalSurplusAdditionalPaidInCapitalArisingFromOrdinaryShare": {
+   "AsOf20250630": 14208679.0,
+   "AsOf20241231": 14208679.0,
+   "AsOf20240630": 11293044.0
+  },
+  "tifrs-bsci-ci:CapitalSurplusChangesInOwnershipInterestsInSubsidiaries": {
+   "AsOf20250630": 83037.0,
+   "AsOf20241231": 62590.0,
+   "AsOf20240630": 2037.0
+  },
+  "tifrs-bsci-ci:CapitalSurplusGainOnDisposalsOfPropertyPlanAndEquipment": {
+   "AsOf20250630": 87.0,
+   "AsOf20241231": 87.0,
+   "AsOf20240630": 87.0
+  },
+  "tifrs-bsci-ci:CapitalSurplusEmployeeShareOptions": {
+   "AsOf20250630": 21083.0,
+   "AsOf20241231": 21083.0,
+   "AsOf20240630": 7600.0
+  },
+  "ifrs-full:CapitalReserve": {
+   "AsOf20250630": 14312886.0,
+   "AsOf20241231": 14292439.0,
+   "AsOf20240630": 11302768.0
+  },
+  "ifrs-full:StatutoryReserve": {
+   "AsOf20250630": 3105162.0,
+   "AsOf20241231": 2768728.0,
+   "AsOf20240630": 2768728.0
+  },
+  "tifrs-bsci-ci:UnappropriatedRetainedEarningsAaccumulatedDeficit": {
+   "AsOf20250630": 1837541.0,
+   "AsOf20241231": 3364345.0,
+   "AsOf20240630": 1670634.0
+  },
+  "ifrs-full:RetainedEarnings": {
+   "AsOf20250630": 4942703.0,
+   "AsOf20241231": 6133073.0,
+   "AsOf20240630": 4439362.0
+  },
+  "ifrs-full:OtherEquityInterest": {
+   "AsOf20250630": 0.0,
+   "AsOf20241231": 0.0,
+   "AsOf20240630": 0.0
+  },
+  "ifrs-full:TreasuryShares": {
+   "AsOf20250630": 0.0,
+   "AsOf20241231": 0.0,
+   "AsOf20240630": 0.0
+  },
+  "ifrs-full:EquityAttributableToOwnersOfParent": {
+   "AsOf20250630": 49565224.0,
+   "AsOf20241231": 50735147.0,
+   "AsOf20240630": 43136130.0
+  },
+  "tifrs-bsci-ci:EquityAttributableToFomerOwnerOfBusinessCombinationUnderCommonControl": {
+   "AsOf20250630": 0.0,
+   "AsOf20241231": 0.0,
+   "AsOf20240630": 0.0
+  },
+  "ifrs-full:NoncontrollingInterests": {
+   "AsOf20250630": 4246864.0,
+   "AsOf20241231": 3533521.0,
+   "AsOf20240630": 2669437.0
+  },
+  "ifrs-full:Equity": {
+   "AsOf20250630": 53812088.0,
+   "AsOf20241231": 54268668.0,
+   "AsOf20240630": 45805567.0,
+   "AsOf20250101_OrdinaryShareMember": 30309635.0,
+   "AsOf20250101_IssuedCapitalMember": 30309635.0,
+   "AsOf20250101_CapitalReserveMember": 14292439.0,
+   "AsOf20250101_StatutoryReserveMember": 2768728.0,
+   "AsOf20250101_UnappropriatedRetainedEarningsAccumulatedDeficitMember": 3364345.0,
+   "AsOf20250101_RetainedEarningsMember": 6133073.0,
+   "AsOf20250101_EquityAttributableToOwnersOfParentMember": 50735147.0,
+   "AsOf20250101_NoncontrollingInterestsMember": 3533521.0,
+   "AsOf20250101_TotalEquityMember": 54268668.0,
+   "AsOf20250630_OrdinaryShareMember": 30309635.0,
+   "AsOf20250630_IssuedCapitalMember": 30309635.0,
+   "AsOf20250630_CapitalReserveMember": 14312886.0,
+   "AsOf20250630_StatutoryReserveMember": 3105162.0,
+   "AsOf20250630_UnappropriatedRetainedEarningsAccumulatedDeficitMember": 1837541.0,
+   "AsOf20250630_RetainedEarningsMember": 4942703.0,
+   "AsOf20250630_EquityAttributableToOwnersOfParentMember": 49565224.0,
+   "AsOf20250630_NoncontrollingInterestsMember": 4246864.0,
+   "AsOf20250630_TotalEquityMember": 53812088.0,
+   "AsOf20240101_OrdinaryShareMember": 23463000.0,
+   "AsOf20240101_IssuedCapitalMember": 23463000.0,
+   "AsOf20240101_CapitalReserveMember": 11302988.0,
+   "AsOf20240101_StatutoryReserveMember": 2331902.0,
+   "AsOf20240101_UnappropriatedRetainedEarningsAccumulatedDeficitMember": 4368256.0,
+   "AsOf20240101_RetainedEarningsMember": 6700158.0,
+   "AsOf20240101_EquityAttributableToOwnersOfParentMember": 41466146.0,
+   "AsOf20240101_NoncontrollingInterestsMember": 2693634.0,
+   "AsOf20240101_TotalEquityMember": 44159780.0,
+   "AsOf20240630_OrdinaryShareMember": 27394000.0,
+   "AsOf20240630_IssuedCapitalMember": 27394000.0,
+   "AsOf20240630_CapitalReserveMember": 11302768.0,
+   "AsOf20240630_StatutoryReserveMember": 2768728.0,
+   "AsOf20240630_UnappropriatedRetainedEarningsAccumulatedDeficitMember": 1670634.0,
+   "AsOf20240630_RetainedEarningsMember": 4439362.0,
+   "AsOf20240630_EquityAttributableToOwnersOfParentMember": 43136130.0,
+   "AsOf20240630_NoncontrollingInterestsMember": 2669437.0,
+   "AsOf20240630_TotalEquityMember": 45805567.0
+  },
+  "ifrs-full:EquityAndLiabilities": {
+   "AsOf20250630": 189092576.0,
+   "AsOf20241231": 193351485.0,
+   "AsOf20240630": 197001332.0
+  },
+  "tifrs-bsci-ci:EquivalentIssueSharesOfAdvanceReceiptsForOrdinaryShare": {
+   "AsOf20250630": 0.0,
+   "AsOf20241231": 0.0,
+   "AsOf20240630": 0.0
+  },
+  "tifrs-bsci-ci:NumberOfSharesInEntityHeldByEntityAndByItsSubsidiaries": {
+   "AsOf20250630": 0.0,
+   "AsOf20241231": 0.0,
+   "AsOf20240630": 0.0
+  },
+  "tifrs-bsci-ci:SalesRevenue": {
+   "From20250101To20250630": 70606.0,
+   "From20240101To20240630": 33077.0
+  },
+  "tifrs-bsci-ci:SalesRevenue-SalesRevenue": {
+   "From20250101To20250630": 70606.0,
+   "From20240101To20240630": 33077.0
+  },
+  "ifrs-full:RevenueFromSaleOfGoods": {
+   "From20250101To20250630": 70606.0,
+   "From20240101To20240630": 33077.0
+  },
+  "ifrs-full:InterestIncomeOnDebtInstrumentsHeld": {
+   "From20250101To20250630": 698079.0,
+   "From20240101To20240630": 628951.0
+  },
+  "tifrs-bsci-ci:InterestRevenue": {
+   "From20250101To20250630": 6587640.0,
+   "From20240101To20240630": 8268897.0
+  },
+  "ifrs-full:InvestmentIncome": {
+   "From20250101To20250630": 7285719.0,
+   "From20240101To20240630": 8897848.0
+  },
+  "tifrs-bsci-ci:RentalRevenue-RentalRevenue": {
+   "From20250101To20250630": 2722.0,
+   "From20240101To20240630": 3248.0
+  },
+  "ifrs-full:RentalIncome": {
+   "From20250101To20250630": 2722.0,
+   "From20240101To20240630": 3248.0
+  },
+  "tifrs-bsci-ci:OtherOperatingRevenue-OtherOperatingRevenue": {
+   "From20250101To20250630": 780790.0,
+   "From20240101To20240630": 966482.0
+  },
+  "tifrs-bsci-ci:OtherOperatingRevenue": {
+   "From20250101To20250630": 780790.0,
+   "From20240101To20240630": 966482.0
+  },
+  "ifrs-full:Revenue": {
+   "From20250101To20250630": 8139837.0,
+   "From20240101To20240630": 9900655.0
+  },
+  "tifrs-bsci-ci:CostOfSales-CostOfSales": {
+   "From20250101To20250630": 274901.0,
+   "From20240101To20240630": 228392.0
+  },
+  "ifrs-full:CostOfSales": {
+   "From20250101To20250630": 274901.0,
+   "From20240101To20240630": 228392.0
+  },
+  "tifrs-bsci-ci:InvestmentCostsForInvestmentBusiness": {
+   "From20250101To20250630": 1216093.0,
+   "From20240101To20240630": 1330049.0
+  },
+  "tifrs-bsci-ci:OtherOperatingCosts": {
+   "From20250101To20250630": 800996.0,
+   "From20240101To20240630": 1236421.0
+  },
+  "tifrs-bsci-ci:OperatingCosts": {
+   "From20250101To20250630": 2291990.0,
+   "From20240101To20240630": 2794862.0
+  },
+  "tifrs-bsci-ci:GrossProfitLossFromOperations": {
+   "From20250101To20250630": 5847847.0,
+   "From20240101To20240630": 7105793.0
+  },
+  "ifrs-full:GrossProfit": {
+   "From20250101To20250630": 5847847.0,
+   "From20240101To20240630": 7105793.0
+  },
+  "ifrs-full:AdministrativeExpense": {
+   "From20250101To20250630": 1646156.0,
+   "From20240101To20240630": 1732143.0
+  },
+  "ifrs-full:ImpairmentLossImpairmentGainAndReversalOfImpairmentLossDeterminedInAccordanceWithIFRS9": {
+   "From20250101To20250630": 2406273.0,
+   "From20240101To20240630": 3545675.0
+  },
+  "ifrs-full:OperatingExpense": {
+   "From20250101To20250630": 4052429.0,
+   "From20240101To20240630": 5277818.0
+  },
+  "tifrs-bsci-ci:NetOtherIncomeExpenses": {
+   "From20250101To20250630": 629004.0,
+   "From20240101To20240630": 472210.0
+  },
+  "ifrs-full:ProfitLossFromOperatingActivities": {
+   "From20250101To20250630": 2424422.0,
+   "From20240101To20240630": 2300185.0
+  },
+  "ifrs-full:InterestIncomeOnDeposits": {
+   "From20250101To20250630": 35252.0,
+   "From20240101To20240630": 24595.0
+  },
+  "ifrs-full:RevenueFromInterest": {
+   "From20250101To20250630": 35252.0,
+   "From20240101To20240630": 24595.0
+  },
+  "ifrs-full:OtherGainsLosses": {
+   "From20250101To20250630": 22855.0,
+   "From20240101To20240630": 12601.0
+  },
+  "ifrs-full:InterestExpense": {
+   "From20250101To20250630": 203306.0,
+   "From20240101To20240630": 265589.0
+  },
+  "ifrs-full:FinanceCosts": {
+   "From20250101To20250630": 203306.0,
+   "From20240101To20240630": 265589.0
+  },
+  "ifrs-full:ShareOfProfitLossOfAssociatesAndJointVenturesAccountedForUsingEquityMethod": {
+   "From20250101To20250630": 11351.0,
+   "From20240101To20240630": -31255.0
+  },
+  "tifrs-bsci-ci:NonoperatingIncomeAndExpenses": {
+   "From20250101To20250630": -133848.0,
+   "From20240101To20240630": -259648.0
+  },
+  "ifrs-full:ProfitLossBeforeTax": {
+   "From20250101To20250630": 2290574.0,
+   "From20240101To20240630": 2040537.0
+  },
+  "ifrs-full:IncomeTaxExpenseContinuingOperations": {
+   "From20250101To20250630": 494712.0,
+   "From20240101To20240630": 415821.0
+  },
+  "ifrs-full:ProfitLossFromContinuingOperations": {
+   "From20250101To20250630": 1795862.0,
+   "From20240101To20240630": 1624716.0
+  },
+  "ifrs-full:ProfitLoss": {
+   "From20250101To20250630": 1795862.0,
+   "From20240101To20240630": 1624716.0,
+   "From20250101To20250630_UnappropriatedRetainedEarningsAccumulatedDeficitMember": 1837541.0,
+   "From20250101To20250630_RetainedEarningsMember": 1837541.0,
+   "From20250101To20250630_EquityAttributableToOwnersOfParentMember": 1837541.0,
+   "From20250101To20250630_NoncontrollingInterestsMember": -41679.0,
+   "From20250101To20250630_TotalEquityMember": 1795862.0,
+   "From20240101To20240630_UnappropriatedRetainedEarningsAccumulatedDeficitMember": 1670634.0,
+   "From20240101To20240630_RetainedEarningsMember": 1670634.0,
+   "From20240101To20240630_EquityAttributableToOwnersOfParentMember": 1670634.0,
+   "From20240101To20240630_NoncontrollingInterestsMember": -45918.0,
+   "From20240101To20240630_TotalEquityMember": 1624716.0
+  },
+  "ifrs-full:ComprehensiveIncome": {
+   "From20250101To20250630": 1795862.0,
+   "From20240101To20240630": 1624716.0,
+   "From20250101To20250630_UnappropriatedRetainedEarningsAccumulatedDeficitMember": 1837541.0,
+   "From20250101To20250630_RetainedEarningsMember": 1837541.0,
+   "From20250101To20250630_EquityAttributableToOwnersOfParentMember": 1837541.0,
+   "From20250101To20250630_NoncontrollingInterestsMember": -41679.0,
+   "From20250101To20250630_TotalEquityMember": 1795862.0,
+   "From20240101To20240630_UnappropriatedRetainedEarningsAccumulatedDeficitMember": 1670634.0,
+   "From20240101To20240630_RetainedEarningsMember": 1670634.0,
+   "From20240101To20240630_EquityAttributableToOwnersOfParentMember": 1670634.0,
+   "From20240101To20240630_NoncontrollingInterestsMember": -45918.0,
+   "From20240101To20240630_TotalEquityMember": 1624716.0
+  },
+  "ifrs-full:ProfitLossAttributableToOwnersOfParent": {
+   "From20250101To20250630": 1837541.0,
+   "From20240101To20240630": 1670634.0
+  },
+  "tifrs-bsci-ci:ProfitLossAttributableToFormerOwnerOfBusinessCombinationUnderCommonControl": {
+   "From20250101To20250630": 0.0,
+   "From20240101To20240630": 0.0
+  },
+  "ifrs-full:ProfitLossAttributableToNoncontrollingInterests": {
+   "From20250101To20250630": -41679.0,
+   "From20240101To20240630": -45918.0
+  },
+  "ifrs-full:ComprehensiveIncomeAttributableToOwnersOfParent": {
+   "From20250101To20250630": 1837541.0,
+   "From20240101To20240630": 1670634.0
+  },
+  "tifrs-bsci-ci:ComprehensiveIncomeAttributableToFormerOwnerOfBusinessCombinationUnderCommonControl": {
+   "From20250101To20250630": 0.0,
+   "From20240101To20240630": 0.0
+  },
+  "ifrs-full:ComprehensiveIncomeAttributableToNoncontrollingInterests": {
+   "From20250101To20250630": -41679.0,
+   "From20240101To20240630": -45918.0
+  },
+  "ifrs-full:BasicEarningsLossPerShareFromContinuingOperations": {
+   "From20250101To20250630": 0.61,
+   "From20240101To20240630": 0.61
+  },
+  "ifrs-full:BasicEarningsLossPerShare": {
+   "From20250101To20250630": 0.61,
+   "From20240101To20240630": 0.61
+  },
+  "ifrs-full:DilutedEarningsLossPerShareFromContinuingOperations": {
+   "From20250101To20250630": 0.61,
+   "From20240101To20240630": 0.61
+  },
+  "ifrs-full:DilutedEarningsLossPerShare": {
+   "From20250101To20250630": 0.61,
+   "From20240101To20240630": 0.61
+  },
+  "tifrs-SCF:ProfitLossBeforeTax": {
+   "From20250101To20250630": 2290574.0,
+   "From20240101To20240630": 2040537.0
+  },
+  "ifrs-full:AdjustmentsForDepreciationExpense": {
+   "From20250101To20250630": 249834.0,
+   "From20240101To20240630": 203232.0
+  },
+  "ifrs-full:AdjustmentsForAmortisationExpense": {
+   "From20250101To20250630": 4987.0,
+   "From20240101To20240630": 6430.0
+  },
+  "tifrs-SCF:ProvisionReversalOfProvisionForBadDebtExpense": {
+   "From20250101To20250630": 2406273.0,
+   "From20240101To20240630": 3545675.0
+  },
+  "tifrs-SCF:NetLossGainOnFinancialAssetsOrLiabilitiesAtFairValueThroughProfitOrLoss": {
+   "From20250101To20250630": -12.0,
+   "From20240101To20240630": 0.0
+  },
+  "ifrs-full:AdjustmentsForInterestExpense": {
+   "From20250101To20250630": 1419399.0,
+   "From20240101To20240630": 1595638.0
+  },
+  "ifrs-full:AdjustmentsForInterestIncome": {
+   "From20250101To20250630": -7323693.0,
+   "From20240101To20240630": -8925691.0
+  },
+  "tifrs-SCF:ShareOfLossProfitOfAssociatesAndJointVenturesAccountedForUsingEquityMethod": {
+   "From20250101To20250630": -11351.0,
+   "From20240101To20240630": 31255.0
+  },
+  "ifrs-full:AdjustmentsForGainLossOnDisposalsPropertyPlantAndEquipment": {
+   "From20250101To20250630": 22.0,
+   "From20240101To20240630": 0.0
+  },
+  "ifrs-full:OtherAdjustmentsToReconcileProfitLoss": {
+   "From20250101To20250630": -241.0,
+   "From20240101To20240630": 0.0
+  },
+  "tifrs-SCF:AdjustmentsToReconcileProfitLoss": {
+   "From20250101To20250630": -3254782.0,
+   "From20240101To20240630": -3543461.0
+  },
+  "tifrs-SCF:DecreaseIncreaseInAccountsReceivable": {
+   "From20250101To20250630": 4829723.0,
+   "From20240101To20240630": 5013435.0
+  },
+  "ifrs-full:AdjustmentsForDecreaseIncreaseInOtherCurrentAssets": {
+   "From20250101To20250630": -434323.0,
+   "From20240101To20240630": 611764.0
+  },
+  "tifrs-SCF:DecreaseIncreaseInOtherFinancialAssets": {
+   "From20250101To20250630": 506878.0,
+   "From20240101To20240630": 2544048.0
+  },
+  "tifrs-SCF:DecreaseIncreaseInOtherOperatingAssets": {
+   "From20250101To20250630": -1794789.0,
+   "From20240101To20240630": -716890.0
+  },
+  "tifrs-SCF:ChangesInOperatingAssets": {
+   "From20250101To20250630": 3107489.0,
+   "From20240101To20240630": 7452357.0
+  },
+  "tifrs-SCF:IncreaseDecreaseInAccountsPayable": {
+   "From20250101To20250630": 283309.0,
+   "From20240101To20240630": -57110.0
+  },
+  "tifrs-SCF:IncreaseDecreaseInProvisions": {
+   "From20250101To20250630": -6345831.0,
+   "From20240101To20240630": -10686540.0
+  },
+  "tifrs-SCF:IncreaseDecreaseInOtherFinancialLiabilities": {
+   "From20250101To20250630": -48152.0,
+   "From20240101To20240630": 384937.0
+  },
+  "ifrs-full:AdjustmentsForIncreaseDecreaseInOtherCurrentLiabilities": {
+   "From20250101To20250630": -44003.0,
+   "From20240101To20240630": -170169.0
+  },
+  "tifrs-SCF:IncreaseDecreaseInOtherOperatingLiabilities": {
+   "From20250101To20250630": -507890.0,
+   "From20240101To20240630": 105826.0
+  },
+  "tifrs-SCF:ChangesInOperatingLiabilities": {
+   "From20250101To20250630": -6662567.0,
+   "From20240101To20240630": -10423056.0
+  },
+  "tifrs-SCF:ChangesInOperatingAssetsAndLiabilities": {
+   "From20250101To20250630": -3555078.0,
+   "From20240101To20240630": -2970699.0
+  },
+  "tifrs-SCF:Adjustments": {
+   "From20250101To20250630": -6809860.0,
+   "From20240101To20240630": -6514160.0
+  },
+  "ifrs-full:CashFlowsFromUsedInOperations": {
+   "From20250101To20250630": -4519286.0,
+   "From20240101To20240630": -4473623.0
+  },
+  "ifrs-full:InterestReceivedClassifiedAsOperatingActivities": {
+   "From20250101To20250630": 7319714.0,
+   "From20240101To20240630": 8976128.0
+  },
+  "ifrs-full:InterestPaidClassifiedAsOperatingActivities": {
+   "From20250101To20250630": -1455087.0,
+   "From20240101To20240630": -1665063.0
+  },
+  "ifrs-full:IncomeTaxesPaidRefundClassifiedAsOperatingActivities": {
+   "From20250101To20250630": -740801.0,
+   "From20240101To20240630": -816563.0
+  },
+  "ifrs-full:CashFlowsFromUsedInOperatingActivities": {
+   "From20250101To20250630": 604540.0,
+   "From20240101To20240630": 2020879.0
+  },
+  "ifrs-full:PurchaseOfInterestsInInvestmentsAccountedForUsingEquityMethod": {
+   "From20250101To20250630": -256000.0,
+   "From20240101To20240630": -600000.0
+  },
+  "ifrs-full:ProceedsFromSalesOfInvestmentsAccountedForUsingEquityMethod": {
+   "From20250101To20250630": 0.0,
+   "From20240101To20240630": 0.0
+  },
+  "ifrs-full:PurchaseOfPropertyPlantAndEquipmentClassifiedAsInvestingActivities": {
+   "From20250101To20250630": -476669.0,
+   "From20240101To20240630": -1199870.0
+  },
+  "ifrs-full:ProceedsFromSalesOfPropertyPlantAndEquipmentClassifiedAsInvestingActivities": {
+   "From20250101To20250630": 0.0,
+   "From20240101To20240630": 919.0
+  },
+  "ifrs-full:PurchaseOfIntangibleAssetsClassifiedAsInvestingActivities": {
+   "From20250101To20250630": -1833.0,
+   "From20240101To20240630": -6835.0
+  },
+  "tifrs-SCF:NetCashInflowsFromBusinessCombination": {
+   "From20250101To20250630": 1103.0,
+   "From20240101To20240630": 223.0
+  },
+  "tifrs-SCF:NetCashFlowsFromUsedInInvestingActivities": {
+   "From20250101To20250630": -733399.0,
+   "From20240101To20240630": -1805563.0
+  },
+  "ifrs-full:PaymentsOfLeaseLiabilitiesClassifiedAsFinancingActivities": {
+   "From20250101To20250630": -52147.0,
+   "From20240101To20240630": -51755.0
+  },
+  "tifrs-SCF:ChangeInNoncontrollingInterests": {
+   "From20250101To20250630": 775469.0,
+   "From20240101To20240630": 21501.0
+  },
+  "tifrs-SCF:CashFlowsFromUsedInFinancingActivities": {
+   "From20250101To20250630": 723322.0,
+   "From20240101To20240630": -30254.0
+  },
+  "ifrs-full:IncreaseDecreaseInCashAndCashEquivalents": {
+   "From20250101To20250630": 594463.0,
+   "From20240101To20240630": 185062.0
+  },
+  "tifrs-SCF:CashAndCashEquivalentsAtBeginningOfPeriod": {
+   "AsOf20250630": 5150477.0,
+   "AsOf20240630": 4698483.0
+  },
+  "tifrs-SCF:CashAndCashEquivalentsAtEndOfPeriod": {
+   "AsOf20250630": 5744940.0,
+   "AsOf20240630": 4883545.0
+  },
+  "tifrs-es:LegalReserveAppropriated": {
+   "From20250101To20250630_StatutoryReserveMember": 336434.0,
+   "From20250101To20250630_UnappropriatedRetainedEarningsAccumulatedDeficitMember": -336434.0,
+   "From20250101To20250630_RetainedEarningsMember": 0.0,
+   "From20250101To20250630_EquityAttributableToOwnersOfParentMember": 0.0,
+   "From20250101To20250630_TotalEquityMember": 0.0,
+   "From20240101To20240630_StatutoryReserveMember": 436826.0,
+   "From20240101To20240630_UnappropriatedRetainedEarningsAccumulatedDeficitMember": -436826.0,
+   "From20240101To20240630_RetainedEarningsMember": 0.0,
+   "From20240101To20240630_EquityAttributableToOwnersOfParentMember": 0.0,
+   "From20240101To20240630_TotalEquityMember": 0.0
+  },
+  "tifrs-es:CashDividendsOfOrdinaryShare": {
+   "From20250101To20250630_UnappropriatedRetainedEarningsAccumulatedDeficitMember": -3027911.0,
+   "From20250101To20250630_RetainedEarningsMember": -3027911.0,
+   "From20250101To20250630_EquityAttributableToOwnersOfParentMember": -3027911.0,
+   "From20250101To20250630_TotalEquityMember": -3027911.0,
+   "From20240101To20240630_UnappropriatedRetainedEarningsAccumulatedDeficitMember": -430.0,
+   "From20240101To20240630_RetainedEarningsMember": -430.0,
+   "From20240101To20240630_EquityAttributableToOwnersOfParentMember": -430.0,
+   "From20240101To20240630_TotalEquityMember": -430.0
+  },
+  "tifrs-es:StockDividendsOfOrdinaryShare": {
+   "From20250101To20250630_StatutoryReserveMember": 0.0,
+   "From20250101To20250630_UnappropriatedRetainedEarningsAccumulatedDeficitMember": 0.0,
+   "From20250101To20250630_RetainedEarningsMember": 0.0,
+   "From20250101To20250630_EquityAttributableToOwnersOfParentMember": 0.0,
+   "From20250101To20250630_TotalEquityMember": 0.0,
+   "From20240101To20240630_OrdinaryShareMember": 3931000.0,
+   "From20240101To20240630_IssuedCapitalMember": 3931000.0,
+   "From20240101To20240630_UnappropriatedRetainedEarningsAccumulatedDeficitMember": -3931000.0,
+   "From20240101To20240630_RetainedEarningsMember": -3931000.0,
+   "From20240101To20240630_EquityAttributableToOwnersOfParentMember": 0.0,
+   "From20240101To20240630_TotalEquityMember": 0.0
+  },
+  "tifrs-es:ChangesInEquityOfAssociatesAndJointVenturesAccountedForUsingEquityMethod": {
+   "From20250101To20250630_CapitalReserveMember": 20447.0,
+   "From20250101To20250630_EquityAttributableToOwnersOfParentMember": 20447.0,
+   "From20250101To20250630_NoncontrollingInterestsMember": -20447.0,
+   "From20250101To20250630_TotalEquityMember": 0.0,
+   "From20240101To20240630_EquityAttributableToOwnersOfParentMember": 0.0,
+   "From20240101To20240630_TotalEquityMember": 0.0
+  },
+  "ifrs-full:OtherComprehensiveIncome": {
+   "From20250101To20250630_EquityAttributableToOwnersOfParentMember": 0.0,
+   "From20250101To20250630_TotalEquityMember": 0.0,
+   "From20240101To20240630_EquityAttributableToOwnersOfParentMember": 0.0,
+   "From20240101To20240630_TotalEquityMember": 0.0
+  },
+  "tifrs-es:IssueOfShares": {
+   "From20250101To20250630_EquityAttributableToOwnersOfParentMember": 0.0,
+   "From20250101To20250630_TotalEquityMember": 0.0,
+   "From20240101To20240630_EquityAttributableToOwnersOfParentMember": 0.0,
+   "From20240101To20240630_TotalEquityMember": 0.0
+  },
+  "tifrs-es:SharesIssuedForPursuantToReorganization": {
+   "From20250101To20250630_TotalEquityMember": 0.0,
+   "From20240101To20240630_TotalEquityMember": 0.0
+  },
+  "tifrs-es:ChangesInNoncontrollingInterests": {
+   "From20250101To20250630_NoncontrollingInterestsMember": 775469.0,
+   "From20250101To20250630_TotalEquityMember": 775469.0,
+   "From20240101To20240630_NoncontrollingInterestsMember": 21501.0,
+   "From20240101To20240630_TotalEquityMember": 21501.0
+  },
+  "tifrs-es:Others-IncreaseDecreaseInEquity": {
+   "From20250101To20250630_TotalEquityMember": 0.0,
+   "From20240101To20240630_CapitalReserveMember": -220.0,
+   "From20240101To20240630_EquityAttributableToOwnersOfParentMember": -220.0,
+   "From20240101To20240630_NoncontrollingInterestsMember": 220.0,
+   "From20240101To20240630_TotalEquityMember": 0.0
+  },
+  "ifrs-full:ChangesInEquity": {
+   "From20250101To20250630_CapitalReserveMember": 20447.0,
+   "From20250101To20250630_StatutoryReserveMember": 336434.0,
+   "From20250101To20250630_UnappropriatedRetainedEarningsAccumulatedDeficitMember": -1526804.0,
+   "From20250101To20250630_RetainedEarningsMember": -1190370.0,
+   "From20250101To20250630_EquityAttributableToOwnersOfParentMember": -1169923.0,
+   "From20250101To20250630_NoncontrollingInterestsMember": 713343.0,
+   "From20250101To20250630_TotalEquityMember": -456580.0,
+   "From20240101To20240630_OrdinaryShareMember": 3931000.0,
+   "From20240101To20240630_IssuedCapitalMember": 3931000.0,
+   "From20240101To20240630_CapitalReserveMember": -220.0,
+   "From20240101To20240630_StatutoryReserveMember": 436826.0,
+   "From20240101To20240630_UnappropriatedRetainedEarningsAccumulatedDeficitMember": -2697622.0,
+   "From20240101To20240630_RetainedEarningsMember": -2260796.0,
+   "From20240101To20240630_EquityAttributableToOwnersOfParentMember": 1669984.0,
+   "From20240101To20240630_NoncontrollingInterestsMember": -24197.0,
+   "From20240101To20240630_TotalEquityMember": 1645787.0
+  }
+ },
+ "red_flags": [
+  {
+   "type": "資金貸與未計息",
+   "detail": "合迪(股)公司→天柱能源股份有限公司 動支 1,215,000 千元",
+   "hint": "未計息或利率欄空白，確認決策程序與資貸背書準則規範"
+  },
+  {
+   "type": "資金貸與未計息",
+   "detail": "合迪(股)公司→天芮能源股份有限公司 動支 726,000 千元",
+   "hint": "未計息或利率欄空白，確認決策程序與資貸背書準則規範"
+  },
+  {
+   "type": "資金貸與未計息",
+   "detail": "合迪(股)公司→天英能源股份有限公司 動支 559,000 千元",
+   "hint": "未計息或利率欄空白，確認決策程序與資貸背書準則規範"
+  },
+  {
+   "type": "資金貸與未計息",
+   "detail": "合迪(股)公司→天任能源股份有限公司 動支 280,000 千元",
+   "hint": "未計息或利率欄空白，確認決策程序與資貸背書準則規範"
+  },
+  {
+   "type": "資金貸與未計息",
+   "detail": "合迪(股)公司→天心智慧綠能股份有限公司 動支 220,000 千元",
+   "hint": "未計息或利率欄空白，確認決策程序與資貸背書準則規範"
+  },
+  {
+   "type": "資金貸與未計息",
+   "detail": "合迪(股)公司→A 動支 341,098 千元",
+   "hint": "未計息或利率欄空白，確認決策程序與資貸背書準則規範"
+  },
+  {
+   "type": "資金貸與未計息",
+   "detail": "合迪(股)公司→B 動支 86,512 千元",
+   "hint": "未計息或利率欄空白，確認決策程序與資貸背書準則規範"
+  },
+  {
+   "type": "資金貸與未計息",
+   "detail": "合迪(股)公司→B-1 動支 206,287 千元",
+   "hint": "未計息或利率欄空白，確認決策程序與資貸背書準則規範"
+  },
+  {
+   "type": "資金貸與未計息",
+   "detail": "合迪(股)公司→D 動支 180,370 千元",
+   "hint": "未計息或利率欄空白，確認決策程序與資貸背書準則規範"
+  },
+  {
+   "type": "資金貸與未計息",
+   "detail": "合迪(股)公司→E 動支 160,000 千元",
+   "hint": "未計息或利率欄空白，確認決策程序與資貸背書準則規範"
+  },
+  {
+   "type": "資金貸與未計息",
+   "detail": "合迪(股)公司→F 動支 154,971 千元",
+   "hint": "未計息或利率欄空白，確認決策程序與資貸背書準則規範"
+  },
+  {
+   "type": "資金貸與未計息",
+   "detail": "合迪(股)公司→G 動支 74,850 千元",
+   "hint": "未計息或利率欄空白，確認決策程序與資貸背書準則規範"
+  },
+  {
+   "type": "資金貸與未計息",
+   "detail": "合迪(股)公司→H 動支 129,552 千元",
+   "hint": "未計息或利率欄空白，確認決策程序與資貸背書準則規範"
+  },
+  {
+   "type": "資金貸與未計息",
+   "detail": "合迪(股)公司→I 動支 121,477 千元",
+   "hint": "未計息或利率欄空白，確認決策程序與資貸背書準則規範"
+  },
+  {
+   "type": "資金貸與未計息",
+   "detail": "合迪(股)公司→J 動支 114,033 千元",
+   "hint": "未計息或利率欄空白，確認決策程序與資貸背書準則規範"
+  },
+  {
+   "type": "資金貸與未計息",
+   "detail": "合迪(股)公司→其他客戶彙總 動支 7,684,964 千元",
+   "hint": "未計息或利率欄空白，確認決策程序與資貸背書準則規範"
+  },
+  {
+   "type": "資金貸與未計息",
+   "detail": "合迪(股)公司→其他客戶彙總 動支 6,243,944 千元",
+   "hint": "未計息或利率欄空白，確認決策程序與資貸背書準則規範"
+  },
+  {
+   "type": "資金貸與未計息",
+   "detail": "合迪(股)公司→其他客戶彙總 動支 1,522,173 千元",
+   "hint": "未計息或利率欄空白，確認決策程序與資貸背書準則規範"
+  },
+  {
+   "type": "背書保證佔淨值比偏高",
+   "detail": "仲昱電業 (股)公司 136.87%",
+   "hint": "核對公司背書保證作業程序之限額與決策程序"
+  },
+  {
+   "type": "背書保證佔淨值比偏高",
+   "detail": "晁明二號電業(股)有限公司 106.93%",
+   "hint": "核對公司背書保證作業程序之限額與決策程序"
+  },
+  {
+   "type": "背書保證佔淨值比偏高",
+   "detail": "盛能(股)有限公司 160.68%",
+   "hint": "核對公司背書保證作業程序之限額與決策程序"
+  },
+  {
+   "type": "被投資公司虧損",
+   "detail": "迪和(股)公司 本期損益 -12 千元"
+  },
+  {
+   "type": "被投資公司虧損",
+   "detail": "仲昱電業(股)公司 本期損益 -136,939 千元"
+  },
+  {
+   "type": "被投資公司虧損",
+   "detail": "仲行智能行動(股)公司 本期損益 -77,590 千元"
+  },
+  {
+   "type": "被投資公司虧損",
+   "detail": "中曜(股)公司 本期損益 -235 千元"
+  },
+  {
+   "type": "被投資公司虧損",
+   "detail": "夏晶(股)公司 本期損益 -20,487 千元"
+  },
+  {
+   "type": "被投資公司虧損",
+   "detail": "光熙(股)公司 本期損益 -65 千元"
+  },
+  {
+   "type": "被投資公司虧損",
+   "detail": "景英(股)公司 本期損益 -70 千元"
+  },
+  {
+   "type": "被投資公司虧損",
+   "detail": "旭利能源(股)公司 本期損益 -3,383 千元"
+  },
+  {
+   "type": "被投資公司虧損",
+   "detail": "雲永(股)公司 本期損益 -44,181 千元"
+  },
+  {
+   "type": "被投資公司虧損",
+   "detail": "安南光能能源科技有限公司 本期損益 -124,131 千元"
+  },
+  {
+   "type": "被投資公司虧損",
+   "detail": "昊儒電業(股)公司 本期損益 -2,113 千元"
+  },
+  {
+   "type": "被投資公司虧損",
+   "detail": "耀日(股)公司 本期損益 -26 千元"
+  },
+  {
+   "type": "被投資公司虧損",
+   "detail": "若晨(股)公司 本期損益 -59 千元"
+  },
+  {
+   "type": "被投資公司虧損",
+   "detail": "晶盛(股)公司 本期損益 -60 千元"
+  },
+  {
+   "type": "被投資公司虧損",
+   "detail": "天曉(股)公司 本期損益 -59 千元"
+  },
+  {
+   "type": "被投資公司虧損",
+   "detail": "昊軒電業(股)公司 本期損益 -2,884 千元"
+  }
+ ]
+}
