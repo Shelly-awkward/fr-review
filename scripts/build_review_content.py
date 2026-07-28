@@ -778,7 +778,13 @@ def build_checklist_draft(co, roc, meta, audit, series, y, ratios, ratios_prev,
             + AI + "分類（攤銷後成本/FVOCI/FVTPL）依 facts.notes.FinancialInstruments 原文摘寫】",
             AI + "財報揭露：預期信用損失評估方法（facts.notes.FinancialInstruments 與 "
             "ScheduleOfTradeAndOtherReceivables）、帳齡分布（facts.age_distribution 有數字）、"
-            "信用風險揭露評述。句末加註頁碼標記（詳財務報告第＿頁）供承辦補填】"]},
+            "信用風險揭露評述。句末加註頁碼標記（詳財務報告第＿頁）供承辦補填】",
+            AI + "公允價值衡量：facts.notes 內名稱含 FairValue 之節（如有）為公司公允價值"
+            "揭露原文——請評述：各層級（第1/2/3等級）部位與金額、第3等級之評價技術與"
+            "重要不可觀察輸入值是否揭露、層級間有無移轉；未上市（櫃）股票等無活絡市場"
+            "報價者之評價假設合理性屬公司始能說明事項，標「擬行前請公司說明」。"
+            "facts.notes 無該節時寫「公允價值層級及評價技術之揭露，擬行前核閱財報附註確認」，"
+            "不得憑記憶補寫】"]},
         {"h": "（三）客戶合約之收入是否依IFRS15規定認列及衡量並為相關揭露。",
          "paras": [
             AI + "認列及衡量：依 facts.notes.RevenueRecognition 原文摘寫收入類別與認列時點"
