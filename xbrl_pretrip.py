@@ -317,6 +317,15 @@ def build_pretrip(doc: str, source: str = "") -> dict:
         v = first_text("tifrs-notes:", c)
         if v:
             notes_text[c] = v
+    # 公允價值揭露（IFRS13 層級、評價技術、輸入值）各公司用的概念名不一，
+    # 凡名稱含 FairValue 的附註文字塊全收——管區意見三(二)分析金融資產評價要用
+    for f in facts:
+        if "tuple" in f or not f["name"].startswith("tifrs-notes:"):
+            continue
+        local = _local(f["name"])
+        if ("FairValue" in local and local not in notes_text
+                and len(f.get("text") or "") >= 50):
+            notes_text[local] = f["text"]
 
     # --- 四大表數字（非 tuple 的報表概念；同概念不同期別以 context 區分）
     statements = {}
