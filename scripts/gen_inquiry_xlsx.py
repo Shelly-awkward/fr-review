@@ -8,7 +8,7 @@ gen_inquiry_xlsx.py — inquiry.json → 「<年度>財務比率差異分析說�
   差異說明          查詢函本文：一 損益與成長率、二 同業比較、三 資產負債變動、四 產業發展、
                     五 風險事項、六 制式詢問十六項、七 資金貸與及背書保證、八 會計主管
                     （數字預填、「說明／ANS」欄留白給公司）
-  基本資料          公司概況（XBRL 查得者預填，其餘標「行前查填」）
+  基本資料          公司概況（XBRL 查得者預填，其餘標「請自行查填」）
   財報資料          7 科目 × 近 6 年度
   財務比率          11 比率 × 近 6 年度（個別／上市櫃同業平均／所有同業平均）
   成長率            4 成長率 × 近 6 年度
@@ -297,7 +297,7 @@ def build_diff_sheet(wb, q):
             r = answer_row(ws, r, height=64)
     else:
         r = merged(ws, r, 1, 7, "（本期無占資產總額10%以上之單一重大資產科目；"
-                   "風險事項由承辦行前綜合判斷補列。）")
+                   "風險事項由承辦查填後綜合判斷補列。）")
 
     # 六、制式詢問十六項
     r = sec_title(ws, r, "六、請說明以下事項：(若無以下情形，亦請回復\"無此情事\")")
@@ -317,7 +317,7 @@ def build_diff_sheet(wb, q):
         if v["本期"] is not None and v["前期"] is not None:
             num(ws.cell(r, 5), v["本期"] - v["前期"])
         if v["前期"] is None:
-            ws.cell(r, 4, "（行前查填）")
+            ws.cell(r, 4, "（請自行查填）")
         r += 1
     for text, hint in Q7_YESNO:
         style(ws.cell(r, 1))
@@ -371,7 +371,7 @@ def build_basic_sheet(wb, q):
     ws.cell(2, 1, "基本資料").font = FONT_H
     ws.cell(3, 1, f"基本資訊（資料年/季：{roc}/4）").font = FONT
 
-    fill = "（行前請至公開資訊觀測站「公司基本資料查詢」查填）"
+    fill = "（請自行至公開資訊觀測站「公司基本資料查詢」查填）"
     capital = q.get("capital")
     rows = [
         ("主要經營業務", fill),
@@ -379,7 +379,7 @@ def build_basic_sheet(wb, q):
         ("成立日期", fill), ("公發日期", fill),
         ("董事長", fill), ("總經理", fill),
         ("主要產業類別", na(meta.get("industry"), fill)),
-        ("上市、上櫃同業公司", "（行前請至個別資料庫查詢系統／公開資訊觀測站查填）"),
+        ("上市、上櫃同業公司", "（請自行至個別資料庫查詢系統／公開資訊觀測站查填）"),
     ]
     r = 4
     for k, v in rows:
@@ -422,7 +422,7 @@ def build_fin_sheet(wb, q, years_desc):
                 num(ws.cell(r, c), v)
         r += 1
     r += 1
-    ws.cell(r, 1, "註：「－」為現有XBRL資料未涵蓋之年度，行前請至個別資料庫查詢系統／"
+    ws.cell(r, 1, "註：「－」為現有XBRL資料未涵蓋之年度，請自行至個別資料庫查詢系統／"
                   "公開資訊觀測站查填。").font = FONT
     ws.column_dimensions["A"].width = 22
     for c in range(2, len(years_desc) + 2):
