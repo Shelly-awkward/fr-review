@@ -121,6 +121,31 @@ Google Drive 交換區：`G:／我的雲端硬碟／fr-review交換區`
    Q2 半年報資料先歸檔，抽到 Q2 案件時由 AI 直接讀 `data/<股號>_<西元年>Q2_pretrip.json`
    做實審。半年報版查詢函／管區意見（核閱體例、單季＋累計欄位）尚未動工，是下一步。
 
+## 下一階段（已定案待執行）：網站轉入帳密牆
+
+監理篩選門檻與關注內容不宜公開，現行 GitHub Pages（公開）為過渡；已定案改為
+**private repo ＋ Cloudflare Pages ＋ Cloudflare Access**（皆免費額度內）。
+GitHub Pages 免費帳號不支援 private repo，付費版網站本身也仍公開，故不採用。
+
+執行步驟（需要維護者本人操作的已標註）：
+
+1. **【本人】** 註冊 Cloudflare 免費帳號 → Workers & Pages → Create → Pages
+   → Connect to Git → 授權 GitHub → 選 fr-review。Build 設定：無建置指令、
+   輸出目錄填 `/`。完成後得到 `https://<專案名>.pages.dev`，之後每次 push main
+   自動部署。
+2. **【本人】** Cloudflare Zero Trust → Access → Applications → Add（self-hosted）
+   → domain 填該 pages.dev 網址 → Policy：Allow → Include 指定同事 email 清單。
+   登入方式選 One-time PIN（email 收驗證碼，免管密碼）。免費方案 50 人內可用。
+3. 確認 Cloudflare 版網站可用後，**【本人】** GitHub → Settings → 把 repo 轉
+   **private**（GitHub Pages 隨即失效，屬預期）。
+4. 通知同事改用新網址。
+5. 注意：repo 轉 private 後 GitHub Actions 改計費額度（每月 2,000 分鐘免費）——
+   一年兩次歸檔各約 2-3 小時，額度足夠；但避免像初建期整天連跑。
+6. mailer（Apps Script）與 Drive 交換區不受影響；index.html 的 noindex 保留無妨。
+
+repo 端設定（1 的 Git 連結後、3 之前的驗證）可由 AI 代辦檢查；Cloudflare 與
+GitHub 帳號操作需本人。要啟動時對 AI 說「執行 FOLLOW_UP 的帳密牆遷移」即可。
+
 ## 下一階段構想（尚未動工）：公司回覆後的複核
 
 目前產線止於「公司回覆前的初稿」。公司把 Excel 填回來之後，還有一段人工工作：
