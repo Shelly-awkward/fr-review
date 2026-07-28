@@ -76,6 +76,7 @@ METRICS_FLOW = {
     "其他綜合損益": ["ifrs-full:OtherComprehensiveIncome"],
     "綜合損益": ["ifrs-full:ComprehensiveIncome"],
     "每股盈餘(元)": ["ifrs-full:BasicEarningsLossPerShare"],
+    "營業活動現金流量": ["ifrs-full:CashFlowsFromUsedInOperatingActivities"],
     "減損損失": ["ifrs-full:ImpairmentLossRecognisedInProfitOrLoss"],
     "採用權益法之投資損益份額": ["ifrs-full:ShareOfProfitLossOfAssociatesAndJointVentures"
                         "AccountedForUsingEquityMethod"],
@@ -101,6 +102,9 @@ METRICS_STOCK = {
     "合約負債-流動": ["ifrs-full:CurrentContractLiabilities"],
     "應付帳款及票據": ["ifrs-full:TradeAndOtherCurrentPayablesToTradeSuppliers"],
     "現金及約當現金": ["ifrs-full:CashAndCashEquivalents"],
+    "流動資產": ["ifrs-full:CurrentAssets"],
+    "流動負債": ["ifrs-full:CurrentLiabilities"],
+    "普通股股本": ["tifrs-bsci-ci:OrdinaryShare", "ifrs-full:IssuedCapital"],
 }
 
 
@@ -179,19 +183,40 @@ def asset_mix(vals: dict) -> list:
     return sorted(out, key=lambda x: -x["pct"])
 
 
+# 查詢函「二、與上市櫃同業比較」及檢查表個別資料庫(四)固定比較的六項比率
+INQUIRY_RATIOS = ["營收成長率", "銷貨毛利率", "營業損益率", "稅前損益成長率",
+                  "應收款項週轉率", "存貨週轉率"]
+
+
 def company_ratios(series: dict, y: int) -> dict:
-    """個別公司六比率（與公開資訊觀測站財務業務資訊同口徑）。缺基礎數＝None。"""
+    """個別公司十一比率（順序＝個別資料庫查詢系統「財務比率」表）。缺基礎數＝None。
+
+    前六項與公開資訊觀測站財務業務資訊同口徑（INQUIRY_RATIOS 供同業比較）；
+    後五項為財務比率表之補充比率，依 XBRL 財報數字計算，口徑可能與資料庫略異。
+    """
     cur, prev = series.get(y, {}), series.get(y - 1, {})
     rev, rev_p = cur.get("營業收入"), prev.get("營業收入")
+
+    def ratio(numer, denom):
+        return round(numer / denom * 100, 2) if (numer is not None and denom) else None
+
+    ca, cl = cur.get("流動資產"), cur.get("流動負債")
+    quick = (ca - (cur.get("存貨") or 0) - (cur.get("預付款項") or 0)) if ca is not None else None
     r = {
         "營收成長率": pct(rev, rev_p),
-        "銷貨毛利率": round(cur["營業毛利"] / rev * 100, 2)
-                      if cur.get("營業毛利") is not None and rev else None,
-        "營業損益率": round(cur["營業損益"] / rev * 100, 2)
-                      if cur.get("營業損益") is not None and rev else None,
+        "銷貨毛利率": ratio(cur.get("營業毛利"), rev),
+        "營業損益率": ratio(cur.get("營業損益"), rev),
         "稅前損益成長率": pct(cur.get("稅前損益"), prev.get("稅前損益")),
+        "流動比率": ratio(ca, cl),
+        "負債比率": ratio(cur.get("負債總額"), cur.get("資產總額")),
         "應收款項週轉率": turnover(rev, receivables(cur), receivables(prev)),
         "存貨週轉率": turnover(cur.get("營業成本"), cur.get("存貨"), prev.get("存貨")),
+        "現金流量比率": ratio(cur.get("營業活動現金流量"), cl),
+        "股東權益報酬率": (round(cur["本期淨利"] / ((cur["淨值"] + prev["淨值"]) / 2) * 100, 2)
+                       if all(x is not None for x in
+                              (cur.get("本期淨利"), cur.get("淨值"), prev.get("淨值")))
+                       and (cur["淨值"] + prev["淨值"]) else None),
+        "速動比率": ratio(quick, cl),
     }
     return r
 
@@ -243,8 +268,9 @@ def build_questions(series, y, ratios, ratios_prev, peer, tuples, meta, qmap=Non
                 f"{roc}年度 {t_cur}次／{roc-1}年度 {t_prev}次／變動 {fmt_pct(ch)}",
                 key=f"變動:{name}")
 
-    # 4. 與同業平均比較（無資料則出題但留待貼入）
-    for rname, rv in ratios.items():
+    # 4. 與同業平均比較（固定六項；無資料則出題但留待貼入）
+    for rname in INQUIRY_RATIOS:
+        rv = ratios.get(rname)
         pv = (peer.get("上市櫃同業平均", {}) or {}).get(rname) if peer else None
         if pv is not None and rv is not None:
             unit = "次" if "週轉" in rname else "%"
@@ -420,8 +446,8 @@ def build_analysis(series, y, ratios, ratios_prev, peer, qmap):
             f"占比:{it}" if big else f"變動:{it}",
             f"佔資產總額 {share}%" if share is not None else "")
 
-    for name, v in ratios.items():
-        pv = ratios_prev.get(name)
+    for name in INQUIRY_RATIOS:
+        v, pv = ratios.get(name), ratios_prev.get(name)
         ch = pct(v, pv)
         peer_v = ((peer or {}).get("上市櫃同業平均") or {}).get(name)
         rows.append({
@@ -438,6 +464,111 @@ def build_analysis(series, y, ratios, ratios_prev, peer, qmap):
                    else "同業平均未提供，請自公開資訊觀測站財務業務資訊查填後比較"),
         })
     return rows
+
+
+def build_diff_sections(series, y, ratios, ratios_prev, peer, tuples, tuples_prev):
+    """「差異說明」工作表各節的數字列。
+
+    版面依過去實審實際樣本（110／112／114 年度三份「財務比率差異分析說明」），
+    節次採最新版式：一 損益與成長率、二 同業比較、三 資產負債變動、五 風險事項、
+    七 資金貸與及背書保證；固定題文（四、六、八）由 gen_inquiry_xlsx.py 排版。
+    """
+    roc = to_roc(y)
+    cur, prev, prev2 = series.get(y, {}), series.get(y - 1, {}), series.get(y - 2, {})
+
+    # 一(A) 損益四項金額：首列「說明」欄放引導題（樣本慣例），達30%者點名加強說明
+    hits30 = [it for it in PL_ITEMS
+              if (ch := pct(cur.get(it), prev.get(it))) is not None and abs(ch) >= 30]
+    lead_q = ("請說明貴公司營業收入主要來源(ex.何種商品或服務等)，並據以分析"
+              f"{roc}年度營業收入淨額、營業毛利、營業損益及稅前損益之變動原因及合理性。")
+    if hits30:
+        lead_q += f"（其中{'、'.join(hits30)}變動達30%，請加強說明。）"
+    sec1_amounts = []
+    for i, it in enumerate(PL_ITEMS, 1):
+        c, p = cur.get(it), prev.get(it)
+        sec1_amounts.append({
+            "項次": i, "項目": "營業收入淨額" if it == "營業收入" else it,
+            "本期": c, "前期": p,
+            "增減": (c - p) if (c is not None and p is not None) else None,
+            "變動%": pct(c, p), "說明": lead_q if i == 1 else "",
+        })
+
+    # 一(B) 成長率兩期比較（百分點）＋週轉率兩期變動（%）
+    sec1_growth = []
+    for i, it in enumerate(PL_ITEMS, 1):
+        g_c, g_p = pct(cur.get(it), prev.get(it)), pct(prev.get(it), prev2.get(it))
+        d = round(g_c - g_p, 2) if (g_c is not None and g_p is not None) else None
+        sec1_growth.append({
+            "項次": i, "項目": "營收成長率" if it == "營業收入" else f"{it}成長率",
+            "本期": g_c, "前期": g_p, "增減": d, "增減單位": "百分點",
+            "說明": ("變動超過10%，請分析兩期變動原因"
+                    if (d is not None and abs(d) >= 10) else ""),
+        })
+    for i, nm in enumerate(("應收款項週轉率", "存貨週轉率"), len(PL_ITEMS) + 1):
+        t_c, t_p = ratios.get(nm), (ratios_prev or {}).get(nm)
+        ch = pct(t_c, t_p)
+        sec1_growth.append({
+            "項次": i, "項目": nm, "本期": t_c, "前期": t_p, "增減": ch, "增減單位": "%",
+            "說明": ("變動超過10%，請分析兩期變動原因"
+                    if (ch is not None and abs(ch) >= 10) else ""),
+        })
+
+    # 二 與上市櫃同業比較（六項；率＝百分點差、週轉率＝相對%差）
+    sec2 = []
+    for i, nm in enumerate(INQUIRY_RATIOS, 1):
+        rv = ratios.get(nm)
+        pv = (peer.get("上市櫃同業平均", {}) or {}).get(nm) if peer else None
+        turn = "週轉" in nm
+        diff, note = None, ""
+        if rv is not None and pv is not None:
+            diff = pct(rv, pv) if turn else round(rv - pv, 2)
+            if diff is not None and abs(diff) >= 10:
+                note = "差異超過10%，請分析貴公司與上市櫃同業差異原因"
+        elif rv is not None:
+            note = "上市櫃同業平均請自公開資訊觀測站財務業務資訊查填後比較"
+        sec2.append({"項次": i, "項目": nm, "本期": rv, "同業": pv, "增減": diff,
+                     "增減單位": "%" if turn else "百分點", "說明": note})
+
+    # 三 資產負債重大變動：|變動|≥30%且達資產1%，或占資產≥10%之重大科目（現金除外）
+    total = cur.get("資產總額")
+    big = {a["item"] for a in asset_mix(cur) if a["pct"] >= 10}
+    sec3 = []
+    for it in ASSET_ITEMS + ["應付帳款及票據", "合約負債-流動"]:
+        c, p = cur.get(it), prev.get(it)
+        ch = pct(c, p)
+        material = total and c and c >= total * 0.01
+        if ((ch is not None and abs(ch) >= 30 and material)
+                or (it in big and it != "現金及約當現金")):
+            sec3.append({"項次": len(sec3) + 1, "項目": it, "本期": c, "前期": p,
+                         "增減": (c - p) if (c is not None and p is not None) else None,
+                         "變動%": ch, "說明": ""})
+    sec3 = sec3[:8]
+
+    # 五 風險事項（占資產≥10%前三大，現金除外；與管區意見候選風險同源）
+    sec5 = []
+    for a in [x for x in asset_mix(cur)
+              if x["pct"] >= 10 and x["item"] != "現金及約當現金"][:3]:
+        sec5.append({
+            "項目": a["item"], "金額": a["amount"], "占比": a["pct"],
+            "問題": (f"貴公司{roc}年度{a['item']}金額為{fmt(a['amount'], '')}千元，"
+                    f"佔資產總額{a['pct']}%，對財務報表影響重大，請說明其組成內容、"
+                    "評價方法及有無減損跡象，暨貴公司之因應措施(如何執行評價、資產保全等)。"),
+        })
+
+    # 七 資金貸與及背書保證（前期無該年度 pretrip 時留 None＝Excel 留白）
+    def sums(tp):
+        loans = (tp or {}).get("LoansToOthers") or []
+        endos = (tp or {}).get("EndorsementGuaranteeProvidedToOthers") or []
+        return (sum(t.get("EndingBalance1") or 0 for t in loans),
+                sum(t.get("EndingBalance2") or 0 for t in endos))
+
+    l_c, e_c = sums(tuples)
+    l_p, e_p = sums(tuples_prev) if tuples_prev is not None else (None, None)
+    sec7 = {"資金貸與他人金額": {"本期": l_c, "前期": l_p},
+            "背書保證金額": {"本期": e_c, "前期": e_p}}
+
+    return {"sec1_amounts": sec1_amounts, "sec1_growth": sec1_growth,
+            "sec2_peer": sec2, "sec3_bs": sec3, "sec5_risk": sec5, "sec7_loans": sec7}
 
 
 # ---------- 管區意見骨架 ----------
@@ -569,7 +700,8 @@ def build_checklist_draft(co, roc, meta, audit, series, y, ratios, ratios_prev,
         if ch is not None:
             tv_lines.append(f"{nm}較{roc - 1}年度變動{fmt_pct(ch)}（{t_cur}次對{t_prev}次）")
     peer_rows = ["【表】項目｜" + f"{roc}年度｜上市櫃同業平均｜比較增減｜說明"]
-    for rname, rv in ratios.items():
+    for rname in INQUIRY_RATIOS:
+        rv = ratios.get(rname)
         unit = "次" if "週轉" in rname else "%"
         pv = (peer.get("上市櫃同業平均", {}) or {}).get(rname) if peer else None
         peer_rows.append(
@@ -669,8 +801,30 @@ def build_checklist_draft(co, roc, meta, audit, series, y, ratios, ratios_prev,
     title = f"公開發行{name}股份有限公司{roc}年度財務報告公告檢查表—管區意見"
     if name.endswith("股份有限公司"):
         title = f"公開發行{name}{roc}年度財務報告公告檢查表—管區意見"
+    # --- 複核表（財務報告實質審閱案件複核表；體例照過去實審樣本，另存一份 docx） ---
+    cover = {
+        "保存期限": "5年", "檔號": "",
+        "公司編號": co, "公司名稱": name,
+        "財務報告年度期別": f"{roc}年度",
+        "公司背景介紹": AI + "一至三句：公司設立／公開發行時間與主要營業項目。僅可依 "
+                       "facts 與財報附註既有資訊撰寫；查不到的（如設立日期）寫"
+                       "「（設立及公開發行日期行前請至公開資訊觀測站基本資料查填）」，不得編造】",
+        "風險事項": AI + "填入採認之風險事項科目名稱（與 sections 一、一致；無則寫「無」）】",
+        "理由及因應措施": "詳檢查表一",
+        "所屬產業趨勢": "詳檢查表二、個別資料庫",
+        "加強查核重點": "公司及會計師填報之案件檢查表有無異常項目",
+        "複核意見1": AI + "檢查表複核一句話；無異常時用「尚無重大異常」】",
+        "檢視異常事項": ["檢視資料庫內容有無異常事項(管區意見檢查表)",
+                     "檢視其它異常項目",
+                     "針對異常事項之揭露、評價等會計處理進行查核，經電（函）請公司或會計師"
+                     "說明後是否無異常"],
+        "複核意見2": AI + "一句話；無異常時用「經核尚無發現重大異常」】",
+        "結論及擬辦": AI + "無異常時用「尚無發現重大異常，文擬陳閱後存查，當否？謹請核示。」】",
+    }
+
     return {
         "title": title,
+        "cover": cover,
         "groups": groups,
         "footnotes": [
             "備註：填寫個別資料庫資料應逐項說明填寫「是」與「否」的合理性",
@@ -799,6 +953,26 @@ def main():
         "data_years_available": sorted(to_roc(k) for k in series),
     }
 
+    # 差異說明各節數字列與五表版面資料（版面依過去實審實際樣本）
+    tuples_prev = pretrips[y - 1].get("tuples") if (y - 1) in pretrips else None
+    diff = build_diff_sections(series, y, ratios, ratios_prev, peer, tuples, tuples_prev)
+    fin_items = {
+        "營業收入淨額": lambda v: v.get("營業收入"),
+        "營業毛利": lambda v: v.get("營業毛利"),
+        "營業損益": lambda v: v.get("營業損益"),
+        "稅前損益": lambda v: v.get("稅前損益"),
+        "應收款項淨額(全部)": receivables,
+        "存貨淨額": lambda v: v.get("存貨"),
+        "營業活動現金流量": lambda v: v.get("營業活動現金流量"),
+    }
+    fin_data = {nm: {to_roc(yy): fn(series.get(yy, {})) for yy in years6}
+                for nm, fn in fin_items.items()}
+    ratios_by_year = {to_roc(yy): company_ratios(series, yy) for yy in years6}
+    growth4 = {("營收成長率" if it == "營業收入" else f"{it}成長率"):
+               {to_roc(yy): pct(series.get(yy, {}).get(it),
+                                series.get(yy - 1, {}).get(it)) for yy in years6}
+               for it in PL_ITEMS}
+
     qmap = {}
     questions = build_questions(series, y, ratios, ratios_prev, peer, tuples, meta, qmap)
     analysis = build_analysis(series, y, ratios, ratios_prev, peer, qmap)
@@ -831,6 +1005,11 @@ def main():
         "ratios": {"公司": ratios,
                    "上市櫃同業平均": (peer or {}).get("上市櫃同業平均"),
                    "所有同業平均": (peer or {}).get("所有同業平均")},
+        "fin_data": fin_data,
+        "ratios_by_year": ratios_by_year,
+        "growth4": growth4,
+        "diff": diff,
+        "capital": series.get(y, {}).get("普通股股本"),
         "questions": questions,
         "analysis": analysis,
         "data_coverage": coverage,

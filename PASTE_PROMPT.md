@@ -24,8 +24,9 @@ AI 收到的是純文字、吐回來的也是純文字，所以任何 AI 都做�
    python scripts/gen_checklist_docx.py out/8304_114_checklist_content.json "out/管區意見.docx"
    ```
 
-   （Excel 查詢函不需要 AI，本機直接產：
-   `python scripts/gen_inquiry_xlsx.py out/8304_114_inquiry.json out/財務報告說明.xlsx`）
+   （內容 JSON 有 `cover` 時會自動另存「管區意見_複核表.docx」；Excel 查詢函不需要 AI，
+   本機直接產：
+   `python scripts/gen_inquiry_xlsx.py out/8304_114_inquiry.json out/財務比率差異分析說明.xlsx`）
 
 ---
 
@@ -41,7 +42,7 @@ AI 收到的是純文字、吐回來的也是純文字，所以任何 AI 都做�
   裡面有若干 `【AI待填：…指引…】` 佔位。
 
 **輸出**：只輸出一份 JSON（不要任何前言、說明或 markdown 圍欄），結構為
-`{"title": …, "groups": […], "footnotes": […], "sections": […]}`——
+`{"title": …, "cover": {…}, "groups": […], "footnotes": […], "sections": […]}`——
 即把 `draft` 的佔位全部填成正式文字後的結果，不要保留 `meta`／`facts` 外層。
 
 **寫作規則**
@@ -66,6 +67,11 @@ AI 收到的是純文字、吐回來的也是純文字，所以任何 AI 都做�
 6. 需要表格的地方，用一列一個字串、以 `【表】` 開頭、欄位用全形直線 `｜` 分隔，
    例如 `"【表】項目｜114年度｜上市櫃同業平均｜比較增減｜說明"`。
 7. 最後一段「附註：資料來源與限制」只列實際用到的資料來源，沒用到的不要列。
+8. `cover` 是複核表（簽核封面）欄位，把其中的佔位填妥：公司背景介紹僅依 `facts`
+   既有資訊撰寫（查不到的設立／公開發行日期寫「行前請至公開資訊觀測站查填」）；
+   風險事項與 sections 第一段採認結果一致；複核意見／結論用標準語（無異常時
+   「尚無重大異常」「尚無發現重大異常，文擬陳閱後存查，當否？謹請核示。」）；
+   其餘欄位照 `draft` 原樣保留。
 
 **絕對禁止**
 

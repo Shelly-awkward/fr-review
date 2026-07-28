@@ -1,11 +1,15 @@
 # REVIEW_PROMPT.md — 財報實審雙文件產線（寫給任何 AI 的操作說明）
 
 你是一個 AI 助手，使用者要你「參考這個 repo，幫 XX 公司（股號）寫 O 年度的實審文件」。
-照本文四步流程執行，直出兩份文件：
+照本文四步流程執行，直出三份文件：
 
-1. **Excel 查詢函**（「O年度財務報告說明」）——給受查公司填答，題目由數字層自動生成。
+1. **Excel 查詢函**（「O年度財務比率差異分析說明」）——給受查公司填答，
+   版面依實審慣例（差異說明一～八節＋基本資料／財報資料／財務比率／成長率），
+   數字由數字層自動預填。
 2. **Word 管區意見初稿**（「公開發行○○公司O年度財務報告公告檢查表—管區意見」）——
    公司回覆前就先寫好的版本，質性段落由你（AI）依規則填寫。
+3. **Word 複核表初稿**（「財務報告實質審閱案件複核表」）——簽核用封面，
+   與管區意見同一份內容 JSON 的 `cover` 欄位，產生器自動另存一份 docx。
 
 ## 輸入
 
@@ -44,15 +48,18 @@ python scripts/build_review_content.py --co 8304 --year 114 [--peer-avg peers.js
 Excel 這時就能直接出（查詢函不需要 AI 填寫，「說明」欄本來就留白給公司）：
 
 ```bash
-python scripts/gen_inquiry_xlsx.py out/8304_114_inquiry.json "out/8304_114_財務報告說明.xlsx"
+python scripts/gen_inquiry_xlsx.py out/8304_114_inquiry.json "out/8304_114_財務比率差異分析說明.xlsx"
 ```
 
 ### ③ 你（AI）填質性段落
 
 讀 `review_content.json`：`facts` 是唯一數字來源，`draft` 是含
 `【AI待填：…指引…】` 佔位的骨架。把 draft 填成最終內容，存成
-`out/<股號>_<民國年>_checklist_content.json`（只留 title/groups/footnotes/sections，
-去掉 meta/facts 外殼）。體例範本：`templates/example/example_checklist_content.json`
+`out/<股號>_<民國年>_checklist_content.json`（只留 title/cover/groups/footnotes/sections，
+去掉 meta/facts 外殼）。`cover` 是複核表欄位：公司背景介紹依 facts 既有資訊撰寫
+（查不到的寫「行前查填」）、風險事項與 sections 一、一致、複核意見／結論用標準語
+（無異常時「尚無重大異常」「尚無發現重大異常，文擬陳閱後存查，當否？謹請核示。」）。
+體例範本：`templates/example/example_checklist_content.json`
 （虛構公司，學格式不抄內容）。
 
 **判斷規則：**
@@ -87,11 +94,12 @@ python scripts/check_content.py out/8304_114_checklist_content.json --review out
 
 ```bash
 # 有 Python（pip install python-docx）——沒有 Node 的環境用這支
+# 內容 JSON 有 cover 時會自動另存複核表 docx（--cover 可指定路徑）
 python scripts/gen_checklist_docx.py out/8304_114_checklist_content.json "out/佳聯有線電視(8304)114年度財務報告實審_公告檢查表-管區意見.docx"
 ```
 
 ```bash
-# 有 Node（cd scripts && npm install）
+# 有 Node（cd scripts && npm install）——注意 .js 版尚未支援複核表（cover）
 node scripts/gen_checklist_docx.js out/8304_114_checklist_content.json "out/佳聯有線電視(8304)114年度財務報告實審_公告檢查表-管區意見.docx"
 ```
 
@@ -102,8 +110,9 @@ node scripts/gen_checklist_docx.js out/8304_114_checklist_content.json "out/佳�
 - [ ] 內容 JSON 所有金額與 `facts` 一致（check_content.py 已抽核，仍請自查衍生計算）
 - [ ] 無佔位字、無「待補」
 - [ ] 不可得資訊（同業平均、進修時數、議事錄、作業程序未提供時）都標「行前查證」，沒有瞎編
-- [ ] Excel 題目涵蓋：差異說明／同業比較／資金貸與背書五連問／會計主管四連問
-- [ ] Word 結構：檢查表（勾選＋備註）＋五段說明＋資料來源與限制
+- [ ] Excel 版面：差異說明一～八節（損益與成長率／同業比較／資產負債變動／產業發展／
+      風險事項／制式十六問／資金貸與背書保證／會計主管）＋基本資料／財報資料／財務比率／成長率
+- [ ] Word 結構：檢查表（勾選＋備註）＋五段說明＋資料來源與限制；複核表（cover）欄位填妥
 - [ ] 渲染目檢：有 LibreOffice 時 `soffice --headless --convert-to pdf <docx>` 轉 PDF 檢視
       （雲端未裝可 `apt-get install -y libreoffice-writer poppler-utils`）；沒有就至少
       重讀一遍 JSON 內容
