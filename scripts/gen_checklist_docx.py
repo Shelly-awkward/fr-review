@@ -2,13 +2,18 @@
 r"""
 gen_checklist_docx.py — 管區意見內容 JSON → Word（python-docx 版）。
 
-    python scripts/gen_checklist_docx.py out/8304_114_checklist_content.json out/管區意見.docx
+    python scripts/gen_checklist_docx.py out/8304_114_checklist_content.json out/管區意見.docx \
+        [--cover out/複核表.docx]
 
-與 gen_checklist_docx.js（docx-js 版）產出同體例，擇一使用即可：
+內容 JSON 含 "cover"（財務報告實質審閱案件複核表）時，另存一份複核表 docx：
+--cover 指定路徑；未指定則存於管區意見同目錄、檔名加「_複核表」。
+與 gen_checklist_docx.js（docx-js 版）產出同體例（.js 版尚未支援複核表），擇一使用即可：
 沒有 Node 的環境（例如只有 Python 沙箱的 AI）用本檔，其餘用 .js 版。
 需求：pip install python-docx
 """
+import argparse
 import json
+import os
 import sys
 
 from docx import Document
@@ -116,11 +121,61 @@ def add_mini_table(doc, rows):
     para(doc, "", after=2)
 
 
+def build_cover_doc(cover):
+    """複核表（財務報告實質審閱案件複核表）——體例照過去實審樣本，單獨一份 docx。"""
+    doc = Document()
+    for section in doc.sections:
+        section.top_margin = section.bottom_margin = Twips(1080)
+        section.left_margin = section.right_margin = Twips(1080)
+
+    para(doc, "財務報告實質審閱案件複核表　106.10修正", size=15, bold=True,
+         align=WD_ALIGN_PARAGRAPH.CENTER, after=8)
+
+    t = doc.add_table(rows=2, cols=2)
+    t.style = "Table Grid"
+    t.alignment = 2  # 靠右
+    for ri, (k, v) in enumerate([("保存期限", cover.get("保存期限", "")),
+                                 ("檔　號", cover.get("檔號", ""))]):
+        fill_cell(t.cell(ri, 0), [k], size=10, align=WD_ALIGN_PARAGRAPH.CENTER)
+        fill_cell(t.cell(ri, 1), [v], size=10, align=WD_ALIGN_PARAGRAPH.CENTER)
+        t.cell(ri, 0).width = Twips(1400)
+        t.cell(ri, 1).width = Twips(1400)
+    para(doc, "", after=4)
+
+    para(doc, f"公司編號: {cover.get('公司編號', '')}　　"
+              f"公司名稱: {cover.get('公司名稱', '')}", after=6)
+    para(doc, f"財務報告年度期別︰{cover.get('財務報告年度期別', '')}", after=6)
+    para(doc, f"公司背景介紹：{cover.get('公司背景介紹', '')}", after=8, line=1.3)
+
+    para(doc, "公司之風險事項：", bold=True, after=3)
+    para(doc, f"風險事項：{cover.get('風險事項', '')}", indent=360, after=3)
+    para(doc, f"理由及因應措施：{cover.get('理由及因應措施', '')}", indent=360, after=8)
+
+    para(doc, f"所屬產業本期成長（或衰退）趨勢：{cover.get('所屬產業趨勢', '')}", after=8)
+
+    para(doc, "本次實質審閱加強查核重點︰", bold=True, after=3)
+    para(doc, cover.get("加強查核重點", ""), indent=360, after=3)
+    para(doc, f"複核意見︰{cover.get('複核意見1', '')}", indent=360, after=8)
+
+    para(doc, "檢視異常事項", bold=True, after=3)
+    for item in cover.get("檢視異常事項", []):
+        para(doc, item, indent=360, after=3)
+    para(doc, f"複核意見︰{cover.get('複核意見2', '')}", indent=360, after=8)
+
+    para(doc, f"結論及擬辦：{cover.get('結論及擬辦', '')}", after=18, line=1.3)
+
+    para(doc, "承辦　　　　科長　　　　複核　　　　副組長　　　　組長",
+         align=WD_ALIGN_PARAGRAPH.CENTER, after=0)
+    return doc
+
+
 def main():
-    if len(sys.argv) != 3:
-        print(__doc__)
-        sys.exit(2)
-    with open(sys.argv[1], encoding="utf-8") as f:
+    ap = argparse.ArgumentParser()
+    ap.add_argument("content")
+    ap.add_argument("out")
+    ap.add_argument("--cover", default="", help="複核表輸出路徑（內容 JSON 有 cover 才產出）")
+    a = ap.parse_args()
+    with open(a.content, encoding="utf-8") as f:
         c = json.load(f)
 
     doc = Document()
@@ -153,8 +208,13 @@ def main():
                 add_mini_table(doc, pending)
         para(doc, "", after=3)
 
-    doc.save(sys.argv[2])
-    print(f"寫出 {sys.argv[2]}")
+    doc.save(a.out)
+    print(f"寫出 {a.out}")
+
+    if c.get("cover"):
+        cover_path = a.cover or (os.path.splitext(a.out)[0] + "_複核表.docx")
+        build_cover_doc(c["cover"]).save(cover_path)
+        print(f"寫出 {cover_path}")
 
 
 if __name__ == "__main__":

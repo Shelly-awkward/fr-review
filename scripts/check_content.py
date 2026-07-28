@@ -7,6 +7,7 @@ check_content.py — 管區意見內容 JSON 的驗收閘門（AI 填完質性�
 
 檢查：
   1. 結構完整：title／groups（18 項固定檢查表，每項 mark 已勾）／sections 含五段＋資料來源與限制
+     ／cover（複核表：公司背景介紹、風險事項、複核意見、結論及擬辦均須填妥）
   2. 無佔位字：【AI待填、（候選風險）、待補、TODO、XXX、○○
   3. 給 --review 時，抽核內容 JSON 出現的金額數字是否存在於數字層 facts（防 AI 自編數字）
 退出碼：0＝通過；1＝未過（逐條列出）。
@@ -57,9 +58,14 @@ def main():
     errs = []
 
     # 1. 結構
-    for key in ("title", "groups", "sections"):
+    for key in ("title", "groups", "sections", "cover"):
         if not c.get(key):
             errs.append(f"缺 {key}")
+    cover = c.get("cover") or {}
+    if cover:
+        for k in ("公司背景介紹", "風險事項", "複核意見1", "複核意見2", "結論及擬辦"):
+            if not str(cover.get(k) or "").strip():
+                errs.append(f"複核表（cover）欄位「{k}」空白")
     items = [it for g in c.get("groups", []) for it in g.get("items", [])]
     if len(items) < 17:
         errs.append(f"檢查表項目僅 {len(items)} 項（模板應為 17 項以上）")
