@@ -156,7 +156,11 @@
   "7932_2025Q2": "該期別無申報資料",
   "7934_2023Q2": "該期別無申報資料",
   "7934_2024Q2": "該期別無申報資料",
-  "7934_2025Q2": "該期別無申報資料"
+  "7934_2025Q2": "該期別無申報資料",
+  "7942_2023Q2": "該期別無申報資料",
+  "7942_2025Q2": "該期別無申報資料"
  },
- "failed": {}
+ "failed": {
+  "7942_2024Q2": "se.com.tw', port=443): Max retries exceeded with url: /server-java/t164sb01?step=1&CO_ID=7942&SYEAR=2024&SSEASON=2&REPORT_ID=C (Caused by ConnectTimeoutError(<HTTPSConnection(host='mopsov.twse.com.tw', port=443) at 0x7f84e95dffe0>, 'Connection to mopsov.twse.com.tw timed out. (connect timeout=40)'))"
+ }
 }
