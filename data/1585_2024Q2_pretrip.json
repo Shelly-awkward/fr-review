@@ -1,6 +1,6 @@
 {
  "meta": {
-  "source": "MOPS 1585 2024Q2",
+  "source": "MOPS 1585_2024Q2（離線重解析）",
   "CompanyID": "1585",
   "CompanyChineseName": "鎧鉅科技股份有限公司",
   "CompanyEnglishName": "Topgreen Technology Co., Ltd.",
@@ -20,7 +20,10 @@
   ],
   "report_date": "2024-08-12",
   "report_kind": "核閱報告",
-  "opinion": null,
+  "opinion": {
+   "concept": "UnqualifiedOpinionWithMaterialUncertaintyAboutTheCompanysAbilityToContinueAsAGoingConcern",
+   "label": "無保留意見／結論（含繼續經營重大不確定性段）"
+  },
   "flags": [
    "AccountantName",
    "AccountantsReportBody",

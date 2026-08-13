@@ -1,0 +1,2943 @@
+{
+ "meta": {
+  "source": "MOPS 6871_2026Q2（離線重解析）",
+  "CompanyID": "6871",
+  "CompanyChineseName": "新鑫股份有限公司",
+  "CompanyEnglishName": "Shinshin Credit Corporation",
+  "Year": "2026",
+  "Quarter": "2",
+  "ReportType": "Financial report (general)",
+  "ReportCategory": "Consolidated report",
+  "IndustrySector": "Commercial and industrial"
+ },
+ "audit": {
+  "firm": [
+   "勤業眾信聯合會計師事務所"
+  ],
+  "cpa": [
+   "戴信維",
+   "張麗君"
+  ],
+  "report_date": "2026-08-05",
+  "report_kind": "核閱報告",
+  "opinion": {
+   "concept": "UnqualifiedOpinionAbstract",
+   "label": "無保留意見／結論"
+  },
+  "flags": [
+   "AccountantName",
+   "AccountantsReportBody",
+   "AssuranceAccountantName1",
+   "AssuranceAccountantName2",
+   "EndingBalanceOfAssetsOfSubsidiariesWhoseFinancialStatementsWereAuditedOrReviewedByOtherIndependentAccountants",
+   "EndingBalanceOfAssetsOfSubsidiariesWhoseFinancialStatementsWereOnUnauditedOrUnreviewed",
+   "EndingBalanceOfInvestmentsAccountedForUsingEquityMethodWhoseFinancialStatementsWereAuditedOrReviewedByOtherIndependentAccountants",
+   "EndingBalanceOfInvestmentsAccountedForUsingEquityMethodWhoseFinancialStatementsWereUnauditedOrUnreviewed",
+   "ReviewAuditDate",
+   "ReviewReport",
+   "ShareOfProfitLossForTheQuarterOfAssociatesAndJointVenturesAccountedForUsingEquityMethodWhoseFinancialStatementsWereAuditedOrReviewedByOtherIndependentAccountants",
+   "ShareOfYearToDateProfitLossOfAssociatesAndJointVenturesAccountedForUsingEquityMethodWhoseFinancialStatementsWereUnauditedOrUnreviewed",
+   "TotalYearToDateRevenuesOfSubsidiariesWhoseFinancialStatementsWereAuditedOrReviewedByOtherIndependentAccountants",
+   "UnqualifiedOpinionAbstract",
+   "YearToDateComprehensiveIncomeOfSubsidiariesWhoseFinancialStatementsWereUnauditedOrUnreviewed"
+  ],
+  "report_body_zh": "會計師核閱報告\n新鑫股份有限公司 公鑒：\n前 言\n 新鑫股份有限公司及其子公司民國115年及114年6月30日之合併資產\n負債表，暨民國115年及114年1月1日至6月30日之合併綜合損益表、合\n併權益變動表、合併現金流量表，以及合併財務報表附註（包括重大會計政\n策彙總），業經本會計師核閱竣事。依證券發行人財務報告編製準則及經金融\n監督管理委員會認可並發布生效之國際會計準則第34號「期中財務報導」編\n製允當表達之財務報表係管理階層之責任，本會計師之責任係依據核閱結果\n對合併財務報表作成結論。\n範 圍\n 本會計師係依照核閱準則2410號「財務報表之核閱」執行核閱工作。核\n閱合併財務報表時所執行之程序包括查詢（主要向負責財務與會計事務之人\n員查詢）、分析性程序及其他核閱程序。核閱工作之範圍明顯小於查核工作之\n範圍，因此本會計師可能無法察覺所有可藉由查核工作辨認之重大事項，故\n無法表示查核意見。\n結 論\n 依本會計師核閱結果，並未發現上開合併財務報表在所有重大方面有未\n依照證券發行人財務報告編製準則及經金融監督管理委員會認可並發布生效\n之國際會計準則第34號「期中財務報導」編製，致無法允當表達新鑫股份有\n限公司及其子公司民國115年及114年6月30日之合併財務狀況，暨民國115\n年及114年1月1日至6月30日之合併財務績效及合併現金流量之情事。\n勤業眾信聯合會計師事務所\n會 計 師 戴 信 維 會 計 師 張 麗 君\n證券暨期貨管理委員會核准文號 金融監督管理委員會核准文號\n 台財證六字第0930128050號 金管證審字第1100356048號 \n中 華 民 國 115 年 8 月 5 日",
+  "report_body_en": null,
+  "emphasis_of_matter": null,
+  "other_matter": null,
+  "unaudited_amounts": {
+   "EndingBalanceOfAssetsOfSubsidiariesWhoseFinancialStatementsWereOnUnauditedOrUnreviewed": 0.0,
+   "YearToDateComprehensiveIncomeOfSubsidiariesWhoseFinancialStatementsWereUnauditedOrUnreviewed": 0.0,
+   "EndingBalanceOfInvestmentsAccountedForUsingEquityMethodWhoseFinancialStatementsWereUnauditedOrUnreviewed": 0.0,
+   "ShareOfYearToDateProfitLossOfAssociatesAndJointVenturesAccountedForUsingEquityMethodWhoseFinancialStatementsWereUnauditedOrUnreviewed": 0.0
+  }
+ },
+ "tuples": {
+  "TheConsolidatedEntities": [
+   {
+    "CompanyNameOfTheInvestor": "本 公 司",
+    "NameOfInvestee": "Shinshin Global Investment (Samoa) Co., Ltd.",
+    "MainBusinesses": "控股公司",
+    "PercentageOfOwnership4": [
+     100.0,
+     100.0,
+     100.0
+    ],
+    "Description": "（註一）"
+   },
+   {
+    "CompanyNameOfTheInvestor": "本 公 司",
+    "NameOfInvestee": "裕電能源公司",
+    "MainBusinesses": "能源技術服務業",
+    "PercentageOfOwnership4": [
+     100.0,
+     100.0,
+     100.0
+    ],
+    "Description": ""
+   },
+   {
+    "CompanyNameOfTheInvestor": "本 公 司",
+    "NameOfInvestee": "新鑫電力股份有限公司（新鑫電力公司）",
+    "MainBusinesses": "能源技術服務業",
+    "PercentageOfOwnership4": [
+     100.0,
+     100.0,
+     100.0
+    ],
+    "Description": "（註二）"
+   },
+   {
+    "CompanyNameOfTheInvestor": "本 公 司",
+    "NameOfInvestee": "兆盛能源有限公司（兆盛能源公司）",
+    "MainBusinesses": "能源技術服務業",
+    "PercentageOfOwnership4": [
+     100.0,
+     100.0,
+     100.0
+    ],
+    "Description": ""
+   },
+   {
+    "CompanyNameOfTheInvestor": "本 公 司",
+    "NameOfInvestee": "萬盛能源有限公司（萬盛能源公司）",
+    "MainBusinesses": "能源技術服務業",
+    "PercentageOfOwnership4": [
+     100.0,
+     100.0,
+     100.0
+    ],
+    "Description": "（註三）"
+   },
+   {
+    "CompanyNameOfTheInvestor": "本 公 司",
+    "NameOfInvestee": "台創能源股份有限公司（台創能源公司）",
+    "MainBusinesses": "能源技術服務業",
+    "PercentageOfOwnership4": [
+     100.0,
+     100.0,
+     96.67
+    ],
+    "Description": "（註四）"
+   },
+   {
+    "CompanyNameOfTheInvestor": "本 公 司",
+    "NameOfInvestee": "Yulon Capital Sdn. Bhd.",
+    "MainBusinesses": "商用車及設備之租賃及分期付款業務",
+    "PercentageOfOwnership4": [
+     60.92,
+     60.92,
+     60.92
+    ],
+    "Description": ""
+   },
+   {
+    "CompanyNameOfTheInvestor": "Yulon Capital Sdn. Bhd.",
+    "NameOfInvestee": "Yulon Credit Sdn. Bhd.",
+    "MainBusinesses": "企業融資貸款業務",
+    "PercentageOfOwnership4": [
+     100.0,
+     100.0,
+     100.0
+    ],
+    "Description": "（註五）"
+   }
+  ],
+  "Others": [
+   {
+    "Item": "其他重大會計政策",
+    "Description": "(五)其他重大會計政策\n 除下列說明外，請參閱114年度合併財務報告之重大會計政策\n 彙總說明。\n 1. 確定福利退職後福利\n 期中期間之退休金成本係採用前一年度結束日依精算決定\n 之退休金成本率，以年初至當期末為基礎計算，並針對本期之\n 重大市場波動，及重大計畫修正、清償或其他重大一次性事項\n 加以調整。\n 2. 所得稅費用\n 所得稅費用係當期所得稅及遞延所得稅之總和。期中期間\n 之所得稅係以年度為基礎進行評估，以預期年度總盈餘所適用\n 之稅率，就期中稅前利益予以計算。"
+   }
+  ],
+  "FinancialStatementAccountAndAmount": [
+   {
+    "FinancialStatementAccount2": "1年內到期",
+    "Amount2": [
+     38601421.0,
+     37218385.0,
+     35832874.0
+    ]
+   },
+   {
+    "FinancialStatementAccount2": "1年後至2年內到期",
+    "Amount2": [
+     25057515.0,
+     23577165.0,
+     22976883.0
+    ]
+   },
+   {
+    "FinancialStatementAccount2": "2年後至3年內到期",
+    "Amount2": [
+     13273711.0,
+     12539532.0,
+     12368657.0
+    ]
+   },
+   {
+    "FinancialStatementAccount2": "3年後到期",
+    "Amount2": [
+     24908883.0,
+     25760527.0,
+     27045573.0
+    ]
+   },
+   {
+    "FinancialStatementAccount2": "減：未實現利息收入",
+    "Amount2": [
+     -16639728.0,
+     -16746240.0,
+     -17250195.0
+    ]
+   },
+   {
+    "FinancialStatementAccount2": "減：備抵損失",
+    "Amount2": [
+     -1241825.0,
+     -1138434.0,
+     -993582.0
+    ]
+   },
+   {
+    "FinancialStatementAccount2": "非分期應收款項",
+    "Amount2": [
+     614343.0,
+     570371.0,
+     564421.0
+    ]
+   },
+   {
+    "FinancialStatementAccount2": "減：備抵損失",
+    "Amount2": [
+     -14.0,
+     -9.0,
+     -61.0
+    ]
+   }
+  ],
+  "AgeDistributionAndAmount": [
+   {
+    "AgeDistribution": "12個月預期信用損失",
+    "Amount2": [
+     82634880.0,
+     79682089.0,
+     78517484.0
+    ]
+   },
+   {
+    "AgeDistribution": "信用風險已顯著增加者",
+    "Amount2": [
+     1122832.0,
+     1300361.0,
+     1492927.0
+    ]
+   },
+   {
+    "AgeDistribution": "已信用減損者",
+    "Amount2": [
+     1243646.0,
+     1198928.0,
+     765474.0
+    ]
+   },
+   {
+    "AgeDistribution": "簡化作法",
+    "Amount2": [
+     814787.0,
+     738362.0,
+     762328.0
+    ]
+   }
+  ],
+  "NameAndRelatiohshipOfRelatedParty2": [
+   {
+    "NameOfRelatedParty": "裕隆汽車製造公司",
+    "RelatedPartyRelationship": "本公司之最終母公司"
+   },
+   {
+    "NameOfRelatedParty": "裕融公司",
+    "RelatedPartyRelationship": "本公司之母公司"
+   },
+   {
+    "NameOfRelatedParty": "裕電人車電公司",
+    "RelatedPartyRelationship": "兄弟公司"
+   },
+   {
+    "NameOfRelatedParty": "格上汽車租賃公司",
+    "RelatedPartyRelationship": "兄弟公司"
+   },
+   {
+    "NameOfRelatedParty": "協冠人力服務公司",
+    "RelatedPartyRelationship": "兄弟公司"
+   },
+   {
+    "NameOfRelatedParty": "行冠企業公司",
+    "RelatedPartyRelationship": "兄弟公司（註）"
+   },
+   {
+    "NameOfRelatedParty": "行將企業公司",
+    "RelatedPartyRelationship": "兄弟公司（註）"
+   },
+   {
+    "NameOfRelatedParty": "祥碩興業公司",
+    "RelatedPartyRelationship": "兄弟公司"
+   },
+   {
+    "NameOfRelatedParty": "裕盛工業公司",
+    "RelatedPartyRelationship": "兄弟公司"
+   },
+   {
+    "NameOfRelatedParty": "裕富數位資融公司",
+    "RelatedPartyRelationship": "兄弟公司"
+   },
+   {
+    "NameOfRelatedParty": "新創鑫移動科技公司（原名：觔斗雲聯網公司）",
+    "RelatedPartyRelationship": "兄弟公司"
+   },
+   {
+    "NameOfRelatedParty": "Tac Global Investment (Samoa) Co., Ltd.",
+    "RelatedPartyRelationship": "兄弟公司"
+   },
+   {
+    "NameOfRelatedParty": "裕融國際投資（薩摩亞）有限公司",
+    "RelatedPartyRelationship": "兄弟公司"
+   },
+   {
+    "NameOfRelatedParty": "江蘇裕租公司",
+    "RelatedPartyRelationship": "兄弟公司"
+   },
+   {
+    "NameOfRelatedParty": "新南智捷汽車公司",
+    "RelatedPartyRelationship": "兄弟公司"
+   },
+   {
+    "NameOfRelatedParty": "裕隆日產汽車公司",
+    "RelatedPartyRelationship": "其他關係人"
+   },
+   {
+    "NameOfRelatedParty": "新安東京保險公司",
+    "RelatedPartyRelationship": "其他關係人"
+   },
+   {
+    "NameOfRelatedParty": "嚴慶齡工業發展基金會",
+    "RelatedPartyRelationship": "其他關係人"
+   },
+   {
+    "NameOfRelatedParty": "台元紡織公司",
+    "RelatedPartyRelationship": "其他關係人"
+   },
+   {
+    "NameOfRelatedParty": "誠隆汽車公司",
+    "RelatedPartyRelationship": "其他關係人"
+   },
+   {
+    "NameOfRelatedParty": "裕唐汽車公司",
+    "RelatedPartyRelationship": "其他關係人"
+   },
+   {
+    "NameOfRelatedParty": "嘉裕公司",
+    "RelatedPartyRelationship": "其他關係人"
+   }
+  ],
+  "CategoriesOfRelatedPartiesAndAmount": [
+   {
+    "FinancialStatementAccountForSignificantTransactionsBetweenRelatedParties": "銷貨收入",
+    "CategoriesOfRelatedParties": "母 公 司",
+    "Amount8": [
+     304.0,
+     232.0
+    ]
+   },
+   {
+    "FinancialStatementAccountForSignificantTransactionsBetweenRelatedParties": "銷貨收入",
+    "CategoriesOfRelatedParties": "其他關係人",
+    "Amount8": [
+     40.0,
+     0.0
+    ]
+   },
+   {
+    "FinancialStatementAccountForSignificantTransactionsBetweenRelatedParties": "其他營業收入",
+    "CategoriesOfRelatedParties": "兄弟公司",
+    "Amount8": [
+     0.0,
+     134.0
+    ]
+   },
+   {
+    "FinancialStatementAccountForSignificantTransactionsBetweenRelatedParties": "其他營業收入",
+    "CategoriesOfRelatedParties": "其他關係人",
+    "Amount8": [
+     75.0,
+     120.0
+    ]
+   }
+  ],
+  "FinancialStatementAccountAndCategoriesOfRelatedPartiesAndAmount": [
+   {
+    "FinancialStatementAccount3": "應收票據及帳款",
+    "CategoriesOfRelatedParties2": "母 公 司",
+    "Amount3": [
+     135.0,
+     29.0,
+     99.0
+    ]
+   },
+   {
+    "FinancialStatementAccount3": "應收票據及帳款",
+    "CategoriesOfRelatedParties2": "兄弟公司",
+    "Amount3": [
+     563.0,
+     859.0,
+     1150.0
+    ]
+   },
+   {
+    "FinancialStatementAccount3": "應收票據及帳款",
+    "CategoriesOfRelatedParties2": "其他關係人",
+    "Amount3": [
+     17.0,
+     1.0,
+     0.0
+    ]
+   },
+   {
+    "FinancialStatementAccount3": "其他應收款",
+    "CategoriesOfRelatedParties2": "母 公 司",
+    "Amount3": [
+     0.0,
+     3.0,
+     0.0
+    ]
+   },
+   {
+    "FinancialStatementAccount3": "其他應收款",
+    "CategoriesOfRelatedParties2": "兄弟公司",
+    "Amount3": [
+     46.0,
+     0.0,
+     220.0
+    ]
+   },
+   {
+    "FinancialStatementAccount3": "其他應收款",
+    "CategoriesOfRelatedParties2": "其他關係人",
+    "Amount3": [
+     20029.0,
+     0.0,
+     0.0
+    ]
+   }
+  ],
+  "FinancialStatementAccountAndCategoriesOfRelatedPartiesAndAmount2": [
+   {
+    "FinancialStatementAccount4": "應付票據及帳款",
+    "CategoriesOfRelatedParties12": "其他關係人",
+    "Amount4": [
+     0.0,
+     0.0,
+     34.0
+    ]
+   },
+   {
+    "FinancialStatementAccount4": "其他應付款",
+    "CategoriesOfRelatedParties12": "最終母公司",
+    "Amount4": [
+     0.0,
+     24.0,
+     0.0
+    ]
+   },
+   {
+    "FinancialStatementAccount4": "其他應付款",
+    "CategoriesOfRelatedParties12": "母公司/裕融公司",
+    "Amount4": [
+     56362.0,
+     76916.0,
+     53121.0
+    ]
+   },
+   {
+    "FinancialStatementAccount4": "其他應付款",
+    "CategoriesOfRelatedParties12": "兄弟公司",
+    "Amount4": [
+     0.0,
+     347410.0,
+     0.0
+    ]
+   },
+   {
+    "FinancialStatementAccount4": "其他應付款",
+    "CategoriesOfRelatedParties12": "其他關係人",
+    "Amount4": [
+     12479.0,
+     0.0,
+     0.0
+    ]
+   }
+  ],
+  "CategoriesOfRelatedPartiesAndAmount3": [
+   {
+    "CategoriesOfRelatedParties13": "母 公 司",
+    "Amount5": [
+     7.0,
+     4.0,
+     0.0
+    ]
+   },
+   {
+    "CategoriesOfRelatedParties13": "其他關係人",
+    "Amount5": [
+     27240.0,
+     7690.0,
+     29299.0
+    ]
+   }
+  ],
+  "LoansToOthers": [
+   {
+    "No.": "0",
+    "Lender1": "本 公 司",
+    "Counterparty1": "O30",
+    "FinancialStatementItem": "其他應收款",
+    "RelatedPartyTransaction": "否",
+    "MaximumBalanceForThePeriod1": 199999.0,
+    "EndingBalance1": 199998.0,
+    "ActualAmountProvided": 199998.0,
+    "RangeOfInterestRates": "1.90%~16.00%",
+    "NatureOfLoans": "2",
+    "AmountOfSalesToPurchasesFromCounterparty": 0.0,
+    "ReasonForShort-termLoans": "營業週轉",
+    "AllowanceForBadDebts": 87.0,
+    "Item1": "不 動 產",
+    "Value": 313000.0,
+    "LimitOfLoanAmountForIndividualCounterparty": 4602773.0,
+    "LimitOfTotalLoanAmount1": 23013867.0,
+    "Note": "註2"
+   },
+   {
+    "No.": "0",
+    "Lender1": "本 公 司",
+    "Counterparty1": "O23",
+    "FinancialStatementItem": "其他應收款",
+    "RelatedPartyTransaction": "否",
+    "MaximumBalanceForThePeriod1": 874294.0,
+    "EndingBalance1": 430000.0,
+    "ActualAmountProvided": 300000.0,
+    "RangeOfInterestRates": "1.90%~16.00%",
+    "NatureOfLoans": "2",
+    "AmountOfSalesToPurchasesFromCounterparty": 0.0,
+    "ReasonForShort-termLoans": "營業週轉",
+    "AllowanceForBadDebts": 1281.0,
+    "Item1": "不動產／股票",
+    "Value": 460300.0,
+    "LimitOfLoanAmountForIndividualCounterparty": 4602773.0,
+    "LimitOfTotalLoanAmount1": 23013867.0,
+    "Note": "註2"
+   },
+   {
+    "No.": "0",
+    "Lender1": "本 公 司",
+    "Counterparty1": "O41",
+    "FinancialStatementItem": "其他應收款",
+    "RelatedPartyTransaction": "否",
+    "MaximumBalanceForThePeriod1": 335623.0,
+    "EndingBalance1": 190703.0,
+    "ActualAmountProvided": 160703.0,
+    "RangeOfInterestRates": "1.90%~16.00%",
+    "NatureOfLoans": "2",
+    "AmountOfSalesToPurchasesFromCounterparty": 0.0,
+    "ReasonForShort-termLoans": "營業週轉",
+    "AllowanceForBadDebts": 296.0,
+    "Item1": "不 動 產",
+    "Value": 355000.0,
+    "LimitOfLoanAmountForIndividualCounterparty": 4602773.0,
+    "LimitOfTotalLoanAmount1": 23013867.0,
+    "Note": "註2"
+   },
+   {
+    "No.": "0",
+    "Lender1": "本 公 司",
+    "Counterparty1": "M48",
+    "FinancialStatementItem": "其他應收款",
+    "RelatedPartyTransaction": "否",
+    "MaximumBalanceForThePeriod1": 206961.0,
+    "EndingBalance1": 154288.0,
+    "ActualAmountProvided": 154288.0,
+    "RangeOfInterestRates": "1.90%~16.00%",
+    "NatureOfLoans": "2",
+    "AmountOfSalesToPurchasesFromCounterparty": 0.0,
+    "ReasonForShort-termLoans": "營業週轉",
+    "AllowanceForBadDebts": 298.0,
+    "Item1": "休旅機具(含船舶)",
+    "Value": 102000.0,
+    "LimitOfLoanAmountForIndividualCounterparty": 4602773.0,
+    "LimitOfTotalLoanAmount1": 23013867.0,
+    "Note": "註2"
+   },
+   {
+    "No.": "0",
+    "Lender1": "本 公 司",
+    "Counterparty1": "O47",
+    "FinancialStatementItem": "其他應收款",
+    "RelatedPartyTransaction": "否",
+    "MaximumBalanceForThePeriod1": 137000.0,
+    "EndingBalance1": 0.0,
+    "ActualAmountProvided": 0.0,
+    "RangeOfInterestRates": "1.90%~16.00%",
+    "NatureOfLoans": "2",
+    "AmountOfSalesToPurchasesFromCounterparty": 0.0,
+    "ReasonForShort-termLoans": "營業週轉",
+    "AllowanceForBadDebts": 0.0,
+    "Item1": "-",
+    "Value": 0.0,
+    "LimitOfLoanAmountForIndividualCounterparty": 4602773.0,
+    "LimitOfTotalLoanAmount1": 23013867.0,
+    "Note": "註2"
+   },
+   {
+    "No.": "0",
+    "Lender1": "本 公 司",
+    "Counterparty1": "M68",
+    "FinancialStatementItem": "其他應收款",
+    "RelatedPartyTransaction": "否",
+    "MaximumBalanceForThePeriod1": 142000.0,
+    "EndingBalance1": 142000.0,
+    "ActualAmountProvided": 142000.0,
+    "RangeOfInterestRates": "1.90%~16.00%",
+    "NatureOfLoans": "2",
+    "AmountOfSalesToPurchasesFromCounterparty": 0.0,
+    "ReasonForShort-termLoans": "營業週轉",
+    "AllowanceForBadDebts": 61.0,
+    "Item1": "不 動 產",
+    "Value": 178543.0,
+    "LimitOfLoanAmountForIndividualCounterparty": 4602773.0,
+    "LimitOfTotalLoanAmount1": 23013867.0,
+    "Note": "註2"
+   },
+   {
+    "No.": "0",
+    "Lender1": "本 公 司",
+    "Counterparty1": "N44",
+    "FinancialStatementItem": "其他應收款",
+    "RelatedPartyTransaction": "否",
+    "MaximumBalanceForThePeriod1": 113099.0,
+    "EndingBalance1": 109720.0,
+    "ActualAmountProvided": 109720.0,
+    "RangeOfInterestRates": "1.90%~16.00%",
+    "NatureOfLoans": "2",
+    "AmountOfSalesToPurchasesFromCounterparty": 0.0,
+    "ReasonForShort-termLoans": "營業週轉",
+    "AllowanceForBadDebts": 46.0,
+    "Item1": "不 動 產",
+    "Value": 134000.0,
+    "LimitOfLoanAmountForIndividualCounterparty": 4602773.0,
+    "LimitOfTotalLoanAmount1": 23013867.0,
+    "Note": "註2"
+   },
+   {
+    "No.": "0",
+    "Lender1": "本 公 司",
+    "Counterparty1": "O81",
+    "FinancialStatementItem": "其他應收款",
+    "RelatedPartyTransaction": "否",
+    "MaximumBalanceForThePeriod1": 899032.0,
+    "EndingBalance1": 898614.0,
+    "ActualAmountProvided": 448614.0,
+    "RangeOfInterestRates": "1.90%~16.00%",
+    "NatureOfLoans": "2",
+    "AmountOfSalesToPurchasesFromCounterparty": 0.0,
+    "ReasonForShort-termLoans": "營業週轉",
+    "AllowanceForBadDebts": 2954.0,
+    "Item1": "不 動 產",
+    "Value": 640000.0,
+    "LimitOfLoanAmountForIndividualCounterparty": 4602773.0,
+    "LimitOfTotalLoanAmount1": 23013867.0,
+    "Note": "註2"
+   },
+   {
+    "No.": "0",
+    "Lender1": "本 公 司",
+    "Counterparty1": "O80",
+    "FinancialStatementItem": "其他應收款",
+    "RelatedPartyTransaction": "否",
+    "MaximumBalanceForThePeriod1": 132844.0,
+    "EndingBalance1": 122318.0,
+    "ActualAmountProvided": 122318.0,
+    "RangeOfInterestRates": "1.90%~16.00%",
+    "NatureOfLoans": "2",
+    "AmountOfSalesToPurchasesFromCounterparty": 0.0,
+    "ReasonForShort-termLoans": "營業週轉",
+    "AllowanceForBadDebts": 55.0,
+    "Item1": "不 動 產",
+    "Value": 247291.0,
+    "LimitOfLoanAmountForIndividualCounterparty": 4602773.0,
+    "LimitOfTotalLoanAmount1": 23013867.0,
+    "Note": "註2"
+   },
+   {
+    "No.": "0",
+    "Lender1": "本 公 司",
+    "Counterparty1": "O19",
+    "FinancialStatementItem": "其他應收款",
+    "RelatedPartyTransaction": "否",
+    "MaximumBalanceForThePeriod1": 157998.0,
+    "EndingBalance1": 157998.0,
+    "ActualAmountProvided": 157998.0,
+    "RangeOfInterestRates": "1.90%~16.00%",
+    "NatureOfLoans": "2",
+    "AmountOfSalesToPurchasesFromCounterparty": 0.0,
+    "ReasonForShort-termLoans": "營業週轉",
+    "AllowanceForBadDebts": 66.0,
+    "Item1": "不 動 產",
+    "Value": 200690.0,
+    "LimitOfLoanAmountForIndividualCounterparty": 4602773.0,
+    "LimitOfTotalLoanAmount1": 23013867.0,
+    "Note": "註2"
+   },
+   {
+    "No.": "0",
+    "Lender1": "本 公 司",
+    "Counterparty1": "P35",
+    "FinancialStatementItem": "其他應收款",
+    "RelatedPartyTransaction": "否",
+    "MaximumBalanceForThePeriod1": 123000.0,
+    "EndingBalance1": 112200.0,
+    "ActualAmountProvided": 112200.0,
+    "RangeOfInterestRates": "1.90%~16.00%",
+    "NatureOfLoans": "2",
+    "AmountOfSalesToPurchasesFromCounterparty": 0.0,
+    "ReasonForShort-termLoans": "營業週轉",
+    "AllowanceForBadDebts": 735.0,
+    "Item1": "不 動 產",
+    "Value": 157299.0,
+    "LimitOfLoanAmountForIndividualCounterparty": 4602773.0,
+    "LimitOfTotalLoanAmount1": 23013867.0,
+    "Note": "註2"
+   },
+   {
+    "No.": "0",
+    "Lender1": "本 公 司",
+    "Counterparty1": "K1",
+    "FinancialStatementItem": "其他應收款",
+    "RelatedPartyTransaction": "否",
+    "MaximumBalanceForThePeriod1": 168874.0,
+    "EndingBalance1": 127636.0,
+    "ActualAmountProvided": 127636.0,
+    "RangeOfInterestRates": "1.90%~16.00%",
+    "NatureOfLoans": "2",
+    "AmountOfSalesToPurchasesFromCounterparty": 0.0,
+    "ReasonForShort-termLoans": "營業週轉",
+    "AllowanceForBadDebts": 1167.0,
+    "Item1": "不 動 產",
+    "Value": 205000.0,
+    "LimitOfLoanAmountForIndividualCounterparty": 4602773.0,
+    "LimitOfTotalLoanAmount1": 23013867.0,
+    "Note": "註2"
+   },
+   {
+    "No.": "0",
+    "Lender1": "本 公 司",
+    "Counterparty1": "Q51",
+    "FinancialStatementItem": "其他應收款",
+    "RelatedPartyTransaction": "否",
+    "MaximumBalanceForThePeriod1": 119326.0,
+    "EndingBalance1": 69121.0,
+    "ActualAmountProvided": 69121.0,
+    "RangeOfInterestRates": "1.90%~16.00%",
+    "NatureOfLoans": "2",
+    "AmountOfSalesToPurchasesFromCounterparty": 0.0,
+    "ReasonForShort-termLoans": "營業週轉",
+    "AllowanceForBadDebts": 469.0,
+    "Item1": "無 擔 保",
+    "Value": 0.0,
+    "LimitOfLoanAmountForIndividualCounterparty": 1150693.0,
+    "LimitOfTotalLoanAmount1": 23013867.0,
+    "Note": "註2"
+   },
+   {
+    "No.": "0",
+    "Lender1": "本 公 司",
+    "Counterparty1": "Q81",
+    "FinancialStatementItem": "其他應收款",
+    "RelatedPartyTransaction": "否",
+    "MaximumBalanceForThePeriod1": 298999.0,
+    "EndingBalance1": 298998.0,
+    "ActualAmountProvided": 298998.0,
+    "RangeOfInterestRates": "1.90%~16.00%",
+    "NatureOfLoans": "2",
+    "AmountOfSalesToPurchasesFromCounterparty": 0.0,
+    "ReasonForShort-termLoans": "營業週轉",
+    "AllowanceForBadDebts": 128.0,
+    "Item1": "不 動 產",
+    "Value": 345000.0,
+    "LimitOfLoanAmountForIndividualCounterparty": 4602773.0,
+    "LimitOfTotalLoanAmount1": 23013867.0,
+    "Note": "註2"
+   },
+   {
+    "No.": "0",
+    "Lender1": "本 公 司",
+    "Counterparty1": "R27",
+    "FinancialStatementItem": "其他應收款",
+    "RelatedPartyTransaction": "否",
+    "MaximumBalanceForThePeriod1": 192516.0,
+    "EndingBalance1": 168216.0,
+    "ActualAmountProvided": 168216.0,
+    "RangeOfInterestRates": "1.90%~16.00%",
+    "NatureOfLoans": "2",
+    "AmountOfSalesToPurchasesFromCounterparty": 0.0,
+    "ReasonForShort-termLoans": "營業週轉",
+    "AllowanceForBadDebts": 73.0,
+    "Item1": "不 動 產",
+    "Value": 272315.0,
+    "LimitOfLoanAmountForIndividualCounterparty": 4602773.0,
+    "LimitOfTotalLoanAmount1": 23013867.0,
+    "Note": "註2"
+   },
+   {
+    "No.": "0",
+    "Lender1": "本 公 司",
+    "Counterparty1": "N6",
+    "FinancialStatementItem": "其他應收款",
+    "RelatedPartyTransaction": "否",
+    "MaximumBalanceForThePeriod1": 168000.0,
+    "EndingBalance1": 0.0,
+    "ActualAmountProvided": 0.0,
+    "RangeOfInterestRates": "1.90%~16.00%",
+    "NatureOfLoans": "1",
+    "AmountOfSalesToPurchasesFromCounterparty": 328700.0,
+    "ReasonForShort-termLoans": "-",
+    "AllowanceForBadDebts": 0.0,
+    "Item1": "-",
+    "Value": 0.0,
+    "LimitOfLoanAmountForIndividualCounterparty": 328700.0,
+    "LimitOfTotalLoanAmount1": 23013867.0,
+    "Note": "註3"
+   },
+   {
+    "No.": "0",
+    "Lender1": "本 公 司",
+    "Counterparty1": "P29",
+    "FinancialStatementItem": "其他應收款",
+    "RelatedPartyTransaction": "否",
+    "MaximumBalanceForThePeriod1": 322198.0,
+    "EndingBalance1": 322197.0,
+    "ActualAmountProvided": 322197.0,
+    "RangeOfInterestRates": "1.90%~16.00%",
+    "NatureOfLoans": "2",
+    "AmountOfSalesToPurchasesFromCounterparty": 0.0,
+    "ReasonForShort-termLoans": "營業週轉",
+    "AllowanceForBadDebts": 146.0,
+    "Item1": "不 動 產",
+    "Value": 395000.0,
+    "LimitOfLoanAmountForIndividualCounterparty": 4602773.0,
+    "LimitOfTotalLoanAmount1": 23013867.0,
+    "Note": "註2"
+   },
+   {
+    "No.": "0",
+    "Lender1": "本 公 司",
+    "Counterparty1": "R57",
+    "FinancialStatementItem": "其他應收款",
+    "RelatedPartyTransaction": "否",
+    "MaximumBalanceForThePeriod1": 120000.0,
+    "EndingBalance1": 119999.0,
+    "ActualAmountProvided": 119999.0,
+    "RangeOfInterestRates": "1.90%~16.00%",
+    "NatureOfLoans": "2",
+    "AmountOfSalesToPurchasesFromCounterparty": 0.0,
+    "ReasonForShort-termLoans": "營業週轉",
+    "AllowanceForBadDebts": 56.0,
+    "Item1": "不 動 產",
+    "Value": 176000.0,
+    "LimitOfLoanAmountForIndividualCounterparty": 4602773.0,
+    "LimitOfTotalLoanAmount1": 23013867.0,
+    "Note": "註2"
+   },
+   {
+    "No.": "0",
+    "Lender1": "本 公 司",
+    "Counterparty1": "R74",
+    "FinancialStatementItem": "其他應收款",
+    "RelatedPartyTransaction": "否",
+    "MaximumBalanceForThePeriod1": 113700.0,
+    "EndingBalance1": 100905.0,
+    "ActualAmountProvided": 100905.0,
+    "RangeOfInterestRates": "1.90%~16.00%",
+    "NatureOfLoans": "2",
+    "AmountOfSalesToPurchasesFromCounterparty": 0.0,
+    "ReasonForShort-termLoans": "營業週轉",
+    "AllowanceForBadDebts": 56.0,
+    "Item1": "不 動 產",
+    "Value": 136084.0,
+    "LimitOfLoanAmountForIndividualCounterparty": 4602773.0,
+    "LimitOfTotalLoanAmount1": 23013867.0,
+    "Note": "註2"
+   },
+   {
+    "No.": "0",
+    "Lender1": "本 公 司",
+    "Counterparty1": "P67",
+    "FinancialStatementItem": "其他應收款",
+    "RelatedPartyTransaction": "否",
+    "MaximumBalanceForThePeriod1": 139000.0,
+    "EndingBalance1": 139000.0,
+    "ActualAmountProvided": 139000.0,
+    "RangeOfInterestRates": "1.90%~16.00%",
+    "NatureOfLoans": "2",
+    "AmountOfSalesToPurchasesFromCounterparty": 0.0,
+    "ReasonForShort-termLoans": "營業週轉",
+    "AllowanceForBadDebts": 61.0,
+    "Item1": "不 動 產",
+    "Value": 169430.0,
+    "LimitOfLoanAmountForIndividualCounterparty": 4602773.0,
+    "LimitOfTotalLoanAmount1": 23013867.0,
+    "Note": "註2"
+   },
+   {
+    "No.": "0",
+    "Lender1": "本 公 司",
+    "Counterparty1": "R93",
+    "FinancialStatementItem": "其他應收款",
+    "RelatedPartyTransaction": "否",
+    "MaximumBalanceForThePeriod1": 130000.0,
+    "EndingBalance1": 0.0,
+    "ActualAmountProvided": 0.0,
+    "RangeOfInterestRates": "1.90%~16.00%",
+    "NatureOfLoans": "2",
+    "AmountOfSalesToPurchasesFromCounterparty": 0.0,
+    "ReasonForShort-termLoans": "營業週轉",
+    "AllowanceForBadDebts": 0.0,
+    "Item1": "-",
+    "Value": 0.0,
+    "LimitOfLoanAmountForIndividualCounterparty": 4602773.0,
+    "LimitOfTotalLoanAmount1": 23013867.0,
+    "Note": "註2"
+   },
+   {
+    "No.": "0",
+    "Lender1": "本 公 司",
+    "Counterparty1": "R96",
+    "FinancialStatementItem": "其他應收款",
+    "RelatedPartyTransaction": "否",
+    "MaximumBalanceForThePeriod1": 110000.0,
+    "EndingBalance1": 110000.0,
+    "ActualAmountProvided": 110000.0,
+    "RangeOfInterestRates": "1.90%~16.00%",
+    "NatureOfLoans": "2",
+    "AmountOfSalesToPurchasesFromCounterparty": 0.0,
+    "ReasonForShort-termLoans": "營業週轉",
+    "AllowanceForBadDebts": 48.0,
+    "Item1": "不 動 產",
+    "Value": 155898.0,
+    "LimitOfLoanAmountForIndividualCounterparty": 4602773.0,
+    "LimitOfTotalLoanAmount1": 23013867.0,
+    "Note": "註2"
+   },
+   {
+    "No.": "0",
+    "Lender1": "本 公 司",
+    "Counterparty1": "T34",
+    "FinancialStatementItem": "其他應收款",
+    "RelatedPartyTransaction": "否",
+    "MaximumBalanceForThePeriod1": 210000.0,
+    "EndingBalance1": 0.0,
+    "ActualAmountProvided": 0.0,
+    "RangeOfInterestRates": "1.90%~16.00%",
+    "NatureOfLoans": "2",
+    "AmountOfSalesToPurchasesFromCounterparty": 0.0,
+    "ReasonForShort-termLoans": "營業週轉",
+    "AllowanceForBadDebts": 0.0,
+    "Item1": "-",
+    "Value": 0.0,
+    "LimitOfLoanAmountForIndividualCounterparty": 4602773.0,
+    "LimitOfTotalLoanAmount1": 23013867.0,
+    "Note": "註2"
+   },
+   {
+    "No.": "0",
+    "Lender1": "本 公 司",
+    "Counterparty1": "T88",
+    "FinancialStatementItem": "其他應收款",
+    "RelatedPartyTransaction": "否",
+    "MaximumBalanceForThePeriod1": 223000.0,
+    "EndingBalance1": 215063.0,
+    "ActualAmountProvided": 215063.0,
+    "RangeOfInterestRates": "1.90%~16.00%",
+    "NatureOfLoans": "2",
+    "AmountOfSalesToPurchasesFromCounterparty": 0.0,
+    "ReasonForShort-termLoans": "營業週轉",
+    "AllowanceForBadDebts": 98.0,
+    "Item1": "不 動 產",
+    "Value": 284200.0,
+    "LimitOfLoanAmountForIndividualCounterparty": 4602773.0,
+    "LimitOfTotalLoanAmount1": 23013867.0,
+    "Note": "註2"
+   },
+   {
+    "No.": "0",
+    "Lender1": "本 公 司",
+    "Counterparty1": "R28",
+    "FinancialStatementItem": "其他應收款",
+    "RelatedPartyTransaction": "否",
+    "MaximumBalanceForThePeriod1": 189465.0,
+    "EndingBalance1": 96662.0,
+    "ActualAmountProvided": 59162.0,
+    "RangeOfInterestRates": "1.90%~16.00%",
+    "NatureOfLoans": "2",
+    "AmountOfSalesToPurchasesFromCounterparty": 0.0,
+    "ReasonForShort-termLoans": "營業週轉",
+    "AllowanceForBadDebts": 29.0,
+    "Item1": "不 動 產",
+    "Value": 91020.0,
+    "LimitOfLoanAmountForIndividualCounterparty": 4602773.0,
+    "LimitOfTotalLoanAmount1": 23013867.0,
+    "Note": "註2"
+   },
+   {
+    "No.": "0",
+    "Lender1": "本 公 司",
+    "Counterparty1": "R88",
+    "FinancialStatementItem": "其他應收款",
+    "RelatedPartyTransaction": "否",
+    "MaximumBalanceForThePeriod1": 100000.0,
+    "EndingBalance1": 44072.0,
+    "ActualAmountProvided": 44072.0,
+    "RangeOfInterestRates": "1.90%~16.00%",
+    "NatureOfLoans": "2",
+    "AmountOfSalesToPurchasesFromCounterparty": 0.0,
+    "ReasonForShort-termLoans": "營業週轉",
+    "AllowanceForBadDebts": 540.0,
+    "Item1": "不 動 產",
+    "Value": 35000.0,
+    "LimitOfLoanAmountForIndividualCounterparty": 4602773.0,
+    "LimitOfTotalLoanAmount1": 23013867.0,
+    "Note": "註2"
+   },
+   {
+    "No.": "0",
+    "Lender1": "本 公 司",
+    "Counterparty1": "Q5",
+    "FinancialStatementItem": "其他應收款",
+    "RelatedPartyTransaction": "否",
+    "MaximumBalanceForThePeriod1": 100000.0,
+    "EndingBalance1": 76157.0,
+    "ActualAmountProvided": 76157.0,
+    "RangeOfInterestRates": "1.90%~16.00%",
+    "NatureOfLoans": "2",
+    "AmountOfSalesToPurchasesFromCounterparty": 0.0,
+    "ReasonForShort-termLoans": "營業週轉",
+    "AllowanceForBadDebts": 938.0,
+    "Item1": "不 動 產",
+    "Value": 187815.0,
+    "LimitOfLoanAmountForIndividualCounterparty": 4602773.0,
+    "LimitOfTotalLoanAmount1": 23013867.0,
+    "Note": "註2"
+   },
+   {
+    "No.": "0",
+    "Lender1": "本 公 司",
+    "Counterparty1": "O46",
+    "FinancialStatementItem": "其他應收款",
+    "RelatedPartyTransaction": "否",
+    "MaximumBalanceForThePeriod1": 139763.0,
+    "EndingBalance1": 69593.0,
+    "ActualAmountProvided": 69593.0,
+    "RangeOfInterestRates": "1.90%~16.00%",
+    "NatureOfLoans": "2",
+    "AmountOfSalesToPurchasesFromCounterparty": 0.0,
+    "ReasonForShort-termLoans": "營業週轉",
+    "AllowanceForBadDebts": 30.0,
+    "Item1": "不 動 產",
+    "Value": 162968.0,
+    "LimitOfLoanAmountForIndividualCounterparty": 4602773.0,
+    "LimitOfTotalLoanAmount1": 23013867.0,
+    "Note": "註2"
+   },
+   {
+    "No.": "0",
+    "Lender1": "本 公 司",
+    "Counterparty1": "Q31",
+    "FinancialStatementItem": "其他應收款",
+    "RelatedPartyTransaction": "否",
+    "MaximumBalanceForThePeriod1": 119399.0,
+    "EndingBalance1": 60676.0,
+    "ActualAmountProvided": 60676.0,
+    "RangeOfInterestRates": "1.90%~16.00%",
+    "NatureOfLoans": "2",
+    "AmountOfSalesToPurchasesFromCounterparty": 0.0,
+    "ReasonForShort-termLoans": "營業週轉",
+    "AllowanceForBadDebts": 144.0,
+    "Item1": "不 動 產",
+    "Value": 82540.0,
+    "LimitOfLoanAmountForIndividualCounterparty": 4602773.0,
+    "LimitOfTotalLoanAmount1": 23013867.0,
+    "Note": "註2"
+   },
+   {
+    "No.": "0",
+    "Lender1": "本 公 司",
+    "Counterparty1": "T5",
+    "FinancialStatementItem": "其他應收款",
+    "RelatedPartyTransaction": "否",
+    "MaximumBalanceForThePeriod1": 118308.0,
+    "EndingBalance1": 36152.0,
+    "ActualAmountProvided": 36152.0,
+    "RangeOfInterestRates": "1.90%~16.00%",
+    "NatureOfLoans": "2",
+    "AmountOfSalesToPurchasesFromCounterparty": 0.0,
+    "ReasonForShort-termLoans": "營業週轉",
+    "AllowanceForBadDebts": 437.0,
+    "Item1": "不動產/股票",
+    "Value": 166160.0,
+    "LimitOfLoanAmountForIndividualCounterparty": 4602773.0,
+    "LimitOfTotalLoanAmount1": 23013867.0,
+    "Note": "註2"
+   },
+   {
+    "No.": "0",
+    "Lender1": "本 公 司",
+    "Counterparty1": "R40",
+    "FinancialStatementItem": "其他應收款",
+    "RelatedPartyTransaction": "否",
+    "MaximumBalanceForThePeriod1": 110740.0,
+    "EndingBalance1": 0.0,
+    "ActualAmountProvided": 0.0,
+    "RangeOfInterestRates": "1.90%~16.00%",
+    "NatureOfLoans": "2",
+    "AmountOfSalesToPurchasesFromCounterparty": 0.0,
+    "ReasonForShort-termLoans": "營業週轉",
+    "AllowanceForBadDebts": 0.0,
+    "Item1": "-",
+    "Value": 0.0,
+    "LimitOfLoanAmountForIndividualCounterparty": 4602773.0,
+    "LimitOfTotalLoanAmount1": 23013867.0,
+    "Note": "註2"
+   },
+   {
+    "No.": "0",
+    "Lender1": "本 公 司",
+    "Counterparty1": "P13",
+    "FinancialStatementItem": "其他應收款",
+    "RelatedPartyTransaction": "否",
+    "MaximumBalanceForThePeriod1": 192406.0,
+    "EndingBalance1": 191744.0,
+    "ActualAmountProvided": 21744.0,
+    "RangeOfInterestRates": "1.90%~16.00%",
+    "NatureOfLoans": "2",
+    "AmountOfSalesToPurchasesFromCounterparty": 0.0,
+    "ReasonForShort-termLoans": "營業週轉",
+    "AllowanceForBadDebts": 9.0,
+    "Item1": "不 動 產",
+    "Value": 270786.0,
+    "LimitOfLoanAmountForIndividualCounterparty": 4602773.0,
+    "LimitOfTotalLoanAmount1": 23013867.0,
+    "Note": "註2"
+   },
+   {
+    "No.": "0",
+    "Lender1": "本 公 司",
+    "Counterparty1": "誠隆汽車公司",
+    "FinancialStatementItem": "其他應收款",
+    "RelatedPartyTransaction": "是",
+    "MaximumBalanceForThePeriod1": 100000.0,
+    "EndingBalance1": 20000.0,
+    "ActualAmountProvided": 20000.0,
+    "RangeOfInterestRates": "1.90%~16.00%",
+    "NatureOfLoans": "2",
+    "AmountOfSalesToPurchasesFromCounterparty": 0.0,
+    "ReasonForShort-termLoans": "營業週轉",
+    "AllowanceForBadDebts": 21.0,
+    "Item1": "不 動 產",
+    "Value": 144316.0,
+    "LimitOfLoanAmountForIndividualCounterparty": 4602773.0,
+    "LimitOfTotalLoanAmount1": 23013867.0,
+    "Note": "註2"
+   },
+   {
+    "No.": "0",
+    "Lender1": "本 公 司",
+    "Counterparty1": "U63",
+    "FinancialStatementItem": "其他應收款",
+    "RelatedPartyTransaction": "否",
+    "MaximumBalanceForThePeriod1": 150000.0,
+    "EndingBalance1": 150000.0,
+    "ActualAmountProvided": 150000.0,
+    "RangeOfInterestRates": "1.90%~16.00%",
+    "NatureOfLoans": "2",
+    "AmountOfSalesToPurchasesFromCounterparty": 0.0,
+    "ReasonForShort-termLoans": "營業週轉",
+    "AllowanceForBadDebts": 69.0,
+    "Item1": "不 動 產",
+    "Value": 237000.0,
+    "LimitOfLoanAmountForIndividualCounterparty": 4602773.0,
+    "LimitOfTotalLoanAmount1": 23013867.0,
+    "Note": "註2"
+   },
+   {
+    "No.": "0",
+    "Lender1": "本 公 司",
+    "Counterparty1": "P21",
+    "FinancialStatementItem": "其他應收款",
+    "RelatedPartyTransaction": "否",
+    "MaximumBalanceForThePeriod1": 142800.0,
+    "EndingBalance1": 90795.0,
+    "ActualAmountProvided": 90795.0,
+    "RangeOfInterestRates": "1.90%~16.00%",
+    "NatureOfLoans": "2",
+    "AmountOfSalesToPurchasesFromCounterparty": 0.0,
+    "ReasonForShort-termLoans": "營業週轉",
+    "AllowanceForBadDebts": 40.0,
+    "Item1": "不 動 產",
+    "Value": 147930.0,
+    "LimitOfLoanAmountForIndividualCounterparty": 4602773.0,
+    "LimitOfTotalLoanAmount1": 23013867.0,
+    "Note": "註2"
+   },
+   {
+    "No.": "0",
+    "Lender1": "本 公 司",
+    "Counterparty1": "T91",
+    "FinancialStatementItem": "其他應收款",
+    "RelatedPartyTransaction": "否",
+    "MaximumBalanceForThePeriod1": 130000.0,
+    "EndingBalance1": 53827.0,
+    "ActualAmountProvided": 53827.0,
+    "RangeOfInterestRates": "1.90%~16.00%",
+    "NatureOfLoans": "2",
+    "AmountOfSalesToPurchasesFromCounterparty": 0.0,
+    "ReasonForShort-termLoans": "營業週轉",
+    "AllowanceForBadDebts": 57.0,
+    "Item1": "不 動 產",
+    "Value": 46259.0,
+    "LimitOfLoanAmountForIndividualCounterparty": 4602773.0,
+    "LimitOfTotalLoanAmount1": 23013867.0,
+    "Note": "註2"
+   },
+   {
+    "No.": "0",
+    "Lender1": "本 公 司",
+    "Counterparty1": "L48",
+    "FinancialStatementItem": "其他應收款",
+    "RelatedPartyTransaction": "否",
+    "MaximumBalanceForThePeriod1": 180000.0,
+    "EndingBalance1": 180000.0,
+    "ActualAmountProvided": 0.0,
+    "RangeOfInterestRates": "1.90%~16.00%",
+    "NatureOfLoans": "2",
+    "AmountOfSalesToPurchasesFromCounterparty": 0.0,
+    "ReasonForShort-termLoans": "營業週轉",
+    "AllowanceForBadDebts": 0.0,
+    "Item1": "不 動 產",
+    "Value": 310000.0,
+    "LimitOfLoanAmountForIndividualCounterparty": 4602773.0,
+    "LimitOfTotalLoanAmount1": 23013867.0,
+    "Note": "註2"
+   },
+   {
+    "No.": "0",
+    "Lender1": "本 公 司",
+    "Counterparty1": "O75",
+    "FinancialStatementItem": "其他應收款",
+    "RelatedPartyTransaction": "否",
+    "MaximumBalanceForThePeriod1": 105653.0,
+    "EndingBalance1": 104601.0,
+    "ActualAmountProvided": 52101.0,
+    "RangeOfInterestRates": "1.90%~16.00%",
+    "NatureOfLoans": "2",
+    "AmountOfSalesToPurchasesFromCounterparty": 0.0,
+    "ReasonForShort-termLoans": "營業週轉",
+    "AllowanceForBadDebts": 346.0,
+    "Item1": "不 動 產",
+    "Value": 76238.0,
+    "LimitOfLoanAmountForIndividualCounterparty": 4602773.0,
+    "LimitOfTotalLoanAmount1": 23013867.0,
+    "Note": "註2"
+   },
+   {
+    "No.": "0",
+    "Lender1": "本 公 司",
+    "Counterparty1": "N24",
+    "FinancialStatementItem": "其他應收款",
+    "RelatedPartyTransaction": "否",
+    "MaximumBalanceForThePeriod1": 143042.0,
+    "EndingBalance1": 140226.0,
+    "ActualAmountProvided": 70226.0,
+    "RangeOfInterestRates": "1.90%~16.00%",
+    "NatureOfLoans": "2",
+    "AmountOfSalesToPurchasesFromCounterparty": 0.0,
+    "ReasonForShort-termLoans": "營業週轉",
+    "AllowanceForBadDebts": 33.0,
+    "Item1": "不 動 產",
+    "Value": 107966.0,
+    "LimitOfLoanAmountForIndividualCounterparty": 4602773.0,
+    "LimitOfTotalLoanAmount1": 23013867.0,
+    "Note": "註2"
+   },
+   {
+    "No.": "0",
+    "Lender1": "本 公 司",
+    "Counterparty1": "P52",
+    "FinancialStatementItem": "其他應收款",
+    "RelatedPartyTransaction": "否",
+    "MaximumBalanceForThePeriod1": 129822.0,
+    "EndingBalance1": 80000.0,
+    "ActualAmountProvided": 0.0,
+    "RangeOfInterestRates": "1.90%~16.00%",
+    "NatureOfLoans": "2",
+    "AmountOfSalesToPurchasesFromCounterparty": 0.0,
+    "ReasonForShort-termLoans": "營業週轉",
+    "AllowanceForBadDebts": 0.0,
+    "Item1": "不 動 產",
+    "Value": 115000.0,
+    "LimitOfLoanAmountForIndividualCounterparty": 4602773.0,
+    "LimitOfTotalLoanAmount1": 23013867.0,
+    "Note": "註2"
+   },
+   {
+    "No.": "0",
+    "Lender1": "本 公 司",
+    "Counterparty1": "L41",
+    "FinancialStatementItem": "其他應收款",
+    "RelatedPartyTransaction": "否",
+    "MaximumBalanceForThePeriod1": 125646.0,
+    "EndingBalance1": 120053.0,
+    "ActualAmountProvided": 90053.0,
+    "RangeOfInterestRates": "1.90%~16.00%",
+    "NatureOfLoans": "2",
+    "AmountOfSalesToPurchasesFromCounterparty": 0.0,
+    "ReasonForShort-termLoans": "營業週轉",
+    "AllowanceForBadDebts": 40.0,
+    "Item1": "不 動 產",
+    "Value": 102000.0,
+    "LimitOfLoanAmountForIndividualCounterparty": 4602773.0,
+    "LimitOfTotalLoanAmount1": 23013867.0,
+    "Note": "註2"
+   },
+   {
+    "No.": "0",
+    "Lender1": "本 公 司",
+    "Counterparty1": "U124",
+    "FinancialStatementItem": "其他應收款",
+    "RelatedPartyTransaction": "否",
+    "MaximumBalanceForThePeriod1": 110000.0,
+    "EndingBalance1": 110000.0,
+    "ActualAmountProvided": 70000.0,
+    "RangeOfInterestRates": "1.90%~16.00%",
+    "NatureOfLoans": "1",
+    "AmountOfSalesToPurchasesFromCounterparty": 140000.0,
+    "ReasonForShort-termLoans": "-",
+    "AllowanceForBadDebts": 843.0,
+    "Item1": "不 動 產",
+    "Value": 121880.0,
+    "LimitOfLoanAmountForIndividualCounterparty": 140000.0,
+    "LimitOfTotalLoanAmount1": 23013867.0,
+    "Note": "註3"
+   },
+   {
+    "No.": "0",
+    "Lender1": "本 公 司",
+    "Counterparty1": "U148",
+    "FinancialStatementItem": "其他應收款",
+    "RelatedPartyTransaction": "否",
+    "MaximumBalanceForThePeriod1": 130000.0,
+    "EndingBalance1": 130000.0,
+    "ActualAmountProvided": 0.0,
+    "RangeOfInterestRates": "1.90%~16.00%",
+    "NatureOfLoans": "2",
+    "AmountOfSalesToPurchasesFromCounterparty": 0.0,
+    "ReasonForShort-termLoans": "營業週轉",
+    "AllowanceForBadDebts": 0.0,
+    "Item1": "不 動 產",
+    "Value": 377069.0,
+    "LimitOfLoanAmountForIndividualCounterparty": 4602773.0,
+    "LimitOfTotalLoanAmount1": 23013867.0,
+    "Note": "註2"
+   },
+   {
+    "No.": "0",
+    "Lender1": "本 公 司",
+    "Counterparty1": "U135",
+    "FinancialStatementItem": "其他應收款",
+    "RelatedPartyTransaction": "否",
+    "MaximumBalanceForThePeriod1": 117000.0,
+    "EndingBalance1": 117000.0,
+    "ActualAmountProvided": 0.0,
+    "RangeOfInterestRates": "1.90%~16.00%",
+    "NatureOfLoans": "2",
+    "AmountOfSalesToPurchasesFromCounterparty": 0.0,
+    "ReasonForShort-termLoans": "營業週轉",
+    "AllowanceForBadDebts": 0.0,
+    "Item1": "不 動 產",
+    "Value": 167220.0,
+    "LimitOfLoanAmountForIndividualCounterparty": 4602773.0,
+    "LimitOfTotalLoanAmount1": 23013867.0,
+    "Note": "註2"
+   },
+   {
+    "No.": "0",
+    "Lender1": "本 公 司",
+    "Counterparty1": "其他客戶匯總",
+    "FinancialStatementItem": "其他應收款",
+    "RelatedPartyTransaction": "否",
+    "MaximumBalanceForThePeriod1": 60549.0,
+    "EndingBalance1": 52661.0,
+    "ActualAmountProvided": 37661.0,
+    "RangeOfInterestRates": "1.90%~16.00%",
+    "NatureOfLoans": "1",
+    "AmountOfSalesToPurchasesFromCounterparty": 55000.0,
+    "ReasonForShort-termLoans": "-",
+    "AllowanceForBadDebts": 420.0,
+    "Item1": "無 擔 保",
+    "Value": 0.0,
+    "LimitOfLoanAmountForIndividualCounterparty": 55000.0,
+    "LimitOfTotalLoanAmount1": 23013867.0,
+    "Note": "註3"
+   },
+   {
+    "No.": "0",
+    "Lender1": "本 公 司",
+    "Counterparty1": "其他客戶匯總",
+    "FinancialStatementItem": "其他應收款",
+    "RelatedPartyTransaction": "否",
+    "MaximumBalanceForThePeriod1": 527652.0,
+    "EndingBalance1": 473039.0,
+    "ActualAmountProvided": 406289.0,
+    "RangeOfInterestRates": "1.90%~16.00%",
+    "NatureOfLoans": "1",
+    "AmountOfSalesToPurchasesFromCounterparty": 917469.0,
+    "ReasonForShort-termLoans": "-",
+    "AllowanceForBadDebts": 2246.0,
+    "Item1": "土地/不動產/動產/履保金",
+    "Value": 916265.0,
+    "LimitOfLoanAmountForIndividualCounterparty": 917469.0,
+    "LimitOfTotalLoanAmount1": 23013867.0,
+    "Note": "註3"
+   },
+   {
+    "No.": "0",
+    "Lender1": "本 公 司",
+    "Counterparty1": "其他客戶匯總",
+    "FinancialStatementItem": "其他應收款",
+    "RelatedPartyTransaction": "否",
+    "MaximumBalanceForThePeriod1": 1542923.0,
+    "EndingBalance1": 905927.0,
+    "ActualAmountProvided": 865927.0,
+    "RangeOfInterestRates": "1.90%~16.00%",
+    "NatureOfLoans": "2",
+    "AmountOfSalesToPurchasesFromCounterparty": 0.0,
+    "ReasonForShort-termLoans": "營業週轉",
+    "AllowanceForBadDebts": 7171.0,
+    "Item1": "無 擔 保",
+    "Value": 0.0,
+    "LimitOfLoanAmountForIndividualCounterparty": 1150693.0,
+    "LimitOfTotalLoanAmount1": 23013867.0,
+    "Note": "註3"
+   },
+   {
+    "No.": "0",
+    "Lender1": "本 公 司",
+    "Counterparty1": "其他客戶匯總",
+    "FinancialStatementItem": "其他應收款",
+    "RelatedPartyTransaction": "否",
+    "MaximumBalanceForThePeriod1": 11889775.0,
+    "EndingBalance1": 7577166.0,
+    "ActualAmountProvided": 6438166.0,
+    "RangeOfInterestRates": "1.90%~16.00%",
+    "NatureOfLoans": "2",
+    "AmountOfSalesToPurchasesFromCounterparty": 0.0,
+    "ReasonForShort-termLoans": "營業週轉",
+    "AllowanceForBadDebts": 45397.0,
+    "Item1": "土地/不動產/動產/履保金",
+    "Value": 9070773.0,
+    "LimitOfLoanAmountForIndividualCounterparty": 4602773.0,
+    "LimitOfTotalLoanAmount1": 23013867.0,
+    "Note": "註2"
+   }
+  ],
+  "EndorsementGuaranteeProvidedToOthers": [
+   {
+    "No.": "0",
+    "CompanyNameOfTheEndorserGuarantor": "本 公 司",
+    "NameOfTheCompany": "台創能源公司",
+    "Relationship1": "子 公 司",
+    "LimitOnEndorsementGuaranteeAmountProvidedToIndividualCounterparty": 57534667.0,
+    "MaximumBalanceForThePeriod": 3000000.0,
+    "EndingBalance2": 3000000.0,
+    "ActualAmountProvided": 1485332.0,
+    "AmountOfEndorsementsGuaranteesSecuredWithCollateral": 0.0,
+    "RatioOfAccumulatedEndorsementGuaranteeAmountToNetAssetOfTheCompanyPerLatestFinancialStatements": 13.04,
+    "LimitOfTotalGuaranteeEndorsementAmount": 115069335.0,
+    "EndorsementsGuaranteesProvidedToSubsidiaryByParentCompany": "Y",
+    "EndorsementsGuaranteesProvidedToParentCompanyBySubsidiaries": "N",
+    "EndorsementsGuaranteesProvidedToCompanyInMainlandChina": "N",
+    "Note": "-"
+   },
+   {
+    "No.": "0",
+    "CompanyNameOfTheEndorserGuarantor": "本 公 司",
+    "NameOfTheCompany": "萬盛能源公司",
+    "Relationship1": "子 公 司",
+    "LimitOnEndorsementGuaranteeAmountProvidedToIndividualCounterparty": 57534667.0,
+    "MaximumBalanceForThePeriod": 2550000.0,
+    "EndingBalance2": 2550000.0,
+    "ActualAmountProvided": 1072446.0,
+    "AmountOfEndorsementsGuaranteesSecuredWithCollateral": 0.0,
+    "RatioOfAccumulatedEndorsementGuaranteeAmountToNetAssetOfTheCompanyPerLatestFinancialStatements": 11.08,
+    "LimitOfTotalGuaranteeEndorsementAmount": 115069335.0,
+    "EndorsementsGuaranteesProvidedToSubsidiaryByParentCompany": "Y",
+    "EndorsementsGuaranteesProvidedToParentCompanyBySubsidiaries": "N",
+    "EndorsementsGuaranteesProvidedToCompanyInMainlandChina": "N",
+    "Note": "-"
+   },
+   {
+    "No.": "0",
+    "CompanyNameOfTheEndorserGuarantor": "本 公 司",
+    "NameOfTheCompany": "Shinshin Global Investment (Samoa) Co., Ltd.",
+    "Relationship1": "子 公 司",
+    "LimitOnEndorsementGuaranteeAmountProvidedToIndividualCounterparty": 57534667.0,
+    "MaximumBalanceForThePeriod": 959850.0,
+    "EndingBalance2": 955500.0,
+    "ActualAmountProvided": 0.0,
+    "AmountOfEndorsementsGuaranteesSecuredWithCollateral": 0.0,
+    "RatioOfAccumulatedEndorsementGuaranteeAmountToNetAssetOfTheCompanyPerLatestFinancialStatements": 4.15,
+    "LimitOfTotalGuaranteeEndorsementAmount": 115069335.0,
+    "EndorsementsGuaranteesProvidedToSubsidiaryByParentCompany": "Y",
+    "EndorsementsGuaranteesProvidedToParentCompanyBySubsidiaries": "N",
+    "EndorsementsGuaranteesProvidedToCompanyInMainlandChina": "N",
+    "Note": "-"
+   }
+  ],
+  "SignificantIntercompanyTransactionsBetweenConsolidatedEntities": [
+   {
+    "No": "0",
+    "CompanyName": "本 公 司",
+    "Counterparty": "裕電能源公司",
+    "RelationshipWithTheCompany": "1",
+    "FinancialStatementAccount": "應收票據",
+    "Amount": 375157.0,
+    "Terms": "一般交易條件",
+    "PercentageOfConsolidatedOperatingRevenuesOrTotalAssets": 0.0
+   },
+   {
+    "No": "0",
+    "CompanyName": "本 公 司",
+    "Counterparty": "裕電能源公司",
+    "RelationshipWithTheCompany": "1",
+    "FinancialStatementAccount": "預付款項",
+    "Amount": 246605.0,
+    "Terms": "一般交易條件",
+    "PercentageOfConsolidatedOperatingRevenuesOrTotalAssets": 0.0
+   },
+   {
+    "No": "1",
+    "CompanyName": "Yulon Capital Sdn. Bhd.",
+    "Counterparty": "Yulon Credit Sdn. Bhd.",
+    "RelationshipWithTheCompany": "3",
+    "FinancialStatementAccount": "其他應收款",
+    "Amount": 420552.0,
+    "Terms": "一般交易條件",
+    "PercentageOfConsolidatedOperatingRevenuesOrTotalAssets": 0.0
+   },
+   {
+    "No": "1",
+    "CompanyName": "Yulon Capital Sdn. Bhd.",
+    "Counterparty": "Yulon Credit Sdn. Bhd.",
+    "RelationshipWithTheCompany": "3",
+    "FinancialStatementAccount": "放款利息收入",
+    "Amount": 11606.0,
+    "Terms": "一般交易條件",
+    "PercentageOfConsolidatedOperatingRevenuesOrTotalAssets": 0.0
+   }
+  ],
+  "NamesLocationsAndRelatedInformationOfInvesteesOverWhichTheCompanyExercisesSignificantInfluence": [
+   {
+    "CompanyNameOfTheInvestor": "本 公 司",
+    "CompanyNameOfTheInvestee": "Shinshin Global Investment (Samoa) Co., Ltd.",
+    "LocationCode": "219",
+    "Location": "薩摩亞",
+    "MainBusinessesAndProducts": "控股公司",
+    "EndingBalance3": 551317.0,
+    "BeginningBalance": 551317.0,
+    "NumberOfShares1": 17200000.0,
+    "PercentageOfOwnership1": 100.0,
+    "BookValue1": 232954.0,
+    "NetIncomeLossesOfTheInvestee": 6699.0,
+    "InvestmentIncomeLossesRecognized1": 6699.0
+   },
+   {
+    "CompanyNameOfTheInvestor": "本 公 司",
+    "CompanyNameOfTheInvestee": "裕電能源公司",
+    "LocationCode": "0",
+    "Location": "台灣",
+    "MainBusinessesAndProducts": "能源技術服務業",
+    "EndingBalance3": 246407.0,
+    "BeginningBalance": 246407.0,
+    "NumberOfShares1": 45771390.0,
+    "PercentageOfOwnership1": 100.0,
+    "BookValue1": 548423.0,
+    "NetIncomeLossesOfTheInvestee": 20315.0,
+    "InvestmentIncomeLossesRecognized1": 20315.0
+   },
+   {
+    "CompanyNameOfTheInvestor": "本 公 司",
+    "CompanyNameOfTheInvestee": "新鑫電力公司",
+    "LocationCode": "0",
+    "Location": "台灣",
+    "MainBusinessesAndProducts": "能源技術服務業",
+    "EndingBalance3": 5500.0,
+    "BeginningBalance": 5500.0,
+    "NumberOfShares1": 550000.0,
+    "PercentageOfOwnership1": 100.0,
+    "BookValue1": 4579.0,
+    "NetIncomeLossesOfTheInvestee": -105.0,
+    "InvestmentIncomeLossesRecognized1": -105.0
+   },
+   {
+    "CompanyNameOfTheInvestor": "本 公 司",
+    "CompanyNameOfTheInvestee": "兆盛能源公司",
+    "LocationCode": "0",
+    "Location": "台灣",
+    "MainBusinessesAndProducts": "能源技術服務業",
+    "EndingBalance3": 160000.0,
+    "BeginningBalance": 160000.0,
+    "NumberOfShares1": 0.0,
+    "PercentageOfOwnership1": 100.0,
+    "BookValue1": 131375.0,
+    "NetIncomeLossesOfTheInvestee": -5300.0,
+    "InvestmentIncomeLossesRecognized1": -5303.0
+   },
+   {
+    "CompanyNameOfTheInvestor": "本 公 司",
+    "CompanyNameOfTheInvestee": "萬盛能源公司",
+    "LocationCode": "0",
+    "Location": "台灣",
+    "MainBusinessesAndProducts": "能源技術服務業",
+    "EndingBalance3": 1900600.0,
+    "BeginningBalance": 1000600.0,
+    "NumberOfShares1": 0.0,
+    "PercentageOfOwnership1": 100.0,
+    "BookValue1": 1773984.0,
+    "NetIncomeLossesOfTheInvestee": -50014.0,
+    "InvestmentIncomeLossesRecognized1": -50021.0
+   },
+   {
+    "CompanyNameOfTheInvestor": "本 公 司",
+    "CompanyNameOfTheInvestee": "台創能源公司",
+    "LocationCode": "0",
+    "Location": "台灣",
+    "MainBusinessesAndProducts": "能源技術服務業",
+    "EndingBalance3": 2353000.0,
+    "BeginningBalance": 1503000.0,
+    "NumberOfShares1": 235000000.0,
+    "PercentageOfOwnership1": 100.0,
+    "BookValue1": 2269973.0,
+    "NetIncomeLossesOfTheInvestee": -55289.0,
+    "InvestmentIncomeLossesRecognized1": -55945.0
+   },
+   {
+    "CompanyNameOfTheInvestor": "本 公 司",
+    "CompanyNameOfTheInvestee": "Yulon Capital Sdn. Bhd.",
+    "LocationCode": "124",
+    "Location": "馬來西亞",
+    "MainBusinessesAndProducts": "商用車及設備之租賃及分期付款業務",
+    "EndingBalance3": 381255.0,
+    "BeginningBalance": 381255.0,
+    "NumberOfShares1": 55497765.0,
+    "PercentageOfOwnership1": 60.92,
+    "BookValue1": 384771.0,
+    "NetIncomeLossesOfTheInvestee": 24469.0,
+    "InvestmentIncomeLossesRecognized1": 14907.0
+   },
+   {
+    "CompanyNameOfTheInvestor": "Shinshin Global Investment (Samoa) Co., Ltd.",
+    "CompanyNameOfTheInvestee": "Yulon Finance Philippines Corporation",
+    "LocationCode": "162",
+    "Location": "菲律賓",
+    "MainBusinessesAndProducts": "各式汽車、商用車融資與租賃及汽車經銷商採購車輛貸款業務",
+    "EndingBalance3": 159218.0,
+    "BeginningBalance": 159218.0,
+    "NumberOfShares1": 3000000.0,
+    "PercentageOfOwnership1": 28.57,
+    "BookValue1": 103287.0,
+    "NetIncomeLossesOfTheInvestee": 15142.0,
+    "InvestmentIncomeLossesRecognized1": 0.0
+   },
+   {
+    "CompanyNameOfTheInvestor": "Yulon Capital Sdn. Bhd.",
+    "CompanyNameOfTheInvestee": "Yulon Credit Sdn. Bhd.",
+    "LocationCode": "124",
+    "Location": "馬來西亞",
+    "MainBusinessesAndProducts": "企業融資貸款業務",
+    "EndingBalance3": 15356.0,
+    "BeginningBalance": 15356.0,
+    "NumberOfShares1": 2000000.0,
+    "PercentageOfOwnership1": 100.0,
+    "BookValue1": 23129.0,
+    "NetIncomeLossesOfTheInvestee": 13765.0,
+    "InvestmentIncomeLossesRecognized1": 0.0
+   }
+  ],
+  "InformationOfInvestmentInMainlandChina": [
+   {
+    "CompanyNameOfTheInvesteeInMainlandChina": "浙江裕融貿易有限公司",
+    "MainBusinessesAndProducts": "貿易分期業務",
+    "TotalAmountOfPaid-inCapital": 955500.0,
+    "MethodOfInvestment": "2",
+    "AccumulatedOutflowOfInvestmentFromTaiwanAtTheBeginningOfThePeriod": 382200.0,
+    "Outflow": 0.0,
+    "Inflow": 0.0,
+    "AccumulatedOutflowOfInvestmentFromTaiwanAtTheEndOfThePeriod": 382200.0,
+    "NetIncomeLossesOfTheInvestee": 0.0,
+    "PercentageOfOwnershipThroughDirectAndIndirectInvestmentByTheCompany": 0.0,
+    "InvestmentIncomeLossesRecognized2": 0.0,
+    "BookValueAtTheEndOfThePeriod": 0.0,
+    "AccumulatedInwardRemittanceOfEarningsAsOfTheEndOfThePeriod": 0.0,
+    "Note": "（註5）"
+   }
+  ],
+  "LimitOnInvestmentInMainlandChina": [
+   {
+    "NameOfTheCompany": "本公司",
+    "AccumulatedInvestmentInMainlandChinaAtTheEndOfThePeriod": 382200.0,
+    "InvestmentAmountAuthorizedByTheInvestmentCommissionOfMOEA": 382200.0,
+    "UpperLimitOnInvestmentInMainlandChinaImposedByTheInvestmentCommissionOfMOEA": 13956417.0
+   }
+  ]
+ },
+ "notes_text": {
+  "HistoryAndOrganization": "本公司成立於76年11月，本公司及子公司所營業務主要為各型\n汽車、貨卡車及生產設備相關產品之分期付款業務與租賃業務、發電\n廠業務及能源技術服務業務等。\n 本合併財務報告係以本公司之功能性貨幣新台幣表達。",
+  "SignificantEventsAfterTheEndOfThePeriod": "無此情事。",
+  "SignificantContingentLiabilitiesAndUnrecognisedContractualCommitments": "無此情事。",
+  "SourcesOfUncertaintyFromSignificantAccountingJudgmentsAssumptionsAndEstimations": "合併公司於採用會計政策時，對於不易自其他來源取得相關資訊\n者，管理階層必須基於歷史經驗及其他攸關之因素作出相關之判斷、\n估計及假設。實際結果可能與估計有所不同。\n 合併公司於發展重大會計估計值時，將市場利率波動可能之影\n響，納入對現金流量推估、成長率、折現率、獲利能力等相關重大估\n計之考量，管理階層將持續檢視估計與基本假設。\n 本合併財務報告所採用之重大會計判斷、估計及假設不確定性之\n主要來源與114年度合併財務報告相同。",
+  "PrinciplesOfConsolidation": "(四)合併基礎\n 本合併財務報告係包含本公司及由本公司所控制個體（子公司）\n 之財務報告。合併綜合損益表已納入被收購或被處分子公司於當期\n 自收購日起或至處分日止之營運損益。子公司之財務報告已予調\n 整，以使其會計政策與合併公司之會計政策一致。於編製合併財務\n 報告時，各個體間之交易、帳戶餘額、收益及費損已全數予以銷除。\n 子公司之綜合損益總額係歸屬至本公司業主及非控制權益，即使非\n 控制權益因而成為虧損餘額。\n 當合併公司對子公司所有權權益之變動未導致喪失控制者，係\n 作為權益交易處理。合併公司及非控制權益之帳面金額已予調整，\n 以反映其於子公司相對權益之變動。非控制權益之調整金額與所支\n 付或收取對價之公允價值間之差額，係直接認列為權益且歸屬於本\n 公司業主。\n 當合併公司喪失對子公司之控制時，處分損益係為下列兩者之\n 差額：(1)所收取對價之公允價值與對前子公司之剩餘投資按喪失控\n 制日之公允價值合計數，以及(2)前子公司之資產（含商譽）與負債\n 按喪失控制日之帳面金額合計數。合併公司對於其他綜合損益中所\n 認列與該子公司有關之所有金額，其會計處理係與合併公司直接處\n 分相關資產或負債所必須遵循之基礎相同。\n 子公司明細、持股比率及營業項目，參閱附註十二、附表五及\n 六。",
+  "OtherTransactionWithRelatedParties": "本公司及子公司（係本公司之關係人）間之交易、帳戶餘額、收\n 益及費損於合併時全數予以銷除，故未揭露於本附註。合併公司與其\n 他關係人間之交易如下。\n(三) 營業成本\n 115年1月1日 114年1月1日\n 帳列項目 關係人類別 至6月30日 至6月30日\n ------------- ----------- ----------- -----------\n 財務成本 兄弟公司 $ 4,993 $ 203\n =========== ===========\n 其他營業成本 其他關係人 $ 15,954 $ -\n =========== =========== \n(四) 其他營業費用\n 115年1月1日 114年1月1日\n 帳列項目 關係人類別 至6月30日 至6月30日\n ------------- ----------- ----------- -----------\n 其他營業費用 最終母公司 $ - $ 1\n 母 公 司 72,530 70,952\n 兄弟公司 2,270 2,887\n 其他關係人 9,859 24,395\n ----------- -----------\n $ 84,659 $ 98,235\n =========== ===========\n(五) 承租協議\n 115年1月1日 114年1月1日\n 關係人類別 至6月30日 至6月30日\n ----------- ----------- -----------\n 取得使用權資產 \n 兄弟公司 \n 格上汽車租賃公司 $ 1,828 $ 464\n =========== ===========\n 帳列項目 關係人類別 115年6月30日 114年12月31日 114年6月30日\n --------- ----------- ------------ ------------- ------------\n 租賃負債 兄弟公司 $ 9,202 $ 9,139 $ 10,343\n 其他關係人 1,744 2,536 133\n ------------ ------------ ------------\n $ 10,946 $ 11,675 $ 10,476\n ============ ============ ============\n 115年1月1日 114年1月1日\n 帳列項目 關係人類別 至6月30日 至6月30日\n --------- ----------- ----------- -----------\n 財務成本 兄弟公司 $ 88 $ 103\n 其他關係人 23 4\n ----------- -----------\n $ 111 $ 107\n =========== =========== \n 租賃費用 最終母公司 $ 201 $ 194\n 母公司 17 20\n 其他關係人 149 158\n ----------- -----------\n $ 367 $ 372\n =========== =========== \n 合併公司向關係人承租資產，租金係參考類似資產之租金水\n 準，並依租約按月給付。\n 租賃費用包括短期租賃及低價值資產租賃費用與非取決於指數\n 及費率之變動租金。",
+  "ApplicationOfNewlyIssuedOrAmendedStandardsAndInterpretations": "(一)初次適用金融監督管理委員會（以下稱「金管會」）認可並發布生\n 效之國際財務報導準則（IFRS）、國際會計準則（IAS）、解釋（IFRIC）\n 及解釋公告（SIC）（以下稱「IFRS會計準則」）\n 適用金管會認可並發布生效之IFRS會計準則將不致造成合併公\n 司會計政策之重大變動。\n(二)116年適用之金管會認可之IFRS會計準則\n 新發布／修正／修訂準則及解釋 IASB發布之生效日\n ----------------------------- ------------------\n IFRS 18「財務報表中之表達與揭露」 2027年1月1日（註1）\n IFRS 19「不具公共課責性之子公司：揭露」（含 2027年1月1日\n 2025年之修正） \n IAS 21之修正「換算為高度通貨膨脹之表達貨幣」 2027年1月1日\n IAS 28之修正「對投資關聯企業及合資之公允價 2027年1月1日（註2）\n 值選項之修正」 \n 註1：我國企業應自117年1月1日適用IFRS 18，亦得選擇提前適\n 用。\n 註2：應於適用IFRS 18時，同時適用該等修正內容。\n IFRS 18「財務報表中之表達與揭露」及相關配套修正\n ----------------------------------------------\n IFRS 18將取代IAS 1「財務報表之表達」，該準則主要變動包\n 括：\n ˙合併公司應評估是否具有投資於特定類型之資產及提供融資予客\n 戶之特定主要經營活動，據以將損益表之收益及費損項目分為營\n 業、投資、籌資、所得稅及停業單位種類。\n ˙損益表應列報營業損益、籌資前稅前損益以及損益之小計及總計。\n ˙提供指引以強化彙總及細分規定：合併公司須辨認個別交易或其\n 他事項所產生之資產、負債、權益、收益、費損及現金流量，並\n 以共同特性為基礎進行分類與彙總，俾使主要財務報表列報之各\n 單行項目至少具有一項類似特性。具有非類似特性之項目於主要\n 財務報表及附註中應予細分。合併公司僅於無法找出較具資訊性\n 之標示時，始將該等項目標示為「其他」。\n ˙增加管理階層定義之績效衡量之揭露：合併公司於進行財務報表\n 外之公開溝通，以及向財務報表使用者溝通對合併公司整體財務\n 績效某一層面之管理階層觀點時，應於財務報表單一附註揭露管\n 理階層定義之績效衡量相關資訊，包括該衡量之描述、如何計算、\n 其與IFRS會計準則明定之小計或總計之調節以及相關調節項目之\n 所得稅與非控制權益影響等。\n 此外，IAS 7「現金流量表」進行以下配套修正：\n ˙合併公司以間接法編製營業活動之現金流量時，應以營業損益作\n 為調節起始點。\n ˙合併公司收取之利息及股利應分類為投資活動，而支付之利息及\n 股利應分類為籌資活動。若合併公司經評估具有特定主要經營活\n 動，須考量損益表中列報股利收入、利息收入及利息費用之種類，\n 據以決定收取股利、收取利息及支付利息於現金流量表中之分\n 類，惟上述各項現金流量僅能各自分類於現金流量表之單一活動\n 中。\n 合併公司預計不提前適用IFRS 18及相關配套修正。\n 除上述影響外，截至本合併財務報告通過發布日止，合併公司\n 仍持續評估各號準則、解釋之修正對財務狀況與財務績效之其他影\n 響，相關影響待評估完成時予以揭露。\n(三)IASB已發布但尚未經金管會認可並發布生效之IFRS會計準則\n 新發布／修正／修訂準則及解釋 IASB發布之生效日（註）\n ---------------------------- ---------------------\n IFRS 10及IAS 28之修正「投資者與其關聯企業或 未 定\n 合資間之資產出售或投入」 \n IFRS 20「管制資產及管制負債」 2029年1月1日\n 註：除另註明外，上述新發布／修正／修訂準則或解釋係於各該日\n 期以後開始之年度報導期間生效。\n 截至本合併財務報告通過發布日止，合併公司仍持續評估各號\n 準則、解釋之修正對財務狀況與財務績效之影響，相關影響待評估\n 完成時予以揭露。",
+  "ScheduleOfTradeAndOtherReceivables": "(一) 分期應收款項\n 分期應收款項包括應收帳款收買、分期付款銷貨及汽車貸款推\n 廣業務所產生之應收票據及帳款。\n 合併公司係每月向客戶收取本金及利息，若客戶遲延繳款，對\n 於未付款之餘額將以天數予以計息。對於預期信用損失之評估，除\n 考量個別客戶實際發生信用減損提列減損損失外，合併公司係參考\n 國內經濟情勢、歷史經驗及前瞻性指標，按客戶逾期情況或自原始\n 認列後信用風險變化，分別衡量合併公司不同業務之12個月預期信\n 用損失或存續期間預期信用損失。\n 合併公司依歷史信用損失經驗係以應收帳款群組評估預期信用\n 損失率。為因應部分客戶群之損失型態不同，合併公司按其信用風\n 險並將應收帳款案件特性及逾期天數納入考量。\n 合併公司依據應收款項案件特性及逾期天數變化，區分信用風\n 險評估等級如下：\n 信用等級 定 義 預期信用損失認列基礎\n --------- ------------------------------------ ---------------------- \n 正 常 債務人之信用風險低，且有充分能力清 12個月預期信用損失\n 償合約現金流量\n 逾 期 逾期超過30天或自原始認列後信用風 存續期間預期信用損失\n 險已顯著增加 （未信用減損）\n 違 約 逾期超過90天以上或已有信用減損證 存續期間預期信用損失\n 據 （已信用減損）\n 沖 銷 有證據顯示債務人面臨嚴重財務困難且 直接沖銷\n 合併公司對回收無法合理預期"
+ },
+ "statements": {
+  "ifrs-full:CashAndCashEquivalents": {
+   "AsOf20260630": 2155010.0,
+   "AsOf20251231": 1840440.0,
+   "AsOf20250630": 1938790.0
+  },
+  "ifrs-full:CurrentFinancialAssetsAtFairValueThroughProfitOrLoss": {
+   "AsOf20260630": 2988.0,
+   "AsOf20251231": 0.0,
+   "AsOf20250630": 0.0
+  },
+  "ifrs-full:CurrentFinancialAssetsAtAmortisedCost": {
+   "AsOf20260630": 5485448.0,
+   "AsOf20251231": 3831056.0,
+   "AsOf20250630": 2826111.0
+  },
+  "tifrs-bsci-ci:AccountsReceivableNet": {
+   "AsOf20260630": 84573591.0,
+   "AsOf20251231": 81780408.0,
+   "AsOf20250630": 80543321.0
+  },
+  "tifrs-bsci-ci:AccountsReceivableDuefromRelatedPartiesNet": {
+   "AsOf20260630": 715.0,
+   "AsOf20251231": 889.0,
+   "AsOf20250630": 1249.0
+  },
+  "tifrs-bsci-ci:FinanceLeaseReceivableNet": {
+   "AsOf20260630": 1027028.0,
+   "AsOf20251231": 854131.0,
+   "AsOf20250630": 950189.0
+  },
+  "ifrs-full:OtherCurrentReceivables": {
+   "AsOf20260630": 12234178.0,
+   "AsOf20251231": 11248474.0,
+   "AsOf20250630": 10266485.0
+  },
+  "ifrs-full:CurrentPrepayments": {
+   "AsOf20260630": 2019551.0,
+   "AsOf20251231": 1564922.0,
+   "AsOf20250630": 1424702.0
+  },
+  "ifrs-full:OtherCurrentAssets": {
+   "AsOf20260630": 484992.0,
+   "AsOf20251231": 690835.0,
+   "AsOf20250630": 967169.0
+  },
+  "tifrs-bsci-ci:OtherCurrentAssetsOthers": {
+   "AsOf20260630": 780.0,
+   "AsOf20251231": 786.0,
+   "AsOf20250630": 832.0
+  },
+  "tifrs-bsci-ci:CurrentAssetsRecognisedAsIncrementalCostsToObtainContractWithCustomers": {
+   "AsOf20260630": 484212.0,
+   "AsOf20251231": 690049.0,
+   "AsOf20250630": 966337.0
+  },
+  "ifrs-full:CurrentAssets": {
+   "AsOf20260630": 107983501.0,
+   "AsOf20251231": 101811155.0,
+   "AsOf20250630": 98918016.0
+  },
+  "ifrs-full:NoncurrentFinancialAssetsAtFairValueThroughOtherComprehensiveIncome": {
+   "AsOf20260630": 4139.0,
+   "AsOf20251231": 4084.0,
+   "AsOf20250630": 3807.0
+  },
+  "ifrs-full:NoncurrentFinancialAssetsAtAmortisedCost": {
+   "AsOf20260630": 36778.0,
+   "AsOf20251231": 176012.0,
+   "AsOf20250630": 52390.0
+  },
+  "ifrs-full:InvestmentAccountedForUsingEquityMethod": {
+   "AsOf20260630": 103287.0,
+   "AsOf20251231": 101763.0,
+   "AsOf20250630": 0.0
+  },
+  "ifrs-full:PropertyPlantAndEquipment": {
+   "AsOf20260630": 10003088.0,
+   "AsOf20251231": 10274025.0,
+   "AsOf20250630": 9846425.0
+  },
+  "ifrs-full:RightofuseAssets": {
+   "AsOf20260630": 797898.0,
+   "AsOf20251231": 822861.0,
+   "AsOf20250630": 841745.0
+  },
+  "ifrs-full:IntangibleAssetsAndGoodwill": {
+   "AsOf20260630": 46961.0,
+   "AsOf20251231": 29233.0,
+   "AsOf20250630": 28609.0
+  },
+  "ifrs-full:DeferredTaxAssets": {
+   "AsOf20260630": 144438.0,
+   "AsOf20251231": 128372.0,
+   "AsOf20250630": 117540.0
+  },
+  "ifrs-full:OtherNoncurrentAssets": {
+   "AsOf20260630": 512970.0,
+   "AsOf20251231": 510935.0,
+   "AsOf20250630": 616969.0
+  },
+  "ifrs-full:NoncurrentFinanceLeaseReceivables": {
+   "AsOf20260630": 103248.0,
+   "AsOf20251231": 107493.0,
+   "AsOf20250630": 127060.0
+  },
+  "tifrs-bsci-ci:OtherNoncurrentAssetsOthers": {
+   "AsOf20260630": 409722.0,
+   "AsOf20251231": 403442.0,
+   "AsOf20250630": 489909.0
+  },
+  "ifrs-full:NoncurrentAssets": {
+   "AsOf20260630": 11649559.0,
+   "AsOf20251231": 12047285.0,
+   "AsOf20250630": 11507485.0
+  },
+  "ifrs-full:Assets": {
+   "AsOf20260630": 119633060.0,
+   "AsOf20251231": 113858440.0,
+   "AsOf20250630": 110425501.0
+  },
+  "ifrs-full:ShorttermBorrowings": {
+   "AsOf20260630": 10265503.0,
+   "AsOf20251231": 6721998.0,
+   "AsOf20250630": 9497421.0
+  },
+  "ifrs-full:CurrentCommercialPapersIssuedAndCurrentPortionOfNoncurrentCommercialPapersIssued": {
+   "AsOf20260630": 75526832.0,
+   "AsOf20251231": 69874921.0,
+   "AsOf20250630": 66259774.0
+  },
+  "ifrs-full:TradeAndOtherCurrentPayablesToTradeSuppliers": {
+   "AsOf20260630": 95223.0,
+   "AsOf20251231": 139949.0,
+   "AsOf20250630": 113061.0
+  },
+  "ifrs-full:TradeAndOtherCurrentPayablesToRelatedParties": {
+   "AsOf20260630": 0.0,
+   "AsOf20251231": 0.0,
+   "AsOf20250630": 34.0
+  },
+  "ifrs-full:OtherCurrentPayables": {
+   "AsOf20260630": 471092.0,
+   "AsOf20251231": 667834.0,
+   "AsOf20250630": 561730.0
+  },
+  "tifrs-bsci-ci:OtherPayablesToRelatedParties": {
+   "AsOf20260630": 68841.0,
+   "AsOf20251231": 424350.0,
+   "AsOf20250630": 53121.0
+  },
+  "ifrs-full:CurrentTaxLiabilities": {
+   "AsOf20260630": 253611.0,
+   "AsOf20251231": 244925.0,
+   "AsOf20250630": 251255.0
+  },
+  "ifrs-full:CurrentProvisions": {
+   "AsOf20260630": 43.0,
+   "AsOf20251231": 10.0,
+   "AsOf20250630": 9.0
+  },
+  "ifrs-full:CurrentLeaseLiabilities": {
+   "AsOf20260630": 199795.0,
+   "AsOf20251231": 202601.0,
+   "AsOf20250630": 198562.0
+  },
+  "ifrs-full:OtherCurrentLiabilities": {
+   "AsOf20260630": 5965617.0,
+   "AsOf20251231": 7630948.0,
+   "AsOf20250630": 6207987.0
+  },
+  "tifrs-bsci-ci:LongtermLiabilitiesCurrentPortion": {
+   "AsOf20260630": 2781103.0,
+   "AsOf20251231": 4666899.0,
+   "AsOf20250630": 3348328.0
+  },
+  "ifrs-full:CurrentBondsIssuedAndCurrentPortionOfNoncurrentBondsIssued": {
+   "AsOf20260630": 2695177.0,
+   "AsOf20251231": 4097004.0,
+   "AsOf20250630": 2898452.0
+  },
+  "ifrs-full:CurrentPortionOfLongtermBorrowings": {
+   "AsOf20260630": 85926.0,
+   "AsOf20251231": 569895.0,
+   "AsOf20250630": 449876.0
+  },
+  "tifrs-bsci-ci:OtherCurrentLiabilitiesOthers": {
+   "AsOf20260630": 3184514.0,
+   "AsOf20251231": 2964049.0,
+   "AsOf20250630": 2859659.0
+  },
+  "ifrs-full:CurrentLiabilities": {
+   "AsOf20260630": 92846557.0,
+   "AsOf20251231": 85907536.0,
+   "AsOf20250630": 83142954.0
+  },
+  "ifrs-full:LongtermBorrowings": {
+   "AsOf20260630": 2889768.0,
+   "AsOf20251231": 4974619.0,
+   "AsOf20250630": 5243755.0
+  },
+  "ifrs-full:NoncurrentLeaseLiabilities": {
+   "AsOf20260630": 629349.0,
+   "AsOf20251231": 646527.0,
+   "AsOf20250630": 665077.0
+  },
+  "ifrs-full:OtherNoncurrentLiabilities": {
+   "AsOf20260630": 6690.0,
+   "AsOf20251231": 6755.0,
+   "AsOf20250630": 6583.0
+  },
+  "ifrs-full:NoncurrentRecognisedLiabilitiesDefinedBenefitPlan": {
+   "AsOf20260630": 588.0,
+   "AsOf20251231": 440.0,
+   "AsOf20250630": 368.0
+  },
+  "tifrs-bsci-ci:OtherNoncurrentLiabilitiesOthers": {
+   "AsOf20260630": 6102.0,
+   "AsOf20251231": 6315.0,
+   "AsOf20250630": 6215.0
+  },
+  "ifrs-full:NoncurrentLiabilities": {
+   "AsOf20260630": 3525807.0,
+   "AsOf20251231": 5627901.0,
+   "AsOf20250630": 5915415.0
+  },
+  "ifrs-full:Liabilities": {
+   "AsOf20260630": 96372364.0,
+   "AsOf20251231": 91535437.0,
+   "AsOf20250630": 89058369.0
+  },
+  "tifrs-bsci-ci:OrdinaryShare": {
+   "AsOf20260630": 8012881.0,
+   "AsOf20251231": 8012881.0,
+   "AsOf20250630": 6178000.0
+  },
+  "tifrs-bsci-ci:StockDividendToBeDistributed": {
+   "AsOf20260630": 1828474.0,
+   "AsOf20251231": 0.0,
+   "AsOf20250630": 1834881.0
+  },
+  "ifrs-full:IssuedCapital": {
+   "AsOf20260630": 9841355.0,
+   "AsOf20251231": 8012881.0,
+   "AsOf20250630": 8012881.0
+  },
+  "ifrs-full:CapitalReserve": {
+   "AsOf20260630": 9039299.0,
+   "AsOf20251231": 9039299.0,
+   "AsOf20250630": 9056790.0
+  },
+  "ifrs-full:StatutoryReserve": {
+   "AsOf20260630": 1364535.0,
+   "AsOf20251231": 1167773.0,
+   "AsOf20250630": 1167773.0
+  },
+  "tifrs-bsci-ci:SpecialReserve": {
+   "AsOf20260630": 0.0,
+   "AsOf20251231": 12905.0,
+   "AsOf20250630": 12905.0
+  },
+  "tifrs-bsci-ci:UnappropriatedRetainedEarningsAaccumulatedDeficit": {
+   "AsOf20260630": 2763452.0,
+   "AsOf20251231": 3852147.0,
+   "AsOf20250630": 2895475.0
+  },
+  "ifrs-full:RetainedEarnings": {
+   "AsOf20260630": 4127987.0,
+   "AsOf20251231": 5032825.0,
+   "AsOf20250630": 4076153.0
+  },
+  "ifrs-full:OtherEquityInterest": {
+   "AsOf20260630": 5226.0,
+   "AsOf20251231": 2901.0,
+   "AsOf20250630": -45899.0
+  },
+  "ifrs-full:EquityAttributableToOwnersOfParent": {
+   "AsOf20260630": 23013867.0,
+   "AsOf20251231": 22087906.0,
+   "AsOf20250630": 21099925.0
+  },
+  "ifrs-full:NoncontrollingInterests": {
+   "AsOf20260630": 246829.0,
+   "AsOf20251231": 235097.0,
+   "AsOf20250630": 267207.0
+  },
+  "ifrs-full:Equity": {
+   "AsOf20260630": 23260696.0,
+   "AsOf20251231": 22323003.0,
+   "AsOf20250630": 21367132.0,
+   "AsOf20260101_OrdinaryShareMember": 8012881.0,
+   "AsOf20260101_StockDividendToBeDistributedMember": 0.0,
+   "AsOf20260101_IssuedCapitalMember": 8012881.0,
+   "AsOf20260101_CapitalReserveMember": 9039299.0,
+   "AsOf20260101_StatutoryReserveMember": 1167773.0,
+   "AsOf20260101_SpecialReserveMember": 12905.0,
+   "AsOf20260101_UnappropriatedRetainedEarningsAccumulatedDeficitMember": 3852147.0,
+   "AsOf20260101_RetainedEarningsMember": 5032825.0,
+   "AsOf20260101_ReserveOfExchangeDifferencesOnTranslationMember": 8757.0,
+   "AsOf20260101_ReserveOfGainsAndLossesOnFinancialAssetsMeasuredAtFairValueThroughOtherComprehensiveIncomeMember": -5856.0,
+   "AsOf20260101_OtherEquityInterestMember": 2901.0,
+   "AsOf20260101_EquityAttributableToOwnersOfParentMember": 22087906.0,
+   "AsOf20260101_NoncontrollingInterestsMember": 235097.0,
+   "AsOf20260101_TotalEquityMember": 22323003.0,
+   "AsOf20260630_OrdinaryShareMember": 8012881.0,
+   "AsOf20260630_StockDividendToBeDistributedMember": 1828474.0,
+   "AsOf20260630_IssuedCapitalMember": 9841355.0,
+   "AsOf20260630_CapitalReserveMember": 9039299.0,
+   "AsOf20260630_StatutoryReserveMember": 1364535.0,
+   "AsOf20260630_SpecialReserveMember": 0.0,
+   "AsOf20260630_UnappropriatedRetainedEarningsAccumulatedDeficitMember": 2763452.0,
+   "AsOf20260630_RetainedEarningsMember": 4127987.0,
+   "AsOf20260630_ReserveOfExchangeDifferencesOnTranslationMember": 11027.0,
+   "AsOf20260630_ReserveOfGainsAndLossesOnFinancialAssetsMeasuredAtFairValueThroughOtherComprehensiveIncomeMember": -5801.0,
+   "AsOf20260630_OtherEquityInterestMember": 5226.0,
+   "AsOf20260630_EquityAttributableToOwnersOfParentMember": 23013867.0,
+   "AsOf20260630_NoncontrollingInterestsMember": 246829.0,
+   "AsOf20260630_TotalEquityMember": 23260696.0,
+   "AsOf20250101_OrdinaryShareMember": 5578000.0,
+   "AsOf20250101_StockDividendToBeDistributedMember": 0.0,
+   "AsOf20250101_IssuedCapitalMember": 5578000.0,
+   "AsOf20250101_CapitalReserveMember": 6657071.0,
+   "AsOf20250101_StatutoryReserveMember": 969927.0,
+   "AsOf20250101_SpecialReserveMember": 67175.0,
+   "AsOf20250101_UnappropriatedRetainedEarningsAccumulatedDeficitMember": 3862987.0,
+   "AsOf20250101_RetainedEarningsMember": 4900089.0,
+   "AsOf20250101_ReserveOfExchangeDifferencesOnTranslationMember": -7225.0,
+   "AsOf20250101_ReserveOfGainsAndLossesOnFinancialAssetsMeasuredAtFairValueThroughOtherComprehensiveIncomeMember": -5680.0,
+   "AsOf20250101_OtherEquityInterestMember": -12905.0,
+   "AsOf20250101_EquityAttributableToOwnersOfParentMember": 17122255.0,
+   "AsOf20250101_NoncontrollingInterestsMember": 287432.0,
+   "AsOf20250101_TotalEquityMember": 17409687.0,
+   "AsOf20250630_OrdinaryShareMember": 6178000.0,
+   "AsOf20250630_StockDividendToBeDistributedMember": 1834881.0,
+   "AsOf20250630_IssuedCapitalMember": 8012881.0,
+   "AsOf20250630_CapitalReserveMember": 9056790.0,
+   "AsOf20250630_StatutoryReserveMember": 1167773.0,
+   "AsOf20250630_SpecialReserveMember": 12905.0,
+   "AsOf20250630_UnappropriatedRetainedEarningsAccumulatedDeficitMember": 2895475.0,
+   "AsOf20250630_RetainedEarningsMember": 4076153.0,
+   "AsOf20250630_ReserveOfExchangeDifferencesOnTranslationMember": -39766.0,
+   "AsOf20250630_ReserveOfGainsAndLossesOnFinancialAssetsMeasuredAtFairValueThroughOtherComprehensiveIncomeMember": -6133.0,
+   "AsOf20250630_OtherEquityInterestMember": -45899.0,
+   "AsOf20250630_EquityAttributableToOwnersOfParentMember": 21099925.0,
+   "AsOf20250630_NoncontrollingInterestsMember": 267207.0,
+   "AsOf20250630_TotalEquityMember": 21367132.0
+  },
+  "ifrs-full:EquityAndLiabilities": {
+   "AsOf20260630": 119633060.0,
+   "AsOf20251231": 113858440.0,
+   "AsOf20250630": 110425501.0
+  },
+  "tifrs-bsci-ci:EquivalentIssueSharesOfAdvanceReceiptsForOrdinaryShare": {
+   "AsOf20260630": 0.0,
+   "AsOf20251231": 0.0,
+   "AsOf20250630": 0.0
+  },
+  "tifrs-bsci-ci:NumberOfSharesInEntityHeldByEntityAndByItsSubsidiaries": {
+   "AsOf20260630": 0.0,
+   "AsOf20251231": 0.0,
+   "AsOf20250630": 0.0
+  },
+  "tifrs-bsci-ci:SalesRevenue": {
+   "From20260101To20260630": 233903.0,
+   "From20250101To20250630": 181968.0
+  },
+  "tifrs-bsci-ci:SalesRevenue-SalesRevenue": {
+   "From20260101To20260630": 233903.0,
+   "From20250101To20250630": 181968.0
+  },
+  "ifrs-full:RevenueFromSaleOfGoods": {
+   "From20260101To20260630": 233903.0,
+   "From20250101To20250630": 181968.0
+  },
+  "tifrs-bsci-ci:InterestRevenue": {
+   "From20260101To20260630": 3678797.0,
+   "From20250101To20250630": 3408947.0
+  },
+  "ifrs-full:InvestmentIncome": {
+   "From20260101To20260630": 3678797.0,
+   "From20250101To20250630": 3408947.0
+  },
+  "ifrs-full:RentalIncome": {
+   "From20260101To20260630": 4432.0,
+   "From20250101To20250630": 3400.0
+  },
+  "tifrs-bsci-ci:OtherOperatingRevenue-OtherOperatingRevenue": {
+   "From20260101To20260630": 299811.0,
+   "From20250101To20250630": 366827.0
+  },
+  "tifrs-bsci-ci:OtherOperatingRevenue": {
+   "From20260101To20260630": 299811.0,
+   "From20250101To20250630": 366827.0
+  },
+  "ifrs-full:Revenue": {
+   "From20260101To20260630": 4216943.0,
+   "From20250101To20250630": 3961142.0
+  },
+  "ifrs-full:CostOfSales": {
+   "From20260101To20260630": 114155.0,
+   "From20250101To20250630": 89777.0
+  },
+  "tifrs-bsci-ci:InvestmentCostsForInvestmentBusiness": {
+   "From20260101To20260630": 863587.0,
+   "From20250101To20250630": 827643.0
+  },
+  "tifrs-bsci-ci:OtherOperatingCosts": {
+   "From20260101To20260630": 313432.0,
+   "From20250101To20250630": 192219.0
+  },
+  "tifrs-bsci-ci:OperatingCosts": {
+   "From20260101To20260630": 1291174.0,
+   "From20250101To20250630": 1109639.0
+  },
+  "tifrs-bsci-ci:GrossProfitLossFromOperations": {
+   "From20260101To20260630": 2925769.0,
+   "From20250101To20250630": 2851503.0
+  },
+  "ifrs-full:GrossProfit": {
+   "From20260101To20260630": 2925769.0,
+   "From20250101To20250630": 2851503.0
+  },
+  "ifrs-full:OtherExpenseByFunction": {
+   "From20260101To20260630": 1401015.0,
+   "From20250101To20250630": 1401723.0
+  },
+  "ifrs-full:ImpairmentLossImpairmentGainAndReversalOfImpairmentLossDeterminedInAccordanceWithIFRS9": {
+   "From20260101To20260630": 265910.0,
+   "From20250101To20250630": 112804.0
+  },
+  "ifrs-full:OperatingExpense": {
+   "From20260101To20260630": 1666925.0,
+   "From20250101To20250630": 1514527.0
+  },
+  "ifrs-full:ProfitLossFromOperatingActivities": {
+   "From20260101To20260630": 1258844.0,
+   "From20250101To20250630": 1336976.0
+  },
+  "ifrs-full:OtherRevenue": {
+   "From20260101To20260630": 15785.0,
+   "From20250101To20250630": 10311.0
+  },
+  "ifrs-full:OtherGainsLosses": {
+   "From20260101To20260630": -10059.0,
+   "From20250101To20250630": -1224.0
+  },
+  "ifrs-full:FinanceCosts": {
+   "From20260101To20260630": 81547.0,
+   "From20250101To20250630": 70334.0
+  },
+  "ifrs-full:ShareOfProfitLossOfAssociatesAndJointVenturesAccountedForUsingEquityMethod": {
+   "From20260101To20260630": 4333.0,
+   "From20250101To20250630": 0.0
+  },
+  "tifrs-bsci-ci:NonoperatingIncomeAndExpenses": {
+   "From20260101To20260630": -71488.0,
+   "From20250101To20250630": -61247.0
+  },
+  "ifrs-full:ProfitLossBeforeTax": {
+   "From20260101To20260630": 1187356.0,
+   "From20250101To20250630": 1275729.0
+  },
+  "ifrs-full:IncomeTaxExpenseContinuingOperations": {
+   "From20260101To20260630": 254158.0,
+   "From20250101To20250630": 272967.0
+  },
+  "ifrs-full:ProfitLossFromContinuingOperations": {
+   "From20260101To20260630": 933198.0,
+   "From20250101To20250630": 1002762.0
+  },
+  "ifrs-full:ProfitLoss": {
+   "From20260101To20260630": 933198.0,
+   "From20250101To20250630": 1002762.0,
+   "From20260101To20260630_OrdinaryShareMember": 0.0,
+   "From20260101To20260630_StockDividendToBeDistributedMember": 0.0,
+   "From20260101To20260630_IssuedCapitalMember": 0.0,
+   "From20260101To20260630_CapitalReserveMember": 0.0,
+   "From20260101To20260630_StatutoryReserveMember": 0.0,
+   "From20260101To20260630_SpecialReserveMember": 0.0,
+   "From20260101To20260630_UnappropriatedRetainedEarningsAccumulatedDeficitMember": 923636.0,
+   "From20260101To20260630_RetainedEarningsMember": 923636.0,
+   "From20260101To20260630_ReserveOfExchangeDifferencesOnTranslationMember": 0.0,
+   "From20260101To20260630_ReserveOfGainsAndLossesOnFinancialAssetsMeasuredAtFairValueThroughOtherComprehensiveIncomeMember": 0.0,
+   "From20260101To20260630_OtherEquityInterestMember": 0.0,
+   "From20260101To20260630_EquityAttributableToOwnersOfParentMember": 923636.0,
+   "From20260101To20260630_NoncontrollingInterestsMember": 9562.0,
+   "From20260101To20260630_TotalEquityMember": 933198.0,
+   "From20250101To20250630_OrdinaryShareMember": 0.0,
+   "From20250101To20250630_StockDividendToBeDistributedMember": 0.0,
+   "From20250101To20250630_IssuedCapitalMember": 0.0,
+   "From20250101To20250630_CapitalReserveMember": 0.0,
+   "From20250101To20250630_StatutoryReserveMember": 0.0,
+   "From20250101To20250630_SpecialReserveMember": 0.0,
+   "From20250101To20250630_UnappropriatedRetainedEarningsAccumulatedDeficitMember": 1010945.0,
+   "From20250101To20250630_RetainedEarningsMember": 1010945.0,
+   "From20250101To20250630_ReserveOfExchangeDifferencesOnTranslationMember": 0.0,
+   "From20250101To20250630_ReserveOfGainsAndLossesOnFinancialAssetsMeasuredAtFairValueThroughOtherComprehensiveIncomeMember": 0.0,
+   "From20250101To20250630_OtherEquityInterestMember": 0.0,
+   "From20250101To20250630_EquityAttributableToOwnersOfParentMember": 1010945.0,
+   "From20250101To20250630_NoncontrollingInterestsMember": -8183.0,
+   "From20250101To20250630_TotalEquityMember": 1002762.0
+  },
+  "ifrs-full:OtherComprehensiveIncomeBeforeTaxGainsLossesFromInvestmentsInEquityInstruments": {
+   "From20260101To20260630": 55.0,
+   "From20250101To20250630": -453.0
+  },
+  "ifrs-full:OtherComprehensiveIncomeThatWillNotBeReclassifiedToProfitOrLossNetOfTax": {
+   "From20260101To20260630": 55.0,
+   "From20250101To20250630": -453.0
+  },
+  "ifrs-full:OtherComprehensiveIncomeBeforeTaxExchangeDifferencesOnTranslation": {
+   "From20260101To20260630": 8610.0,
+   "From20250101To20250630": -44864.0
+  },
+  "ifrs-full:ShareOfOtherComprehensiveIncomeOfAssociatesAndJointVenturesAccountedForUsingEquityMethodThatWillBeReclassifiedToProfitOrLossBeforeTax": {
+   "From20260101To20260630": -4170.0,
+   "From20250101To20250630": 0.0
+  },
+  "ifrs-full:OtherComprehensiveIncomeThatWillBeReclassifiedToProfitOrLossNetOfTax": {
+   "From20260101To20260630": 4440.0,
+   "From20250101To20250630": -44864.0
+  },
+  "ifrs-full:OtherComprehensiveIncome": {
+   "From20260101To20260630": 4495.0,
+   "From20250101To20250630": -45317.0,
+   "From20260101To20260630_OrdinaryShareMember": 0.0,
+   "From20260101To20260630_StockDividendToBeDistributedMember": 0.0,
+   "From20260101To20260630_IssuedCapitalMember": 0.0,
+   "From20260101To20260630_CapitalReserveMember": 0.0,
+   "From20260101To20260630_StatutoryReserveMember": 0.0,
+   "From20260101To20260630_SpecialReserveMember": 0.0,
+   "From20260101To20260630_UnappropriatedRetainedEarningsAccumulatedDeficitMember": 0.0,
+   "From20260101To20260630_RetainedEarningsMember": 0.0,
+   "From20260101To20260630_ReserveOfExchangeDifferencesOnTranslationMember": 2270.0,
+   "From20260101To20260630_ReserveOfGainsAndLossesOnFinancialAssetsMeasuredAtFairValueThroughOtherComprehensiveIncomeMember": 55.0,
+   "From20260101To20260630_OtherEquityInterestMember": 2325.0,
+   "From20260101To20260630_EquityAttributableToOwnersOfParentMember": 2325.0,
+   "From20260101To20260630_NoncontrollingInterestsMember": 2170.0,
+   "From20260101To20260630_TotalEquityMember": 4495.0,
+   "From20250101To20250630_OrdinaryShareMember": 0.0,
+   "From20250101To20250630_StockDividendToBeDistributedMember": 0.0,
+   "From20250101To20250630_IssuedCapitalMember": 0.0,
+   "From20250101To20250630_CapitalReserveMember": 0.0,
+   "From20250101To20250630_StatutoryReserveMember": 0.0,
+   "From20250101To20250630_SpecialReserveMember": 0.0,
+   "From20250101To20250630_UnappropriatedRetainedEarningsAccumulatedDeficitMember": 0.0,
+   "From20250101To20250630_RetainedEarningsMember": 0.0,
+   "From20250101To20250630_ReserveOfExchangeDifferencesOnTranslationMember": -32541.0,
+   "From20250101To20250630_ReserveOfGainsAndLossesOnFinancialAssetsMeasuredAtFairValueThroughOtherComprehensiveIncomeMember": -453.0,
+   "From20250101To20250630_OtherEquityInterestMember": -32994.0,
+   "From20250101To20250630_EquityAttributableToOwnersOfParentMember": -32994.0,
+   "From20250101To20250630_NoncontrollingInterestsMember": -12323.0,
+   "From20250101To20250630_TotalEquityMember": -45317.0
+  },
+  "ifrs-full:ComprehensiveIncome": {
+   "From20260101To20260630": 937693.0,
+   "From20250101To20250630": 957445.0,
+   "From20260101To20260630_OrdinaryShareMember": 0.0,
+   "From20260101To20260630_StockDividendToBeDistributedMember": 0.0,
+   "From20260101To20260630_IssuedCapitalMember": 0.0,
+   "From20260101To20260630_CapitalReserveMember": 0.0,
+   "From20260101To20260630_StatutoryReserveMember": 0.0,
+   "From20260101To20260630_SpecialReserveMember": 0.0,
+   "From20260101To20260630_UnappropriatedRetainedEarningsAccumulatedDeficitMember": 923636.0,
+   "From20260101To20260630_RetainedEarningsMember": 923636.0,
+   "From20260101To20260630_ReserveOfExchangeDifferencesOnTranslationMember": 2270.0,
+   "From20260101To20260630_ReserveOfGainsAndLossesOnFinancialAssetsMeasuredAtFairValueThroughOtherComprehensiveIncomeMember": 55.0,
+   "From20260101To20260630_OtherEquityInterestMember": 2325.0,
+   "From20260101To20260630_EquityAttributableToOwnersOfParentMember": 925961.0,
+   "From20260101To20260630_NoncontrollingInterestsMember": 11732.0,
+   "From20260101To20260630_TotalEquityMember": 937693.0,
+   "From20250101To20250630_OrdinaryShareMember": 0.0,
+   "From20250101To20250630_StockDividendToBeDistributedMember": 0.0,
+   "From20250101To20250630_IssuedCapitalMember": 0.0,
+   "From20250101To20250630_CapitalReserveMember": 0.0,
+   "From20250101To20250630_StatutoryReserveMember": 0.0,
+   "From20250101To20250630_SpecialReserveMember": 0.0,
+   "From20250101To20250630_UnappropriatedRetainedEarningsAccumulatedDeficitMember": 1010945.0,
+   "From20250101To20250630_RetainedEarningsMember": 1010945.0,
+   "From20250101To20250630_ReserveOfExchangeDifferencesOnTranslationMember": -32541.0,
+   "From20250101To20250630_ReserveOfGainsAndLossesOnFinancialAssetsMeasuredAtFairValueThroughOtherComprehensiveIncomeMember": -453.0,
+   "From20250101To20250630_OtherEquityInterestMember": -32994.0,
+   "From20250101To20250630_EquityAttributableToOwnersOfParentMember": 977951.0,
+   "From20250101To20250630_NoncontrollingInterestsMember": -20506.0,
+   "From20250101To20250630_TotalEquityMember": 957445.0
+  },
+  "ifrs-full:ProfitLossAttributableToOwnersOfParent": {
+   "From20260101To20260630": 923636.0,
+   "From20250101To20250630": 1010945.0
+  },
+  "ifrs-full:ProfitLossAttributableToNoncontrollingInterests": {
+   "From20260101To20260630": 9562.0,
+   "From20250101To20250630": -8183.0
+  },
+  "ifrs-full:ComprehensiveIncomeAttributableToOwnersOfParent": {
+   "From20260101To20260630": 925961.0,
+   "From20250101To20250630": 977951.0
+  },
+  "ifrs-full:ComprehensiveIncomeAttributableToNoncontrollingInterests": {
+   "From20260101To20260630": 11732.0,
+   "From20250101To20250630": -20506.0
+  },
+  "ifrs-full:BasicEarningsLossPerShareFromContinuingOperations": {
+   "From20260101To20260630": 0.94,
+   "From20250101To20250630": 1.1
+  },
+  "ifrs-full:BasicEarningsLossPerShare": {
+   "From20260101To20260630": 0.94,
+   "From20250101To20250630": 1.1
+  },
+  "ifrs-full:DilutedEarningsLossPerShareFromContinuingOperations": {
+   "From20260101To20260630": 0.94,
+   "From20250101To20250630": 1.1
+  },
+  "ifrs-full:DilutedEarningsLossPerShare": {
+   "From20260101To20260630": 0.94,
+   "From20250101To20250630": 1.1
+  },
+  "tifrs-SCF:ProfitLossBeforeTax": {
+   "From20260101To20260630": 1187356.0,
+   "From20250101To20250630": 1275729.0
+  },
+  "ifrs-full:AdjustmentsForDepreciationExpense": {
+   "From20260101To20260630": 397277.0,
+   "From20250101To20250630": 326423.0
+  },
+  "ifrs-full:AdjustmentsForAmortisationExpense": {
+   "From20260101To20260630": 210863.0,
+   "From20250101To20250630": 343510.0
+  },
+  "tifrs-SCF:ProvisionReversalOfProvisionForBadDebtExpense": {
+   "From20260101To20260630": 265910.0,
+   "From20250101To20250630": 112804.0
+  },
+  "tifrs-SCF:NetLossGainOnFinancialAssetsOrLiabilitiesAtFairValueThroughProfitOrLoss": {
+   "From20260101To20260630": -11349.0,
+   "From20250101To20250630": 0.0
+  },
+  "ifrs-full:AdjustmentsForInterestExpense": {
+   "From20260101To20260630": 945134.0,
+   "From20250101To20250630": 897977.0
+  },
+  "ifrs-full:AdjustmentsForInterestIncome": {
+   "From20260101To20260630": -3689549.0,
+   "From20250101To20250630": -3415514.0
+  },
+  "tifrs-SCF:ShareOfLossProfitOfAssociatesAndJointVenturesAccountedForUsingEquityMethod": {
+   "From20260101To20260630": -4333.0,
+   "From20250101To20250630": 0.0
+  },
+  "ifrs-full:AdjustmentsForGainLossOnDisposalsPropertyPlantAndEquipment": {
+   "From20260101To20260630": -271.0,
+   "From20250101To20250630": 179.0
+  },
+  "ifrs-full:AdjustmentsForUnrealisedForeignExchangeLossesGains": {
+   "From20260101To20260630": -2.0,
+   "From20250101To20250630": 204.0
+  },
+  "ifrs-full:OtherAdjustmentsToReconcileProfitLoss": {
+   "From20260101To20260630": 33.0,
+   "From20250101To20250630": 114.0
+  },
+  "tifrs-SCF:AdjustmentsToReconcileProfitLoss": {
+   "From20260101To20260630": -1886287.0,
+   "From20250101To20250630": -1734303.0
+  },
+  "tifrs-SCF:DecreaseIncreaseInFinancialAssetsAtFairValueThroughProfitOrLossMandatorilyMeasuredAtFairValue": {
+   "From20260101To20260630": 8312.0,
+   "From20250101To20250630": 0.0
+  },
+  "tifrs-SCF:DecreaseIncreaseInAccountsReceivable": {
+   "From20260101To20260630": -3084062.0,
+   "From20250101To20250630": -4134116.0
+  },
+  "tifrs-SCF:DecreaseIncreaseInAccountsReceivableDueFromRelatedParties": {
+   "From20260101To20260630": 174.0,
+   "From20250101To20250630": -36073.0
+  },
+  "tifrs-SCF:DecreaseIncreaseInOtherReceivables": {
+   "From20260101To20260630": -994187.0,
+   "From20250101To20250630": -2006618.0
+  },
+  "tifrs-SCF:DecreaseIncreaseInPrepayments": {
+   "From20260101To20260630": -450888.0,
+   "From20250101To20250630": -384995.0
+  },
+  "ifrs-full:AdjustmentsForDecreaseIncreaseInOtherCurrentAssets": {
+   "From20260101To20260630": -20.0,
+   "From20250101To20250630": 734.0
+  },
+  "tifrs-SCF:DecreaseIncreaseInOtherFinancialAssets": {
+   "From20260101To20260630": -170161.0,
+   "From20250101To20250630": -8959.0
+  },
+  "tifrs-SCF:DecreaseIncreaseInAssetsRecognisedAsIncrementalCostsToObtainContractWithCustomers": {
+   "From20260101To20260630": 0.0,
+   "From20250101To20250630": -35961.0
+  },
+  "tifrs-SCF:DecreaseIncreaseInOtherOperatingAssets": {
+   "From20260101To20260630": 7121.0,
+   "From20250101To20250630": 11.0
+  },
+  "tifrs-SCF:ChangesInOperatingAssets": {
+   "From20260101To20260630": -4683711.0,
+   "From20250101To20250630": -6605977.0
+  },
+  "tifrs-SCF:IncreaseDecreaseInAccountsPayable": {
+   "From20260101To20260630": -46021.0,
+   "From20250101To20250630": 12214.0
+  },
+  "tifrs-SCF:IncreaseDecreaseInOtherPayables": {
+   "From20260101To20260630": -209511.0,
+   "From20250101To20250630": -193123.0
+  },
+  "tifrs-SCF:IncreaseDecreaseInOtherPayableToRelatedParties": {
+   "From20260101To20260630": -355509.0,
+   "From20250101To20250630": -30690.0
+  },
+  "tifrs-SCF:IncreaseDecreaseInOtherFinancialLiabilities": {
+   "From20260101To20260630": 198120.0,
+   "From20250101To20250630": 441958.0
+  },
+  "ifrs-full:AdjustmentsForIncreaseDecreaseInOtherCurrentLiabilities": {
+   "From20260101To20260630": 22078.0,
+   "From20250101To20250630": 21053.0
+  },
+  "tifrs-SCF:IncreaseDecreaseInAccruedPensionLiabilities": {
+   "From20260101To20260630": 148.0,
+   "From20250101To20250630": -27.0
+  },
+  "tifrs-SCF:ChangesInOperatingLiabilities": {
+   "From20260101To20260630": -390695.0,
+   "From20250101To20250630": 251385.0
+  },
+  "tifrs-SCF:ChangesInOperatingAssetsAndLiabilities": {
+   "From20260101To20260630": -5074406.0,
+   "From20250101To20250630": -6354592.0
+  },
+  "tifrs-SCF:Adjustments": {
+   "From20260101To20260630": -6960693.0,
+   "From20250101To20250630": -8088895.0
+  },
+  "ifrs-full:CashFlowsFromUsedInOperations": {
+   "From20260101To20260630": -5773337.0,
+   "From20250101To20250630": -6813166.0
+  },
+  "ifrs-full:InterestReceivedClassifiedAsOperatingActivities": {
+   "From20260101To20260630": 3720284.0,
+   "From20250101To20250630": 3856528.0
+  },
+  "ifrs-full:InterestPaidClassifiedAsOperatingActivities": {
+   "From20260101To20260630": -867743.0,
+   "From20250101To20250630": -873480.0
+  },
+  "ifrs-full:IncomeTaxesPaidRefundClassifiedAsOperatingActivities": {
+   "From20260101To20260630": -246534.0,
+   "From20250101To20250630": -296277.0
+  },
+  "ifrs-full:CashFlowsFromUsedInOperatingActivities": {
+   "From20260101To20260630": -3167330.0,
+   "From20250101To20250630": -4126395.0
+  },
+  "tifrs-SCF:AcquisitionOfFinancialAssetsAtAmortisedCost": {
+   "From20260101To20260630": -2597092.0,
+   "From20250101To20250630": -1599345.0
+  },
+  "tifrs-SCF:ProceedsFromDisposalOfFinancialAssetsAtAmortisedCost": {
+   "From20260101To20260630": 1084484.0,
+   "From20250101To20250630": 336345.0
+  },
+  "ifrs-full:PurchaseOfPropertyPlantAndEquipmentClassifiedAsInvestingActivities": {
+   "From20260101To20260630": -4467.0,
+   "From20250101To20250630": -1435707.0
+  },
+  "ifrs-full:ProceedsFromSalesOfPropertyPlantAndEquipmentClassifiedAsInvestingActivities": {
+   "From20260101To20260630": 0.0,
+   "From20250101To20250630": 8628.0
+  },
+  "tifrs-SCF:IncreaseInRefundableDeposits": {
+   "From20260101To20260630": 0.0,
+   "From20250101To20250630": -51286.0
+  },
+  "tifrs-SCF:DecreaseInRefundableDeposits": {
+   "From20260101To20260630": 32649.0,
+   "From20250101To20250630": 0.0
+  },
+  "ifrs-full:PurchaseOfIntangibleAssetsClassifiedAsInvestingActivities": {
+   "From20260101To20260630": -10105.0,
+   "From20250101To20250630": -5117.0
+  },
+  "tifrs-SCF:IncreaseInPrepaymentsForBusinessFacilities": {
+   "From20260101To20260630": -116216.0,
+   "From20250101To20250630": -62123.0
+  },
+  "tifrs-SCF:NetCashFlowsFromUsedInInvestingActivities": {
+   "From20260101To20260630": -1610747.0,
+   "From20250101To20250630": -2808605.0
+  },
+  "tifrs-SCF:IncreaseInShortTermLoans": {
+   "From20260101To20260630": 42331285.0,
+   "From20250101To20250630": 41665766.0
+  },
+  "tifrs-SCF:DecreaseInShortTermLoans": {
+   "From20260101To20260630": -38783092.0,
+   "From20250101To20250630": -42561358.0
+  },
+  "tifrs-SCF:IncreaseInShortTermNotesAndBillsPayable": {
+   "From20260101To20260630": 217774037.0,
+   "From20250101To20250630": 199334281.0
+  },
+  "tifrs-SCF:DecreaseInShortTermNotesAndBillsPayable": {
+   "From20260101To20260630": -213054677.0,
+   "From20250101To20250630": -196902408.0
+  },
+  "tifrs-SCF:ProceedsFromIssuingBonds": {
+   "From20260101To20260630": 1497198.0,
+   "From20250101To20250630": 0.0
+  },
+  "tifrs-SCF:RepaymentsOfBonds": {
+   "From20260101To20260630": -2900000.0,
+   "From20250101To20250630": 0.0
+  },
+  "tifrs-SCF:ProceedsFromLongTermDebt": {
+   "From20260101To20260630": 1381.0,
+   "From20250101To20250630": 2952289.0
+  },
+  "tifrs-SCF:RepaymentsOfLongTermDebt": {
+   "From20260101To20260630": -1735871.0,
+   "From20250101To20250630": -96444.0
+  },
+  "ifrs-full:PaymentsOfLeaseLiabilitiesClassifiedAsFinancingActivities": {
+   "From20260101To20260630": -46339.0,
+   "From20250101To20250630": -44591.0
+  },
+  "ifrs-full:ProceedsFromIssuingShares": {
+   "From20260101To20260630": 0.0,
+   "From20250101To20250630": 3000000.0
+  },
+  "tifrs-SCF:CashFlowsFromUsedInFinancingActivities": {
+   "From20260101To20260630": 5083922.0,
+   "From20250101To20250630": 7347535.0
+  },
+  "ifrs-full:EffectOfExchangeRateChangesOnCashAndCashEquivalents": {
+   "From20260101To20260630": 8725.0,
+   "From20250101To20250630": -17615.0
+  },
+  "ifrs-full:IncreaseDecreaseInCashAndCashEquivalents": {
+   "From20260101To20260630": 314570.0,
+   "From20250101To20250630": 394920.0
+  },
+  "tifrs-SCF:CashAndCashEquivalentsAtBeginningOfPeriod": {
+   "AsOf20260630": 1840440.0,
+   "AsOf20250630": 1543870.0
+  },
+  "tifrs-SCF:CashAndCashEquivalentsAtEndOfPeriod": {
+   "AsOf20260630": 2155010.0,
+   "AsOf20250630": 1938790.0
+  },
+  "tifrs-es:LegalReserveAppropriated": {
+   "From20260101To20260630_OrdinaryShareMember": 0.0,
+   "From20260101To20260630_StockDividendToBeDistributedMember": 0.0,
+   "From20260101To20260630_IssuedCapitalMember": 0.0,
+   "From20260101To20260630_CapitalReserveMember": 0.0,
+   "From20260101To20260630_StatutoryReserveMember": 196762.0,
+   "From20260101To20260630_SpecialReserveMember": 0.0,
+   "From20260101To20260630_UnappropriatedRetainedEarningsAccumulatedDeficitMember": -196762.0,
+   "From20260101To20260630_RetainedEarningsMember": 0.0,
+   "From20260101To20260630_ReserveOfExchangeDifferencesOnTranslationMember": 0.0,
+   "From20260101To20260630_ReserveOfGainsAndLossesOnFinancialAssetsMeasuredAtFairValueThroughOtherComprehensiveIncomeMember": 0.0,
+   "From20260101To20260630_OtherEquityInterestMember": 0.0,
+   "From20260101To20260630_EquityAttributableToOwnersOfParentMember": 0.0,
+   "From20260101To20260630_NoncontrollingInterestsMember": 0.0,
+   "From20260101To20260630_TotalEquityMember": 0.0,
+   "From20250101To20250630_OrdinaryShareMember": 0.0,
+   "From20250101To20250630_StockDividendToBeDistributedMember": 0.0,
+   "From20250101To20250630_IssuedCapitalMember": 0.0,
+   "From20250101To20250630_CapitalReserveMember": 0.0,
+   "From20250101To20250630_StatutoryReserveMember": 197846.0,
+   "From20250101To20250630_SpecialReserveMember": 0.0,
+   "From20250101To20250630_UnappropriatedRetainedEarningsAccumulatedDeficitMember": -197846.0,
+   "From20250101To20250630_RetainedEarningsMember": 0.0,
+   "From20250101To20250630_ReserveOfExchangeDifferencesOnTranslationMember": 0.0,
+   "From20250101To20250630_ReserveOfGainsAndLossesOnFinancialAssetsMeasuredAtFairValueThroughOtherComprehensiveIncomeMember": 0.0,
+   "From20250101To20250630_OtherEquityInterestMember": 0.0,
+   "From20250101To20250630_EquityAttributableToOwnersOfParentMember": 0.0,
+   "From20250101To20250630_NoncontrollingInterestsMember": 0.0,
+   "From20250101To20250630_TotalEquityMember": 0.0
+  },
+  "tifrs-es:StockDividendsOfOrdinaryShare": {
+   "From20260101To20260630_OrdinaryShareMember": 0.0,
+   "From20260101To20260630_StockDividendToBeDistributedMember": 1828474.0,
+   "From20260101To20260630_IssuedCapitalMember": 1828474.0,
+   "From20260101To20260630_CapitalReserveMember": 0.0,
+   "From20260101To20260630_StatutoryReserveMember": 0.0,
+   "From20260101To20260630_SpecialReserveMember": 0.0,
+   "From20260101To20260630_UnappropriatedRetainedEarningsAccumulatedDeficitMember": -1828474.0,
+   "From20260101To20260630_RetainedEarningsMember": -1828474.0,
+   "From20260101To20260630_ReserveOfExchangeDifferencesOnTranslationMember": 0.0,
+   "From20260101To20260630_ReserveOfGainsAndLossesOnFinancialAssetsMeasuredAtFairValueThroughOtherComprehensiveIncomeMember": 0.0,
+   "From20260101To20260630_OtherEquityInterestMember": 0.0,
+   "From20260101To20260630_EquityAttributableToOwnersOfParentMember": 0.0,
+   "From20260101To20260630_NoncontrollingInterestsMember": 0.0,
+   "From20260101To20260630_TotalEquityMember": 0.0,
+   "From20250101To20250630_OrdinaryShareMember": 0.0,
+   "From20250101To20250630_StockDividendToBeDistributedMember": 1834881.0,
+   "From20250101To20250630_IssuedCapitalMember": 1834881.0,
+   "From20250101To20250630_CapitalReserveMember": 0.0,
+   "From20250101To20250630_StatutoryReserveMember": 0.0,
+   "From20250101To20250630_SpecialReserveMember": 0.0,
+   "From20250101To20250630_UnappropriatedRetainedEarningsAccumulatedDeficitMember": -1834881.0,
+   "From20250101To20250630_RetainedEarningsMember": -1834881.0,
+   "From20250101To20250630_ReserveOfExchangeDifferencesOnTranslationMember": 0.0,
+   "From20250101To20250630_ReserveOfGainsAndLossesOnFinancialAssetsMeasuredAtFairValueThroughOtherComprehensiveIncomeMember": 0.0,
+   "From20250101To20250630_OtherEquityInterestMember": 0.0,
+   "From20250101To20250630_EquityAttributableToOwnersOfParentMember": 0.0,
+   "From20250101To20250630_NoncontrollingInterestsMember": 0.0,
+   "From20250101To20250630_TotalEquityMember": 0.0
+  },
+  "tifrs-es:ReversalOfSpecialReserve": {
+   "From20260101To20260630_OrdinaryShareMember": 0.0,
+   "From20260101To20260630_StockDividendToBeDistributedMember": 0.0,
+   "From20260101To20260630_IssuedCapitalMember": 0.0,
+   "From20260101To20260630_CapitalReserveMember": 0.0,
+   "From20260101To20260630_StatutoryReserveMember": 0.0,
+   "From20260101To20260630_SpecialReserveMember": -12905.0,
+   "From20260101To20260630_UnappropriatedRetainedEarningsAccumulatedDeficitMember": 12905.0,
+   "From20260101To20260630_RetainedEarningsMember": 0.0,
+   "From20260101To20260630_ReserveOfExchangeDifferencesOnTranslationMember": 0.0,
+   "From20260101To20260630_ReserveOfGainsAndLossesOnFinancialAssetsMeasuredAtFairValueThroughOtherComprehensiveIncomeMember": 0.0,
+   "From20260101To20260630_OtherEquityInterestMember": 0.0,
+   "From20260101To20260630_EquityAttributableToOwnersOfParentMember": 0.0,
+   "From20260101To20260630_NoncontrollingInterestsMember": 0.0,
+   "From20260101To20260630_TotalEquityMember": 0.0,
+   "From20250101To20250630_OrdinaryShareMember": 0.0,
+   "From20250101To20250630_StockDividendToBeDistributedMember": 0.0,
+   "From20250101To20250630_IssuedCapitalMember": 0.0,
+   "From20250101To20250630_CapitalReserveMember": 0.0,
+   "From20250101To20250630_StatutoryReserveMember": 0.0,
+   "From20250101To20250630_SpecialReserveMember": -54270.0,
+   "From20250101To20250630_UnappropriatedRetainedEarningsAccumulatedDeficitMember": 54270.0,
+   "From20250101To20250630_RetainedEarningsMember": 0.0,
+   "From20250101To20250630_ReserveOfExchangeDifferencesOnTranslationMember": 0.0,
+   "From20250101To20250630_ReserveOfGainsAndLossesOnFinancialAssetsMeasuredAtFairValueThroughOtherComprehensiveIncomeMember": 0.0,
+   "From20250101To20250630_OtherEquityInterestMember": 0.0,
+   "From20250101To20250630_EquityAttributableToOwnersOfParentMember": 0.0,
+   "From20250101To20250630_NoncontrollingInterestsMember": 0.0,
+   "From20250101To20250630_TotalEquityMember": 0.0
+  },
+  "ifrs-full:ChangesInEquity": {
+   "From20260101To20260630_OrdinaryShareMember": 0.0,
+   "From20260101To20260630_StockDividendToBeDistributedMember": 1828474.0,
+   "From20260101To20260630_IssuedCapitalMember": 1828474.0,
+   "From20260101To20260630_CapitalReserveMember": 0.0,
+   "From20260101To20260630_StatutoryReserveMember": 196762.0,
+   "From20260101To20260630_SpecialReserveMember": -12905.0,
+   "From20260101To20260630_UnappropriatedRetainedEarningsAccumulatedDeficitMember": -1088695.0,
+   "From20260101To20260630_RetainedEarningsMember": -904838.0,
+   "From20260101To20260630_ReserveOfExchangeDifferencesOnTranslationMember": 2270.0,
+   "From20260101To20260630_ReserveOfGainsAndLossesOnFinancialAssetsMeasuredAtFairValueThroughOtherComprehensiveIncomeMember": 55.0,
+   "From20260101To20260630_OtherEquityInterestMember": 2325.0,
+   "From20260101To20260630_EquityAttributableToOwnersOfParentMember": 925961.0,
+   "From20260101To20260630_NoncontrollingInterestsMember": 11732.0,
+   "From20260101To20260630_TotalEquityMember": 937693.0,
+   "From20250101To20250630_OrdinaryShareMember": 600000.0,
+   "From20250101To20250630_StockDividendToBeDistributedMember": 1834881.0,
+   "From20250101To20250630_IssuedCapitalMember": 2434881.0,
+   "From20250101To20250630_CapitalReserveMember": 2399719.0,
+   "From20250101To20250630_StatutoryReserveMember": 197846.0,
+   "From20250101To20250630_SpecialReserveMember": -54270.0,
+   "From20250101To20250630_UnappropriatedRetainedEarningsAccumulatedDeficitMember": -967512.0,
+   "From20250101To20250630_RetainedEarningsMember": -823936.0,
+   "From20250101To20250630_ReserveOfExchangeDifferencesOnTranslationMember": -32541.0,
+   "From20250101To20250630_ReserveOfGainsAndLossesOnFinancialAssetsMeasuredAtFairValueThroughOtherComprehensiveIncomeMember": -453.0,
+   "From20250101To20250630_OtherEquityInterestMember": -32994.0,
+   "From20250101To20250630_EquityAttributableToOwnersOfParentMember": 3977670.0,
+   "From20250101To20250630_NoncontrollingInterestsMember": -20225.0,
+   "From20250101To20250630_TotalEquityMember": 3957445.0
+  },
+  "tifrs-es:IssueOfShares": {
+   "From20250101To20250630_OrdinaryShareMember": 600000.0,
+   "From20250101To20250630_StockDividendToBeDistributedMember": 0.0,
+   "From20250101To20250630_IssuedCapitalMember": 600000.0,
+   "From20250101To20250630_CapitalReserveMember": 2400000.0,
+   "From20250101To20250630_StatutoryReserveMember": 0.0,
+   "From20250101To20250630_SpecialReserveMember": 0.0,
+   "From20250101To20250630_UnappropriatedRetainedEarningsAccumulatedDeficitMember": 0.0,
+   "From20250101To20250630_RetainedEarningsMember": 0.0,
+   "From20250101To20250630_ReserveOfExchangeDifferencesOnTranslationMember": 0.0,
+   "From20250101To20250630_ReserveOfGainsAndLossesOnFinancialAssetsMeasuredAtFairValueThroughOtherComprehensiveIncomeMember": 0.0,
+   "From20250101To20250630_OtherEquityInterestMember": 0.0,
+   "From20250101To20250630_EquityAttributableToOwnersOfParentMember": 3000000.0,
+   "From20250101To20250630_NoncontrollingInterestsMember": 0.0,
+   "From20250101To20250630_TotalEquityMember": 3000000.0
+  },
+  "tifrs-es:ChangesInOwnershipInterestsInSubsidiaries": {
+   "From20250101To20250630_OrdinaryShareMember": 0.0,
+   "From20250101To20250630_StockDividendToBeDistributedMember": 0.0,
+   "From20250101To20250630_IssuedCapitalMember": 0.0,
+   "From20250101To20250630_CapitalReserveMember": -281.0,
+   "From20250101To20250630_StatutoryReserveMember": 0.0,
+   "From20250101To20250630_SpecialReserveMember": 0.0,
+   "From20250101To20250630_UnappropriatedRetainedEarningsAccumulatedDeficitMember": 0.0,
+   "From20250101To20250630_RetainedEarningsMember": 0.0,
+   "From20250101To20250630_ReserveOfExchangeDifferencesOnTranslationMember": 0.0,
+   "From20250101To20250630_ReserveOfGainsAndLossesOnFinancialAssetsMeasuredAtFairValueThroughOtherComprehensiveIncomeMember": 0.0,
+   "From20250101To20250630_OtherEquityInterestMember": 0.0,
+   "From20250101To20250630_EquityAttributableToOwnersOfParentMember": -281.0,
+   "From20250101To20250630_NoncontrollingInterestsMember": 281.0,
+   "From20250101To20250630_TotalEquityMember": 0.0
+  }
+ },
+ "red_flags": [
+  {
+   "type": "資金貸與未計息",
+   "detail": "本 公 司→O30 動支 199,998 千元",
+   "hint": "未計息或利率欄空白，確認決策程序與資貸背書準則規範"
+  },
+  {
+   "type": "資金貸與未計息",
+   "detail": "本 公 司→O23 動支 300,000 千元",
+   "hint": "未計息或利率欄空白，確認決策程序與資貸背書準則規範"
+  },
+  {
+   "type": "資金貸與未計息",
+   "detail": "本 公 司→O41 動支 160,703 千元",
+   "hint": "未計息或利率欄空白，確認決策程序與資貸背書準則規範"
+  },
+  {
+   "type": "資金貸與未計息",
+   "detail": "本 公 司→M48 動支 154,288 千元",
+   "hint": "未計息或利率欄空白，確認決策程序與資貸背書準則規範"
+  },
+  {
+   "type": "資金貸與未計息",
+   "detail": "本 公 司→M68 動支 142,000 千元",
+   "hint": "未計息或利率欄空白，確認決策程序與資貸背書準則規範"
+  },
+  {
+   "type": "資金貸與未計息",
+   "detail": "本 公 司→N44 動支 109,720 千元",
+   "hint": "未計息或利率欄空白，確認決策程序與資貸背書準則規範"
+  },
+  {
+   "type": "資金貸與未計息",
+   "detail": "本 公 司→O81 動支 448,614 千元",
+   "hint": "未計息或利率欄空白，確認決策程序與資貸背書準則規範"
+  },
+  {
+   "type": "資金貸與未計息",
+   "detail": "本 公 司→O80 動支 122,318 千元",
+   "hint": "未計息或利率欄空白，確認決策程序與資貸背書準則規範"
+  },
+  {
+   "type": "資金貸與未計息",
+   "detail": "本 公 司→O19 動支 157,998 千元",
+   "hint": "未計息或利率欄空白，確認決策程序與資貸背書準則規範"
+  },
+  {
+   "type": "資金貸與未計息",
+   "detail": "本 公 司→P35 動支 112,200 千元",
+   "hint": "未計息或利率欄空白，確認決策程序與資貸背書準則規範"
+  },
+  {
+   "type": "資金貸與未計息",
+   "detail": "本 公 司→K1 動支 127,636 千元",
+   "hint": "未計息或利率欄空白，確認決策程序與資貸背書準則規範"
+  },
+  {
+   "type": "資金貸與未計息",
+   "detail": "本 公 司→Q51 動支 69,121 千元",
+   "hint": "未計息或利率欄空白，確認決策程序與資貸背書準則規範"
+  },
+  {
+   "type": "資金貸與未計息",
+   "detail": "本 公 司→Q81 動支 298,998 千元",
+   "hint": "未計息或利率欄空白，確認決策程序與資貸背書準則規範"
+  },
+  {
+   "type": "資金貸與未計息",
+   "detail": "本 公 司→R27 動支 168,216 千元",
+   "hint": "未計息或利率欄空白，確認決策程序與資貸背書準則規範"
+  },
+  {
+   "type": "資金貸與未計息",
+   "detail": "本 公 司→P29 動支 322,197 千元",
+   "hint": "未計息或利率欄空白，確認決策程序與資貸背書準則規範"
+  },
+  {
+   "type": "資金貸與未計息",
+   "detail": "本 公 司→R57 動支 119,999 千元",
+   "hint": "未計息或利率欄空白，確認決策程序與資貸背書準則規範"
+  },
+  {
+   "type": "資金貸與未計息",
+   "detail": "本 公 司→R74 動支 100,905 千元",
+   "hint": "未計息或利率欄空白，確認決策程序與資貸背書準則規範"
+  },
+  {
+   "type": "資金貸與未計息",
+   "detail": "本 公 司→P67 動支 139,000 千元",
+   "hint": "未計息或利率欄空白，確認決策程序與資貸背書準則規範"
+  },
+  {
+   "type": "資金貸與未計息",
+   "detail": "本 公 司→R96 動支 110,000 千元",
+   "hint": "未計息或利率欄空白，確認決策程序與資貸背書準則規範"
+  },
+  {
+   "type": "資金貸與未計息",
+   "detail": "本 公 司→T88 動支 215,063 千元",
+   "hint": "未計息或利率欄空白，確認決策程序與資貸背書準則規範"
+  },
+  {
+   "type": "資金貸與未計息",
+   "detail": "本 公 司→R28 動支 59,162 千元",
+   "hint": "未計息或利率欄空白，確認決策程序與資貸背書準則規範"
+  },
+  {
+   "type": "資金貸與未計息",
+   "detail": "本 公 司→R88 動支 44,072 千元",
+   "hint": "未計息或利率欄空白，確認決策程序與資貸背書準則規範"
+  },
+  {
+   "type": "資金貸與未計息",
+   "detail": "本 公 司→Q5 動支 76,157 千元",
+   "hint": "未計息或利率欄空白，確認決策程序與資貸背書準則規範"
+  },
+  {
+   "type": "資金貸與未計息",
+   "detail": "本 公 司→O46 動支 69,593 千元",
+   "hint": "未計息或利率欄空白，確認決策程序與資貸背書準則規範"
+  },
+  {
+   "type": "資金貸與未計息",
+   "detail": "本 公 司→Q31 動支 60,676 千元",
+   "hint": "未計息或利率欄空白，確認決策程序與資貸背書準則規範"
+  },
+  {
+   "type": "資金貸與未計息",
+   "detail": "本 公 司→T5 動支 36,152 千元",
+   "hint": "未計息或利率欄空白，確認決策程序與資貸背書準則規範"
+  },
+  {
+   "type": "資金貸與未計息",
+   "detail": "本 公 司→P13 動支 21,744 千元",
+   "hint": "未計息或利率欄空白，確認決策程序與資貸背書準則規範"
+  },
+  {
+   "type": "資金貸與未計息",
+   "detail": "本 公 司→誠隆汽車公司 動支 20,000 千元",
+   "hint": "未計息或利率欄空白，確認決策程序與資貸背書準則規範"
+  },
+  {
+   "type": "資金貸與未計息",
+   "detail": "本 公 司→U63 動支 150,000 千元",
+   "hint": "未計息或利率欄空白，確認決策程序與資貸背書準則規範"
+  },
+  {
+   "type": "資金貸與未計息",
+   "detail": "本 公 司→P21 動支 90,795 千元",
+   "hint": "未計息或利率欄空白，確認決策程序與資貸背書準則規範"
+  },
+  {
+   "type": "資金貸與未計息",
+   "detail": "本 公 司→T91 動支 53,827 千元",
+   "hint": "未計息或利率欄空白，確認決策程序與資貸背書準則規範"
+  },
+  {
+   "type": "資金貸與未計息",
+   "detail": "本 公 司→O75 動支 52,101 千元",
+   "hint": "未計息或利率欄空白，確認決策程序與資貸背書準則規範"
+  },
+  {
+   "type": "資金貸與未計息",
+   "detail": "本 公 司→N24 動支 70,226 千元",
+   "hint": "未計息或利率欄空白，確認決策程序與資貸背書準則規範"
+  },
+  {
+   "type": "資金貸與未計息",
+   "detail": "本 公 司→L41 動支 90,053 千元",
+   "hint": "未計息或利率欄空白，確認決策程序與資貸背書準則規範"
+  },
+  {
+   "type": "資金貸與未計息",
+   "detail": "本 公 司→U124 動支 70,000 千元",
+   "hint": "未計息或利率欄空白，確認決策程序與資貸背書準則規範"
+  },
+  {
+   "type": "資金貸與未計息",
+   "detail": "本 公 司→其他客戶匯總 動支 37,661 千元",
+   "hint": "未計息或利率欄空白，確認決策程序與資貸背書準則規範"
+  },
+  {
+   "type": "資金貸與未計息",
+   "detail": "本 公 司→其他客戶匯總 動支 406,289 千元",
+   "hint": "未計息或利率欄空白，確認決策程序與資貸背書準則規範"
+  },
+  {
+   "type": "資金貸與未計息",
+   "detail": "本 公 司→其他客戶匯總 動支 865,927 千元",
+   "hint": "未計息或利率欄空白，確認決策程序與資貸背書準則規範"
+  },
+  {
+   "type": "資金貸與未計息",
+   "detail": "本 公 司→其他客戶匯總 動支 6,438,166 千元",
+   "hint": "未計息或利率欄空白，確認決策程序與資貸背書準則規範"
+  },
+  {
+   "type": "被投資公司虧損",
+   "detail": "新鑫電力公司 本期損益 -105 千元"
+  },
+  {
+   "type": "被投資公司虧損",
+   "detail": "兆盛能源公司 本期損益 -5,300 千元"
+  },
+  {
+   "type": "被投資公司虧損",
+   "detail": "萬盛能源公司 本期損益 -50,014 千元"
+  },
+  {
+   "type": "被投資公司虧損",
+   "detail": "台創能源公司 本期損益 -55,289 千元"
+  }
+ ]
+}

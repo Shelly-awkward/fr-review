@@ -1,6 +1,6 @@
 {
  "meta": {
-  "source": "MOPS 4586 2023Q4",
+  "source": "MOPS 4586_2023Q4（離線重解析）",
   "CompanyID": "4586",
   "CompanyChineseName": "能海電能科技股份有限公司",
   "CompanyEnglishName": "Energy Moana Technology Co., LTD",
@@ -20,7 +20,10 @@
   ],
   "report_date": "2024-06-12",
   "report_kind": "查核報告",
-  "opinion": null,
+  "opinion": {
+   "concept": "UnqualifiedOpinionWithMaterialUncertaintyAboutTheCompanysAbilityToContinueAsAGoingConcern",
+   "label": "無保留意見／結論（含繼續經營重大不確定性段）"
+  },
   "flags": [
    "AccountantName",
    "AccountantsReportBody",

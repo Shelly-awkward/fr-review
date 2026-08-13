@@ -1,6 +1,6 @@
 {
  "meta": {
-  "source": "MOPS 4118 2025Q2",
+  "source": "MOPS 4118_2025Q2（離線重解析）",
   "CompanyID": "4118",
   "CompanyChineseName": "友合生化科技股份有限公司",
   "CompanyEnglishName": "HEDONIST BIOCHEMICAL TECHNOLOGIES CO., LTD",
@@ -20,7 +20,10 @@
   ],
   "report_date": "2025-08-04",
   "report_kind": "核閱報告",
-  "opinion": null,
+  "opinion": {
+   "concept": "UnqualifiedOpinionWithMaterialUncertaintyAboutTheCompanysAbilityToContinueAsAGoingConcern",
+   "label": "無保留意見／結論（含繼續經營重大不確定性段）"
+  },
   "flags": [
    "AccountantName",
    "AccountantsReportBody",

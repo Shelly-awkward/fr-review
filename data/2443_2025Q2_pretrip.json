@@ -1,6 +1,6 @@
 {
  "meta": {
-  "source": "MOPS 2443 2025Q2",
+  "source": "MOPS 2443_2025Q2（離線重解析）",
   "CompanyID": "2443",
   "CompanyChineseName": "昶虹國際股份有限公司",
   "CompanyEnglishName": "LEAD DATA INC.",
@@ -20,7 +20,10 @@
   ],
   "report_date": "2025-09-05",
   "report_kind": "核閱報告",
-  "opinion": null,
+  "opinion": {
+   "concept": "UnqualifiedOpinionWithMaterialUncertaintyAboutTheCompanysAbilityToContinueAsAGoingConcern",
+   "label": "無保留意見／結論（含繼續經營重大不確定性段）"
+  },
   "flags": [
    "AccountantName",
    "AccountantsReportBody",

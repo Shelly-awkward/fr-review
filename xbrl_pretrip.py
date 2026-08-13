@@ -153,6 +153,8 @@ def parse_facts(doc: str):
 
 # 意見型態：概念出現＝型態成立（named per-type in tifrs-ar）。順序＝比對優先序（長名先比）。
 _OPINION_MAP = [
+    ("UnqualifiedOpinionWithMaterialUncertaintyAboutTheCompanysAbilityToContinueAsAGoingConcern",
+     "無保留意見／結論（含繼續經營重大不確定性段）"),
     ("UnqualifiedOpinionWithEmphasisOfMatterParagraphsOrOtherMatterParagraphs",
      "修正式無保留（含強調事項或其他事項段）"),
     ("QualifiedOpinionAbstract", "保留意見／結論"),
