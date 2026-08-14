@@ -20,7 +20,10 @@
   ],
   "report_date": "2026-01-14",
   "report_kind": "查核報告",
-  "opinion": null,
+  "opinion": {
+   "concept": "DisclaimOpinionAbstract",
+   "label": "無法表示意見"
+  },
   "flags": [
    "AccountantName",
    "AccountantsReportBody",
@@ -1951,6 +1954,11 @@
   }
  },
  "red_flags": [
+  {
+   "type": "意見非無保留",
+   "detail": "無法表示意見",
+   "hint": "讀 audit.report_body_zh 的『基礎』段確認原因"
+  },
   {
    "type": "部分個體未經查核（核閱）",
    "detail": "EndingBalanceOfInvestmentsAccountedForUsingEquityMethodWhoseFinancialStatementsWereUnauditedOrUnreviewed=492,611",

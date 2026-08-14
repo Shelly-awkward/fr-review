@@ -151,16 +151,21 @@ def parse_facts(doc: str):
 
 # ---------------------------------------------------------------- 分節組裝
 
-# 意見型態：概念出現＝型態成立（named per-type in tifrs-ar）。順序＝比對優先序（長名先比）。
+# 意見型態：概念出現＝型態成立（named per-type in tifrs-ar）。
+# 順序＝比對優先序，嚴重者先比——一份報告可同時掛多個概念（如保留＋強調事項），取最嚴重者。
+# key 係子字串比對，故 DisclaimOpinion 一併涵蓋實際申報用的 DisclaimOpinionAbstract。
+# 註1：QualifiedOpinionAbstract 不會誤中 UnqualifiedOpinionAbstract——後者的 q 為小寫，大小寫有別。
+# 註2：DifferentReportOpinion＝採用其他會計師報告之註記，非意見型態，故不列入。
 _OPINION_MAP = [
+    ("DisclaimOpinion", "無法表示意見"),
+    ("DisclaimerOfOpinion", "無法表示意見"),
+    ("AdverseOpinion", "否定意見"),
+    ("QualifiedOpinionAbstract", "保留意見／結論"),
     ("UnqualifiedOpinionWithMaterialUncertaintyAboutTheCompanysAbilityToContinueAsAGoingConcern",
      "無保留意見／結論（含繼續經營重大不確定性段）"),
     ("UnqualifiedOpinionWithEmphasisOfMatterParagraphsOrOtherMatterParagraphs",
      "修正式無保留（含強調事項或其他事項段）"),
-    ("QualifiedOpinionAbstract", "保留意見／結論"),
     ("UnqualifiedOpinionAbstract", "無保留意見／結論"),
-    ("AdverseOpinion", "否定意見"),
-    ("DisclaimerOfOpinion", "無法表示意見"),
 ]
 
 # 勤前分析關注的附註文字塊（非 tuple 的 tifrs-notes 敘述）
