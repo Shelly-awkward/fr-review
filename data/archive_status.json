@@ -163,9 +163,15 @@
   "3202_2026Q2": "該期別無申報資料",
   "4586_2026Q2": "該期別無申報資料",
   "6452_2026Q2": "該期別無申報資料",
-  "7746_2026Q2": "該期別無申報資料"
+  "7746_2026Q2": "該期別無申報資料",
+  "7807_2024Q2": "該期別無申報資料",
+  "7807_2025Q2": "該期別無申報資料",
+  "7834_2024Q2": "該期別無申報資料",
+  "7952_2025Q2": "該期別無申報資料",
+  "7952_2026Q2": "該期別無申報資料"
  },
  "failed": {
-  "7942_2024Q2": "se.com.tw', port=443): Max retries exceeded with url: /server-java/t164sb01?step=1&CO_ID=7942&SYEAR=2024&SSEASON=2&REPORT_ID=C (Caused by ConnectTimeoutError(<HTTPSConnection(host='mopsov.twse.com.tw', port=443) at 0x7f84e95dffe0>, 'Connection to mopsov.twse.com.tw timed out. (connect timeout=40)'))"
+  "7942_2024Q2": "se.com.tw', port=443): Max retries exceeded with url: /server-java/t164sb01?step=1&CO_ID=7942&SYEAR=2024&SSEASON=2&REPORT_ID=C (Caused by ConnectTimeoutError(<HTTPSConnection(host='mopsov.twse.com.tw', port=443) at 0x7f84e95dffe0>, 'Connection to mopsov.twse.com.tw timed out. (connect timeout=40)'))",
+  "7952_2024Q2": "l(host='mopsov.twse.com.tw', port=443): Max retries exceeded with url: /server-java/t164sb01?step=1&CO_ID=7952&SYEAR=2024&SSEASON=2&REPORT_ID=C (Caused by NewConnectionError(\"HTTPSConnection(host='mopsov.twse.com.tw', port=443): Failed to establish a new connection: [Errno 111] Connection refused\"))"
  }
 }
