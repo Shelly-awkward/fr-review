@@ -958,6 +958,16 @@ def main():
               f"請先把 {{\"co\": \"{a.co}\", \"year\": {y}, \"season\": {a.quarter}}} 加進 "
               "data_requests.json 並 push（或本機跑 scripts/fetch_requests.py）。")
         sys.exit(2)
+    # 只看公司名稱與簽證會計師：整頁解碼錯誤時這幾欄必壞；附註裡零星的 � 多半只是條列符號（造字），不擋
+    def garbled(pt):
+        au = pt.get("audit", {})
+        return "\ufffd" in json.dumps([pt.get("meta", {}).get("CompanyChineseName"),
+                                        au.get("firm"), au.get("cpa")], ensure_ascii=False)
+    bad = sorted(yy for yy, pt in pretrips.items() if garbled(pt))
+    if bad:
+        print(f"{a.co} 這幾期 pretrip 含亂碼（�）：{bad}。舊版抓取程式解碼錯誤所致，文字欄位不可信；"
+              "請把這幾期加 \"force\": true 放進 data_requests.json 重抓後再跑。")
+        sys.exit(2)
 
     main_pt = pretrips[y]
     meta, audit = main_pt["meta"], main_pt["audit"]

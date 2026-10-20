@@ -40,20 +40,22 @@ import sys
 # ---------------------------------------------------------------- 讀檔 / 編碼
 
 def read_html(path: str) -> str:
-    """自動偵測編碼：先看 <meta charset>，再依序試 utf-8 / big5（含 big5hkscs 後備）。"""
+    """自動偵測編碼：先看 <meta charset>，再依序試 utf-8 / cp950 / big5hkscs。
+    cp950 是 Big5 的微軟擴充（含 €、碁等字），MOPS 實際用的就是它；純 big5 遇到這些字會整頁解不開。"""
     raw = open(path, "rb").read()
     head = raw[:2000].decode("ascii", "ignore").lower()
     m = re.search(r"charset=([a-z0-9-]+)", head)
     order = []
     if m:
         order.append(m.group(1))
-    order += ["utf-8", "big5", "big5hkscs"]
+    order += ["utf-8", "cp950", "big5hkscs"]
     for enc in order:
         try:
             return raw.decode(enc)
         except (UnicodeDecodeError, LookupError):
             continue
-    return raw.decode("utf-8", "replace")
+    # 全部失敗＝Big5 頁夾了個別造字；只讓那幾個字變 �，別用 utf-8 把整頁中文毀掉
+    return raw.decode("cp950", "replace")
 
 
 # ---------------------------------------------------------------- ix 標記解析

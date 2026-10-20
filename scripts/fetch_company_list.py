@@ -21,12 +21,12 @@ _HEADERS = {
 
 
 def decode(content: bytes) -> str:
-    for enc in ("utf-8", "big5", "big5hkscs"):
+    for enc in ("utf-8", "cp950", "big5hkscs"):
         try:
             return content.decode(enc)
         except UnicodeDecodeError:
             continue
-    return content.decode("utf-8", "replace")
+    return content.decode("cp950", "replace")   # 只壞個別造字，不毀整頁
 
 
 def parse(html: str) -> list:
