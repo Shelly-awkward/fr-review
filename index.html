@@ -316,6 +316,15 @@ $("go").onclick = async () => {
       const r = await fetch("data/" + name);
       if (r.ok) pyodide.FS.writeFile("/work/data/" + name, await r.text());
     }
+    if (qt === "2") {
+      // 半年報 XBRL 沒有會計政策段，build_review_content 會回讀最近年報的附註原文
+      for (const y of [Number(roc) - 1, Number(roc) - 2]) {
+        const name = `${co}_${y + 1911}Q4_pretrip.json`;
+        if (uploaded[name]) { pyodide.FS.writeFile("/work/data/" + name, uploaded[name]); continue; }
+        const r = await fetch("data/" + name);
+        if (r.ok) pyodide.FS.writeFile("/work/data/" + name, await r.text());
+      }
+    }
     busy(el, "計算財務數字⋯⋯");
     let r = runPy("scripts/build_review_content.py",
                   ["--co", co, "--year", String(roc), "--quarter", qt]);

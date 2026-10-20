@@ -192,6 +192,9 @@ _NOTE_TEXT_CONCEPTS = [
     "ScheduleOfTradeAndOtherReceivables",
 ]
 
+# 全收時的最短字數門檻：短於此者多為單一名稱／日期（母公司名、通過發布日期），不是政策敘述
+_NOTE_TEXT_MIN = 40
+
 _META_CONCEPTS = ["CompanyID", "CompanyChineseName", "CompanyEnglishName",
                   "Year", "Quarter", "ReportType", "ReportCategory", "IndustrySector"]
 
@@ -320,20 +323,24 @@ def build_pretrip(doc: str, source: str = "") -> dict:
             f"有內容者僅 {tstats['populated']} 個）：附表列以欄位重複啟發式重建（_reconstructed），"
             "列切分可能不精確；建議改用線上模式或 requests/curl 取得原始 HTML。")
 
-    # --- 附註文字塊
+    # --- 附註文字塊：非 tuple 的 tifrs-notes 敘述全收（關注概念排前面，其餘照申報順序）
+    # 各公司會計政策的標法不一（有的標 FinancialInstruments 一大段、有的拆成
+    # FinancialAssetsAtAmortisedCost／ImpairmentOfFinancialAssets／DerecognitionOfFinancialAssets
+    # 等十幾個小概念；租賃也有公司整年不標 Leasing），白名單必漏，改為全收。
+    # 半年報 XBRL 依申報規則只標簡明附註，本來就沒有政策段——下游遇 Q2 需回讀最近年報。
     notes_text = {}
     for c in _NOTE_TEXT_CONCEPTS:
         v = first_text("tifrs-notes:", c)
         if v:
             notes_text[c] = v
-    # 公允價值揭露（IFRS13 層級、評價技術、輸入值）各公司用的概念名不一，
-    # 凡名稱含 FairValue 的附註文字塊全收——管區意見三(二)分析金融資產評價要用
+    skip = set(_META_CONCEPTS) | {"Market"}
     for f in facts:
-        if "tuple" in f or not f["name"].startswith("tifrs-notes:"):
+        if "tuple" in f or "value" in f or not f["name"].startswith("tifrs-notes:"):
             continue
         local = _local(f["name"])
-        if ("FairValue" in local and local not in notes_text
-                and len(f.get("text") or "") >= 50):
+        if local in notes_text or local in skip:
+            continue
+        if len(f.get("text") or "") >= _NOTE_TEXT_MIN:
             notes_text[local] = f["text"]
 
     # --- 四大表數字（非 tuple 的報表概念；同概念不同期別以 context 區分）

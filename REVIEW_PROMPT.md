@@ -74,8 +74,12 @@ python scripts/gen_inquiry_xlsx.py out/8304_114_inquiry.json "out/8304_114_財�
   會計主管進修時數），一律寫「請自行確認」「請洽公司說明」——**禁止推測填入**。
   數字面（變動%、勾稽、限額核對）則直接寫死，不加「約」「大概」。
 - 三、財務報告審閱說明四項（IFRS16／IFRS9+IFRS7／IFRS15／IFRS10 B38~B50）每項採
-  「認列及衡量：…／財報揭露：…」兩段式；會計政策內容依 `facts` 與財報附註
-  （`notes_text`、pretrip 有的部分）寫實，pretrip 沒有的政策細節寫「請自行核閱財報附註確認」。
+  「認列及衡量：…／財報揭露：…」兩段式；會計政策內容依 `facts.notes`（財報附註原文，
+  key 為 XBRL 概念名：`Leasing`／`FinancialInstruments`／`FinancialAssetsAtAmortisedCost`／
+  `ImpairmentOfFinancialAssets`／`RevenueRecognition`／`PrinciplesOfConsolidation`……各公司
+  標法不一，先掃一遍 key）寫實，沒有的政策細節寫「請自行核閱財報附註確認」。
+  半年報 XBRL 本身沒有政策段，`facts.notes_policy_source` 會標明政策取自哪一年度年報，
+  「認列及衡量」段請註明「依 ○年度年報附註」。
 - 風險事項段：draft 給的是「（候選風險）」，你要判斷取捨、改成「（一）（二）…」正式編號；
   不成立的候選整段刪除；每項風險寫明「因應措施」或「請自行確認」。
 - 表格段落以 `【表】a｜b｜c` 一列一段，產生器自動轉表格。

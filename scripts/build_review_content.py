@@ -970,6 +970,20 @@ def main():
         sys.exit(2)
 
     main_pt = pretrips[y]
+    # 財報附註原文：半年報 XBRL 依申報規則只標簡明附註（沿革、新準則、期後事項等），
+    # 會計政策段（租賃、金融工具、收入認列……）本來就不在裡面，回讀最近一份年報補上；
+    # 半年報自己有標的概念仍以半年報為準。
+    notes = dict(main_pt.get("notes_text", {}))
+    notes_policy_source = None
+    if QUARTER == 2:
+        for yy in (y - 1, y - 2):
+            p = os.path.join(a.data_dir, f"{a.co}_{yy}Q4_pretrip.json")
+            if os.path.exists(p):
+                with open(p, encoding="utf-8") as f:
+                    annual = json.load(f).get("notes_text", {})
+                notes = {**annual, **notes}
+                notes_policy_source = f"{to_roc(yy)}年度年報"
+                break
     meta, audit = main_pt["meta"], main_pt["audit"]
     tuples = main_pt.get("tuples", {})
     red_flags = main_pt.get("red_flags", [])
@@ -1021,7 +1035,9 @@ def main():
         "investees": investees,
         "red_flags": red_flags,
         # 財報附註原文（會計政策）——「認列及衡量」段須據此摘寫，不得憑印象編寫
-        "notes": main_pt.get("notes_text", {}),
+        "notes": notes,
+        # 半年報時會計政策來自哪份年報（None＝本期自有／找不到年報）
+        "notes_policy_source": notes_policy_source,
         "data_years_available": sorted(to_roc(k) for k in series),
     }
 
