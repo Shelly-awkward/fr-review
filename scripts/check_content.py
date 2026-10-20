@@ -8,7 +8,7 @@ check_content.py — 管區意見內容 JSON 的驗收閘門（AI 填完質性�
 檢查：
   1. 結構完整：title／groups（18 項固定檢查表，每項 mark 已勾）／sections 含五段＋資料來源與限制
      ／cover（複核表：公司背景介紹、風險事項、複核意見、結論及擬辦均須填妥）
-  2. 無佔位字：【AI待填、（候選風險）、待補、TODO、XXX、○○
+  2. 無佔位字：【AI待填、（候選風險）、待補、TODO、XXX、○○；無亂碼（�）
   3. 給 --review 時，抽核內容 JSON 出現的金額數字是否存在於數字層 facts（防 AI 自編數字）
 退出碼：0＝通過；1＝未過（逐條列出）。
 """
@@ -17,7 +17,7 @@ import json
 import re
 import sys
 
-PLACEHOLDERS = ["【AI待填", "（候選風險）", "待補", "TODO", "XXX", "○○"]
+PLACEHOLDERS = ["【AI待填", "（候選風險）", "待補", "TODO", "XXX", "○○", "\ufffd"]
 REQUIRED_SECTIONS = ["一、", "二、", "三、", "四、", "五、", "資料來源與限制"]
 
 

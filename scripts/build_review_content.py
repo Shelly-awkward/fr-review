@@ -958,6 +958,11 @@ def main():
               f"請先把 {{\"co\": \"{a.co}\", \"year\": {y}, \"season\": {a.quarter}}} 加進 "
               "data_requests.json 並 push（或本機跑 scripts/fetch_requests.py）。")
         sys.exit(2)
+    bad = sorted(yy for yy, pt in pretrips.items() if "\ufffd" in json.dumps(pt, ensure_ascii=False))
+    if bad:
+        print(f"{a.co} 這幾期 pretrip 含亂碼（�）：{bad}。舊版抓取程式解碼錯誤所致，文字欄位不可信；"
+              "請把這幾期加 \"force\": true 放進 data_requests.json 重抓後再跑。")
+        sys.exit(2)
 
     main_pt = pretrips[y]
     meta, audit = main_pt["meta"], main_pt["audit"]
