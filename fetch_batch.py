@@ -41,15 +41,17 @@ _HEADERS = {
 
 
 def _decode(resp) -> str:
-    """依 meta charset → utf-8 → big5 順序解碼（POST 端點回 UTF-8、server-java 端點回 Big5）。"""
+    """依 meta charset → utf-8 → cp950 → big5hkscs 順序解碼（POST 端點回 UTF-8、server-java 端點回 Big5）。
+    用 cp950 不用 big5：後者缺 €、碁等擴充字，一遇到就整頁解不開。"""
     head = resp.content[:2000].decode("ascii", "ignore").lower()
     m = re.search(r"charset=([a-z0-9-]+)", head)
-    for enc in ([m.group(1)] if m else []) + ["utf-8", "big5", "big5hkscs"]:
+    for enc in ([m.group(1)] if m else []) + ["utf-8", "cp950", "big5hkscs"]:
         try:
             return resp.content.decode(enc)
         except (UnicodeDecodeError, LookupError):
             continue
-    return resp.content.decode("utf-8", "replace")
+    # 全部失敗＝Big5 頁夾了個別造字；只讓那幾個字變 �，別用 utf-8 把整頁中文毀掉
+    return resp.content.decode("cp950", "replace")
 
 
 def _is_xbrl(html: str) -> bool:
