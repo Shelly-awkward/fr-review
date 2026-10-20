@@ -37,7 +37,7 @@ def main():
     ref_mtime = os.path.getmtime(a.newer_than) if a.newer_than else None
 
     files = sorted(glob.glob(os.path.join(a.data_dir, "*.html.gz")))
-    ok = skip = fail = 0
+    ok = skip = fail = garbled = 0
     for path in files:
         base = os.path.basename(path)[:-len(".html.gz")]
         co = base.split("_")[0]
@@ -50,6 +50,14 @@ def main():
         try:
             with gzip.open(path, "rt", encoding="utf-8") as f:
                 html = f.read()
+            # 舊版抓取程式解碼錯誤後才存檔的原始檔，位元組已是亂碼（�）且不可逆；
+            # 拿它重解析只會把 Actions 重抓修好的 pretrip 蓋回亂碼，跳過並提示重抓
+            if html.count("�") > 50:
+                print(f"⚠ {base}: 原始檔含亂碼（� ×{html.count(chr(0xfffd))}），跳過不覆蓋；"
+                      f"請加 {{\"co\": \"{co}\", \"year\": {base.split('_')[1][:4]}, "
+                      f"\"season\": {base[-1]}, \"force\": true}} 重抓")
+                garbled += 1
+                continue
             pkg = build_pretrip(html, source=f"MOPS {base}（離線重解析）")
             with open(out, "w", encoding="utf-8") as f:
                 json.dump(pkg, f, ensure_ascii=False, indent=1)
@@ -63,7 +71,7 @@ def main():
     idx = build(a.data_dir)
     with open(os.path.join(a.data_dir, "index.json"), "w", encoding="utf-8") as f:
         json.dump(idx, f, ensure_ascii=False, indent=1)
-    print(f"完成：重建 {ok}、跳過 {skip}、失敗 {fail}　→ index.json {len(idx['companies'])} 家")
+    print(f"完成：重建 {ok}、跳過 {skip}、亂碼跳過 {garbled}、失敗 {fail}　→ index.json {len(idx['companies'])} 家")
     if fail:
         sys.exit(1)
 
