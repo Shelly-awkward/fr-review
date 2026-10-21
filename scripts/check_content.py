@@ -89,7 +89,8 @@ def main():
     # 3. 數字抽核（內容 JSON 的千分位金額須能在 facts 裡找到）
     if a.review:
         with open(a.review, encoding="utf-8") as f:
-            facts = json.load(f).get("facts", {})
+            review = json.load(f)
+        facts = review.get("facts", {})
         pool = set()
         def collect(o):
             if isinstance(o, (int, float)) and o == o:
@@ -104,6 +105,9 @@ def main():
                 for x in o:
                     collect(x)
         collect(facts)
+        # 骨架本身的金額是數字層程式算的（如多科目合計），不是 AI 編的，一併視為有出處
+        for t in walk_text(review.get("draft", {})):
+            pool.update(int(m.replace(",", "")) for m in re.findall(r"(\d{1,3}(?:,\d{3})+)千元", t))
         body = "\n".join(walk_text(c.get("sections", [])))
         def derivable(v):
             """v 是否為 pool 內任兩數之和或差（毛利減少額、貸與合計等一階衍生數）。"""
