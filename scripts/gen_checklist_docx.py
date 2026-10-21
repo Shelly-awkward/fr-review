@@ -28,7 +28,7 @@ W = {"g": 1300, "t": 5200, "y": 900, "n": 900, "b": 1740}   # DXA（＝twips）
 
 # 需要人工處理的字樣→整句標紅字，避免承辦漏看
 RED = RGBColor(0xC0, 0x00, 0x00)
-RED_MARKERS = ("請自行", "洽公司", "請公司說明", "請向公司", "第＿頁", "查填")
+RED_MARKERS = ("請自行", "洽公司", "請公司說明", "請向公司", "第＿頁", "查填", "未經驗證")
 
 
 def _segments(text):
@@ -156,12 +156,24 @@ def add_mini_table(doc, rows):
     para(doc, "", after=2)
 
 
-def build_cover_doc(cover):
+def add_warnings(doc, warnings):
+    """B 版（soften_content.py）留下的未經驗證清單，放在文件最前面。"""
+    if not warnings:
+        return
+    para(doc, f"※ 本初稿有 {len(warnings)} 類內容未經驗證（內文紅字「未經驗證」處），使用前請逐一確認：",
+         size=11, bold=True, after=2)
+    for w in warnings:
+        para(doc, f"・{w}（未經驗證）", size=10, indent=360, after=1)
+    para(doc, "", after=4)
+
+
+def build_cover_doc(cover, warnings=()):
     """複核表（財務報告實質審閱案件複核表）——體例照過去實審樣本，單獨一份 docx。"""
     doc = Document()
     for section in doc.sections:
         section.top_margin = section.bottom_margin = Twips(1080)
         section.left_margin = section.right_margin = Twips(1080)
+    add_warnings(doc, warnings)
 
     para(doc, "財務報告實質審閱案件複核表　106.10修正", size=15, bold=True,
          align=WD_ALIGN_PARAGRAPH.CENTER, after=8)
@@ -218,6 +230,7 @@ def main():
         section.top_margin = section.bottom_margin = Twips(1080)
         section.left_margin = section.right_margin = Twips(1080)
 
+    add_warnings(doc, c.get("warnings"))
     para(doc, c["title"], size=15, bold=True, align=WD_ALIGN_PARAGRAPH.CENTER, after=10)
     build_checklist_table(doc, c["groups"])
     for note in c.get("footnotes", []):
@@ -248,7 +261,7 @@ def main():
 
     if c.get("cover"):
         cover_path = a.cover or (os.path.splitext(a.out)[0] + "_複核表.docx")
-        build_cover_doc(c["cover"]).save(cover_path)
+        build_cover_doc(c["cover"], c.get("warnings") or ()).save(cover_path)
         print(f"寫出 {cover_path}")
 
 
